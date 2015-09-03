@@ -15,6 +15,7 @@
   <modules>
     <module>../com.dsleng.etool.feature</module>
     <module>../com.dsleng.etool.perspective</module>
+    <module>../com.dsleng.etool.eclipse</module>
     <module>../com.dsleng.etool.tycho.releng.p2</module>
   </modules>
 </project> 
