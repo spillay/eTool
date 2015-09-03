@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.dsleng.etool.feature"
+      label="Core"
+      version="1.0.0.qualifier"
+      provider-name="DSLENG">
+
+   <description url="http://www.dsleng.com/description">
+      eTool to implement E-government services
+   </description>
+
+   <copyright url="http://www.dsleng.com/copyright">
+      Property of Suresh Pillay
+   </copyright>
+
+   <license url="http://www.dsleng.com/license">
+      Property of Suresh Pillay
+   </license>
+
+   <plugin
+         id="com.dsleng.etool.perspective"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
