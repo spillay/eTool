@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated view -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.dsleng.etool.presentation.view.presentation.ViewModelWizardID"
+            name="%_UI_ViewModelWizard_label"
+            class="com.dsleng.etool.presentation.view.presentation.ViewModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ViewModelFile.gif">
+         <description>%_UI_ViewModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated view -->
+      <editor
+            id="com.dsleng.etool.presentation.view.presentation.ViewEditorID"
+            name="%_UI_ViewEditor_label"
+            icon="icons/full/obj16/ViewModelFile.gif"
+            extensions="view"
+            class="com.dsleng.etool.presentation.view.presentation.ViewEditor"
+            contributorClass="com.dsleng.etool.presentation.view.presentation.ViewActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

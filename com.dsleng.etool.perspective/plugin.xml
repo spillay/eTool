@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.dsleng.etool.perspective.BasePerspectiveFactory"
+            id="com.dsleng.etool.perspective.baseperspectiveID"
+            name="eTool">
+      </perspective>
+   </extension>
+<extension
+      point="org.eclipse.ui.menus">
+   <menuContribution
+         locationURI="menu:org.eclipse.ui.main.menu?before=file">
+      <menu
+            id="sitaMenu"
+            label="SITA">
+         <visibleWhen checkEnabled="false">
+            <with variable="activeWorkbenchWindow.activePerspective">
+                <equals value="com.dsleng.etool.perspective.baseperspectiveID"/>
+            </with>
+         </visibleWhen>
+         <dynamic class="com.dsleng.etool.perspective.MenuPopulationClass"
+                id="MenuPopulation"/>
+      </menu>
+   </menuContribution>
+</extension>
+</plugin>
