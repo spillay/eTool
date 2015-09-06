@@ -14,9 +14,13 @@
 		<tycho.version>0.23.1</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
-
-		<!-- <mars-repo.url>file://Data/mirror/repositories/mars/</mars-repo.url> -->
 		<ftp.url>sftp://ftpuser@localhost/repository/</ftp.url>
+		<maven-scala-plugin.version>3.2.1</maven-scala-plugin.version>
+		<scala.version>2.11.7</scala.version>
+		<scalatest.version>2.11</scalatest.version>
+		<scala.pluginVersion>2.15.2</scala.pluginVersion>
+		<junit.version>4.12</junit.version>
+		<mockito.version>1.9.5</mockito.version>
 	</properties>
 
 	<repositories>
@@ -25,7 +29,11 @@
 			<url>${mars-repo.url}</url>
 			<layout>p2</layout>
 		</repository>
-
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
 	</repositories>
 
 	<distributionManagement>
@@ -36,19 +44,58 @@
 	</distributionManagement>
 
 	<build>
-		<resources>
-			<resource>
-				<directory>/resources</directory>
-			</resource>
-		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>net.alchim31.maven</groupId>
+					<artifactId>scala-maven-plugin</artifactId>
+					<version>${maven-scala-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>scala-maven-plugin</artifactId>
+				<version>${maven-scala-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<!-- we omit the add-source goal that is described in the maven-scala-plugin 
+								documentation -->
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<!-- 
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+					 -->
+				</executions>
+				<configuration>
+					<sourceDir>src/main/scala</sourceDir>
+					<recompileMode>incremental</recompileMode>
+					<scalaVersion>${scala.version}</scalaVersion>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<excludeResources>
+						<!-- we exclude scala files so that they don't end up in the jar -->
+						<excludeResource>**/*.scala</excludeResource>
+					</excludeResources>
+				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -68,7 +115,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
 		<extensions>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
@@ -78,6 +124,5 @@
 			<!-- <extension> <groupId>org.apache.maven.wagon</groupId> <artifactId>wagon-ftp</artifactId> 
 				<version>2.9</version> </extension> -->
 		</extensions>
-
 	</build>
 </project> 
