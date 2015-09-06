@@ -11,6 +11,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
+		<etool.version>1.0.0-SNAPSHOT</etool.version>
 		<tycho.version>0.23.1</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
@@ -22,21 +23,7 @@
 		<scala.pluginVersion>2.15.2</scala.pluginVersion>
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.9.5</mockito.version>
-		
 	</properties>
-
-	<repositories>
-		<repository>
-			<id>Mars</id>
-			<url>${mars-repo.url}</url>
-			<layout>p2</layout>
-		</repository>
-		<repository>
-			<id>scala-tools.org</id>
-			<name>Scala-tools Maven2 Repository</name>
-			<url>http://scala-tools.org/repo-releases</url>
-		</repository>
-	</repositories>
 
 	<distributionManagement>
 		<repository>

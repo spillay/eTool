@@ -13,6 +13,7 @@
   </parent>
 
   <modules>
+    <module>../com.dsleng.etool.parent</module>
     <module>../com.dsleng.etool.feature</module>
     <module>../com.dsleng.etool.perspective</module>
     <module>../com.dsleng.etool.eclipse</module>
