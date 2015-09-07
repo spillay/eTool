@@ -3,5 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Primefaces
 Bundle-SymbolicName: com.dsleng.etool.presentation.semantics.primefaces
 Bundle-Version: 1.0.0.qualifier
-Export-Package: com.dsleng.etool.presentation.semantics.primefaces
-Require-Bundle: com.dsleng.etool.presentation;bundle-version="1.0.0"
+Export-Package: com.dsleng.etool.presentation.semantics.Primefaces
+Require-Bundle: org.eclipse.emf;bundle-version="2.6.0",
+ org.eclipse.emf.ecore;bundle-version="2.11.0"
