@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+   <parent>
+  <groupId>com.dsleng.etool</groupId>
+    <artifactId>com.dsleng.etool.parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../com.dsleng.etool.parent</relativePath>
+  </parent>
+  <groupId>com.dsleng.etool.scala</groupId>
+  <artifactId>com.dsleng.etool.scala.parent</artifactId>
+  <packaging>pom</packaging>
+  <build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>net.alchim31.maven</groupId>
+					<artifactId>scala-maven-plugin</artifactId>
+					<version>${maven-scala-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>scala-compile-first</id>
+							<phase>process-resources</phase>
+							<goals>
+								<!-- we omit the add-source goal that is described in the maven-scala-plugin 
+									documentation -->
+								<goal>compile</goal>
+							</goals>
+						</execution>
+						<!-- <execution> <id>scala-test-compile</id> <phase>process-test-resources</phase> 
+							<goals> <goal>testCompile</goal> </goals> </execution> -->
+					</executions>
+					<configuration>
+						<sourceDir>src/main/scala</sourceDir>
+						<recompileMode>incremental</recompileMode>
+						<scalaVersion>${scala.version}</scalaVersion>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>scala-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+			</plugin>
+		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.9</version>
+			</extension>
+		</extensions>
+	</build>
+</project>
