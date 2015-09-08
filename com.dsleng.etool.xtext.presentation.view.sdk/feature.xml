@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature id="com.dsleng.etool.xtext.presentation.view.sdk"
-	label="ViewDsl SDK Feature "
-	version="1.0.0.qualifier">
-	<plugin
-			id="com.dsleng.etool.xtext.presentation.view"
-			download-size="0"
-			install-size="0"
-			version="0.0.0"
-			unpack="false"/>
-	<plugin
-			id="com.dsleng.etool.xtext.presentation.view.ui"
-			download-size="0"
-			install-size="0"
-			version="0.0.0"
-			unpack="false"/>
+<feature
+      id="com.dsleng.etool.xtext.presentation.view.sdk"
+      label="ViewDsl SDK Feature "
+      version="1.0.0.qualifier">
+
+   <plugin
+         id="com.dsleng.etool.xtext.presentation.view"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.xtext.presentation.view.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.presentation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="com.dsleng.etool.presentation.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.presentation.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.presentation.semantics.primefaces"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
