@@ -3,5 +3,9 @@
    <feature url="features/com.dsleng.etool.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.feature" version="1.0.0.qualifier">
       <category name="eToolCore"/>
    </feature>
+   <feature url="features/com.dsleng.etool.xtext.presentation.view.sdk_1.0.0.qualifier.jar" id="com.dsleng.etool.xtext.presentation.view.sdk" version="1.0.0.qualifier">
+      <category name="eToolView"/>
+   </feature>
    <category-def name="eToolCore" label="eTool Core"/>
+   <category-def name="eToolView" label="Presentation Layer - View"/>
 </site>
