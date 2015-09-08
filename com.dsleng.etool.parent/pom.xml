@@ -85,4 +85,16 @@
 			</extension>
 		</extensions>
 	</build>
+	<modules>
+    <module>../com.dsleng.etool.feature</module>
+    <module>../com.dsleng.etool.perspective</module>
+    <module>../com.dsleng.etool.eclipse</module>
+     <module>../com.dsleng.etool.presentation</module>
+     <module>../com.dsleng.etool.presentation.edit</module>
+     <module>../com.dsleng.etool.presentation.editor</module>
+     <module>../com.dsleng.etool.scala.parent</module>
+     <module>../com.dsleng.etool.presentation.semantics.primefaces</module>
+    <module>../com.dsleng.etool.tycho.releng.p2</module> 
+    <module>../com.dsleng.etool.xtext.parent</module>
+  </modules>
 </project> 
