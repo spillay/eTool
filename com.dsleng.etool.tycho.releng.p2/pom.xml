@@ -11,6 +11,43 @@
 	</parent>
 
 	<packaging>eclipse-repository</packaging>
+	<distributionManagement>
+    <repository>
+      <id>deployment</id>
+      <name>Internal Releases</name>
+      <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>deployment</id>
+      <name>Internal Releases</name>
+<!--	<url>http://localhost:8081/nexus/content/unzip/master.group.unzip/</url> -->
+       <url>http://localhost:8081/nexus/content/repositories/snapshots/</url> 
+    </snapshotRepository>
+  </distributionManagement>
+<build>
+<plugins>
+<plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>attach-artifact</goal>
+            </goals>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <file>target/${project.artifactId}-${project.version}.zip</file>
+                  <type>zip</type>
+                </artifact>
+              </artifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+</plugins>
+</build>
 	<!-- 
 	<build>
 		<plugins>

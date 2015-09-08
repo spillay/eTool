@@ -32,6 +32,23 @@
 		</repository>
 	</distributionManagement>
 
+	<repositories> 
+<repository> 
+<id>central</id> 
+<url>http://central</url> 
+<releases> 
+<enabled>true</enabled> 
+</releases> 
+<snapshots> 
+<enabled>true</enabled> 
+</snapshots> 
+</repository> 
+<repository>
+      <id>eclipse-mars</id>
+      <url>http://download.eclipse.org/releases/mars</url>
+      <layout>p2</layout>
+    </repository>
+</repositories>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -86,7 +103,6 @@
 		</extensions>
 	</build>
 	<modules>
-    <module>../com.dsleng.etool.feature</module>
     <module>../com.dsleng.etool.perspective</module>
     <module>../com.dsleng.etool.eclipse</module>
      <module>../com.dsleng.etool.presentation</module>
@@ -94,6 +110,7 @@
      <module>../com.dsleng.etool.presentation.editor</module>
      <module>../com.dsleng.etool.scala.parent</module>
      <module>../com.dsleng.etool.presentation.semantics.primefaces</module>
+    <module>../com.dsleng.etool.feature</module>
     <module>../com.dsleng.etool.tycho.releng.p2</module> 
     <module>../com.dsleng.etool.xtext.parent</module>
   </modules>
