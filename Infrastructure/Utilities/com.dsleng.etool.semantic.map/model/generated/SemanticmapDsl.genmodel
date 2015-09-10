@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.dsleng.etool.semantic.map/src-gen" editDirectory="/com.dsleng.etool.semantic.map.edit/src"
+    editorDirectory="/com.dsleng.etool.semantic.map.editor/src" modelPluginID="com.dsleng.etool.semantic.map"
+    forceOverwrite="true" modelName="SemanticmapDsl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="com.dsleng.etool.semantic.map.edit"
+    editorPluginID="com.dsleng.etool.semantic.map.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
+  <genPackages prefix="SmDsl" basePackage="com.dsleng.etool.semantic.map" disposableProviderFactory="true"
+      fileExtensions="smp" ecorePackage="SemanticmapDsl.ecore#/">
+    <genClasses ecoreClass="SemanticmapDsl.ecore#//SemanticMapping">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SemanticmapDsl.ecore#//SemanticMapping/ename"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//SemanticMapping/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SemanticmapDsl.ecore#//SemanticMapping/mapping"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SemanticmapDsl.ecore#//SemanticMapping/el"/>
+    </genClasses>
+    <genClasses ecoreClass="SemanticmapDsl.ecore#//Mappings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//Mappings/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//Mappings/value"/>
+    </genClasses>
+    <genClasses ecoreClass="SemanticmapDsl.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//Import/importURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//Import/name"/>
+    </genClasses>
+    <genClasses ecoreClass="SemanticmapDsl.ecore#//LClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//LClass/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//LClass/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SemanticmapDsl.ecore#//LClass/ecoreTypes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SemanticmapDsl.ecore#//LClass/obj"/>
+    </genClasses>
+    <genClasses ecoreClass="SemanticmapDsl.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//Element/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SemanticmapDsl.ecore#//Element/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="SemanticmapDsl.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SemanticmapDsl.ecore#//Model/greetings"/>
+    </genClasses>
+    <genClasses ecoreClass="SemanticmapDsl.ecore#//Greeting">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SemanticmapDsl.ecore#//Greeting/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
