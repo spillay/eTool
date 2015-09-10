@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>com.dsleng.etool.xtext.ecore</name>
+	<name>com.dsleng.etool.infra.common.xtext.ecore</name>
 	<comment></comment>
 	<projects>
 	</projects>

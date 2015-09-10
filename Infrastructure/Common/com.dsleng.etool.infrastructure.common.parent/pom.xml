@@ -5,8 +5,11 @@
 		<artifactId>com.dsleng.etool.parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-  <groupId>com.dsleng.etool.infrastructure</groupId>
-  <artifactId>com.dsleng.etool.infrastructure.common.parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <groupId>com.dsleng.etool.infra</groupId>
+  <artifactId>com.dsleng.etool.infra.common.parent</artifactId>
   <packaging>pom</packaging>
+  <modules>
+  	<module>../com.dsleng.etool.xtext.ecore</module>
+  	<module>../com.dsleng.etool.xtext.ui.ecore</module>
+  </modules>
 </project>

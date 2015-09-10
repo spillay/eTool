@@ -1,11 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ecore
-Bundle-SymbolicName: com.dsleng.etool.xtext.ecore
+Bundle-SymbolicName: com.dsleng.etool.infra.common.xtext.ecore
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.dsleng.etool.xtext.ecore.Activator
+Bundle-Activator: com.dsleng.etool.infra.common.xtext.ecore.Activator
 Bundle-Vendor: DSLENG
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.xtext
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Export-Package: com.dsleng.etool.infra.common.xtext.ecore
