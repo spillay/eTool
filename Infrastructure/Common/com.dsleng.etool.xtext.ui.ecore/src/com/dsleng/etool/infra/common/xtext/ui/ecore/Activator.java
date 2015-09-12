@@ -4,6 +4,8 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 import com.dsleng.etool.infra.common.xtext.ecore.SPRuntimeModule;
+
+import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.ui.shared.contribution.SharedStateContribution;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -36,7 +38,7 @@ public class Activator extends AbstractUIPlugin {
         injector = Guice.createInjector(
                 Modules.override(Modules.override(new SPRuntimeModule())
                 .with(new SPUiModule(plugin)))
-                .with(new SharedState()));
+                .with(new SharedStateModule()));
     }
  
     @Override

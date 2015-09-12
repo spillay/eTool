@@ -10,7 +10,6 @@ SemanticMapping:
 	'SemanticMapping for' name=STRING '{'
 		mapping+=Mappings*
 	'}'
-	el=Element
 ;
 Mappings:
 	'Ecore:' LClass ":" 'key:' name=STRING ':' 'value:' '{' value=STRING '}'
@@ -21,13 +20,9 @@ Import:
 ;
 
 LClass:
-	ecoreTypes=[Import]'.'obj=[ecore::EClass|ID]
+	{LClass}
+	ecoreTypes=[Import]'.'obj=[ecore::EClass]
 ;
-
-Element:
-    "element" name=ID "mapsTo" ref=[ecore::EClass|FQN]
-;
- 
 FQN returns ecore::EString:
     ID ("." ID)*
 ;

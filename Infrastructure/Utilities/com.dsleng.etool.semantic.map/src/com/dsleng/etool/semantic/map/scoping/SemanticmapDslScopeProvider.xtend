@@ -3,6 +3,17 @@
  */
 package com.dsleng.etool.semantic.map.scoping
 
+import org.eclipse.xtext.scoping.IScope
+import com.dsleng.etool.semantic.map.smDsl.LClass
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.common.util.URI
+import java.util.Collections
+import org.eclipse.emf.ecore.EPackage
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.emf.ecore.EClass
+
 /**
  * This class contains custom scoping description.
  * 
@@ -11,5 +22,14 @@ package com.dsleng.etool.semantic.map.scoping
  *
  */
 class SemanticmapDslScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
-
+	def IScope scope_LClass_obj(LClass t, EReference reference) {
+		val imp = t.ecoreTypes
+		val resourceSet = new ResourceSetImpl
+    	val resource = resourceSet.getResource(URI.createURI(imp.importURI), true)
+    	resource.load(Collections::EMPTY_MAP)
+    	val pkg = resource.getContents().get(0) as EPackage;
+    	val types = EcoreUtil2.getAllContentsOfType(pkg, EClass)
+		return Scopes.scopeFor(types);
+    	
+	}
 }
