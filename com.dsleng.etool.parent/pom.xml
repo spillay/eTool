@@ -9,7 +9,6 @@
 	<artifactId>com.dsleng.etool.parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
 	<properties>
 		<etool.version>1.0.0-SNAPSHOT</etool.version>
 		<tycho.version>0.23.1</tycho.version>
@@ -32,23 +31,55 @@
 		</repository>
 	</distributionManagement>
 
-	<repositories> 
-<repository> 
-<id>central</id> 
-<url>http://central</url> 
-<releases> 
-<enabled>true</enabled> 
-</releases> 
-<snapshots> 
-<enabled>true</enabled> 
-</snapshots> 
-</repository> 
-<repository>
-      <id>eclipse-mars</id>
-      <url>http://download.eclipse.org/releases/mars</url>
-      <layout>p2</layout>
-    </repository>
-</repositories>
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://central</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>eclipse-mars</id>
+			<url>http://download.eclipse.org/releases/mars</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-bom</artifactId>
+				<version>2.3</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.3</version>
+		</dependency>
+		
+<dependency>
+ <groupId>com.dsleng.etool.maven</groupId>
+	<artifactId>com.dsleng.etool.maven</artifactId>
+ <version>1.0.0-SNAPSHOT</version>
+ </dependency>
+ </dependencies>
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -92,6 +123,10 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<pomDependencies>consider</pomDependencies>
+				</configuration>
 			</plugin>
 		</plugins>
 		<extensions>
@@ -103,14 +138,14 @@
 		</extensions>
 	</build>
 	<modules>
-    <module>../com.dsleng.etool.perspective</module>
-    <module>../com.dsleng.etool.eclipse</module>
-     <module>../com.dsleng.etool.presentation</module>
-     <module>../com.dsleng.etool.presentation.edit</module>
-     <module>../com.dsleng.etool.presentation.editor</module>
-     <module>../com.dsleng.etool.scala.parent</module>
-     <module>../com.dsleng.etool.presentation.semantics.primefaces</module>
-    <module>../com.dsleng.etool.feature</module>
-    <module>../com.dsleng.etool.tycho.releng.p2</module> 
-  </modules>
+		<module>../com.dsleng.etool.perspective</module>
+		<module>../com.dsleng.etool.eclipse</module>
+		<module>../com.dsleng.etool.presentation</module>
+		<module>../com.dsleng.etool.presentation.edit</module>
+		<module>../com.dsleng.etool.presentation.editor</module>
+		<module>../com.dsleng.etool.scala.parent</module>
+		<module>../com.dsleng.etool.presentation.semantics.primefaces</module>
+		<module>../com.dsleng.etool.feature</module>
+		<module>../com.dsleng.etool.tycho.releng.p2</module>
+	</modules>
 </project> 

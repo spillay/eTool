@@ -8,4 +8,5 @@
 	</parent>
   <artifactId>com.dsleng.etool.semantic.eclipse</artifactId>
   <packaging>eclipse-plugin</packaging>
+ 
 </project>
