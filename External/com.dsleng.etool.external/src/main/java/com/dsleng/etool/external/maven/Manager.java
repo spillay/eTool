@@ -1,15 +1,12 @@
 /**
  * 
  */
-package com.dsleng.etool.maven;
+package com.dsleng.etool.external.maven;
 
-/**
- * @author suresh
- *
- */
 import java.io.File;
 import java.util.Collections;
 import java.util.Properties;
+
 
 import org.apache.maven.shared.invoker.DefaultInvocationRequest;
 import org.apache.maven.shared.invoker.DefaultInvoker;
@@ -25,6 +22,7 @@ public class Manager {
 	public Manager(String baseDir) {
 		baseDirectory = baseDir;
 	}
+	
 	public void Execute(){
 		InvocationRequest request = new DefaultInvocationRequest();
 		//request.setPomFile( new File( "/path/to/pom.xml" ) );
@@ -57,6 +55,7 @@ public class Manager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 	public void createLang(String groupId,String artifactId,String version,String langName,String langExt,String GenModelFile,String GenerateEPackage,String ModelURI,String ModelBundle){
 		InvocationRequest request = new DefaultInvocationRequest();
@@ -106,4 +105,6 @@ public class Manager {
 		}
 	}
 }
+
+
 

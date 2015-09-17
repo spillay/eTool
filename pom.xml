@@ -18,6 +18,9 @@
     <module>Infrastructure/Utilities/com.dsleng.etool.semantic.map.parent</module>
     <module>Presentation/com.dsleng.etool.xtext.parent</module>
     <module>External/com.dsleng.etool.external.parent</module>
+<!--
+    <module>Product/com.dsleng.etool.product</module>
+ -->
   </modules>
 </project> 
 

@@ -68,11 +68,14 @@
 		</pluginManagement>
 	</build>
 	<modules>
+		<module>../com.dsleng.etool.presentation</module>
+		<module>../com.dsleng.etool.presentation.edit</module>
+		<module>../com.dsleng.etool.presentation.editor</module>
+		<module>../com.dsleng.etool.presentation.semantics.primefaces</module>
 		<module>../com.dsleng.etool.xtext.presentation.view</module>
-		<module>
-			../com.dsleng.etool.xtext.presentation.view.tests
-		</module>
+		<module>../com.dsleng.etool.xtext.presentation.view.tests</module>
 		<module>../com.dsleng.etool.xtext.presentation.view.ui</module>
 		<module>../com.dsleng.etool.xtext.presentation.view.sdk</module>
+		<module>../com.dsleng.etool.scala.parent</module>
 	</modules>
 </project>

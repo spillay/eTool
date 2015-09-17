@@ -21,7 +21,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.dsleng.etool.maven.Manager;
+import com.dsleng.etool.external.maven.Manager;
+
 
 
 /**

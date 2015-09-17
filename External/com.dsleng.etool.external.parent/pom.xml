@@ -5,10 +5,13 @@
 	<artifactId>com.dsleng.etool.external.parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<properties>
-		<etool.version>1.0.0-SNAPSHOT</etool.version>
+		<targetplatform.p2.url> file:/Data/eclipse-SDK-3.5.2_src_p2</targetplatform.p2.url>
 		<tycho.version>0.23.1</tycho.version>
+		<project.build.sourceEncoding>iso-8859-1</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>iso-8859-1</project.reporting.outputEncoding>
+		<etool.version>1.0.0-SNAPSHOT</etool.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
 		<ftp.url>sftp://ftpuser@localhost/repository/</ftp.url>
@@ -20,15 +23,18 @@
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 	</properties>
-	
-	
 	<distributionManagement>
 		<repository>
-			<id>ftp-repository</id>
-			<url>${ftp.url}</url>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases/</url>
 		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
 	</distributionManagement>
-
 	<repositories>
 		<repository>
 			<id>central</id>
@@ -46,36 +52,33 @@
 			<layout>p2</layout>
 		</repository>
 	</repositories>
-	
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.maven.shared</groupId>
-			<artifactId>maven-shared-utils</artifactId>
-			<version>0.8</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.maven.shared</groupId>
-			<artifactId>maven-invoker</artifactId>
-			<version>2.1.1</version>
-		</dependency>
-	</dependencies>
-
+	<modules>
+		<module>../com.dsleng.etool.external</module>
+		<module>../com.dsleng.etool.external.releng.p2</module>
+	</modules>
 	<build>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.5.4</version>
-				<executions>
-					<execution>
-						<id>bundle-manifest</id>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>manifest</goal>
-						</goals>
-					</execution>
-				</executions>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<!--  <ignoreTychoRepositories>true</ignoreTychoRepositories> -->
+					<pomDependencies>consider</pomDependencies>
+				</configuration>
 			</plugin>
 		</plugins>
 		<extensions>
@@ -86,7 +89,8 @@
 			</extension>
 		</extensions>
 	</build>
-	<modules>
-		<module>../com.dsleng.etool.external.maven</module>
-	</modules>
 </project>
+
+
+
+
