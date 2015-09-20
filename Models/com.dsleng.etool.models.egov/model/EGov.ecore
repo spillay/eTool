@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="com" nsURI="http://com/dsleng/etool/presentation/view" nsPrefix="com.dsleng.etool.presentation.view">
+  <eSubpackages name="dsleng" nsURI="http://com/dsleng/" nsPrefix="com">
+    <eSubpackages name="etool" nsURI="http://com/dsleng/etool/" nsPrefix="com.dsleng">
+      <eSubpackages name="models" nsURI="http://com/dsleng/etool/models" nsPrefix="com.dsleng.etool">
+        <eSubpackages name="egov" nsURI="http://com/dsleng/etool/models/egov" nsPrefix="com.dsleng.etool.models">
+          <eClassifiers xsi:type="ecore:EClass" name="EService" eSuperTypes="#//dsleng/etool/models/egov/NamedElement"/>
+          <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+        </eSubpackages>
+      </eSubpackages>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>

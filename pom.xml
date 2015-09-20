@@ -14,13 +14,15 @@
 -->
   <modules>
     <module>com.dsleng.etool.parent</module>
+    <module>External/com.dsleng.etool.external.parent</module>
+    <module>Models/com.dsleng.etool.models.parent</module>
+    <module>DSL/com.dsleng.etool.dsl.egov.parent</module>
+<!--
     <module>Infrastructure/Common/com.dsleng.etool.infra.common.parent</module> 
     <module>Infrastructure/Utilities/com.dsleng.etool.semantic.map.parent</module>
     <module>Presentation/com.dsleng.etool.xtext.parent</module>
-    <module>External/com.dsleng.etool.external.parent</module>
-<!--
-    <module>Product/com.dsleng.etool.product</module>
- -->
+-->  
+    <module>Product/com.dsleng.etool.tycho.releng.p2</module>
   </modules>
 </project> 
 

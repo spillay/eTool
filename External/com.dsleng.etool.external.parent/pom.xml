@@ -53,7 +53,7 @@
 		</repository>
 	</repositories>
 	<modules>
-		<module>../com.dsleng.etool.external</module>
+		<module>../com.dsleng.etool.external.maven</module>
 		<module>../com.dsleng.etool.external.releng.p2</module>
 	</modules>
 	<build>

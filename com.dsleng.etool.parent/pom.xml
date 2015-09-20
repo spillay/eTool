@@ -23,13 +23,28 @@
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 	</properties>
-
+<!--
 	<distributionManagement>
 		<repository>
 			<id>ftp-repository</id>
 			<url>${ftp.url}</url>
 		</repository>
 	</distributionManagement>
+-->
+<distributionManagement>
+    <repository>
+      <id>deployment</id>
+      <name>Internal Releases</name>
+      <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>deployment</id>
+      <name>Internal Releases</name>
+       <url>http://localhost:8081/nexus/content/repositories/snapshots/</url> 
+    </snapshotRepository>
+  </distributionManagement>
+
+
 
 	<repositories>
 		<repository>
@@ -136,5 +151,6 @@
 	<modules>
 		<module>../com.dsleng.etool.perspective</module>
 		<module>../com.dsleng.etool.eclipse</module>
+		<module>../com.dsleng.etool.feature</module>
 	</modules>
 </project> 
