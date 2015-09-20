@@ -6,7 +6,6 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.dsleng.etool.dsl.egov;singleton:=true
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.equinox.common;bundle-version="3.5.0",
- com.dsleng.etool.dsl.egov.model;bundle-version="1.0.0",
  org.eclipse.xtext.util,
  org.eclipse.xtext.xbase.lib,
  org.antlr.runtime,

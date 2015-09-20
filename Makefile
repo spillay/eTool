@@ -1,5 +1,5 @@
 MVN=mvn
-OPTS=install
+OPTS=deploy
 
 all: core model external infra pres dsl product
 	
