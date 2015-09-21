@@ -1,8 +1,10 @@
 MVN=mvn
 OPTS=deploy
 
-all: core model external infra pres dsl product
-	
+all: core model external pres infra  dsl product
+
+clean-repo:
+	rm -rf /Data/m2/repository/com/dsleng/etool/	
 core:
 	cd  com.dsleng.etool.parent/; \
 	$(MVN) $(OPTS) 

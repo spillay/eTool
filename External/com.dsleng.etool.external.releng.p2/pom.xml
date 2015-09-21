@@ -56,7 +56,7 @@
 						<configuration>
 						<artifacts>
 						<artifact>
-									<id>com.dsleng.etool:com.dsleng.etool.external:1.0.0-SNAPSHOT</id>
+									<id>com.dsleng.etool.external:com.dsleng.etool.external.maven:1.0.0-SNAPSHOT</id>
 								</artifact>
 						</artifacts>
 						</configuration>

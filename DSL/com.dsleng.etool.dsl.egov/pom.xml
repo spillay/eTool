@@ -69,8 +69,8 @@
 						<version>${xtext.version}</version>
 					</dependency>
 					<dependency>
-						<groupId>com.dsleng.etool</groupId>
-						<artifactId>com.dsleng.etool.presentation</artifactId>
+						<groupId>com.dsleng.etool.models</groupId>
+						<artifactId>com.dsleng.etool.models.egov</artifactId>
 						<version>${etool.version}</version>
 					</dependency>
 				</dependencies>

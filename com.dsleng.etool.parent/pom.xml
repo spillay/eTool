@@ -64,7 +64,7 @@
 		</repository>
 		<repository>
 			<id>External</id>
-			<url>http://localhost:8081/nexus/content/unzip/master.group.unzip/com/dsleng/etool/external/releng/p2/com.dsleng.etool.external.releng.p2/1.0.0-SNAPSHOT/com.dsleng.etool.external.releng.p2-1.0.0-SNAPSHOT.zip-unzip/</url>
+			<url>http://localhost:8081/nexus/content/unzip/master.group.unzip/com/dsleng/etool/external/com.dsleng.etool.external.releng.p2/1.0.0-SNAPSHOT/com.dsleng.etool.external.releng.p2-1.0.0-SNAPSHOT.zip-unzip/</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>

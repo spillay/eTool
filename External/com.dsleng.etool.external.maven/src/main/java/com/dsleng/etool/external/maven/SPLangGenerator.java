@@ -56,7 +56,7 @@ public class SPLangGenerator {
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/"));
+		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
 		invoker.setMavenHome(new File("/usr/share/maven"));
 		try {
 			InvocationResult result = invoker.execute( request );
@@ -103,7 +103,7 @@ public class SPLangGenerator {
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/"));
+		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
 		invoker.setMavenHome(new File("/usr/share/maven"));
 		try {
 			InvocationResult result = invoker.execute( request );
@@ -146,7 +146,7 @@ public class SPLangGenerator {
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/"));
+		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
 		invoker.setMavenHome(new File("/usr/share/maven"));
 		try {
 			InvocationResult result = invoker.execute( request );
@@ -189,7 +189,7 @@ public class SPLangGenerator {
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/"));
+		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
 		invoker.setMavenHome(new File("/usr/share/maven"));
 		try {
 			InvocationResult result = invoker.execute( request );
@@ -232,7 +232,7 @@ public class SPLangGenerator {
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/"));
+		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
 		invoker.setMavenHome(new File("/usr/share/maven"));
 		try {
 			InvocationResult result = invoker.execute( request );

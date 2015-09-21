@@ -58,10 +58,9 @@ public class Manager {
 	}
 	public void createLangProj(String groupId,String artifactId,String version,String langName,String langExt,String GenModelFile,String GenerateEPackage,String ModelURI,String ModelBundle){
 		SPLangGenerator pT = new SPLangGenerator(baseDirectory);
-		pT.GenerateLang(groupId, artifactId, version, langName, langExt, GenModelFile, GenerateEPackage, ModelURI, ModelBundle);
-		
-		
+		pT.GenerateLang(groupId, artifactId, version, langName, langExt, GenModelFile, GenerateEPackage, ModelURI, ModelBundle);	
 	}
+	
 }
 
 

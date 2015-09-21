@@ -55,6 +55,7 @@
 	<modules>
 		<module>../com.dsleng.etool.external.maven</module>
 		<module>../com.dsleng.etool.external.releng.p2</module>
+	<!--	<module>../com.dsleng.etool.external.maven.tests</module> -->
 	</modules>
 	<build>
 		<plugins>
