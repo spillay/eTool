@@ -30,6 +30,7 @@ import com.dsleng.etool.dsl.egov.EGovDslRuntimeModule;
 import com.dsleng.etool.dsl.egov.EGovDslStandaloneSetup;
 import com.dsleng.etool.models.egov.EgovPackage;
 import com.dsleng.etool.models.egov.impl.EgovFactoryImpl;
+import com.dsleng.etool.primefaces.semantics.BOGenerator;
 import com.dsleng.etool.primefaces.semantics.EgovGenerator;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -80,31 +81,17 @@ public class PageGenerator extends AbstractMojo {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-			// EGovDslStandaloneSetup.doSetup();
-			// Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xml",
-			// new XMLResourceFactoryImpl());
-			// Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(".egv",
-			// new EgovFactoryImpl());
-
-			// ResourceSet rs = new ResourceSet();
-			// rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml",
-			// new XMLResourceFactoryImpl());
-
-			// EgovPackage.eINSTANCE.eClass();
-
-			EgovGenerator gen = new EgovGenerator();
 			if (obj == null) {
 				getLog().info(
 						"Generating Pages: Could not generate model");
 			} else {
 				
-				InMemoryFileSystemAccess fsa = new InMemoryFileSystemAccess();
+				EgovGenerator gen = new EgovGenerator();
+				gen.doGenerate(obj.eResource(), pT.getFileAccess("src/main/webapp"));
 				
-				gen.doGenerate(obj.eResource(), pT.getFileAccess());
-				//gen.processDSL(dslFile.getAbsolutePath(), fsa);
-
-				// createFile("index1.xhtml","hello world");
+				BOGenerator boGen = new BOGenerator("za.co.egov");
+				boGen.doGenerate(obj.eResource(), pT.getFileAccess("src/main/java/"));
+				
 			}
 		}
 

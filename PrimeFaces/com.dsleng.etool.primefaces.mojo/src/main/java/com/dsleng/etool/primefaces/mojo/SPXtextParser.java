@@ -67,12 +67,12 @@ public class SPXtextParser {
 			return newHashSet(defaultOutput);
 	}
 	 
-	 public JavaIoFileSystemAccess getFileAccess(){
+	 public JavaIoFileSystemAccess getFileAccess(String path){
 		 final JavaIoFileSystemAccess configuredFileSystemAccess=injector.getInstance(JavaIoFileSystemAccess.class);
-		 configuredFileSystemAccess.setOutputPath("/Data/maventest");
+		 //configuredFileSystemAccess.setOutputPath("/Data/maventest");
 		 OutputConfiguration defaultOutput = new OutputConfiguration(IFileSystemAccess.DEFAULT_OUTPUT);
 		    defaultOutput.setDescription("Output Folder");
-		    defaultOutput.setOutputDirectory("/Data/maventest/src-gen");
+		    defaultOutput.setOutputDirectory(path);
 		    defaultOutput.setOverrideExistingResources(true);
 		    defaultOutput.setCreateOutputDirectory(true);
 		    defaultOutput.setCleanUpDerivedResources(true);
