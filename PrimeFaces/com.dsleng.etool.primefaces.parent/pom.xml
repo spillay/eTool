@@ -11,5 +11,6 @@
   </parent>
     <modules>
     	<module>../com.dsleng.etool.primefaces.semantics</module>
+    	<module>../com.dsleng.etool.primefaces.mojo</module>
     </modules>
 </project>

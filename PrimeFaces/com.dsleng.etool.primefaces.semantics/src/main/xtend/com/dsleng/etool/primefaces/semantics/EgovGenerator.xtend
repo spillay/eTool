@@ -7,20 +7,115 @@ import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 import com.google.inject.Inject
 import com.dsleng.etool.models.egov.Page
+import com.dsleng.etool.models.egov.Dept
+import com.dsleng.etool.models.egov.EService
+import com.dsleng.etool.models.egov.BusinessObject
+import com.dsleng.etool.models.egov.Attribute
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.common.util.URI
+import com.dsleng.etool.models.egov.EgovPackage
+import org.eclipse.xtext.generator.IFileSystemAccess2
+import org.eclipse.xtext.util.RuntimeIOException
+import java.io.InputStream
+
 
 class EgovGenerator implements IGenerator {
 
-	@Inject extension IQualifiedNameProvider
+	//@Inject extension IQualifiedNameProvider
+	val fileSep = "/"
+	
+	new(){
+		// Using this to make sure that the ecore file is registered need to fix
+		EgovPackage.eINSTANCE.eClass();
+	}
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		for (e : resource.allContents.toIterable.filter(Page)) {
-			fsa.generateFile(e.fullyQualifiedName.toString("/") + ".java", e.compile)
+			fsa.generateFile(e.genFileName, e.compile)
 		}
 	}
-	def compile(Page e) ''' 
-	
-	<Page name=«e.fullyQualifiedName»>
-	</Page>
+	def processDSL(String fileName,IFileSystemAccess fsa){
+    	val resourceSet = new ResourceSetImpl
+    	val resource = resourceSet.getResource(URI.createURI(fileName), true)
+		doGenerate(resource,fsa)
+	}
+	private def genFileName(Page e){
+		/*
+		var fileName = '''«IF e.eContainer instanceof EService»
+			«IF e.eContainer.eContainer instanceof Dept»
+				«(e.eContainer.eContainer as Dept).name»«fileSep»«(e.eContainer as EService).name»«fileSep»«e.name»
+			«ENDIF»
+		«ENDIF»
+		'''
+		*/
+		//fileName = fileName + fileSep + e.name + ".xhtml"
+		var fileName = (e.eContainer.eContainer as Dept).name + fileSep + (e.eContainer as EService).name + fileSep + e.name
+		fileName = fileName.replace(" ","_")
+		fileName = fileName + ".xhtml"
+	}
+	private def compile(Page e) ''' 
+		«PageHead»
+		«IF e.eContainer instanceof EService»
+			«IF e.eContainer.eContainer instanceof Dept»
+				«title((e.eContainer.eContainer as Dept).name,(e.eContainer as EService).name)»
+			«ENDIF»
+		«ENDIF»
+		<h:body>
+        	<h:form>
+        		«e.businessobject.compile»
+        	</h:form>
+        </h:body>		
+		«PageTail»
+  	'''
+  	
+  	private def compile(BusinessObject e)'''
+  		 <p:panel header="«e.name»">
+                <h:panelGrid columns="2" cellpadding="4">
+                	«FOR att: e.attributes»
+                		«att.compile»
+                	«ENDFOR»
+  					<p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" />
+                </h:panelGrid>
+         </p:panel>
+  		
+  	'''
+  	
+  	private def compile(Attribute e){
+  		switch e.type {
+			case STRING:
+				'''
+				<h:outputText value="«e.label»: " />
+                    <p:inputText value="#{(«(e.eContainer as BusinessObject).name».«e.name»}" />
+				'''
+			case INTEGER:
+				'''
+				<h:outputText value="«e.label»: " />
+                    <p:inputText value="#{(«(e.eContainer as BusinessObject).name».«e.name»}" />
+				'''
+			default: {
+			}
+  			
+  		}
+  	}
+  		
+  	// Utility Functions for Page Creation
+  	
+  	private def title(String dept,String eservice)'''
+  		<h:head>
+        	<title>«dept» - «eservice»</title>
+    	</h:head>
+  		
+  	'''
+  	
+  	private def PageHead()'''
+  	<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+    	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+    	xmlns:p="http://primefaces.org/ui">
   	'''
 
+	private def PageTail()'''
+	</html>
+	'''
 }

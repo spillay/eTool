@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<com.dsleng.etool.models:Dept xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.dsleng.etool.models="http://com/dsleng/etool/models/egov" name="Environmental Affairs">
+  <eservices name="Permit Application">
+    <pages name="MainPage" businessobject="//@businessobjects.0" nextPage="//@eservices.0/@pages.1"/>
+    <pages name="SecondPage" businessobject="//@businessobjects.2"/>
+  </eservices>
+  <businessobjects name="License">
+    <attributes name="name" label="First Name" type="String"/>
+    <attributes name="lastname" label="Last Name" type="String"/>
+    <references businessobject="//@businessobjects.1"/>
+    <references businessobject="//@businessobjects.2" multiplicity="Many"/>
+  </businessobjects>
+  <businessobjects name="Address">
+    <attributes name="name" label="Street Name" type="String"/>
+    <attributes name="number" label="Street Number"/>
+  </businessobjects>
+  <businessobjects name="Location">
+    <attributes name="Desc" label="Description" type="String"/>
+    <attributes name="Co-ordinates" label="Co-Ordinates" type="String"/>
+  </businessobjects>
+</com.dsleng.etool.models:Dept>
