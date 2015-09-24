@@ -1,0 +1,34 @@
+Department Name="Environmental Affairs" { 
+	BusinessObjects { 
+		 BO="License" {
+			attributes { 
+			"name" { Label="First Name" Type=String },
+			"lastname" { Label="Last Name" Type=String }
+			}
+			references { 
+				BO=Address[Inclusion=Mandatory Multiplicity=OnlyOne],
+				BO=Location[Inclusion=Mandatory Multiplicity=Many]
+			}
+		},
+		BO="Address" {
+			attributes {
+				"name" { Label="Street Name" Type=String },
+				"number" { Label="Street Number" Type=Integer }
+			}
+		},
+		BO="Location" {
+			attributes {
+				"Desc" { Label="Description" Type=String },
+				"Co-ordinates" { Label="Co-Ordinates" Type=String }
+			}
+		}
+	}
+	EServices {
+		EService="Permit Application" { 
+			Pages { 
+				Page=MainPage { BO License => SecondPage },
+				Page=SecondPage { BO Location }
+			}
+		}
+	}
+}

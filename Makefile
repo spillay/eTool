@@ -1,7 +1,7 @@
 MVN=mvn
 OPTS=deploy
 
-all: core model external pres infra  dsl product
+all: core model external pres infra  dsl primefaces product
 
 clean-repo:
 	rm -rf /Data/m2/repository/com/dsleng/etool/	
@@ -27,5 +27,8 @@ dsl:
 	$(MVN) $(OPTS)
 product:
 	cd Product/com.dsleng.etool.tycho.releng.p2/; \
+	$(MVN) $(OPTS) 
+primefaces:
+	cd PrimeFaces/com.dsleng.etool.primefaces.parent/; \
 	$(MVN) $(OPTS) 
 

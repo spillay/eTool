@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.dsleng.etool.dsl.egov.sdk"
-      label="${langName} SDK Feature "
+      label="EGov DSL SDK Feature "
       version="1.0.0.qualifier">
 
    <plugin
@@ -20,6 +20,11 @@
 
    <plugin
          id="com.dsleng.etool.dsl.egov.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+   <plugin
+         id="com.dsleng.etool.dsl.egov.eclipse"
          download-size="0"
          install-size="0"
          version="0.0.0"/>

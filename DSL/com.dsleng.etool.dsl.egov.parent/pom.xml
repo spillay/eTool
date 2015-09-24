@@ -72,8 +72,6 @@
 		<module>../com.dsleng.etool.dsl.egov.tests</module>
 		<module>../com.dsleng.etool.dsl.egov.ui</module>
 		<module>../com.dsleng.etool.dsl.egov.sdk</module>
-		<!--  
 		<module>../com.dsleng.etool.dsl.egov.eclipse</module>
-		-->
 </modules>
 </project>
