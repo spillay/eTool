@@ -10,7 +10,16 @@
                 eType="#//dsleng/etool/models/egov/Page" containment="true"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="indexPage" lowerBound="1"
                 eType="#//dsleng/etool/models/egov/Page"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="dirLocation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="dirLocation" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="langFile" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

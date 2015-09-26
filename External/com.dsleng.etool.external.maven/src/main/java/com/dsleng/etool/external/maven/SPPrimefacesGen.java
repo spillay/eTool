@@ -28,7 +28,7 @@ public class SPPrimefacesGen {
 	}
 
 	
-	public void createBaseProj(String groupId,String artifactId,String version){
+	public void createBaseProj(String groupId,String artifactId,String version,String langFile){
 			InvocationRequest request = new DefaultInvocationRequest();
 			//request.setPomFile( new File( "/path/to/pom.xml" ) );
 			request.setGoals( Collections.singletonList( "archetype:generate" ) );
@@ -44,6 +44,7 @@ public class SPPrimefacesGen {
 	        
 	        properties.setProperty("version", version);
 	        properties.setProperty("package", artifactId);
+	        properties.setProperty("langFile", langFile);
 	        
 	       		
 	        request.setProperties(properties);

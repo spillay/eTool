@@ -123,13 +123,67 @@ public interface EgovPackage extends EPackage {
 	int ESERVICE__PAGES = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Index Page</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__INDEX_PAGE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Dir Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__ARTIFACT_ID = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__GROUP_ID = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Lang File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__LANG_FILE = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>EService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ESERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>EService</em>' class.
@@ -234,13 +288,22 @@ public interface EgovPackage extends EPackage {
 	int DEPT__BUSINESSOBJECTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Dir Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPT__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Dept</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DEPT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Dept</em>' class.
@@ -469,6 +532,72 @@ public interface EgovPackage extends EPackage {
 	EReference getEService_Pages();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.EService#getIndexPage <em>Index Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Index Page</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getIndexPage()
+	 * @see #getEService()
+	 * @generated
+	 */
+	EReference getEService_IndexPage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getDirLocation <em>Dir Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dir Location</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getDirLocation()
+	 * @see #getEService()
+	 * @generated
+	 */
+	EAttribute getEService_DirLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getArtifactId()
+	 * @see #getEService()
+	 * @generated
+	 */
+	EAttribute getEService_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getGroupId()
+	 * @see #getEService()
+	 * @generated
+	 */
+	EAttribute getEService_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getLangFile <em>Lang File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lang File</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getLangFile()
+	 * @see #getEService()
+	 * @generated
+	 */
+	EAttribute getEService_LangFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getVersion()
+	 * @see #getEService()
+	 * @generated
+	 */
+	EAttribute getEService_Version();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -552,6 +681,17 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDept_Businessobjects();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Dept#getDirLocation <em>Dir Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dir Location</em>'.
+	 * @see com.dsleng.etool.models.egov.Dept#getDirLocation()
+	 * @see #getDept()
+	 * @generated
+	 */
+	EAttribute getDept_DirLocation();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.Page <em>Page</em>}'.
@@ -732,6 +872,54 @@ public interface EgovPackage extends EPackage {
 		EReference ESERVICE__PAGES = eINSTANCE.getEService_Pages();
 
 		/**
+		 * The meta object literal for the '<em><b>Index Page</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ESERVICE__INDEX_PAGE = eINSTANCE.getEService_IndexPage();
+
+		/**
+		 * The meta object literal for the '<em><b>Dir Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ESERVICE__DIR_LOCATION = eINSTANCE.getEService_DirLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ESERVICE__ARTIFACT_ID = eINSTANCE.getEService_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ESERVICE__GROUP_ID = eINSTANCE.getEService_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Lang File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ESERVICE__LANG_FILE = eINSTANCE.getEService_LangFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ESERVICE__VERSION = eINSTANCE.getEService_Version();
+
+		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -800,6 +988,14 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPT__BUSINESSOBJECTS = eINSTANCE.getDept_Businessobjects();
+
+		/**
+		 * The meta object literal for the '<em><b>Dir Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPT__DIR_LOCATION = eINSTANCE.getDept_DirLocation();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.PageImpl <em>Page</em>}' class.

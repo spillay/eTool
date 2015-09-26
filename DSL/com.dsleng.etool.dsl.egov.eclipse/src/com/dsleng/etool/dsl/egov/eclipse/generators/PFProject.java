@@ -19,7 +19,7 @@ public class PFProject {
 		createBaseProj(baseDirectory);
 	}
 	private void createBaseProj(String baseDir){
-		SPPrimefacesGen pT = new SPPrimefacesGen(baseDirectory);
-		pT.createBaseProj("za.co.egov", "za.co.egov.dept", "1.0.0-SNAPSHOT");
+		SPPrimefacesGen pT = new SPPrimefacesGen(baseDir);
+		//pT.createBaseProj("za.co.egov", "za.co.egov.dept", "1.0.0-SNAPSHOT","dsl/egov.egv.xmi");
 	}
 }

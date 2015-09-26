@@ -9,6 +9,7 @@ import com.dsleng.etool.models.egov.EgovPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.impl.DeptImpl#getEservices <em>Eservices</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.DeptImpl#getBusinessobjects <em>Businessobjects</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.DeptImpl#getDirLocation <em>Dir Location</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +56,26 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 	 * @ordered
 	 */
 	protected EList<BusinessObject> businessobjects;
+
+	/**
+	 * The default value of the '{@link #getDirLocation() <em>Dir Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DIR_LOCATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDirLocation() <em>Dir Location</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String dirLocation = DIR_LOCATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +125,27 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDirLocation() {
+		return dirLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDirLocation(String newDirLocation) {
+		String oldDirLocation = dirLocation;
+		dirLocation = newDirLocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.DEPT__DIR_LOCATION, oldDirLocation, dirLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -125,6 +169,8 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 				return getEservices();
 			case EgovPackage.DEPT__BUSINESSOBJECTS:
 				return getBusinessobjects();
+			case EgovPackage.DEPT__DIR_LOCATION:
+				return getDirLocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +192,9 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 				getBusinessobjects().clear();
 				getBusinessobjects().addAll((Collection<? extends BusinessObject>)newValue);
 				return;
+			case EgovPackage.DEPT__DIR_LOCATION:
+				setDirLocation((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +213,9 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 			case EgovPackage.DEPT__BUSINESSOBJECTS:
 				getBusinessobjects().clear();
 				return;
+			case EgovPackage.DEPT__DIR_LOCATION:
+				setDirLocation(DIR_LOCATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,8 +232,26 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 				return eservices != null && !eservices.isEmpty();
 			case EgovPackage.DEPT__BUSINESSOBJECTS:
 				return businessobjects != null && !businessobjects.isEmpty();
+			case EgovPackage.DEPT__DIR_LOCATION:
+				return DIR_LOCATION_EDEFAULT == null ? dirLocation != null : !DIR_LOCATION_EDEFAULT.equals(dirLocation);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (dirLocation: ");
+		result.append(dirLocation);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DeptImpl
