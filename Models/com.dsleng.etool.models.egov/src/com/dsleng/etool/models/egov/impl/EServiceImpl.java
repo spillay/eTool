@@ -27,10 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getPages <em>Pages</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getIndexPage <em>Index Page</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getDirLocation <em>Dir Location</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getArtifactId <em>Artifact Id</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getGroupId <em>Group Id</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getLangFile <em>Lang File</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getVersion <em>Version</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,79 +69,6 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 	 * @ordered
 	 */
 	protected String dirLocation = DIR_LOCATION_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArtifactId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ARTIFACT_ID_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArtifactId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String artifactId = ARTIFACT_ID_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroupId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String GROUP_ID_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroupId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String groupId = GROUP_ID_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getLangFile() <em>Lang File</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLangFile()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LANG_FILE_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getLangFile() <em>Lang File</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLangFile()
-	 * @generated
-	 * @ordered
-	 */
-	protected String langFile = LANG_FILE_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VERSION_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected String version = VERSION_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,90 +164,6 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getArtifactId() {
-		return artifactId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setArtifactId(String newArtifactId) {
-		String oldArtifactId = artifactId;
-		artifactId = newArtifactId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.ESERVICE__ARTIFACT_ID, oldArtifactId, artifactId));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getGroupId() {
-		return groupId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGroupId(String newGroupId) {
-		String oldGroupId = groupId;
-		groupId = newGroupId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.ESERVICE__GROUP_ID, oldGroupId, groupId));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getLangFile() {
-		return langFile;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLangFile(String newLangFile) {
-		String oldLangFile = langFile;
-		langFile = newLangFile;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.ESERVICE__LANG_FILE, oldLangFile, langFile));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getVersion() {
-		return version;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVersion(String newVersion) {
-		String oldVersion = version;
-		version = newVersion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.ESERVICE__VERSION, oldVersion, version));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -349,14 +188,6 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 				return basicGetIndexPage();
 			case EgovPackage.ESERVICE__DIR_LOCATION:
 				return getDirLocation();
-			case EgovPackage.ESERVICE__ARTIFACT_ID:
-				return getArtifactId();
-			case EgovPackage.ESERVICE__GROUP_ID:
-				return getGroupId();
-			case EgovPackage.ESERVICE__LANG_FILE:
-				return getLangFile();
-			case EgovPackage.ESERVICE__VERSION:
-				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -380,18 +211,6 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 			case EgovPackage.ESERVICE__DIR_LOCATION:
 				setDirLocation((String)newValue);
 				return;
-			case EgovPackage.ESERVICE__ARTIFACT_ID:
-				setArtifactId((String)newValue);
-				return;
-			case EgovPackage.ESERVICE__GROUP_ID:
-				setGroupId((String)newValue);
-				return;
-			case EgovPackage.ESERVICE__LANG_FILE:
-				setLangFile((String)newValue);
-				return;
-			case EgovPackage.ESERVICE__VERSION:
-				setVersion((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -413,18 +232,6 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 			case EgovPackage.ESERVICE__DIR_LOCATION:
 				setDirLocation(DIR_LOCATION_EDEFAULT);
 				return;
-			case EgovPackage.ESERVICE__ARTIFACT_ID:
-				setArtifactId(ARTIFACT_ID_EDEFAULT);
-				return;
-			case EgovPackage.ESERVICE__GROUP_ID:
-				setGroupId(GROUP_ID_EDEFAULT);
-				return;
-			case EgovPackage.ESERVICE__LANG_FILE:
-				setLangFile(LANG_FILE_EDEFAULT);
-				return;
-			case EgovPackage.ESERVICE__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -443,14 +250,6 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 				return indexPage != null;
 			case EgovPackage.ESERVICE__DIR_LOCATION:
 				return DIR_LOCATION_EDEFAULT == null ? dirLocation != null : !DIR_LOCATION_EDEFAULT.equals(dirLocation);
-			case EgovPackage.ESERVICE__ARTIFACT_ID:
-				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
-			case EgovPackage.ESERVICE__GROUP_ID:
-				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
-			case EgovPackage.ESERVICE__LANG_FILE:
-				return LANG_FILE_EDEFAULT == null ? langFile != null : !LANG_FILE_EDEFAULT.equals(langFile);
-			case EgovPackage.ESERVICE__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -467,14 +266,6 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (dirLocation: ");
 		result.append(dirLocation);
-		result.append(", artifactId: ");
-		result.append(artifactId);
-		result.append(", groupId: ");
-		result.append(groupId);
-		result.append(", langFile: ");
-		result.append(langFile);
-		result.append(", version: ");
-		result.append(version);
 		result.append(')');
 		return result.toString();
 	}

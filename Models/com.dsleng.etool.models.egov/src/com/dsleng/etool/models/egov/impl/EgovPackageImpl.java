@@ -202,42 +202,6 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEService_ArtifactId() {
-		return (EAttribute)eServiceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEService_GroupId() {
-		return (EAttribute)eServiceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEService_LangFile() {
-		return (EAttribute)eServiceEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEService_Version() {
-		return (EAttribute)eServiceEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNamedElement() {
 		return namedElementEClass;
 	}
@@ -310,8 +274,44 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDept_DirLocation() {
+	public EAttribute getDept_ArtifactId() {
 		return (EAttribute)deptEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDept_GroupId() {
+		return (EAttribute)deptEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDept_LangFile() {
+		return (EAttribute)deptEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDept_Version() {
+		return (EAttribute)deptEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDept_DirLocation() {
+		return (EAttribute)deptEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -463,10 +463,6 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		createEReference(eServiceEClass, ESERVICE__PAGES);
 		createEReference(eServiceEClass, ESERVICE__INDEX_PAGE);
 		createEAttribute(eServiceEClass, ESERVICE__DIR_LOCATION);
-		createEAttribute(eServiceEClass, ESERVICE__ARTIFACT_ID);
-		createEAttribute(eServiceEClass, ESERVICE__GROUP_ID);
-		createEAttribute(eServiceEClass, ESERVICE__LANG_FILE);
-		createEAttribute(eServiceEClass, ESERVICE__VERSION);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -478,6 +474,10 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		deptEClass = createEClass(DEPT);
 		createEReference(deptEClass, DEPT__ESERVICES);
 		createEReference(deptEClass, DEPT__BUSINESSOBJECTS);
+		createEAttribute(deptEClass, DEPT__ARTIFACT_ID);
+		createEAttribute(deptEClass, DEPT__GROUP_ID);
+		createEAttribute(deptEClass, DEPT__LANG_FILE);
+		createEAttribute(deptEClass, DEPT__VERSION);
 		createEAttribute(deptEClass, DEPT__DIR_LOCATION);
 
 		pageEClass = createEClass(PAGE);
@@ -537,11 +537,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEClass(eServiceEClass, EService.class, "EService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEService_Pages(), this.getPage(), null, "pages", null, 0, -1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEService_IndexPage(), this.getPage(), null, "indexPage", null, 1, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEService_DirLocation(), ecorePackage.getEString(), "dirLocation", null, 1, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEService_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 1, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEService_GroupId(), ecorePackage.getEString(), "groupId", null, 1, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEService_LangFile(), ecorePackage.getEString(), "langFile", null, 1, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEService_Version(), ecorePackage.getEString(), "version", null, 1, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEService_DirLocation(), ecorePackage.getEString(), "dirLocation", null, 0, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -553,7 +549,11 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEClass(deptEClass, Dept.class, "Dept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDept_Eservices(), this.getEService(), null, "eservices", null, 0, -1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDept_Businessobjects(), this.getBusinessObject(), null, "businessobjects", null, 0, -1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDept_DirLocation(), ecorePackage.getEString(), "dirLocation", null, 0, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDept_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDept_GroupId(), ecorePackage.getEString(), "groupId", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDept_LangFile(), ecorePackage.getEString(), "langFile", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDept_Version(), ecorePackage.getEString(), "version", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDept_DirLocation(), ecorePackage.getEString(), "dirLocation", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPage_Businessobject(), this.getBusinessObject(), null, "businessobject", null, 1, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -3,6 +3,7 @@
  */
 package com.dsleng.etool.dsl.egov.eclipse.handlers;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -64,16 +65,27 @@ public class GenerateHandler extends AbstractHandler {
         Resource resource = resourceSet.getResource(uri, true);
         EObject model = resource.getContents().get(0);
 
+        PFProject pT = new PFProject();
+        pT.Execute(model);
 
-        String fileName = input.getLocationURI().toString();
-        fileName = fileName.replace(".egv", ".egv.xmi");
+        String fileName = pT.getLangFile();
+        
+        // Create the directory structure
+        File f = new File(fileName);
+        if ( f.getParentFile() != null){
+        	f.getParentFile().mkdirs();   
+        }
+        
+        //String fileName = input.getLocationURI().toString();
+        //fileName = fileName.replace(".egv", ".egv.xmi");
 
         ResourceSet resSet = new ResourceSetImpl();
         resSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
                         Resource.Factory.Registry.DEFAULT_EXTENSION,
                         new XMIResourceFactoryImpl());
-        URI newUri = URI.createURI(fileName);
+        URI newUri = URI.createFileURI(fileName);
         System.out.println(newUri.toString());
+        
         Resource resEMF = resSet.createResource(newUri);
         EObject emfModel = EcoreUtil.copy(model);
         resEMF.getContents().add(emfModel);
@@ -85,8 +97,6 @@ public class GenerateHandler extends AbstractHandler {
         } catch (IOException e) {
                 e.printStackTrace();
         }
-        PFProject pT = new PFProject(emfModel);
-        pT.Execute();
 
 }
 

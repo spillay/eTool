@@ -17,7 +17,7 @@ import com.dsleng.etool.models.egov.EgovPackage
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.util.RuntimeIOException
 import java.io.InputStream
-
+import java.beans.Introspector
 
 class EgovGenerator implements IGenerator {
 
@@ -94,10 +94,9 @@ class EgovGenerator implements IGenerator {
   	private def compile(Attribute e){
   		var nme = e.name
 		// Some cleanup to main java naming conventions
-		nme = nme.replace("-","")
-		nme = lowerFirstLetter(nme)
+		nme = Introspector.decapitalize(nme)
 		var boName = (e.eContainer as BusinessObject).name
-		boName = lowerFirstLetter(boName)
+		boName = Introspector.decapitalize(boName)
   		switch e.type {
 			case STRING:
 				'''

@@ -141,49 +141,13 @@ public interface EgovPackage extends EPackage {
 	int ESERVICE__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESERVICE__ARTIFACT_ID = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESERVICE__GROUP_ID = NAMED_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Lang File</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESERVICE__LANG_FILE = NAMED_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESERVICE__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
 	 * The number of structural features of the '<em>EService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int ESERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>EService</em>' class.
@@ -288,13 +252,49 @@ public interface EgovPackage extends EPackage {
 	int DEPT__BUSINESSOBJECTS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPT__ARTIFACT_ID = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPT__GROUP_ID = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Lang File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPT__LANG_FILE = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPT__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Dir Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPT__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DEPT__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Dept</em>' class.
@@ -303,7 +303,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DEPT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Dept</em>' class.
@@ -554,50 +554,6 @@ public interface EgovPackage extends EPackage {
 	EAttribute getEService_DirLocation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getArtifactId <em>Artifact Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
-	 * @see com.dsleng.etool.models.egov.EService#getArtifactId()
-	 * @see #getEService()
-	 * @generated
-	 */
-	EAttribute getEService_ArtifactId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getGroupId <em>Group Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Group Id</em>'.
-	 * @see com.dsleng.etool.models.egov.EService#getGroupId()
-	 * @see #getEService()
-	 * @generated
-	 */
-	EAttribute getEService_GroupId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getLangFile <em>Lang File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lang File</em>'.
-	 * @see com.dsleng.etool.models.egov.EService#getLangFile()
-	 * @see #getEService()
-	 * @generated
-	 */
-	EAttribute getEService_LangFile();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.EService#getVersion <em>Version</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Version</em>'.
-	 * @see com.dsleng.etool.models.egov.EService#getVersion()
-	 * @see #getEService()
-	 * @generated
-	 */
-	EAttribute getEService_Version();
-
-	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -681,6 +637,50 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDept_Businessobjects();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Dept#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see com.dsleng.etool.models.egov.Dept#getArtifactId()
+	 * @see #getDept()
+	 * @generated
+	 */
+	EAttribute getDept_ArtifactId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Dept#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see com.dsleng.etool.models.egov.Dept#getGroupId()
+	 * @see #getDept()
+	 * @generated
+	 */
+	EAttribute getDept_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Dept#getLangFile <em>Lang File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lang File</em>'.
+	 * @see com.dsleng.etool.models.egov.Dept#getLangFile()
+	 * @see #getDept()
+	 * @generated
+	 */
+	EAttribute getDept_LangFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Dept#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see com.dsleng.etool.models.egov.Dept#getVersion()
+	 * @see #getDept()
+	 * @generated
+	 */
+	EAttribute getDept_Version();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Dept#getDirLocation <em>Dir Location</em>}'.
@@ -888,38 +888,6 @@ public interface EgovPackage extends EPackage {
 		EAttribute ESERVICE__DIR_LOCATION = eINSTANCE.getEService_DirLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ESERVICE__ARTIFACT_ID = eINSTANCE.getEService_ArtifactId();
-
-		/**
-		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ESERVICE__GROUP_ID = eINSTANCE.getEService_GroupId();
-
-		/**
-		 * The meta object literal for the '<em><b>Lang File</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ESERVICE__LANG_FILE = eINSTANCE.getEService_LangFile();
-
-		/**
-		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ESERVICE__VERSION = eINSTANCE.getEService_Version();
-
-		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -988,6 +956,38 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPT__BUSINESSOBJECTS = eINSTANCE.getDept_Businessobjects();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPT__ARTIFACT_ID = eINSTANCE.getDept_ArtifactId();
+
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPT__GROUP_ID = eINSTANCE.getDept_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Lang File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPT__LANG_FILE = eINSTANCE.getDept_LangFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPT__VERSION = eINSTANCE.getDept_Version();
 
 		/**
 		 * The meta object literal for the '<em><b>Dir Location</b></em>' attribute feature.

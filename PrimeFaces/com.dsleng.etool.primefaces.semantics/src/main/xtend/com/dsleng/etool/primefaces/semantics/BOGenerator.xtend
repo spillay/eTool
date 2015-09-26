@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.common.util.URI
 import com.dsleng.etool.models.egov.Dept
 import com.dsleng.etool.models.egov.Attribute
+import java.beans.Introspector
 
 class BOGenerator implements IGenerator {
 	
@@ -67,6 +68,7 @@ class BOGenerator implements IGenerator {
 		// Some cleanup to main java naming conventions
 		nme = nme.replace("-","")
 		nme = capitalizeFirstLetter(nme)
+		
 		var vnme = e.name
 		vnme = vnme.replace("-","")
   		switch e.type {

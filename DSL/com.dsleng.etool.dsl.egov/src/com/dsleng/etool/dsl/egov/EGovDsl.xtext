@@ -9,6 +9,14 @@ Dept returns egov::Dept:
 	{egov::Dept}
 	'Department'
 	'Name=' name=EString
+	'setup {'
+		'GroupID' groupId=EString','
+		'ArtifactID' artifactId=EString','
+		'Version' version=EString','
+		'Deployment Directory' dirLocation=EString','
+		'Language File' langFile=EString
+		
+	'}'
 	'{'
 		('BusinessObjects' '{' businessobjects+=BusinessObject ( "," businessobjects+=BusinessObject)* '}' )?
 		('EServices' '{' eservices+=EService ( "," eservices+=EService)* '}' )?
@@ -22,8 +30,12 @@ EService returns egov::EService:
 	{egov::EService}
 	'EService='
 	name=EString
+	'setup {'
+		'Deployment Directory' dirLocation=EString
+	'}'
 	'{'
 		('Pages' '{' pages+=Page ( "," pages+=Page)* '}' )?
+		'Start Page' indexPage=[egov::Page|EString]
 	'}';
 
 BusinessObject returns egov::BusinessObject:

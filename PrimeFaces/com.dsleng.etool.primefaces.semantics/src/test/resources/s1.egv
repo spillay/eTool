@@ -1,4 +1,12 @@
-Department Name="Environmental Affairs" { 
+Department  Name="Environmental Affairs" 
+	setup {
+			GroupID "za.co.egov",
+			ArtifactID "za.co.egov.ea",
+			Version "1.0.0-SNAPSHOT",
+			Deployment Directory "/Data/maventest/",
+			Language File "dsl/s1.egv.xmi"	
+	}
+	{ 
 	BusinessObjects { 
 		 BO="License" {
 			attributes { 
@@ -23,12 +31,18 @@ Department Name="Environmental Affairs" {
 			}
 		}
 	}
-	EServices {
-		EService="Permit Application" { 
+	EServices { 
+		EService="Permit Application" 
+		setup {
+			Deployment Directory "permit"
+		}
+		{ 
+			
 			Pages { 
 				Page=MainPage { BO License => SecondPage },
 				Page=SecondPage { BO Location }
 			}
+			Start Page MainPage
 		}
 	}
 }
