@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.dsleng.etool.dsl.controls.sdk"
+      label="Controls Infra SDK Feature"
+      version="1.0.0.qualifier">
+
+   <plugin
+         id="com.dsleng.etool.dsl.controls"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.dsl.controls.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.dsl.controls.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

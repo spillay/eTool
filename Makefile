@@ -25,6 +25,8 @@ model:
 dsl:
 	cd DSL/com.dsleng.etool.dsl.egov.parent/; \
 	$(MVN) $(OPTS)
+	cd DSL/com.dsleng.etool.dsl.controls.parent/; \
+	$(MVN) $(OPTS)
 product:
 	cd Product/com.dsleng.etool.tycho.releng.p2/; \
 	$(MVN) $(OPTS) 

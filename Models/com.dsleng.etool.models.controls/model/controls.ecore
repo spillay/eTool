@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="com" nsURI="http://com/" nsPrefix="">
+  <eSubpackages name="dsleng" nsURI="http://com/dsleng/" nsPrefix="com">
+    <eSubpackages name="etool" nsURI="http://com/dsleng/etool/" nsPrefix="com.dsleng">
+      <eSubpackages name="models" nsURI="http://com/dsleng/etool/models" nsPrefix="com.dsleng.etool">
+        <eSubpackages name="controls" nsURI="http://com/dsleng/etool/models/controls"
+            nsPrefix="com.dsleng.etool.models">
+          <eClassifiers xsi:type="ecore:EClass" name="Control">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="ns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Options" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="syntax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="MControl" eSuperTypes="#//dsleng/etool/models/controls/Control"/>
+          <eClassifiers xsi:type="ecore:EClass" name="WControl" eSuperTypes="#//dsleng/etool/models/controls/Control"/>
+          <eClassifiers xsi:type="ecore:EClass" name="PageInfo">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Resource" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="dir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Resource">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="ns" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="ControlManager">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Control" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="pageinfos" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/PageInfo" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="composites" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Composite" containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="ControlGroup">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Control"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="pageinfos" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/PageInfo"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="composites" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Composite"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Options">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="valueplaceholder"
+                upperBound="-1" eType="#//dsleng/etool/models/controls/ValuePlaceHolder"
+                containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="ValuePlaceHolder">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="syntax" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="CompositeWebCtrl" eSuperTypes="#//dsleng/etool/models/controls/Composite">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="wcontrols" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/WControl"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="CompositeMobCtrl" eSuperTypes="#//dsleng/etool/models/controls/Composite">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="mcontrols" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/MControl"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Composite">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="syntax" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+        </eSubpackages>
+      </eSubpackages>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>
