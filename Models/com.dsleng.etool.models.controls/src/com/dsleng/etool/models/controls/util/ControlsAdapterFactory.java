@@ -68,16 +68,8 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 	protected ControlsSwitch<Adapter> modelSwitch =
 		new ControlsSwitch<Adapter>() {
 			@Override
-			public Adapter caseControl(Control object) {
-				return createControlAdapter();
-			}
-			@Override
-			public Adapter caseMControl(MControl object) {
-				return createMControlAdapter();
-			}
-			@Override
-			public Adapter caseWControl(WControl object) {
-				return createWControlAdapter();
+			public Adapter caseControlDef(ControlDef object) {
+				return createControlDefAdapter();
 			}
 			@Override
 			public Adapter casePageInfo(PageInfo object) {
@@ -116,6 +108,14 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 				return createCompositeAdapter();
 			}
 			@Override
+			public Adapter caseOptionInstance(OptionInstance object) {
+				return createOptionInstanceAdapter();
+			}
+			@Override
+			public Adapter caseSimpleControl(SimpleControl object) {
+				return createSimpleControlAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -136,44 +136,16 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.controls.Control <em>Control</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.controls.ControlDef <em>Control Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.controls.Control
+	 * @see com.dsleng.etool.models.controls.ControlDef
 	 * @generated
 	 */
-	public Adapter createControlAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.controls.MControl <em>MControl</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.controls.MControl
-	 * @generated
-	 */
-	public Adapter createMControlAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.controls.WControl <em>WControl</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.controls.WControl
-	 * @generated
-	 */
-	public Adapter createWControlAdapter() {
+	public Adapter createControlDefAdapter() {
 		return null;
 	}
 
@@ -300,6 +272,34 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompositeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.controls.OptionInstance <em>Option Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.controls.OptionInstance
+	 * @generated
+	 */
+	public Adapter createOptionInstanceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.controls.SimpleControl <em>Simple Control</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.controls.SimpleControl
+	 * @generated
+	 */
+	public Adapter createSimpleControlAdapter() {
 		return null;
 	}
 

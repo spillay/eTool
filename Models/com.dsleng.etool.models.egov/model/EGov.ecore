@@ -46,6 +46,7 @@
           <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//dsleng/etool/models/egov/NamedElement">
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//dsleng/etool/models/egov/DataTypes"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="Control" eType="ecore:EClass platform:/plugin/com.dsleng.etool.models.controls/model/controls.ecore#//dsleng/etool/models/controls/SimpleControl"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EEnum" name="DataTypes">
             <eLiterals name="Integer"/>

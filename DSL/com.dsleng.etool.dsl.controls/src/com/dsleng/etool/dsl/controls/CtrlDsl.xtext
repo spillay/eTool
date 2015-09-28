@@ -8,28 +8,25 @@ ControlManager returns controls::ControlManager:
 	{controls::ControlManager}
 	'ControlManager'
 	'{'
-		('controls' '{' controls+=Control ( "," controls+=Control)* '}' )?
+		('controls' '{' controls+=ControlDef ( "," controls+=ControlDef)* '}' )?
 		('pageinfos' '{' pageinfos+=PageInfo ( "," pageinfos+=PageInfo)* '}' )?
 		('composites' '{' composites+=Composite ( "," composites+=Composite)* '}' )?
 	'}';
 
-Control returns controls::Control:
-	Control_Impl | MControl | WControl;
 
 
-Composite returns controls::Composite:
-	Composite_Impl | CompositeWebCtrl | CompositeMobCtrl;
+Composite returns controls::SimpleControl:
+	 CompositeWebCtrl | CompositeMobCtrl | SimpleWebCtrl;
 
 
 
-Control_Impl returns controls::Control:
-	{controls::Control}
+ControlDef returns controls::ControlDef:
+	{controls::ControlDef}
 	'Control'
 	name=EString
 	'{'
 		('ns' ns=EString)?
 		('prefix' prefix=EString)?
-		('syntax' syntax=EString)?
 		('options' '{' options+=Options ( "," options+=Options)* '}' )?
 	'}';
 
@@ -42,51 +39,19 @@ PageInfo returns controls::PageInfo:
 		('resources' '{' resources+=Resource ( "," resources+=Resource)* '}' )?
 	'}';
 
-Composite_Impl returns controls::Composite:
-	'Composite'
-	'{'
-		'syntax' syntax=EString
-	'}';
 
 EString returns ecore::EString:
 	STRING | ID;
 
 Options returns controls::Options:
 	{controls::Options}
-	'Options'
 	name=EString
-	'{'
-		('valueplaceholder' '{' valueplaceholder+=ValuePlaceHolder ( "," valueplaceholder+=ValuePlaceHolder)* '}' )?
-	'}';
-
-MControl returns controls::MControl:
-	{controls::MControl}
-	'MControl'
-	name=EString
-	'{'
-		('ns' ns=EString)?
-		('prefix' prefix=EString)?
-		('syntax' syntax=EString)?
-		('options' '{' options+=Options ( "," options+=Options)* '}' )?
-	'}';
-
-WControl returns controls::WControl:
-	{controls::WControl}
-	'WControl'
-	name=EString
-	'{'
-		('ns' ns=EString)?
-		('prefix' prefix=EString)?
-		('syntax' syntax=EString)?
-		('options' '{' options+=Options ( "," options+=Options)* '}' )?
-	'}';
+	'('
+		(valueplaceholder+=ValuePlaceHolder ( "," valueplaceholder+=ValuePlaceHolder)* )?
+	')';
 
 ValuePlaceHolder returns controls::ValuePlaceHolder:
-	'ValuePlaceHolder'
-	name=EString
-	'{'
-		'syntax' syntax=EString
-	'}';
+	name=EString;
 
 Resource returns controls::Resource:
 	'Resource'
@@ -95,16 +60,40 @@ Resource returns controls::Resource:
 		'prefix' prefix=EString
 	'}';
 
-CompositeWebCtrl returns controls::CompositeWebCtrl:
-	'CompositeWebCtrl'
+OptionInstance returns controls::OptionInstance:
+		option=[controls::Options|EString] "=" '(' value+=[controls::ValuePlaceHolder|EString] ( "," value+=[controls::ValuePlaceHolder|EString])* ')' 
+;
+
+SimpleWebCtrl returns controls::SimpleControl:
+	{controls::SimpleControl}
+	'SimpleWebCtrl'
+	name=EString'<<'uses=[controls::ControlDef|EString]'>>'
 	'{'
-		'syntax' syntax=EString
-		('wcontrols' '(' wcontrols+=[controls::WControl|EString] ( "," wcontrols+=[controls::WControl|EString])* ')' )?
+		('options' '[' optionInstance+=OptionInstance ( "," optionInstance+=OptionInstance)* ']' )?
+	'}';
+	
+CompositeWebCtrl returns controls::CompositeWebCtrl:
+	{controls::CompositeWebCtrl}
+	'CompositeWebCtrl'
+	name=EString'<<'usesControl=[controls::SimpleControl|EString]'>>'
+	'{'
+		('nestedControls' '(' nestedControls+=[controls::SimpleControl|EString] ( "," nestedControls+=[controls::SimpleControl|EString])* ')' )?
+		('sibling' '(' sibling+=[controls::SimpleControl|EString] ( "," sibling+=[controls::SimpleControl|EString])* ')' )?
+	'}';
+	
+SimpleMobCtrl returns controls::SimpleControl:
+	{controls::SimpleControl}
+	'SimpleMobCtrl'
+	name=EString'<<'uses=[controls::ControlDef|EString]'>>'
+	'{'
+		('options' '[' optionInstance+=OptionInstance ( "," optionInstance+=OptionInstance)* ']' )?
 	'}';
 
 CompositeMobCtrl returns controls::CompositeMobCtrl:
+	{controls::CompositeMobCtrl}
 	'CompositeMobCtrl'
+	name=EString'<<'usesControl=[controls::SimpleControl|EString]'>>'
 	'{'
-		'syntax' syntax=EString
-		('mcontrols' '(' mcontrols+=[controls::MControl|EString] ( "," mcontrols+=[controls::MControl|EString])* ')' )?
+		('nestedControls' '(' nestedControls+=[controls::SimpleControl|EString] ( "," nestedControls+=[controls::SimpleControl|EString])* ')' )?
+		('sibling' '(' sibling+=[controls::SimpleControl|EString] ( "," sibling+=[controls::SimpleControl|EString])* ')' )?
 	'}';

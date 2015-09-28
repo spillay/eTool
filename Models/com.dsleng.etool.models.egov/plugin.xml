@@ -14,4 +14,12 @@
             genModel="model/EGov.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EGov -->
+      <package
+            uri="http://com/dsleng/etool/models/controls"
+            class="controls.ControlsPackage"
+            genModel="model/EGov.genmodel"/>
+   </extension>
+
 </plugin>

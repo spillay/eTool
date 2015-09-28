@@ -2,7 +2,7 @@
  */
 package com.dsleng.etool.models.controls.impl;
 
-import com.dsleng.etool.models.controls.Control;
+import com.dsleng.etool.models.controls.ControlDef;
 import com.dsleng.etool.models.controls.ControlsPackage;
 import com.dsleng.etool.models.controls.Options;
 
@@ -24,22 +24,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Control</b></em>'.
+ * An implementation of the model object '<em><b>Control Def</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.controls.impl.ControlImpl#getNs <em>Ns</em>}</li>
- *   <li>{@link com.dsleng.etool.models.controls.impl.ControlImpl#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link com.dsleng.etool.models.controls.impl.ControlImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.dsleng.etool.models.controls.impl.ControlImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link com.dsleng.etool.models.controls.impl.ControlImpl#getSyntax <em>Syntax</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.impl.ControlDefImpl#getNs <em>Ns</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.impl.ControlDefImpl#getPrefix <em>Prefix</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.impl.ControlDefImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.impl.ControlDefImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.impl.ControlDefImpl#getSyntax <em>Syntax</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ControlImpl extends MinimalEObjectImpl.Container implements Control {
+public class ControlDefImpl extends MinimalEObjectImpl.Container implements ControlDef {
 	/**
 	 * The default value of the '{@link #getNs() <em>Ns</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -135,7 +135,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ControlImpl() {
+	protected ControlDefImpl() {
 		super();
 	}
 
@@ -146,7 +146,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ControlsPackage.Literals.CONTROL;
+		return ControlsPackage.Literals.CONTROL_DEF;
 	}
 
 	/**
@@ -167,7 +167,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 		String oldNs = ns;
 		ns = newNs;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL__NS, oldNs, ns));
+			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL_DEF__NS, oldNs, ns));
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 		String oldPrefix = prefix;
 		prefix = newPrefix;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL__PREFIX, oldPrefix, prefix));
+			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL_DEF__PREFIX, oldPrefix, prefix));
 	}
 
 	/**
@@ -209,7 +209,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL_DEF__NAME, oldName, name));
 	}
 
 	/**
@@ -219,7 +219,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	 */
 	public EList<Options> getOptions() {
 		if (options == null) {
-			options = new EObjectContainmentEList<Options>(Options.class, this, ControlsPackage.CONTROL__OPTIONS);
+			options = new EObjectContainmentEList<Options>(Options.class, this, ControlsPackage.CONTROL_DEF__OPTIONS);
 		}
 		return options;
 	}
@@ -242,7 +242,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 		String oldSyntax = syntax;
 		syntax = newSyntax;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL__SYNTAX, oldSyntax, syntax));
+			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL_DEF__SYNTAX, oldSyntax, syntax));
 	}
 
 	/**
@@ -253,7 +253,7 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ControlsPackage.CONTROL__OPTIONS:
+			case ControlsPackage.CONTROL_DEF__OPTIONS:
 				return ((InternalEList<?>)getOptions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -267,15 +267,15 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ControlsPackage.CONTROL__NS:
+			case ControlsPackage.CONTROL_DEF__NS:
 				return getNs();
-			case ControlsPackage.CONTROL__PREFIX:
+			case ControlsPackage.CONTROL_DEF__PREFIX:
 				return getPrefix();
-			case ControlsPackage.CONTROL__NAME:
+			case ControlsPackage.CONTROL_DEF__NAME:
 				return getName();
-			case ControlsPackage.CONTROL__OPTIONS:
+			case ControlsPackage.CONTROL_DEF__OPTIONS:
 				return getOptions();
-			case ControlsPackage.CONTROL__SYNTAX:
+			case ControlsPackage.CONTROL_DEF__SYNTAX:
 				return getSyntax();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -290,20 +290,20 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ControlsPackage.CONTROL__NS:
+			case ControlsPackage.CONTROL_DEF__NS:
 				setNs((String)newValue);
 				return;
-			case ControlsPackage.CONTROL__PREFIX:
+			case ControlsPackage.CONTROL_DEF__PREFIX:
 				setPrefix((String)newValue);
 				return;
-			case ControlsPackage.CONTROL__NAME:
+			case ControlsPackage.CONTROL_DEF__NAME:
 				setName((String)newValue);
 				return;
-			case ControlsPackage.CONTROL__OPTIONS:
+			case ControlsPackage.CONTROL_DEF__OPTIONS:
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends Options>)newValue);
 				return;
-			case ControlsPackage.CONTROL__SYNTAX:
+			case ControlsPackage.CONTROL_DEF__SYNTAX:
 				setSyntax((String)newValue);
 				return;
 		}
@@ -318,19 +318,19 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ControlsPackage.CONTROL__NS:
+			case ControlsPackage.CONTROL_DEF__NS:
 				setNs(NS_EDEFAULT);
 				return;
-			case ControlsPackage.CONTROL__PREFIX:
+			case ControlsPackage.CONTROL_DEF__PREFIX:
 				setPrefix(PREFIX_EDEFAULT);
 				return;
-			case ControlsPackage.CONTROL__NAME:
+			case ControlsPackage.CONTROL_DEF__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case ControlsPackage.CONTROL__OPTIONS:
+			case ControlsPackage.CONTROL_DEF__OPTIONS:
 				getOptions().clear();
 				return;
-			case ControlsPackage.CONTROL__SYNTAX:
+			case ControlsPackage.CONTROL_DEF__SYNTAX:
 				setSyntax(SYNTAX_EDEFAULT);
 				return;
 		}
@@ -345,15 +345,15 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ControlsPackage.CONTROL__NS:
+			case ControlsPackage.CONTROL_DEF__NS:
 				return NS_EDEFAULT == null ? ns != null : !NS_EDEFAULT.equals(ns);
-			case ControlsPackage.CONTROL__PREFIX:
+			case ControlsPackage.CONTROL_DEF__PREFIX:
 				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
-			case ControlsPackage.CONTROL__NAME:
+			case ControlsPackage.CONTROL_DEF__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ControlsPackage.CONTROL__OPTIONS:
+			case ControlsPackage.CONTROL_DEF__OPTIONS:
 				return options != null && !options.isEmpty();
-			case ControlsPackage.CONTROL__SYNTAX:
+			case ControlsPackage.CONTROL_DEF__SYNTAX:
 				return SYNTAX_EDEFAULT == null ? syntax != null : !SYNTAX_EDEFAULT.equals(syntax);
 		}
 		return super.eIsSet(featureID);
@@ -381,4 +381,4 @@ public class ControlImpl extends MinimalEObjectImpl.Container implements Control
 		return result.toString();
 	}
 
-} //ControlImpl
+} //ControlDefImpl

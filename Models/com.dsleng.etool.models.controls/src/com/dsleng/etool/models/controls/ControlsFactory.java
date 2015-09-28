@@ -22,31 +22,13 @@ public interface ControlsFactory extends EFactory {
 	ControlsFactory eINSTANCE = com.dsleng.etool.models.controls.impl.ControlsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Control</em>'.
+	 * Returns a new object of class '<em>Control Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Control</em>'.
+	 * @return a new object of class '<em>Control Def</em>'.
 	 * @generated
 	 */
-	Control createControl();
-
-	/**
-	 * Returns a new object of class '<em>MControl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>MControl</em>'.
-	 * @generated
-	 */
-	MControl createMControl();
-
-	/**
-	 * Returns a new object of class '<em>WControl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>WControl</em>'.
-	 * @generated
-	 */
-	WControl createWControl();
+	ControlDef createControlDef();
 
 	/**
 	 * Returns a new object of class '<em>Page Info</em>'.
@@ -128,6 +110,24 @@ public interface ControlsFactory extends EFactory {
 	 * @generated
 	 */
 	Composite createComposite();
+
+	/**
+	 * Returns a new object of class '<em>Option Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Option Instance</em>'.
+	 * @generated
+	 */
+	OptionInstance createOptionInstance();
+
+	/**
+	 * Returns a new object of class '<em>Simple Control</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Simple Control</em>'.
+	 * @generated
+	 */
+	SimpleControl createSimpleControl();
 
 	/**
 	 * Returns the package supported by this factory.

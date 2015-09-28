@@ -2,12 +2,12 @@
  */
 package com.dsleng.etool.models.controls.impl;
 
-import com.dsleng.etool.models.controls.Composite;
-import com.dsleng.etool.models.controls.Control;
+import com.dsleng.etool.models.controls.ControlDef;
 import com.dsleng.etool.models.controls.ControlManager;
 import com.dsleng.etool.models.controls.ControlsPackage;
 import com.dsleng.etool.models.controls.PageInfo;
 
+import com.dsleng.etool.models.controls.SimpleControl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -46,7 +46,7 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Control> controls;
+	protected EList<ControlDef> controls;
 
 	/**
 	 * The cached value of the '{@link #getPageinfos() <em>Pageinfos</em>}' containment reference list.
@@ -66,7 +66,7 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Composite> composites;
+	protected EList<SimpleControl> composites;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,9 +92,9 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Control> getControls() {
+	public EList<ControlDef> getControls() {
 		if (controls == null) {
-			controls = new EObjectContainmentEList<Control>(Control.class, this, ControlsPackage.CONTROL_MANAGER__CONTROLS);
+			controls = new EObjectContainmentEList<ControlDef>(ControlDef.class, this, ControlsPackage.CONTROL_MANAGER__CONTROLS);
 		}
 		return controls;
 	}
@@ -116,9 +116,9 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Composite> getComposites() {
+	public EList<SimpleControl> getComposites() {
 		if (composites == null) {
-			composites = new EObjectContainmentEList<Composite>(Composite.class, this, ControlsPackage.CONTROL_MANAGER__COMPOSITES);
+			composites = new EObjectContainmentEList<SimpleControl>(SimpleControl.class, this, ControlsPackage.CONTROL_MANAGER__COMPOSITES);
 		}
 		return composites;
 	}
@@ -170,7 +170,7 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case ControlsPackage.CONTROL_MANAGER__CONTROLS:
 				getControls().clear();
-				getControls().addAll((Collection<? extends Control>)newValue);
+				getControls().addAll((Collection<? extends ControlDef>)newValue);
 				return;
 			case ControlsPackage.CONTROL_MANAGER__PAGEINFOS:
 				getPageinfos().clear();
@@ -178,7 +178,7 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case ControlsPackage.CONTROL_MANAGER__COMPOSITES:
 				getComposites().clear();
-				getComposites().addAll((Collection<? extends Composite>)newValue);
+				getComposites().addAll((Collection<? extends SimpleControl>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

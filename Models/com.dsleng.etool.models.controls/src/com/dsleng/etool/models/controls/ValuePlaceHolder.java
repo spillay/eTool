@@ -59,7 +59,7 @@ public interface ValuePlaceHolder extends EObject {
 	 * @return the value of the '<em>Syntax</em>' attribute.
 	 * @see #setSyntax(String)
 	 * @see com.dsleng.etool.models.controls.ControlsPackage#getValuePlaceHolder_Syntax()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getSyntax();

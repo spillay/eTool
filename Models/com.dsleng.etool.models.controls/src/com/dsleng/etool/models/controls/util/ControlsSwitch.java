@@ -66,23 +66,9 @@ public class ControlsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ControlsPackage.CONTROL: {
-				Control control = (Control)theEObject;
-				T result = caseControl(control);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ControlsPackage.MCONTROL: {
-				MControl mControl = (MControl)theEObject;
-				T result = caseMControl(mControl);
-				if (result == null) result = caseControl(mControl);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ControlsPackage.WCONTROL: {
-				WControl wControl = (WControl)theEObject;
-				T result = caseWControl(wControl);
-				if (result == null) result = caseControl(wControl);
+			case ControlsPackage.CONTROL_DEF: {
+				ControlDef controlDef = (ControlDef)theEObject;
+				T result = caseControlDef(controlDef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,6 +112,7 @@ public class ControlsSwitch<T> extends Switch<T> {
 				CompositeWebCtrl compositeWebCtrl = (CompositeWebCtrl)theEObject;
 				T result = caseCompositeWebCtrl(compositeWebCtrl);
 				if (result == null) result = caseComposite(compositeWebCtrl);
+				if (result == null) result = caseSimpleControl(compositeWebCtrl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -133,12 +120,26 @@ public class ControlsSwitch<T> extends Switch<T> {
 				CompositeMobCtrl compositeMobCtrl = (CompositeMobCtrl)theEObject;
 				T result = caseCompositeMobCtrl(compositeMobCtrl);
 				if (result == null) result = caseComposite(compositeMobCtrl);
+				if (result == null) result = caseSimpleControl(compositeMobCtrl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ControlsPackage.COMPOSITE: {
 				Composite composite = (Composite)theEObject;
 				T result = caseComposite(composite);
+				if (result == null) result = caseSimpleControl(composite);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ControlsPackage.OPTION_INSTANCE: {
+				OptionInstance optionInstance = (OptionInstance)theEObject;
+				T result = caseOptionInstance(optionInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ControlsPackage.SIMPLE_CONTROL: {
+				SimpleControl simpleControl = (SimpleControl)theEObject;
+				T result = caseSimpleControl(simpleControl);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -147,47 +148,17 @@ public class ControlsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Control</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Control Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Control</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Control Def</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseControl(Control object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>MControl</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>MControl</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMControl(MControl object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>WControl</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>WControl</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseWControl(WControl object) {
+	public T caseControlDef(ControlDef object) {
 		return null;
 	}
 
@@ -323,6 +294,36 @@ public class ControlsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComposite(Composite object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Option Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Option Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOptionInstance(OptionInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Simple Control</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Simple Control</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSimpleControl(SimpleControl object) {
 		return null;
 	}
 

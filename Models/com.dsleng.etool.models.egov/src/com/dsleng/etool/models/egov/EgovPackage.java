@@ -407,13 +407,22 @@ public interface EgovPackage extends EPackage {
 	int ATTRIBUTE__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__CONTROL = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
@@ -758,6 +767,17 @@ public interface EgovPackage extends EPackage {
 	EAttribute getAttribute_Type();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.Attribute#getControl <em>Control</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Control</em>'.
+	 * @see com.dsleng.etool.models.egov.Attribute#getControl()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EReference getAttribute_Control();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.References <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1048,6 +1068,14 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Control</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE__CONTROL = eINSTANCE.getAttribute_Control();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.ReferencesImpl <em>References</em>}' class.

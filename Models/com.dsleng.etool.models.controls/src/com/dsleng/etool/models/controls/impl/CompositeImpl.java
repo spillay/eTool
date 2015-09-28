@@ -5,12 +5,15 @@ package com.dsleng.etool.models.controls.impl;
 import com.dsleng.etool.models.controls.Composite;
 import com.dsleng.etool.models.controls.ControlsPackage;
 
+import com.dsleng.etool.models.controls.SimpleControl;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,31 +23,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.controls.impl.CompositeImpl#getSyntax <em>Syntax</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.impl.CompositeImpl#getUsesControl <em>Uses Control</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CompositeImpl extends MinimalEObjectImpl.Container implements Composite {
+public class CompositeImpl extends SimpleControlImpl implements Composite {
 	/**
-	 * The default value of the '{@link #getSyntax() <em>Syntax</em>}' attribute.
+	 * The cached value of the '{@link #getUsesControl() <em>Uses Control</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSyntax()
+	 * @see #getUsesControl()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SYNTAX_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSyntax() <em>Syntax</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSyntax()
-	 * @generated
-	 * @ordered
-	 */
-	protected String syntax = SYNTAX_EDEFAULT;
+	protected SimpleControl usesControl;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,8 +63,16 @@ public class CompositeImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSyntax() {
-		return syntax;
+	public SimpleControl getUsesControl() {
+		if (usesControl != null && usesControl.eIsProxy()) {
+			InternalEObject oldUsesControl = (InternalEObject)usesControl;
+			usesControl = (SimpleControl)eResolveProxy(oldUsesControl);
+			if (usesControl != oldUsesControl) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ControlsPackage.COMPOSITE__USES_CONTROL, oldUsesControl, usesControl));
+			}
+		}
+		return usesControl;
 	}
 
 	/**
@@ -79,11 +80,31 @@ public class CompositeImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSyntax(String newSyntax) {
-		String oldSyntax = syntax;
-		syntax = newSyntax;
+	public SimpleControl basicGetUsesControl() {
+		return usesControl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUsesControl(SimpleControl newUsesControl) {
+		SimpleControl oldUsesControl = usesControl;
+		usesControl = newUsesControl;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.COMPOSITE__SYNTAX, oldSyntax, syntax));
+			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.COMPOSITE__USES_CONTROL, oldUsesControl, usesControl));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void getCode() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -94,8 +115,9 @@ public class CompositeImpl extends MinimalEObjectImpl.Container implements Compo
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ControlsPackage.COMPOSITE__SYNTAX:
-				return getSyntax();
+			case ControlsPackage.COMPOSITE__USES_CONTROL:
+				if (resolve) return getUsesControl();
+				return basicGetUsesControl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -105,11 +127,12 @@ public class CompositeImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ControlsPackage.COMPOSITE__SYNTAX:
-				setSyntax((String)newValue);
+			case ControlsPackage.COMPOSITE__USES_CONTROL:
+				setUsesControl((SimpleControl)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +146,8 @@ public class CompositeImpl extends MinimalEObjectImpl.Container implements Compo
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ControlsPackage.COMPOSITE__SYNTAX:
-				setSyntax(SYNTAX_EDEFAULT);
+			case ControlsPackage.COMPOSITE__USES_CONTROL:
+				setUsesControl((SimpleControl)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +161,8 @@ public class CompositeImpl extends MinimalEObjectImpl.Container implements Compo
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ControlsPackage.COMPOSITE__SYNTAX:
-				return SYNTAX_EDEFAULT == null ? syntax != null : !SYNTAX_EDEFAULT.equals(syntax);
+			case ControlsPackage.COMPOSITE__USES_CONTROL:
+				return usesControl != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -150,14 +173,13 @@ public class CompositeImpl extends MinimalEObjectImpl.Container implements Compo
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (syntax: ");
-		result.append(syntax);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ControlsPackage.COMPOSITE___GET_CODE:
+				getCode();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //CompositeImpl

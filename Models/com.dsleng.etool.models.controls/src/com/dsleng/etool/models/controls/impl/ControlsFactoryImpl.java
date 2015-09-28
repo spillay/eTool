@@ -56,9 +56,7 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ControlsPackage.CONTROL: return createControl();
-			case ControlsPackage.MCONTROL: return createMControl();
-			case ControlsPackage.WCONTROL: return createWControl();
+			case ControlsPackage.CONTROL_DEF: return createControlDef();
 			case ControlsPackage.PAGE_INFO: return createPageInfo();
 			case ControlsPackage.RESOURCE: return createResource();
 			case ControlsPackage.CONTROL_MANAGER: return createControlManager();
@@ -68,6 +66,8 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 			case ControlsPackage.COMPOSITE_WEB_CTRL: return createCompositeWebCtrl();
 			case ControlsPackage.COMPOSITE_MOB_CTRL: return createCompositeMobCtrl();
 			case ControlsPackage.COMPOSITE: return createComposite();
+			case ControlsPackage.OPTION_INSTANCE: return createOptionInstance();
+			case ControlsPackage.SIMPLE_CONTROL: return createSimpleControl();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,29 +78,9 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Control createControl() {
-		ControlImpl control = new ControlImpl();
-		return control;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MControl createMControl() {
-		MControlImpl mControl = new MControlImpl();
-		return mControl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public WControl createWControl() {
-		WControlImpl wControl = new WControlImpl();
-		return wControl;
+	public ControlDef createControlDef() {
+		ControlDefImpl controlDef = new ControlDefImpl();
+		return controlDef;
 	}
 
 	/**
@@ -191,6 +171,26 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 	public Composite createComposite() {
 		CompositeImpl composite = new CompositeImpl();
 		return composite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OptionInstance createOptionInstance() {
+		OptionInstanceImpl optionInstance = new OptionInstanceImpl();
+		return optionInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SimpleControl createSimpleControl() {
+		SimpleControlImpl simpleControl = new SimpleControlImpl();
+		return simpleControl;
 	}
 
 	/**

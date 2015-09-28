@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.controls.ControlGroup#getControls <em>Controls</em>}</li>
  *   <li>{@link com.dsleng.etool.models.controls.ControlGroup#getPageinfos <em>Pageinfos</em>}</li>
  *   <li>{@link com.dsleng.etool.models.controls.ControlGroup#getComposites <em>Composites</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.ControlGroup#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.controls.ControlsPackage#getControlGroup()
@@ -25,22 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ControlGroup extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Controls</b></em>' reference list.
-	 * The list contents are of type {@link com.dsleng.etool.models.controls.Control}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Controls</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Controls</em>' reference list.
-	 * @see com.dsleng.etool.models.controls.ControlsPackage#getControlGroup_Controls()
-	 * @model
-	 * @generated
-	 */
-	EList<Control> getControls();
-
 	/**
 	 * Returns the value of the '<em><b>Pageinfos</b></em>' reference list.
 	 * The list contents are of type {@link com.dsleng.etool.models.controls.PageInfo}.
@@ -72,5 +56,31 @@ public interface ControlGroup extends EObject {
 	 * @generated
 	 */
 	EList<Composite> getComposites();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.dsleng.etool.models.controls.ControlsPackage#getControlGroup_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.controls.ControlGroup#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // ControlGroup

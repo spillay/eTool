@@ -2,8 +2,6 @@
  */
 package com.dsleng.etool.models.controls;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Composite</b></em>'.
@@ -13,38 +11,46 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.controls.Composite#getSyntax <em>Syntax</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.Composite#getUsesControl <em>Uses Control</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.controls.ControlsPackage#getComposite()
  * @model
  * @generated
  */
-public interface Composite extends EObject {
+public interface Composite extends SimpleControl {
 	/**
-	 * Returns the value of the '<em><b>Syntax</b></em>' attribute.
+	 * Returns the value of the '<em><b>Uses Control</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Syntax</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Uses Control</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Syntax</em>' attribute.
-	 * @see #setSyntax(String)
-	 * @see com.dsleng.etool.models.controls.ControlsPackage#getComposite_Syntax()
+	 * @return the value of the '<em>Uses Control</em>' reference.
+	 * @see #setUsesControl(SimpleControl)
+	 * @see com.dsleng.etool.models.controls.ControlsPackage#getComposite_UsesControl()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getSyntax();
+	SimpleControl getUsesControl();
 
 	/**
-	 * Sets the value of the '{@link com.dsleng.etool.models.controls.Composite#getSyntax <em>Syntax</em>}' attribute.
+	 * Sets the value of the '{@link com.dsleng.etool.models.controls.Composite#getUsesControl <em>Uses Control</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Syntax</em>' attribute.
-	 * @see #getSyntax()
+	 * @param value the new value of the '<em>Uses Control</em>' reference.
+	 * @see #getUsesControl()
 	 * @generated
 	 */
-	void setSyntax(String value);
+	void setUsesControl(SimpleControl value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	void getCode();
 
 } // Composite

@@ -2,6 +2,8 @@
  */
 package com.dsleng.etool.models.egov;
 
+import controls.SimpleControl;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +16,7 @@ package com.dsleng.etool.models.egov;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.Attribute#getLabel <em>Label</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Attribute#getType <em>Type</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Attribute#getControl <em>Control</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getAttribute()
@@ -75,5 +78,31 @@ public interface Attribute extends NamedElement {
 	 * @generated
 	 */
 	void setType(DataTypes value);
+
+	/**
+	 * Returns the value of the '<em><b>Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Control</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Control</em>' reference.
+	 * @see #setControl(SimpleControl)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getAttribute_Control()
+	 * @model
+	 * @generated
+	 */
+	SimpleControl getControl();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Attribute#getControl <em>Control</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Control</em>' reference.
+	 * @see #getControl()
+	 * @generated
+	 */
+	void setControl(SimpleControl value);
 
 } // Attribute

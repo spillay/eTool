@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface ControlManager extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Controls</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.models.controls.Control}.
+	 * The list contents are of type {@link com.dsleng.etool.models.controls.ControlDef}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Controls</em>' containment reference list isn't clear,
@@ -39,7 +39,7 @@ public interface ControlManager extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Control> getControls();
+	EList<ControlDef> getControls();
 
 	/**
 	 * Returns the value of the '<em><b>Pageinfos</b></em>' containment reference list.
@@ -59,7 +59,7 @@ public interface ControlManager extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Composites</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.models.controls.Composite}.
+	 * The list contents are of type {@link com.dsleng.etool.models.controls.SimpleControl}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Composites</em>' containment reference list isn't clear,
@@ -71,6 +71,6 @@ public interface ControlManager extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Composite> getComposites();
+	EList<SimpleControl> getComposites();
 
 } // ControlManager
