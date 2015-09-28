@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.egov.Dept#getLangFile <em>Lang File</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Dept#getVersion <em>Version</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Dept#getDirLocation <em>Dir Location</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Dept#getWebDirectory <em>Web Directory</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getDept()
@@ -188,5 +189,31 @@ public interface Dept extends NamedElement {
 	 * @generated
 	 */
 	void setDirLocation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Web Directory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Web Directory</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Web Directory</em>' attribute.
+	 * @see #setWebDirectory(String)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getDept_WebDirectory()
+	 * @model
+	 * @generated
+	 */
+	String getWebDirectory();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Dept#getWebDirectory <em>Web Directory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Web Directory</em>' attribute.
+	 * @see #getWebDirectory()
+	 * @generated
+	 */
+	void setWebDirectory(String value);
 
 } // Dept

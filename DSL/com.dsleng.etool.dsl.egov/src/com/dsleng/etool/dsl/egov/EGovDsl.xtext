@@ -15,8 +15,8 @@ Dept returns egov::Dept:
 		'ArtifactID' artifactId=EString','
 		'Version' version=EString','
 		'Deployment Directory' dirLocation=EString','
-		'Language File' langFile=EString
-		
+		'Language File' langFile=EString','
+		'Web Directory' webDirectory=EString
 	'}'
 	'{'
 		('BusinessObjects' '{' businessobjects+=BusinessObject ( "," businessobjects+=BusinessObject)* '}' )?

@@ -28,7 +28,7 @@ public class PFProject {
 			Dept dp = (Dept) model;
 			SPPrimefacesGen pT = new SPPrimefacesGen(dp.getDirLocation());
 			setLangFile(dp.getDirLocation() + fileSep + dp.getArtifactId() + fileSep + dp.getLangFile());
-			pT.createBaseProj(dp.getGroupId(), dp.getArtifactId(), dp.getVersion(),dp.getLangFile());
+			pT.createBaseProj(dp.getGroupId(), dp.getArtifactId(), dp.getVersion(),dp.getLangFile(),dp.getWebDirectory());
 		}
 	}
 	

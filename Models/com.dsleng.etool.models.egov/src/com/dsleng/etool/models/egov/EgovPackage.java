@@ -297,13 +297,22 @@ public interface EgovPackage extends EPackage {
 	int DEPT__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Web Directory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPT__WEB_DIRECTORY = NAMED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Dept</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int DEPT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Dept</em>' class.
@@ -703,6 +712,17 @@ public interface EgovPackage extends EPackage {
 	EAttribute getDept_DirLocation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Dept#getWebDirectory <em>Web Directory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Web Directory</em>'.
+	 * @see com.dsleng.etool.models.egov.Dept#getWebDirectory()
+	 * @see #getDept()
+	 * @generated
+	 */
+	EAttribute getDept_WebDirectory();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.Page <em>Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,6 +1036,14 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEPT__DIR_LOCATION = eINSTANCE.getDept_DirLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Web Directory</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPT__WEB_DIRECTORY = eINSTANCE.getDept_WebDirectory();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.PageImpl <em>Page</em>}' class.

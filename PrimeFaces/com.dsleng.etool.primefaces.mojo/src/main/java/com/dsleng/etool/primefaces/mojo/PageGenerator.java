@@ -17,6 +17,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.project.MavenProject;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -42,8 +43,12 @@ import com.google.inject.Injector;
 @Mojo(name = "PageGen")
 public class PageGenerator extends AbstractMojo {
 
+	@Parameter(defaultValue = "${project}", required = true, readonly = true)
+	MavenProject project;
+	
 	@Parameter(property = "PageGen.baseDir", defaultValue = "src/main/webapp/")
 	private String baseDir;
+	
 
 	@Parameter
 	private File dslFile;
@@ -89,7 +94,8 @@ public class PageGenerator extends AbstractMojo {
 				EgovGenerator gen = new EgovGenerator();
 				gen.doGenerate(obj.eResource(), pT.getFileAccess("src/main/webapp"));
 				
-				BOGenerator boGen = new BOGenerator("za.co.egov");
+				
+				BOGenerator boGen = new BOGenerator(project.getArtifactId());
 				boGen.doGenerate(obj.eResource(), pT.getFileAccess("src/main/java/"));
 				
 			}

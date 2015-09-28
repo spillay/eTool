@@ -18,17 +18,15 @@ import org.apache.maven.shared.invoker.InvocationResult;
 import org.apache.maven.shared.invoker.Invoker;
 import org.apache.maven.shared.invoker.MavenInvocationException;
 
-public class SPPrimefacesGen {
-	private String archetypeVersion;
-	private String baseDirectory;
-	
+public class SPPrimefacesGen extends SPGenerator {	
 	public SPPrimefacesGen(String baseDir) {
+		super();
 		setBaseDirectory(baseDir);
-		setArchetypeVersion("1.0.0-SNAPSHOT");
+		
 	}
 
 	
-	public void createBaseProj(String groupId,String artifactId,String version,String langFile){
+	public void createBaseProj(String groupId,String artifactId,String version,String langFile,String webdir){
 			InvocationRequest request = new DefaultInvocationRequest();
 			//request.setPomFile( new File( "/path/to/pom.xml" ) );
 			request.setGoals( Collections.singletonList( "archetype:generate" ) );
@@ -37,7 +35,7 @@ public class SPPrimefacesGen {
 	        Properties properties = new Properties();
 	        properties.setProperty("groupId", groupId);
 	        properties.setProperty("artifactId", artifactId);
-	        properties.setProperty("archetypeVersion", archetypeVersion);
+	        properties.setProperty("archetypeVersion", getArchetypeVersion());
 	        properties.setProperty("archetypeGroupId", "com.dsleng.archetype");
 	        properties.setProperty("archetypeArtifactId", "com.dsleng.archetype.primefaces");
 	        properties.setProperty("archetypeCatalog", "local");
@@ -45,16 +43,17 @@ public class SPPrimefacesGen {
 	        properties.setProperty("version", version);
 	        properties.setProperty("package", artifactId);
 	        properties.setProperty("langFile", langFile);
+	        properties.setProperty("webdir", webdir);
 	        
 	       		
 	        request.setProperties(properties);
 	        
-			request.setBaseDirectory(new File(baseDirectory));
+	        request.setBaseDirectory(new File(getBaseDirectory()));
 
 			
 			Invoker invoker = new DefaultInvoker();
-			invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
-			invoker.setMavenHome(new File("/usr/share/maven"));
+			invoker.setLocalRepositoryDirectory(new File(this.getLocalRepository()));
+			invoker.setMavenHome(new File(this.getMavenHome()));
 			try {
 				InvocationResult result = invoker.execute( request );
 
@@ -66,22 +65,5 @@ public class SPPrimefacesGen {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	}
-	
-	
-	public String getArchetypeVersion() {
-		return archetypeVersion;
-	}
-
-	public void setArchetypeVersion(String archetypeVersion) {
-		this.archetypeVersion = archetypeVersion;
-	}
-
-	public String getBaseDirectory() {
-		return baseDirectory;
-	}
-
-	public void setBaseDirectory(String baseDirectory) {
-		this.baseDirectory = baseDirectory;
 	}
 }

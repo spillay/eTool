@@ -23,6 +23,7 @@ class EgovGenerator implements IGenerator {
 
 	//@Inject extension IQualifiedNameProvider
 	val fileSep = "/"
+	var pagelist = newArrayList
 	
 	new(){
 		// Using this to make sure that the ecore file is registered need to fix
@@ -31,8 +32,11 @@ class EgovGenerator implements IGenerator {
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		for (e : resource.allContents.toIterable.filter(Page)) {
-			fsa.generateFile(e.genFileName, e.compile)
+			val pg = e.genFileName
+			fsa.generateFile(pg, e.compile)
+			pagelist.add(pg)
 		}
+		fsa.generateFile("index.xhtml",welcomePage)
 	}
 	private def lowerFirstLetter(String s) {
     	return s.substring(0,1).toLowerCase + s.substring(1);
@@ -53,6 +57,7 @@ class EgovGenerator implements IGenerator {
 		*/
 		//fileName = fileName + fileSep + e.name + ".xhtml"
 		var fileName = (e.eContainer.eContainer as Dept).name + fileSep + (e.eContainer as EService).name + fileSep + e.name
+		//fileName = e.name
 		fileName = fileName.replace(" ","_")
 		fileName = fileName + ".xhtml"
 	}
@@ -90,13 +95,19 @@ class EgovGenerator implements IGenerator {
  </p:panel>
   		
   	'''
-  	
+  	private def getPages(){
+  		var links = ""
+  		for(p: pagelist){
+  			links += "<a href=\"" +p+ "\">" + p + "</a><br/>\n"
+  		}
+  		return links
+  	}
   	private def compile(Attribute e){
   		var nme = e.name
 		// Some cleanup to main java naming conventions
 		nme = Introspector.decapitalize(nme)
 		var boName = (e.eContainer as BusinessObject).name
-		boName = Introspector.decapitalize(boName)
+		boName = Introspector.decapitalize(boName) + "Bean"
   		switch e.type {
 			case STRING:
 				'''
@@ -122,7 +133,11 @@ class EgovGenerator implements IGenerator {
 </h:head>
   		
   	'''
-  	
+  	private def welcomePage()'''
+ «PageHead»
+ «pages»
+ «PageTail»
+ '''
   	private def PageHead()'''
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

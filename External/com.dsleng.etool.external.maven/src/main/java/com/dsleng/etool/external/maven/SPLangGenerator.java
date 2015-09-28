@@ -18,11 +18,10 @@ import org.apache.maven.shared.invoker.MavenInvocationException;
  * @author suresh
  *
  */
-public class SPLangGenerator {
-	private String archetypeVersion = "1.0.0-SNAPSHOT";
-	private String baseDirectory;
+public class SPLangGenerator extends SPGenerator {
 	public SPLangGenerator(String baseDir) {
-		baseDirectory = baseDir;
+		super();
+		this.setBaseDirectory(baseDir);
 	}
 	public void GenerateLang(String groupId,String artifactId,String version,String langName,String langExt,String GenModelFile,String GenerateEPackage,String ModelURI,String ModelBundle){
 		this.createParentProj(groupId, artifactId + ".parent", version);
@@ -41,7 +40,7 @@ public class SPLangGenerator {
         Properties properties = new Properties();
         properties.setProperty("groupId", groupId);
         properties.setProperty("artifactId", artifactId);
-        properties.setProperty("archetypeVersion", archetypeVersion);
+        properties.setProperty("archetypeVersion", getArchetypeVersion());
         properties.setProperty("archetypeGroupId", "com.dsleng.archetype");
         properties.setProperty("archetypeArtifactId", "com.dsleng.archetype.xtext.parent");
         properties.setProperty("archetypeCatalog", "local");
@@ -52,12 +51,12 @@ public class SPLangGenerator {
        		
         request.setProperties(properties);
         
-		request.setBaseDirectory(new File(baseDirectory));
+		request.setBaseDirectory(new File(getBaseDirectory()));
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
-		invoker.setMavenHome(new File("/usr/share/maven"));
+		invoker.setLocalRepositoryDirectory(new File(this.getLocalRepository()));
+		invoker.setMavenHome(new File(this.getMavenHome()));
 		try {
 			InvocationResult result = invoker.execute( request );
 
@@ -79,7 +78,7 @@ public class SPLangGenerator {
         Properties properties = new Properties();
         properties.setProperty("groupId", groupId);
         properties.setProperty("artifactId", artifactId);
-        properties.setProperty("archetypeVersion", archetypeVersion);
+        properties.setProperty("archetypeVersion", getArchetypeVersion());
         properties.setProperty("archetypeGroupId", "com.dsleng.archetype");
         properties.setProperty("archetypeArtifactId", "com.dsleng.archetype.xtext.lang");
         properties.setProperty("archetypeCatalog", "local");
@@ -99,12 +98,12 @@ public class SPLangGenerator {
        		
         request.setProperties(properties);
         
-		request.setBaseDirectory(new File(baseDirectory));
+        request.setBaseDirectory(new File(getBaseDirectory()));
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
-		invoker.setMavenHome(new File("/usr/share/maven"));
+		invoker.setLocalRepositoryDirectory(new File(this.getLocalRepository()));
+		invoker.setMavenHome(new File(this.getMavenHome()));
 		try {
 			InvocationResult result = invoker.execute( request );
 
@@ -126,7 +125,7 @@ public class SPLangGenerator {
         Properties properties = new Properties();
         properties.setProperty("groupId", groupId);
         properties.setProperty("artifactId", artifactId);
-        properties.setProperty("archetypeVersion", archetypeVersion);
+        properties.setProperty("archetypeVersion", getArchetypeVersion());
         properties.setProperty("archetypeGroupId", "com.dsleng.archetype");
         properties.setProperty("archetypeArtifactId", "com.dsleng.archetype.xtext.ui");
         properties.setProperty("archetypeCatalog", "local");
@@ -142,12 +141,12 @@ public class SPLangGenerator {
        		
         request.setProperties(properties);
         
-		request.setBaseDirectory(new File(baseDirectory));
+        request.setBaseDirectory(new File(getBaseDirectory()));
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
-		invoker.setMavenHome(new File("/usr/share/maven"));
+		invoker.setLocalRepositoryDirectory(new File(this.getLocalRepository()));
+		invoker.setMavenHome(new File(this.getMavenHome()));
 		try {
 			InvocationResult result = invoker.execute( request );
 
@@ -169,7 +168,7 @@ public class SPLangGenerator {
         Properties properties = new Properties();
         properties.setProperty("groupId", groupId);
         properties.setProperty("artifactId", artifactId);
-        properties.setProperty("archetypeVersion", archetypeVersion);
+        properties.setProperty("archetypeVersion", getArchetypeVersion());
         properties.setProperty("archetypeGroupId", "com.dsleng.archetype");
         properties.setProperty("archetypeArtifactId", "com.dsleng.archetype.xtext.sdk");
         properties.setProperty("archetypeCatalog", "local");
@@ -185,12 +184,12 @@ public class SPLangGenerator {
        		
         request.setProperties(properties);
         
-		request.setBaseDirectory(new File(baseDirectory));
+        request.setBaseDirectory(new File(getBaseDirectory()));
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
-		invoker.setMavenHome(new File("/usr/share/maven"));
+		invoker.setLocalRepositoryDirectory(new File(this.getLocalRepository()));
+		invoker.setMavenHome(new File(this.getMavenHome()));
 		try {
 			InvocationResult result = invoker.execute( request );
 
@@ -212,7 +211,7 @@ public class SPLangGenerator {
         Properties properties = new Properties();
         properties.setProperty("groupId", groupId);
         properties.setProperty("artifactId", artifactId);
-        properties.setProperty("archetypeVersion", archetypeVersion);
+        properties.setProperty("archetypeVersion", getArchetypeVersion());
         properties.setProperty("archetypeGroupId", "com.dsleng.archetype");
         properties.setProperty("archetypeArtifactId", "com.dsleng.archetype.xtext.tests");
         properties.setProperty("archetypeCatalog", "local");
@@ -228,12 +227,12 @@ public class SPLangGenerator {
        		
         request.setProperties(properties);
         
-		request.setBaseDirectory(new File(baseDirectory));
+        request.setBaseDirectory(new File(getBaseDirectory()));
 
 		
 		Invoker invoker = new DefaultInvoker();
-		invoker.setLocalRepositoryDirectory(new File("/Data/m2/repository/"));
-		invoker.setMavenHome(new File("/usr/share/maven"));
+		invoker.setLocalRepositoryDirectory(new File(this.getLocalRepository()));
+		invoker.setMavenHome(new File(this.getMavenHome()));
 		try {
 			InvocationResult result = invoker.execute( request );
 

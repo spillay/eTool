@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.egov.impl.DeptImpl#getLangFile <em>Lang File</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.DeptImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.DeptImpl#getDirLocation <em>Dir Location</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.DeptImpl#getWebDirectory <em>Web Directory</em>}</li>
  * </ul>
  *
  * @generated
@@ -160,6 +161,26 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 	 * @ordered
 	 */
 	protected String dirLocation = DIR_LOCATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWebDirectory() <em>Web Directory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWebDirectory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String WEB_DIRECTORY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getWebDirectory() <em>Web Directory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWebDirectory()
+	 * @generated
+	 * @ordered
+	 */
+	protected String webDirectory = WEB_DIRECTORY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,6 +335,27 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getWebDirectory() {
+		return webDirectory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWebDirectory(String newWebDirectory) {
+		String oldWebDirectory = webDirectory;
+		webDirectory = newWebDirectory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.DEPT__WEB_DIRECTORY, oldWebDirectory, webDirectory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -347,6 +389,8 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 				return getVersion();
 			case EgovPackage.DEPT__DIR_LOCATION:
 				return getDirLocation();
+			case EgovPackage.DEPT__WEB_DIRECTORY:
+				return getWebDirectory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -383,6 +427,9 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 			case EgovPackage.DEPT__DIR_LOCATION:
 				setDirLocation((String)newValue);
 				return;
+			case EgovPackage.DEPT__WEB_DIRECTORY:
+				setWebDirectory((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -416,6 +463,9 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 			case EgovPackage.DEPT__DIR_LOCATION:
 				setDirLocation(DIR_LOCATION_EDEFAULT);
 				return;
+			case EgovPackage.DEPT__WEB_DIRECTORY:
+				setWebDirectory(WEB_DIRECTORY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -442,6 +492,8 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 			case EgovPackage.DEPT__DIR_LOCATION:
 				return DIR_LOCATION_EDEFAULT == null ? dirLocation != null : !DIR_LOCATION_EDEFAULT.equals(dirLocation);
+			case EgovPackage.DEPT__WEB_DIRECTORY:
+				return WEB_DIRECTORY_EDEFAULT == null ? webDirectory != null : !WEB_DIRECTORY_EDEFAULT.equals(webDirectory);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -466,6 +518,8 @@ public class DeptImpl extends NamedElementImpl implements Dept {
 		result.append(version);
 		result.append(", dirLocation: ");
 		result.append(dirLocation);
+		result.append(", webDirectory: ");
+		result.append(webDirectory);
 		result.append(')');
 		return result.toString();
 	}

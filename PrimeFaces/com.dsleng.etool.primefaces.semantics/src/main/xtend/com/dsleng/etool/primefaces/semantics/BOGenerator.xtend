@@ -37,12 +37,13 @@ class BOGenerator implements IGenerator {
 		var fileName = basePackage.replace(".",fileSep);
 		if (e.eContainer instanceof Dept)
 		{
-			fileName += fileSep + (e.eContainer as Dept).name + fileSep + e.name + ".java"
+			fileName += fileSep + (e.eContainer as Dept).name + fileSep + e.name + "Bean.java"
 		}
+		//fileName += fileSep + e.name + "Bean.java"
 		fileName = fileName.replace(" ","_")
 	}
 	private def getPackage(BusinessObject e){
-		var pkg = basePackage
+		var pkg = basePackage 
 		if (e.eContainer instanceof Dept)
 		{
 			pkg += pkgSep + (e.eContainer as Dept).name
@@ -53,6 +54,8 @@ class BOGenerator implements IGenerator {
 	private def compile(BusinessObject e)'''
 «PageHead(getPackage(e))»
 «importStmt("javax.faces.bean.ManagedBean")»
+«importStmt("javax.faces.bean.RequestScoped")»
+«importStmt("java.io.Serializable")»
 «classHead(e)»
 «FOR att: e.attributes»
 «att.compile»
@@ -74,20 +77,20 @@ class BOGenerator implements IGenerator {
   		switch e.type {
 			case STRING:
 				'''
-				String get«nme»(){
+				public String get«nme»(){
 					return «vnme»;
 				}
-				void set«nme»(String s){
-					«vnme»=s;
+				public void set«nme»(String «vnme»){
+					this.«vnme»=«vnme»;
 				}
 				'''
 			case INTEGER:
 				'''
-				int get«nme»(){
+				public int get«nme»(){
 					return «vnme»;
 				}
-				void set«nme»(int i){
-					«vnme»=i;
+				public void set«nme»(int «vnme»){
+					this.«vnme»=«vnme»;
 				}
 				'''
 			default: {
@@ -118,8 +121,12 @@ class BOGenerator implements IGenerator {
 	
 	private def classHead(BusinessObject e)'''
 @ManagedBean
-public class «e.name» {
-	'''	
+@RequestScoped
+public class «e.name»Bean implements Serializable {
+
+        private static final long serialVersionUID = 1L;
+
+'''	
 	private def classTail()'''
 }
 	'''

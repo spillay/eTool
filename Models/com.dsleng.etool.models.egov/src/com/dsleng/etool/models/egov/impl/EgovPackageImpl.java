@@ -326,6 +326,15 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDept_WebDirectory() {
+		return (EAttribute)deptEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPage() {
 		return pageEClass;
 	}
@@ -495,6 +504,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		createEAttribute(deptEClass, DEPT__LANG_FILE);
 		createEAttribute(deptEClass, DEPT__VERSION);
 		createEAttribute(deptEClass, DEPT__DIR_LOCATION);
+		createEAttribute(deptEClass, DEPT__WEB_DIRECTORY);
 
 		pageEClass = createEClass(PAGE);
 		createEReference(pageEClass, PAGE__BUSINESSOBJECT);
@@ -574,6 +584,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEAttribute(getDept_LangFile(), ecorePackage.getEString(), "langFile", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDept_Version(), ecorePackage.getEString(), "version", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDept_DirLocation(), ecorePackage.getEString(), "dirLocation", null, 1, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDept_WebDirectory(), ecorePackage.getEString(), "webDirectory", null, 0, 1, Dept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPage_Businessobject(), this.getBusinessObject(), null, "businessobject", null, 1, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1,10 +1,11 @@
-Department  Name="Environmental Affairs" 
+Department  Name="ea" 
 	setup {
 			GroupID "za.co.egov",
 			ArtifactID "za.co.egov.ea",
 			Version "1.0.0-SNAPSHOT",
 			Deployment Directory "/Data/maventest/",
-			Language File "dsl/s1.egv.xmi"	
+			Language File "dsl/s1.egv.xmi",
+			Web Directory "permit"		
 	}
 	{ 
 	BusinessObjects { 
