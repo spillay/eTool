@@ -269,13 +269,22 @@ public interface ControlsPackage extends EPackage {
 	int CONTROL_MANAGER__COMPOSITES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MANAGER__TYPES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Control Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_MANAGER_FEATURE_COUNT = 3;
+	int CONTROL_MANAGER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Control Manager</em>' class.
@@ -827,6 +836,53 @@ public interface ControlsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.controls.impl.TypeImpl <em>Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.controls.impl.TypeImpl
+	 * @see com.dsleng.etool.models.controls.impl.ControlsPackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__CONTROL = 1;
+
+	/**
+	 * The number of structural features of the '<em>Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.controls.ControlDef <em>Control Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1008,6 +1064,17 @@ public interface ControlsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getControlManager_Composites();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.controls.ControlManager#getTypes <em>Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Types</em>'.
+	 * @see com.dsleng.etool.models.controls.ControlManager#getTypes()
+	 * @see #getControlManager()
+	 * @generated
+	 */
+	EReference getControlManager_Types();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.controls.ControlGroup <em>Control Group</em>}'.
@@ -1265,6 +1332,38 @@ public interface ControlsPackage extends EPackage {
 	EReference getSimpleControl_Sibling();
 
 	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.controls.Type <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type</em>'.
+	 * @see com.dsleng.etool.models.controls.Type
+	 * @generated
+	 */
+	EClass getType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.controls.Type#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.dsleng.etool.models.controls.Type#getName()
+	 * @see #getType()
+	 * @generated
+	 */
+	EAttribute getType_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.controls.Type#getControl <em>Control</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Control</em>'.
+	 * @see com.dsleng.etool.models.controls.Type#getControl()
+	 * @see #getType()
+	 * @generated
+	 */
+	EReference getType_Control();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1430,6 +1529,14 @@ public interface ControlsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTROL_MANAGER__COMPOSITES = eINSTANCE.getControlManager_Composites();
+
+		/**
+		 * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_MANAGER__TYPES = eINSTANCE.getControlManager_Types();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.controls.impl.ControlGroupImpl <em>Control Group</em>}' class.
@@ -1638,6 +1745,32 @@ public interface ControlsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SIMPLE_CONTROL__SIBLING = eINSTANCE.getSimpleControl_Sibling();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.controls.impl.TypeImpl <em>Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.controls.impl.TypeImpl
+		 * @see com.dsleng.etool.models.controls.impl.ControlsPackageImpl#getType()
+		 * @generated
+		 */
+		EClass TYPE = eINSTANCE.getType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE__NAME = eINSTANCE.getType_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Control</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE__CONTROL = eINSTANCE.getType_Control();
 
 	}
 

@@ -11,7 +11,12 @@ ControlManager returns controls::ControlManager:
 		('controls' '{' controls+=ControlDef ( "," controls+=ControlDef)* '}' )?
 		('pageinfos' '{' pageinfos+=PageInfo ( "," pageinfos+=PageInfo)* '}' )?
 		('composites' '{' composites+=Composite ( "," composites+=Composite)* '}' )?
+		('Types' '{' types+=Type ( "," types+=Type)* '}' )?
 	'}';
+
+Type returns controls::Type:
+	'[' 'Name=' name=EString 'Control=' control=[controls::SimpleControl|EString] ']'
+;
 
 
 

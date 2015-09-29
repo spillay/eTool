@@ -1,22 +1,29 @@
 ControlManager {
 	controls {
-		Control input {ns "http" prefix "f"
-			options { "mode" ("inline","popup") }
+		Control inputText {ns "http://primefaces.org/ui" prefix "p"
+			options { "value" ("Literal:String") }
 		},	
-		Control label {ns "http" prefix "f"
-			options { "mode" ("inline","popup") }
+		Control outputText {ns "http://primefaces.org/ui" prefix "p"
+			options { "value" ("Literal:String") }
 		}	
 	} 
 	composites { 
-		SimpleWebCtrl Label<<label>> {
-			options[mode=(inline)]
+		SimpleWebCtrl Label<<outputText>> {
+			options[value=("Literal:String")]
 		},
-		SimpleWebCtrl Input<<input>> {
-			options[mode=(popup)]
+		SimpleWebCtrl Input<<inputText>> {
+			options[value=("Literal:String")]
 		},
 		CompositeWebCtrl StringInput<<Label>> {
 			sibling(Input)
+		},
+		CompositeWebCtrl IntInput<<Label>> {
+			sibling(Input)
 		}
+	}
+	Types {
+		[Name=String Control=StringInput],
+		[Name=Int Control=IntInput]
 	}
 		
 }

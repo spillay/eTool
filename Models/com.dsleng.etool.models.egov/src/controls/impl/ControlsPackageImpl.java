@@ -19,6 +19,7 @@ import controls.Options;
 import controls.PageInfo;
 import controls.Resource;
 import controls.SimpleControl;
+import controls.Type;
 import controls.ValuePlaceHolder;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -119,6 +120,13 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * @generated
 	 */
 	private EClass simpleControlEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -344,6 +352,15 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getControlManager_Types() {
+		return (EReference)controlManagerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getControlGroup() {
 		return controlGroupEClass;
 	}
@@ -560,6 +577,33 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getType() {
+		return typeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getType_Name() {
+		return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getType_Control() {
+		return (EReference)typeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ControlsFactory getControlsFactory() {
 		return (ControlsFactory)getEFactoryInstance();
 	}
@@ -603,6 +647,7 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		createEReference(controlManagerEClass, CONTROL_MANAGER__CONTROLS);
 		createEReference(controlManagerEClass, CONTROL_MANAGER__PAGEINFOS);
 		createEReference(controlManagerEClass, CONTROL_MANAGER__COMPOSITES);
+		createEReference(controlManagerEClass, CONTROL_MANAGER__TYPES);
 
 		controlGroupEClass = createEClass(CONTROL_GROUP);
 		createEReference(controlGroupEClass, CONTROL_GROUP__PAGEINFOS);
@@ -635,6 +680,10 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		createEAttribute(simpleControlEClass, SIMPLE_CONTROL__NAME);
 		createEReference(simpleControlEClass, SIMPLE_CONTROL__NESTED_CONTROLS);
 		createEReference(simpleControlEClass, SIMPLE_CONTROL__SIBLING);
+
+		typeEClass = createEClass(TYPE);
+		createEAttribute(typeEClass, TYPE__NAME);
+		createEReference(typeEClass, TYPE__CONTROL);
 	}
 
 	/**
@@ -690,6 +739,7 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		initEReference(getControlManager_Controls(), this.getControlDef(), null, "controls", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControlManager_Pageinfos(), this.getPageInfo(), null, "pageinfos", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControlManager_Composites(), this.getSimpleControl(), null, "composites", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlManager_Types(), this.getType(), null, "types", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(controlGroupEClass, ControlGroup.class, "ControlGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getControlGroup_Pageinfos(), this.getPageInfo(), null, "pageinfos", null, 0, -1, ControlGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -723,6 +773,10 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		initEAttribute(getSimpleControl_Name(), ecorePackage.getEString(), "name", null, 1, 1, SimpleControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSimpleControl_NestedControls(), this.getSimpleControl(), null, "nestedControls", null, 0, -1, SimpleControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSimpleControl_Sibling(), this.getSimpleControl(), null, "sibling", null, 0, -1, SimpleControl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_Control(), this.getSimpleControl(), null, "control", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

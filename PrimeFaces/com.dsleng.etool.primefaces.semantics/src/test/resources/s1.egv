@@ -11,7 +11,7 @@ Department  Name="ea"
 	BusinessObjects { 
 		 BO="License" {
 			attributes { 
-			"name" { Label="First Name" Type=String },
+			"name" { Label="First Name" Type=String},
 			"lastname" { Label="Last Name" Type=String }
 			}
 			references { 

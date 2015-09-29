@@ -62,6 +62,8 @@ Attribute returns egov::Attribute:
 		('Label=' label=EString)?
 		('Type=' type=DataTypes)?
 		('Control=' Control=[controls::SimpleControl])?
+		('UIType=' UIType=[controls::Type])?
+		
 	'}';
 
 

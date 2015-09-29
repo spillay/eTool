@@ -7,6 +7,14 @@
             id="com.dsleng.etool.commands.generateProj"
             name="Generate Primefaces Project">
       </command>
+      <command
+            id="com.dsleng.etool.commands.exportEGovDSL"
+            name="Export DSL to Model">
+      </command>
+      <command
+            id="com.dsleng.etool.commands.exportCtrlDSL"
+            name="Export Control DSL to Model">
+      </command>
    </extension>
 
    <extension
@@ -14,6 +22,14 @@
       <handler
             class="com.dsleng.etool.dsl.egov.eclipse.handlers.GenerateHandler"
             commandId="com.dsleng.etool.commands.generateProj">
+      </handler>
+      <handler
+            class="com.dsleng.etool.dsl.egov.eclipse.handlers.ExportEGov"
+            commandId="com.dsleng.etool.commands.exportEGovDSL">
+      </handler>
+      <handler
+            class="com.dsleng.etool.dsl.egov.eclipse.handlers.ExportControls"
+            commandId="com.dsleng.etool.commands.exportCtrlDSL">
       </handler>
    </extension>
 
@@ -40,6 +56,36 @@
                                            </with>
                                 </visibleWhen>
             </command>
+                        <command
+                              commandId="com.dsleng.etool.commands.exportEGovDSL"
+                              label="Export EGov DSL to Model"
+                              style="push">
+                           <visibleWhen>
+                                           <with variable="activeMenuSelection">
+                                            <iterate
+                                                 ifEmpty="false">
+                                             <adapt type="org.eclipse.core.resources.IResource">
+                                               <test property="org.eclipse.core.resources.name" value="*.egv" />
+                                             </adapt>
+                                            </iterate>
+                                           </with>
+                                </visibleWhen>
+                        </command>
+                        <command
+                              commandId="com.dsleng.etool.commands.exportCtrlDSL"
+                              label="Export Controls DSL to Model"
+                              style="push">
+                           <visibleWhen>
+                                           <with variable="activeMenuSelection">
+                                            <iterate
+                                                 ifEmpty="false">
+                                             <adapt type="org.eclipse.core.resources.IResource">
+                                               <test property="org.eclipse.core.resources.name" value="*.ctl" />
+                                             </adapt>
+                                            </iterate>
+                                           </with>
+                                </visibleWhen>
+                        </command>
             </menu>
       </menuContribution>
    </extension>

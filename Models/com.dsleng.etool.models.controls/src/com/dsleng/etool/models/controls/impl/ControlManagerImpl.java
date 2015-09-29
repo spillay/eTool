@@ -8,6 +8,7 @@ import com.dsleng.etool.models.controls.ControlsPackage;
 import com.dsleng.etool.models.controls.PageInfo;
 
 import com.dsleng.etool.models.controls.SimpleControl;
+import com.dsleng.etool.models.controls.Type;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.controls.impl.ControlManagerImpl#getControls <em>Controls</em>}</li>
  *   <li>{@link com.dsleng.etool.models.controls.impl.ControlManagerImpl#getPageinfos <em>Pageinfos</em>}</li>
  *   <li>{@link com.dsleng.etool.models.controls.impl.ControlManagerImpl#getComposites <em>Composites</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.impl.ControlManagerImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +69,16 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<SimpleControl> composites;
+
+	/**
+	 * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Type> types;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,6 +140,18 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Type> getTypes() {
+		if (types == null) {
+			types = new EObjectContainmentEList<Type>(Type.class, this, ControlsPackage.CONTROL_MANAGER__TYPES);
+		}
+		return types;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -137,6 +161,8 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				return ((InternalEList<?>)getPageinfos()).basicRemove(otherEnd, msgs);
 			case ControlsPackage.CONTROL_MANAGER__COMPOSITES:
 				return ((InternalEList<?>)getComposites()).basicRemove(otherEnd, msgs);
+			case ControlsPackage.CONTROL_MANAGER__TYPES:
+				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -155,6 +181,8 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				return getPageinfos();
 			case ControlsPackage.CONTROL_MANAGER__COMPOSITES:
 				return getComposites();
+			case ControlsPackage.CONTROL_MANAGER__TYPES:
+				return getTypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +208,10 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				getComposites().clear();
 				getComposites().addAll((Collection<? extends SimpleControl>)newValue);
 				return;
+			case ControlsPackage.CONTROL_MANAGER__TYPES:
+				getTypes().clear();
+				getTypes().addAll((Collection<? extends Type>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +233,9 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 			case ControlsPackage.CONTROL_MANAGER__COMPOSITES:
 				getComposites().clear();
 				return;
+			case ControlsPackage.CONTROL_MANAGER__TYPES:
+				getTypes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -219,6 +254,8 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				return pageinfos != null && !pageinfos.isEmpty();
 			case ControlsPackage.CONTROL_MANAGER__COMPOSITES:
 				return composites != null && !composites.isEmpty();
+			case ControlsPackage.CONTROL_MANAGER__TYPES:
+				return types != null && !types.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
