@@ -1,0 +1,49 @@
+Department  Name="ea" 
+	setup {
+			GroupID "za.co.egov",
+			ArtifactID "za.co.egov.eservice",
+			Version "1.0.0-SNAPSHOT",
+			Deployment Directory "/Data/maventest/",
+			Language File "dsl/s1.egv.xmi",
+			Web Directory "epermit"		
+	}
+	{ 
+	BusinessObjects { 
+		 BO="License" {
+			attributes { 
+			"name" { Label="First Name" Type=String },
+			"lastname" { Label="Last Name" Type=String }
+			}
+			references { 
+				BO=Address[Inclusion=Mandatory Multiplicity=OnlyOne],
+				BO=Location[Inclusion=Mandatory Multiplicity=Many]
+			}
+		},
+		BO="Address" {
+			attributes {
+				"name" { Label="Street Name" Type=String },
+				"number" { Label="Street Number" Type=Integer}
+			}
+		},
+		BO="Location" {
+			attributes {
+				"desc" { Label="Description" Type=String },
+				"coordinates" { Label="Co-Ordinates" Type=String }
+			}
+		}
+	}
+	EServices { 
+		EService="Permit Application" 
+		setup {
+			Deployment Directory "permit"
+		}
+		{ 
+			
+			Pages { 
+				Page=MainPage { BO License => SecondPage },
+				Page=SecondPage { BO Location }
+			}
+			Start Page MainPage
+		}
+	}
+}

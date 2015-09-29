@@ -24,7 +24,15 @@ Workflow {
     		from = "platform:/resource/org.eclipse.xtext.common.types/"
     		to = "classpath:/"
     	}
+    	//uriMap = {
+    	//	from = "platform:/resource/com.dsleng.etool.models.controls/"
+    	//	to = "classpath:/"
+    	//}
+    	
 		platformUri = "${runtimeProject}/.."
+		//registerGeneratedEPackage = "com.dsleng.etool.models.controls.ControlsPackage"
+		//registerGenModelFile = "platform:/resource/com.dsleng.etool.models.controls/model/controls.genmodel"
+		
 		registerGeneratedEPackage = "com.dsleng.etool.models.egov.EgovPackage"
 		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.egov/model/EGov.genmodel"
 	}

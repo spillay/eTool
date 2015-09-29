@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<com.dsleng.etool.models:ControlManager xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.dsleng.etool.models="http://com/dsleng/etool/models/controls">
+  <controls ns="http://primefaces.org/ui" prefix="p" name="inputText">
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="outputText">
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <composites uses="//@controls.1" name="Label">
+    <optionInstance option="//@controls.0/@options.0" value="//@controls.0/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.0" name="Input">
+    <optionInstance option="//@controls.0/@options.0" value="//@controls.0/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="StringInput" sibling="//@composites.1" usesControl="//@composites.0"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="IntInput" sibling="//@composites.1" usesControl="//@composites.0"/>
+  <types name="String" control="//@composites.2"/>
+  <types name="Int" control="//@composites.3"/>
+</com.dsleng.etool.models:ControlManager>
