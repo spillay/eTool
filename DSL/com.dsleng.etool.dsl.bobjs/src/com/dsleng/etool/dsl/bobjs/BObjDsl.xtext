@@ -1,0 +1,67 @@
+grammar com.dsleng.etool.dsl.bobjs.BObjDsl with org.eclipse.xtext.common.Terminals
+
+import "http://com/dsleng/etool/models/bobjs" 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+OrgUnit returns OrgUnit:
+	{OrgUnit}
+	'OrgUnit'
+	name=EString
+	'{'
+		('artifactId' artifactId=EString)?
+		('groupId' groupId=EString)?
+		('langFile' langFile=EString)?
+		('version' version=EString)?
+		('dirLocation' dirLocation=EString)?
+		('webDirectory' webDirectory=EString)?
+		('package' package=EString)?
+		('BusinessObjects' '{' businessobjects+=BusinessObject ( "," businessobjects+=BusinessObject)* '}' )?
+	'}';
+
+
+
+
+EString returns ecore::EString:
+	STRING | ID;
+
+
+BusinessObject returns BusinessObject:
+	{BusinessObject}
+	'BO='
+	name=EString
+	'{'
+		('attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
+		('references' '{' references+=References ( "," references+=References)* '}' )?
+	'}';
+
+Attribute returns Attribute:
+	name=EString
+	'{'
+		('label' label=EString)?
+		'type' type=DataTypes
+		('defaultValue' defaultValue=EString)?
+		(mandatory?='mandatory')?
+	'}';
+
+	
+References returns References:
+	{References}
+	'References'
+	'['
+		('BO' businessobject=[BusinessObject|EString])?
+		('Inclusion' Inclusion=Inclusions)?
+		('multiplicity' multiplicity=Multiplicity)?
+	']';
+
+enum DataTypes returns DataTypes:
+				Integer = 'Integer' | String = 'String';
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
+
+enum Inclusions returns Inclusions:
+				Mandatory = 'Mandatory' | Optional = 'Optional';
+
+enum Multiplicity returns Multiplicity:
+				OnlyOne = 'OnlyOne' | Many = 'Many';
+

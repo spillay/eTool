@@ -14,5 +14,6 @@
   	<module>../com.dsleng.etool.models.egov</module>
   	<module>../com.dsleng.etool.models.controls</module>
   	<module>../com.dsleng.etool.models.feature</module>
+  	<module>../com.dsleng.etool.models.bobjs</module>
   </modules>
 </project>

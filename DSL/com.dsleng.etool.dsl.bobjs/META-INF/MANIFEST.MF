@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.dsleng.etool.dsl.bobjs
+Bundle-Vendor: DSLEng
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.dsleng.etool.dsl.bobjs;singleton:=true
+Require-Bundle: com.dsleng.etool.models.bobjs,
+ org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.util,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.dsleng.etool.dsl.bobjs,
+ com.dsleng.etool.dsl.bobjs.services,
+ com.dsleng.etool.dsl.bobjs.serializer,
+ com.dsleng.etool.dsl.bobjs.parser.antlr,
+ com.dsleng.etool.dsl.bobjs.parser.antlr.internal,
+ com.dsleng.etool.dsl.bobjs.validation,
+ com.dsleng.etool.dsl.bobjs.scoping,
+ com.dsleng.etool.dsl.bobjs.generator, 
+ com.dsleng.etool.dsl.bobjs.formatting
+

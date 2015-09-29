@@ -23,6 +23,8 @@ model:
 	cd Models/com.dsleng.etool.models.parent/; \
 	$(MVN) $(OPTS) 
 dsl:
+	cd DSL/com.dsleng.etool.dsl.bobjs.parent/; \
+	$(MVN) $(OPTS)
 	cd DSL/com.dsleng.etool.dsl.controls.parent/; \
 	$(MVN) $(OPTS)
 	cd DSL/com.dsleng.etool.dsl.egov.parent/; \

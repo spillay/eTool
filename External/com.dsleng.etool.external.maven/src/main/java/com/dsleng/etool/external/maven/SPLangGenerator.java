@@ -23,9 +23,9 @@ public class SPLangGenerator extends SPGenerator {
 		super();
 		this.setBaseDirectory(baseDir);
 	}
-	public void GenerateLang(String groupId,String artifactId,String version,String langName,String langExt,String GenModelFile,String GenerateEPackage,String ModelURI,String ModelBundle){
-		this.createParentProj(groupId, artifactId + ".parent", version);
-		this.createLangProj(groupId, artifactId, version, langName, langExt, GenModelFile, GenerateEPackage, ModelURI, ModelBundle);
+	public void GenerateLang(String groupId,String artifactId,String version,String langName,String langExt,String GenModelFile,String GenerateEPackage,String ModelURI,String ModelBundle,String ModelGrp,String ModelArt){
+		this.createParentProj(groupId, artifactId, version);
+		this.createLangProj(groupId, artifactId, version, langName, langExt, GenModelFile, GenerateEPackage, ModelURI, ModelBundle,ModelGrp,ModelArt);
 		this.createUIProj(groupId, artifactId +".ui", version, artifactId, ModelBundle);
 		this.createSDKProj(groupId, artifactId + ".sdk", version, artifactId, ModelBundle);
 		this.createTestProj(groupId, artifactId + ".tests", version, artifactId, ModelBundle);
@@ -37,9 +37,10 @@ public class SPLangGenerator extends SPGenerator {
 		request.setGoals( Collections.singletonList( "archetype:generate" ) );
 		
 		request.setInteractive(false);
+		
         Properties properties = new Properties();
         properties.setProperty("groupId", groupId);
-        properties.setProperty("artifactId", artifactId);
+        properties.setProperty("artifactId", artifactId + ".parent");
         properties.setProperty("archetypeVersion", getArchetypeVersion());
         properties.setProperty("archetypeGroupId", "com.dsleng.archetype");
         properties.setProperty("archetypeArtifactId", "com.dsleng.archetype.xtext.parent");
@@ -69,7 +70,7 @@ public class SPLangGenerator extends SPGenerator {
 			e.printStackTrace();
 		}
 	}
-	public void createLangProj(String groupId,String artifactId,String version,String langName,String langExt,String GenModelFile,String GenerateEPackage,String ModelURI,String ModelBundle){
+	public void createLangProj(String groupId,String artifactId,String version,String langName,String langExt,String GenModelFile,String GenerateEPackage,String ModelURI,String ModelBundle,String ModelGrp,String ModelArt){
 		InvocationRequest request = new DefaultInvocationRequest();
 		//request.setPomFile( new File( "/path/to/pom.xml" ) );
 		request.setGoals( Collections.singletonList( "archetype:generate" ) );
@@ -93,6 +94,9 @@ public class SPLangGenerator extends SPGenerator {
         properties.setProperty("GenerateEPackage", GenerateEPackage);
         properties.setProperty("ModelURI", ModelURI);
         properties.setProperty("ModelBundle", ModelBundle);
+        
+        properties.setProperty("ModelGroup", ModelGrp);
+        properties.setProperty("ModelArti", ModelArt);
         
         
        		
@@ -132,7 +136,7 @@ public class SPLangGenerator extends SPGenerator {
         
         properties.setProperty("version", version);
         properties.setProperty("package", artifactId);
-        properties.setProperty("parentId", artifactId + ".parent");
+        properties.setProperty("parentId", ModelBundle + ".parent");
         properties.setProperty("base", base);
       
         properties.setProperty("ModelBundle", ModelBundle);
@@ -175,7 +179,7 @@ public class SPLangGenerator extends SPGenerator {
         
         properties.setProperty("version", version);
         properties.setProperty("package", artifactId);
-        properties.setProperty("parentId", artifactId + ".parent");
+        properties.setProperty("parentId", ModelBundle + ".parent");
         properties.setProperty("base", base);
       
         properties.setProperty("ModelBundle", ModelBundle);
@@ -218,7 +222,7 @@ public class SPLangGenerator extends SPGenerator {
         
         properties.setProperty("version", version);
         properties.setProperty("package", artifactId);
-        properties.setProperty("parentId", artifactId + ".parent");
+        properties.setProperty("parentId", ModelBundle + ".parent");
         properties.setProperty("base", base);
       
         properties.setProperty("ModelBundle", ModelBundle);

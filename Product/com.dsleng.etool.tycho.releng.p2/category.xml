@@ -12,6 +12,9 @@
    <feature url="features/com.dsleng.etool.dsl.controls.sdk_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.controls.sdk" version="1.0.0.qualifier">
       <category name="eToolModels"/>
    </feature>
+   <feature url="features/com.dsleng.etool.dsl.bobjs.sdk_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.bobjs.sdk" version="1.0.0.qualifier">
+      <category name="eToolModels"/>
+   </feature>
    <category-def name="eToolCore" label="eTool Core"/>
    <category-def name="eToolModels" label="eTool Models"/>
 </site>
