@@ -6,9 +6,9 @@ import com.dsleng.etool.models.controls.ControlDef;
 import com.dsleng.etool.models.controls.ControlManager;
 import com.dsleng.etool.models.controls.ControlsPackage;
 import com.dsleng.etool.models.controls.PageInfo;
-
 import com.dsleng.etool.models.controls.SimpleControl;
 import com.dsleng.etool.models.controls.Type;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;

@@ -2,6 +2,8 @@
  */
 package com.dsleng.etool.models.controls;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.controls.Type#getName <em>Name</em>}</li>
  *   <li>{@link com.dsleng.etool.models.controls.Type#getControl <em>Control</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.controls.Type#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.controls.ControlsPackage#getType()
@@ -73,5 +76,21 @@ public interface Type extends EObject {
 	 * @generated
 	 */
 	void setControl(SimpleControl value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.controls.TypeParameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see com.dsleng.etool.models.controls.ControlsPackage#getType_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TypeParameter> getParameters();
 
 } // Type

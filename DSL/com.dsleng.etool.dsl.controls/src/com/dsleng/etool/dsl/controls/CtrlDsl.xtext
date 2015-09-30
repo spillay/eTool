@@ -2,6 +2,7 @@
 grammar com.dsleng.etool.dsl.Controls with org.eclipse.xtext.common.Terminals
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://com/dsleng/etool/models/bobjs" as bobjs
 import "http://com/dsleng/etool/models/controls" as controls
 
 ControlManager returns controls::ControlManager:
@@ -16,6 +17,11 @@ ControlManager returns controls::ControlManager:
 
 Type returns controls::Type:
 	'[' 'Name=' name=EString 'Control=' control=[controls::SimpleControl|EString] ']'
+	 ('Parameters' '{' parameters+=Parameter ( "," parameters+=Parameter)* '}' )?
+;
+
+Parameter returns controls::TypeParameter:
+	value=EString "=>" option=[controls::Options|EString]
 ;
 
 

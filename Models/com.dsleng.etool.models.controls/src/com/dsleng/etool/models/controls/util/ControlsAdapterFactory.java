@@ -120,6 +120,10 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 				return createTypeAdapter();
 			}
 			@Override
+			public Adapter caseTypeParameter(TypeParameter object) {
+				return createTypeParameterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -318,6 +322,20 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.controls.TypeParameter <em>Type Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.controls.TypeParameter
+	 * @generated
+	 */
+	public Adapter createTypeParameterAdapter() {
 		return null;
 	}
 

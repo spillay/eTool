@@ -16,6 +16,7 @@ import com.dsleng.etool.models.controls.PageInfo;
 import com.dsleng.etool.models.controls.Resource;
 import com.dsleng.etool.models.controls.SimpleControl;
 import com.dsleng.etool.models.controls.Type;
+import com.dsleng.etool.models.controls.TypeParameter;
 import com.dsleng.etool.models.controls.ValuePlaceHolder;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -123,6 +124,13 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * @generated
 	 */
 	private EClass typeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typeParameterEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -595,6 +603,42 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getType_Parameters() {
+		return (EReference)typeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTypeParameter() {
+		return typeParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTypeParameter_Option() {
+		return (EReference)typeParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTypeParameter_Value() {
+		return (EAttribute)typeParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ControlsFactory getControlsFactory() {
 		return (ControlsFactory)getEFactoryInstance();
 	}
@@ -675,6 +719,11 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		typeEClass = createEClass(TYPE);
 		createEAttribute(typeEClass, TYPE__NAME);
 		createEReference(typeEClass, TYPE__CONTROL);
+		createEReference(typeEClass, TYPE__PARAMETERS);
+
+		typeParameterEClass = createEClass(TYPE_PARAMETER);
+		createEReference(typeParameterEClass, TYPE_PARAMETER__OPTION);
+		createEAttribute(typeParameterEClass, TYPE_PARAMETER__VALUE);
 	}
 
 	/**
@@ -768,6 +817,11 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getType_Control(), this.getSimpleControl(), null, "control", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getType_Parameters(), this.getTypeParameter(), null, "parameters", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(typeParameterEClass, TypeParameter.class, "TypeParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTypeParameter_Option(), this.getOptions(), null, "option", null, 1, 1, TypeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypeParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, TypeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

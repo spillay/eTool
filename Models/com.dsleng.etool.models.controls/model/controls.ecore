@@ -85,6 +85,13 @@
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="control" lowerBound="1"
                 eType="#//dsleng/etool/models/controls/SimpleControl"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/TypeParameter" containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="TypeParameter">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+                eType="#//dsleng/etool/models/controls/Options"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
         </eSubpackages>
       </eSubpackages>

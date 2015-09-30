@@ -834,7 +834,6 @@ public interface ControlsPackage extends EPackage {
 	 */
 	int OPTION_INSTANCE_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.controls.impl.TypeImpl <em>Type</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -864,13 +863,22 @@ public interface ControlsPackage extends EPackage {
 	int TYPE__CONTROL = 1;
 
 	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__PARAMETERS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_FEATURE_COUNT = 2;
+	int TYPE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Type</em>' class.
@@ -880,6 +888,52 @@ public interface ControlsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.controls.impl.TypeParameterImpl <em>Type Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.controls.impl.TypeParameterImpl
+	 * @see com.dsleng.etool.models.controls.impl.ControlsPackageImpl#getTypeParameter()
+	 * @generated
+	 */
+	int TYPE_PARAMETER = 13;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__OPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Type Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Type Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_PARAMETER_OPERATION_COUNT = 0;
 
 
 	/**
@@ -1364,6 +1418,49 @@ public interface ControlsPackage extends EPackage {
 	EReference getType_Control();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.controls.Type#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see com.dsleng.etool.models.controls.Type#getParameters()
+	 * @see #getType()
+	 * @generated
+	 */
+	EReference getType_Parameters();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.controls.TypeParameter <em>Type Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Parameter</em>'.
+	 * @see com.dsleng.etool.models.controls.TypeParameter
+	 * @generated
+	 */
+	EClass getTypeParameter();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.controls.TypeParameter#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see com.dsleng.etool.models.controls.TypeParameter#getOption()
+	 * @see #getTypeParameter()
+	 * @generated
+	 */
+	EReference getTypeParameter_Option();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.controls.TypeParameter#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.dsleng.etool.models.controls.TypeParameter#getValue()
+	 * @see #getTypeParameter()
+	 * @generated
+	 */
+	EAttribute getTypeParameter_Value();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1771,6 +1868,40 @@ public interface ControlsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TYPE__CONTROL = eINSTANCE.getType_Control();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE__PARAMETERS = eINSTANCE.getType_Parameters();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.controls.impl.TypeParameterImpl <em>Type Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.controls.impl.TypeParameterImpl
+		 * @see com.dsleng.etool.models.controls.impl.ControlsPackageImpl#getTypeParameter()
+		 * @generated
+		 */
+		EClass TYPE_PARAMETER = eINSTANCE.getTypeParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_PARAMETER__OPTION = eINSTANCE.getTypeParameter_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_PARAMETER__VALUE = eINSTANCE.getTypeParameter_Value();
 
 	}
 

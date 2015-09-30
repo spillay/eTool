@@ -21,9 +21,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.dsleng.etool.dsl.bobjs.ui.quickfix,
  com.dsleng.etool.dsl.bobjs.ui.contentassist,
  com.dsleng.etool.dsl.bobjs.ui.internal,
- com.dsleng.etool.dsl.bobjs.ui.contentassist.antlr,
- org.xtext.example.mydsl.ui.quickfix,
- org.xtext.example.mydsl.ui.contentassist,
- org.xtext.example.mydsl.ui.internal,
- org.xtext.example.mydsl.ui.contentassist.antlr
+ com.dsleng.etool.dsl.bobjs.ui.contentassist.antlr
 Bundle-Activator: com.dsleng.etool.dsl.bobjs.ui.internal.BObjDslActivator

@@ -69,6 +69,7 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 			case ControlsPackage.OPTION_INSTANCE: return createOptionInstance();
 			case ControlsPackage.SIMPLE_CONTROL: return createSimpleControl();
 			case ControlsPackage.TYPE: return createType();
+			case ControlsPackage.TYPE_PARAMETER: return createTypeParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -202,6 +203,16 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 	public Type createType() {
 		TypeImpl type = new TypeImpl();
 		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypeParameter createTypeParameter() {
+		TypeParameterImpl typeParameter = new TypeParameterImpl();
+		return typeParameter;
 	}
 
 	/**

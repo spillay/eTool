@@ -16,6 +16,7 @@ Workflow {
 		resourceSet = org.eclipse.xtext.resource.XtextResourceSet:theResourceSet {}
     	
     	// add mappings from platform:/resource to classpath:/
+    	/*
     	uriMap = {
     		from = "platform:/resource/org.eclipse.xtext.xbase/"
     		to = "classpath:/"
@@ -24,6 +25,7 @@ Workflow {
     		from = "platform:/resource/org.eclipse.xtext.common.types/"
     		to = "classpath:/"
     	}
+    	*/
     	//uriMap = {
     	//	from = "platform:/resource/com.dsleng.etool.models.controls/"
     	//	to = "classpath:/"

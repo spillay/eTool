@@ -4,15 +4,17 @@ package com.dsleng.etool.models.controls.impl;
 
 import com.dsleng.etool.models.controls.Composite;
 import com.dsleng.etool.models.controls.ControlsPackage;
-
 import com.dsleng.etool.models.controls.SimpleControl;
+
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -127,7 +129,6 @@ public class CompositeImpl extends SimpleControlImpl implements Composite {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

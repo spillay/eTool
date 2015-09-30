@@ -7,17 +7,18 @@ OrgUnit returns OrgUnit:
 	{OrgUnit}
 	'OrgUnit'
 	name=EString
+	'setup {'
+		'GroupID' groupId=EString','
+		'ArtifactID' artifactId=EString','
+		'Version' version=EString','
+		'Deployment Directory' dirLocation=EString','
+		'Language File' langFile=EString','
+		'Web Directory' webDirectory=EString
+		'Package' package=EString
+	'}'
 	'{'
-		('artifactId' artifactId=EString)?
-		('groupId' groupId=EString)?
-		('langFile' langFile=EString)?
-		('version' version=EString)?
-		('dirLocation' dirLocation=EString)?
-		('webDirectory' webDirectory=EString)?
-		('package' package=EString)?
 		('BusinessObjects' '{' businessobjects+=BusinessObject ( "," businessobjects+=BusinessObject)* '}' )?
 	'}';
-
 
 
 
@@ -37,21 +38,21 @@ BusinessObject returns BusinessObject:
 Attribute returns Attribute:
 	name=EString
 	'{'
-		('label' label=EString)?
-		'type' type=DataTypes
-		('defaultValue' defaultValue=EString)?
-		(mandatory?='mandatory')?
+		('Label=' label=EString)?
+		'Type=' type=DataTypes
+		('defaultValue=' defaultValue=EString)?
+		(mandatory?='Mandatory')?
 	'}';
 
 	
 References returns References:
 	{References}
-	'References'
+	'BO=' businessobject=[BusinessObject|EString]
 	'['
-		('BO' businessobject=[BusinessObject|EString])?
-		('Inclusion' Inclusion=Inclusions)?
-		('multiplicity' multiplicity=Multiplicity)?
+		('Inclusion=' Inclusion=Inclusions)?
+		('Multiplicity=' multiplicity=Multiplicity)?
 	']';
+
 
 enum DataTypes returns DataTypes:
 				Integer = 'Integer' | String = 'String';

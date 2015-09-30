@@ -49,7 +49,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_E3Q50mbGEeWlVZYv_F8SYQ"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_E3OdkWbGEeWlVZYv_F8SYQ" fontName="Ubuntu" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3OdkmbGEeWlVZYv_F8SYQ" x="497" y="290"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3OdkmbGEeWlVZYv_F8SYQ" x="215" y="245"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_E3SH8GbGEeWlVZYv_F8SYQ" type="2003" element="_E2KGkGbGEeWlVZYv_F8SYQ">
             <children xmi:type="notation:Node" xmi:id="_E3SvAGbGEeWlVZYv_F8SYQ" type="5007"/>
@@ -159,7 +159,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_E3VyVmbGEeWlVZYv_F8SYQ"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_E3VyUWbGEeWlVZYv_F8SYQ" fontName="Ubuntu" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3VyUmbGEeWlVZYv_F8SYQ" x="320" y="145"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E3VyUmbGEeWlVZYv_F8SYQ" x="215" y="110"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_E3WZZGbGEeWlVZYv_F8SYQ" type="2003" element="_E2SCYGbGEeWlVZYv_F8SYQ">
             <children xmi:type="notation:Node" xmi:id="_E3WZZ2bGEeWlVZYv_F8SYQ" type="5007"/>
@@ -191,7 +191,7 @@
             </children>
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_E3s-sWbGEeWlVZYv_F8SYQ" routing="Rectilinear"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_E3s-smbGEeWlVZYv_F8SYQ" fontColor="7490599" fontName="Ubuntu" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E3s-s2bGEeWlVZYv_F8SYQ" points="[59, 50, -393, 87]$[175, 50, -277, 87]$[175, -100, -277, -63]$[375, -100, -77, -63]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E3s-s2bGEeWlVZYv_F8SYQ" points="[59, 50, -118, 132]$[117, 50, -60, 132]$[117, -72, -60, 10]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E32IoGbGEeWlVZYv_F8SYQ" id="(0.5,0.0)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E32IoWbGEeWlVZYv_F8SYQ" id="(0.5,1.0)"/>
           </edges>

@@ -25,6 +25,9 @@ Workflow {
     		to = "classpath:/"
     	}
 		platformUri = "${runtimeProject}/.."
+		registerGeneratedEPackage = "com.dsleng.etool.models.bobjs.BobjsPackage"
+		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.bobjs/model/bobjs.genmodel"
+		
 		registerGeneratedEPackage = "com.dsleng.etool.models.controls.ControlsPackage"
 		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.controls/model/controls.genmodel"
 	}
