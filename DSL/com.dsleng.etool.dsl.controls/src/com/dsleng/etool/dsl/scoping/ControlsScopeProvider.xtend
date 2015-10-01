@@ -4,15 +4,22 @@
 package com.dsleng.etool.dsl.scoping
 
 import org.eclipse.xtext.scoping.IScope
-import com.dsleng.etool.models.controls.Parameter
+//import com.dsleng.etool.models.controls.Parameter
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.emf.common.util.URI
 import java.util.Collections
 import org.eclipse.xtext.scoping.Scopes
-import com.dsleng.etool.models.bobjs.OrgUnit
+//import com.dsleng.etool.models.bobjs.OrgUnit
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.emf.ecore.EClass
+import com.dsleng.etool.models.controls.TypeParameter
+import com.dsleng.etool.models.controls.SimpleControl
+import com.dsleng.etool.models.controls.Type
+import com.dsleng.etool.models.controls.Composite
+import java.util.ArrayList
+import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
+import org.eclipse.xtext.naming.QualifiedName
 
 /**
  * This class contains custom scoping description.
@@ -21,6 +28,11 @@ import org.eclipse.emf.ecore.EClass
  * on how and when to use it.
  *
  */
+ class ControlsDslQNP extends DefaultDeclarativeQualifiedNameProvider {
+    def QualifiedName qualifiedName(TypeParameter e) {
+        return QualifiedName.create("TP", "Name");
+    }
+}
 class ControlsScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
 	/* 
 	def IScope scope_Parameter_value(Parameter t, EReference reference) {
@@ -38,6 +50,33 @@ class ControlsScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDecla
     	}
 		//return Scopes.scopeFor()
     	
+	}
+	
+	def ProcessSimpleControl(String name,SimpleControl control){
+		//val controlName = name + ":" + control.name + ":" + control.uses.name + ":"
+		val values = new ArrayList()
+		val controlName = control.name + ":" + control.uses.name + ":"
+		val options = control.uses.options
+		for(o: options){
+			val optionName = controlName + ":" + o.name
+			values.add(optionName)
+		}
+		return values
+	}
+	def IScope scope_TypeParameter_Option(TypeParameter model,EReference reference) {
+		if (model.eContainer instanceof Type){
+			val type = (model.eContainer as Type)
+			//val controlName = (type.control as Composite).usesControl.name + ":" + (type.control as Composite).usesControl.uses.name
+			val CompositeControl = type.control as Composite
+			var values = ProcessSimpleControl(CompositeControl.name,CompositeControl.usesControl)
+			
+			// Process Siblings
+			for(s: CompositeControl.sibling){
+				values + ProcessSimpleControl(CompositeControl.name,s)
+			}
+			return Scopes.scopeFor(values)
+			
+		}
 	}
 	*/
 }

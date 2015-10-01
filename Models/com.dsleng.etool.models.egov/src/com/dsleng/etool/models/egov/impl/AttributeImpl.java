@@ -5,13 +5,9 @@ package com.dsleng.etool.models.egov.impl;
 import com.dsleng.etool.models.egov.Attribute;
 import com.dsleng.etool.models.egov.DataTypes;
 import com.dsleng.etool.models.egov.EgovPackage;
-import controls.SimpleControl;
-import controls.Type;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -24,8 +20,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.impl.AttributeImpl#getLabel <em>Label</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.AttributeImpl#getType <em>Type</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.impl.AttributeImpl#getControl <em>Control</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.impl.AttributeImpl#getUIType <em>UI Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,26 +64,6 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * @ordered
 	 */
 	protected DataTypes type = TYPE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getControl() <em>Control</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getControl()
-	 * @generated
-	 * @ordered
-	 */
-	protected SimpleControl control;
-
-	/**
-	 * The cached value of the '{@link #getUIType() <em>UI Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUIType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Type uiType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,82 +131,6 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleControl getControl() {
-		if (control != null && control.eIsProxy()) {
-			InternalEObject oldControl = (InternalEObject)control;
-			control = (SimpleControl)eResolveProxy(oldControl);
-			if (control != oldControl) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EgovPackage.ATTRIBUTE__CONTROL, oldControl, control));
-			}
-		}
-		return control;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SimpleControl basicGetControl() {
-		return control;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setControl(SimpleControl newControl) {
-		SimpleControl oldControl = control;
-		control = newControl;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.ATTRIBUTE__CONTROL, oldControl, control));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type getUIType() {
-		if (uiType != null && uiType.eIsProxy()) {
-			InternalEObject oldUIType = (InternalEObject)uiType;
-			uiType = (Type)eResolveProxy(oldUIType);
-			if (uiType != oldUIType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EgovPackage.ATTRIBUTE__UI_TYPE, oldUIType, uiType));
-			}
-		}
-		return uiType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type basicGetUIType() {
-		return uiType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUIType(Type newUIType) {
-		Type oldUIType = uiType;
-		uiType = newUIType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.ATTRIBUTE__UI_TYPE, oldUIType, uiType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -240,12 +138,6 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return getLabel();
 			case EgovPackage.ATTRIBUTE__TYPE:
 				return getType();
-			case EgovPackage.ATTRIBUTE__CONTROL:
-				if (resolve) return getControl();
-				return basicGetControl();
-			case EgovPackage.ATTRIBUTE__UI_TYPE:
-				if (resolve) return getUIType();
-				return basicGetUIType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,12 +155,6 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return;
 			case EgovPackage.ATTRIBUTE__TYPE:
 				setType((DataTypes)newValue);
-				return;
-			case EgovPackage.ATTRIBUTE__CONTROL:
-				setControl((SimpleControl)newValue);
-				return;
-			case EgovPackage.ATTRIBUTE__UI_TYPE:
-				setUIType((Type)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -288,12 +174,6 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 			case EgovPackage.ATTRIBUTE__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case EgovPackage.ATTRIBUTE__CONTROL:
-				setControl((SimpleControl)null);
-				return;
-			case EgovPackage.ATTRIBUTE__UI_TYPE:
-				setUIType((Type)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -310,10 +190,6 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 			case EgovPackage.ATTRIBUTE__TYPE:
 				return type != TYPE_EDEFAULT;
-			case EgovPackage.ATTRIBUTE__CONTROL:
-				return control != null;
-			case EgovPackage.ATTRIBUTE__UI_TYPE:
-				return uiType != null;
 		}
 		return super.eIsSet(featureID);
 	}

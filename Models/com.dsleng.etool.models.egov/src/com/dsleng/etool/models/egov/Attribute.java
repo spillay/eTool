@@ -2,10 +2,6 @@
  */
 package com.dsleng.etool.models.egov;
 
-import controls.SimpleControl;
-import controls.Type;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Attribute</b></em>'.
@@ -17,8 +13,6 @@ import controls.Type;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.Attribute#getLabel <em>Label</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Attribute#getType <em>Type</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.Attribute#getControl <em>Control</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.Attribute#getUIType <em>UI Type</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getAttribute()
@@ -80,57 +74,5 @@ public interface Attribute extends NamedElement {
 	 * @generated
 	 */
 	void setType(DataTypes value);
-
-	/**
-	 * Returns the value of the '<em><b>Control</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Control</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Control</em>' reference.
-	 * @see #setControl(SimpleControl)
-	 * @see com.dsleng.etool.models.egov.EgovPackage#getAttribute_Control()
-	 * @model
-	 * @generated
-	 */
-	SimpleControl getControl();
-
-	/**
-	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Attribute#getControl <em>Control</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Control</em>' reference.
-	 * @see #getControl()
-	 * @generated
-	 */
-	void setControl(SimpleControl value);
-
-	/**
-	 * Returns the value of the '<em><b>UI Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>UI Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>UI Type</em>' reference.
-	 * @see #setUIType(Type)
-	 * @see com.dsleng.etool.models.egov.EgovPackage#getAttribute_UIType()
-	 * @model
-	 * @generated
-	 */
-	Type getUIType();
-
-	/**
-	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Attribute#getUIType <em>UI Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>UI Type</em>' reference.
-	 * @see #getUIType()
-	 * @generated
-	 */
-	void setUIType(Type value);
 
 } // Attribute

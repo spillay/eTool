@@ -24,12 +24,17 @@ Workflow {
     		from = "platform:/resource/org.eclipse.xtext.common.types/"
     		to = "classpath:/"
     	}
+    	//uriMap = {
+    	//	from = "platform:/resource/com.dsleng.etool.models.controls/"
+    	//	to = "classpath:/com.dsleng.etool.models.controls/"
+    	//}
 		platformUri = "${runtimeProject}/.."
-		registerGeneratedEPackage = "com.dsleng.etool.models.bobjs.BobjsPackage"
-		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.bobjs/model/bobjs.genmodel"
+		//registerGeneratedEPackage = "com.dsleng.etool.models.bobjs.BobjsPackage"
+		//registerGenModelFile = "platform:/resource/com.dsleng.etool.models.bobjs/model/bobjs.genmodel"
 		
 		registerGeneratedEPackage = "com.dsleng.etool.models.controls.ControlsPackage"
 		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.controls/model/controls.genmodel"
+		//registerGenModelFile = "file:/home/suresh/git/eTool/Models/com.dsleng.etool.models.controls/model/controls.genmodel"
 	}
 
 	component = DirectoryCleaner {

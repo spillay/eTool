@@ -10,9 +10,56 @@
       <nestedGenPackages prefix="Etool" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool">
         <nestedGenPackages prefix="Models" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool/models">
           <nestedGenPackages prefix="Egov" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool/models/egov">
-            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/EService"/>
+            <genEnums typeSafeEnumCompatible="false" ecoreEnum="EGov.ecore#//dsleng/etool/models/egov/DataTypes">
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/egov/DataTypes/Integer"/>
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/egov/DataTypes/String"/>
+            </genEnums>
+            <genEnums typeSafeEnumCompatible="false" ecoreEnum="EGov.ecore#//dsleng/etool/models/egov/Inclusions">
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/egov/Inclusions/Mandatory"/>
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/egov/Inclusions/Optional"/>
+            </genEnums>
+            <genEnums typeSafeEnumCompatible="false" ecoreEnum="EGov.ecore#//dsleng/etool/models/egov/Multiplicity">
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/egov/Multiplicity/OnlyOne"/>
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/egov/Multiplicity/Many"/>
+            </genEnums>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/EService">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/EService/pages"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/EService/indexPage"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/EService/dirLocation"/>
+            </genClasses>
             <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/NamedElement">
               <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/NamedElement/name"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/BusinessObject">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/BusinessObject/attributes"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/BusinessObject/references"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/Dept">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/Dept/eservices"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/Dept/businessobjects"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Dept/artifactId"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Dept/groupId"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Dept/langFile"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Dept/version"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Dept/dirLocation"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Dept/webDirectory"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/Page">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/Page/businessobject"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/Page/nextPage"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/Attribute">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Attribute/label"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/Attribute/type"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/References">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/References/businessobject"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/References/Inclusion"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/References/multiplicity"/>
             </genClasses>
           </nestedGenPackages>
         </nestedGenPackages>

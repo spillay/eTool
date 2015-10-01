@@ -49,11 +49,6 @@
 					</dependency>
 					<dependency>
 						<groupId>com.dsleng.etool.models</groupId>
-						<artifactId>com.dsleng.etool.models.bobjs</artifactId>
-						<version>${etool.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>com.dsleng.etool.models</groupId>
 						<artifactId>com.dsleng.etool.models.controls</artifactId>
 						<version>${etool.version}</version>
 					</dependency>
