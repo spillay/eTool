@@ -11,42 +11,55 @@
             <eStructuralFeatures xsi:type="ecore:EReference" name="indexPage" lowerBound="1"
                 eType="#//dsleng/etool/models/egov/Page"/>
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="dirLocation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="BusinessUnit" eType="#//dsleng/etool/models/bobjs/OrgUnit"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
-          <eClassifiers xsi:type="ecore:EClass" name="BusinessObject" eSuperTypes="#//dsleng/etool/models/egov/NamedElement">
-            <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-                eType="#//dsleng/etool/models/egov/Attribute" containment="true"/>
-            <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
-                eType="#//dsleng/etool/models/egov/References" containment="true"/>
-          </eClassifiers>
-          <eClassifiers xsi:type="ecore:EClass" name="Dept" eSuperTypes="#//dsleng/etool/models/egov/NamedElement">
-            <eStructuralFeatures xsi:type="ecore:EReference" name="eservices" upperBound="-1"
-                eType="#//dsleng/etool/models/egov/EService" containment="true"/>
-            <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects"
-                upperBound="-1" eType="#//dsleng/etool/models/egov/BusinessObject"
-                containment="true"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" lowerBound="1"
-                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" lowerBound="1"
-                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="langFile" lowerBound="1"
-                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
-                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="dirLocation" lowerBound="1"
-                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="webDirectory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-          </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="Page" eSuperTypes="#//dsleng/etool/models/egov/NamedElement">
-            <eStructuralFeatures xsi:type="ecore:EReference" name="businessobject"
-                lowerBound="1" eType="#//dsleng/etool/models/egov/BusinessObject"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="nextPage" eType="#//dsleng/etool/models/egov/Page"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="BOMaps" upperBound="-1"
+                eType="#//dsleng/etool/models/egov/BOMapper" containment="true"/>
           </eClassifiers>
-          <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//dsleng/etool/models/egov/NamedElement">
+          <eClassifiers xsi:type="ecore:EClass" name="BOMapper">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+                eType="#//dsleng/etool/models/egov/BOAttribute" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="BusinessObject"
+                eType="#//dsleng/etool/models/bobjs/BusinessObject"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="BOAttribute">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//dsleng/etool/models/bobjs/Attribute"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="ControlType" eType="#//dsleng/etool/models/controls/Type"/>
+          </eClassifiers>
+        </eSubpackages>
+        <eSubpackages name="bobjs" nsURI="http://com/dsleng/etool/models/bobjs" nsPrefix="com.dsleng.etool.models">
+          <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="BusinessObject" eSuperTypes="#//dsleng/etool/models/bobjs/NamedElement">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+                eType="#//dsleng/etool/models/bobjs/Attribute" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+                eType="#//dsleng/etool/models/bobjs/References" containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="OrgUnit" eSuperTypes="#//dsleng/etool/models/bobjs/NamedElement">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects"
+                upperBound="-1" eType="#//dsleng/etool/models/bobjs/BusinessObject"
+                containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="langFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="dirLocation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="webDirectory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="package" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//dsleng/etool/models/bobjs/NamedElement">
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//dsleng/etool/models/egov/DataTypes"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+                eType="#//dsleng/etool/models/bobjs/DataTypes"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EEnum" name="DataTypes">
             <eLiterals name="Integer"/>
@@ -54,9 +67,9 @@
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="References">
             <eStructuralFeatures xsi:type="ecore:EReference" name="businessobject"
-                eType="#//dsleng/etool/models/egov/BusinessObject"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="Inclusion" eType="#//dsleng/etool/models/egov/Inclusions"/>
-            <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" eType="#//dsleng/etool/models/egov/Multiplicity"/>
+                eType="#//dsleng/etool/models/bobjs/BusinessObject"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="Inclusion" eType="#//dsleng/etool/models/bobjs/Inclusions"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplicity" eType="#//dsleng/etool/models/bobjs/Multiplicity"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EEnum" name="Inclusions">
             <eLiterals name="Mandatory"/>
@@ -65,6 +78,96 @@
           <eClassifiers xsi:type="ecore:EEnum" name="Multiplicity">
             <eLiterals name="OnlyOne" literal="OnlyOne"/>
             <eLiterals name="Many" value="1"/>
+          </eClassifiers>
+        </eSubpackages>
+        <eSubpackages name="controls" nsURI="http://com/dsleng/etool/models/controls"
+            nsPrefix="com.dsleng.etool.models">
+          <eClassifiers xsi:type="ecore:EClass" name="ControlDef">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="ns" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Options" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="syntax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="PageInfo">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Resource" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="dir" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Resource">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="ns" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="ControlManager">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="controls" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/ControlDef" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="pageinfos" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/PageInfo" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="composites" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/SimpleControl" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Type" containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="ControlGroup">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="pageinfos" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/PageInfo"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="composites" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/Composite"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Options">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="valueplaceholder"
+                upperBound="-1" eType="#//dsleng/etool/models/controls/ValuePlaceHolder"
+                containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="ValuePlaceHolder">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="syntax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="CompositeWebCtrl" eSuperTypes="#//dsleng/etool/models/controls/Composite"/>
+          <eClassifiers xsi:type="ecore:EClass" name="CompositeMobCtrl" eSuperTypes="#//dsleng/etool/models/controls/Composite"/>
+          <eClassifiers xsi:type="ecore:EClass" name="Composite" eSuperTypes="#//dsleng/etool/models/controls/SimpleControl">
+            <eOperations name="getCode"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="usesControl" lowerBound="1"
+                eType="#//dsleng/etool/models/controls/SimpleControl"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="OptionInstance">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+                eType="#//dsleng/etool/models/controls/Options"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+                upperBound="-1" eType="#//dsleng/etool/models/controls/ValuePlaceHolder"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="SimpleControl">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="uses" eType="#//dsleng/etool/models/controls/ControlDef"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="optionInstance"
+                upperBound="-1" eType="#//dsleng/etool/models/controls/OptionInstance"
+                containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="nestedControls"
+                upperBound="-1" eType="#//dsleng/etool/models/controls/SimpleControl"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="sibling" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/SimpleControl"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Type">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="control" lowerBound="1"
+                eType="#//dsleng/etool/models/controls/SimpleControl"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+                eType="#//dsleng/etool/models/controls/TypeParameter" containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="TypeParameter">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+                eType="#//dsleng/etool/models/controls/Options"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
         </eSubpackages>
       </eSubpackages>

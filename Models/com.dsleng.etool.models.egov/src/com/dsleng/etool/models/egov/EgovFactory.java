@@ -40,24 +40,6 @@ public interface EgovFactory extends EFactory {
 	NamedElement createNamedElement();
 
 	/**
-	 * Returns a new object of class '<em>Business Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Business Object</em>'.
-	 * @generated
-	 */
-	BusinessObject createBusinessObject();
-
-	/**
-	 * Returns a new object of class '<em>Dept</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dept</em>'.
-	 * @generated
-	 */
-	Dept createDept();
-
-	/**
 	 * Returns a new object of class '<em>Page</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,22 +49,22 @@ public interface EgovFactory extends EFactory {
 	Page createPage();
 
 	/**
-	 * Returns a new object of class '<em>Attribute</em>'.
+	 * Returns a new object of class '<em>BO Mapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Attribute</em>'.
+	 * @return a new object of class '<em>BO Mapper</em>'.
 	 * @generated
 	 */
-	Attribute createAttribute();
+	BOMapper createBOMapper();
 
 	/**
-	 * Returns a new object of class '<em>References</em>'.
+	 * Returns a new object of class '<em>BO Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>References</em>'.
+	 * @return a new object of class '<em>BO Attribute</em>'.
 	 * @generated
 	 */
-	References createReferences();
+	BOAttribute createBOAttribute();
 
 	/**
 	 * Returns the package supported by this factory.

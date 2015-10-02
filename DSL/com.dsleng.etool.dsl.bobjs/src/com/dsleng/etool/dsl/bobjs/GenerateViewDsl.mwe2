@@ -28,7 +28,7 @@ Workflow {
 	*/
 		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "com.dsleng.etool.models.bobjs.BobjsPackage"
-		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.bobjs/model/bobjs.genmodel"
+		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.egov/model/EGov.genmodel"
 	}
 
 	component = DirectoryCleaner {

@@ -4,7 +4,7 @@ Bundle-Name: com.dsleng.etool.dsl.bobjs
 Bundle-Vendor: DSLEng
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.dsleng.etool.dsl.bobjs;singleton:=true
-Require-Bundle: com.dsleng.etool.models.bobjs,
+Require-Bundle: com.dsleng.etool.models.egov,
  org.eclipse.xtext;visibility:=reexport,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.xtext.util,

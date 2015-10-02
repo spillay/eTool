@@ -33,7 +33,7 @@ Workflow {
 		//registerGenModelFile = "platform:/resource/com.dsleng.etool.models.bobjs/model/bobjs.genmodel"
 		
 		registerGeneratedEPackage = "com.dsleng.etool.models.controls.ControlsPackage"
-		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.controls/model/controls.genmodel"
+		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.egov/model/EGov.genmodel"
 		//registerGenModelFile = "file:/home/suresh/git/eTool/Models/com.dsleng.etool.models.controls/model/controls.genmodel"
 	}
 

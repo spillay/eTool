@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.egov;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,8 +13,8 @@ package com.dsleng.etool.models.egov;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.egov.Page#getBusinessobject <em>Businessobject</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Page#getNextPage <em>Next Page</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Page#getBOMaps <em>BO Maps</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getPage()
@@ -21,32 +22,6 @@ package com.dsleng.etool.models.egov;
  * @generated
  */
 public interface Page extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Businessobject</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Businessobject</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Businessobject</em>' reference.
-	 * @see #setBusinessobject(BusinessObject)
-	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_Businessobject()
-	 * @model required="true"
-	 * @generated
-	 */
-	BusinessObject getBusinessobject();
-
-	/**
-	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Page#getBusinessobject <em>Businessobject</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Businessobject</em>' reference.
-	 * @see #getBusinessobject()
-	 * @generated
-	 */
-	void setBusinessobject(BusinessObject value);
-
 	/**
 	 * Returns the value of the '<em><b>Next Page</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -72,5 +47,21 @@ public interface Page extends NamedElement {
 	 * @generated
 	 */
 	void setNextPage(Page value);
+
+	/**
+	 * Returns the value of the '<em><b>BO Maps</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.egov.BOMapper}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>BO Maps</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>BO Maps</em>' containment reference list.
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_BOMaps()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BOMapper> getBOMaps();
 
 } // Page

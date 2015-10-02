@@ -14,4 +14,20 @@
             genModel="model/EGov.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EGov -->
+      <package
+            uri="http://com/dsleng/etool/models/bobjs"
+            class="com.dsleng.etool.models.bobjs.BobjsPackage"
+            genModel="model/EGov.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated EGov -->
+      <package
+            uri="http://com/dsleng/etool/models/controls"
+            class="com.dsleng.etool.models.controls.ControlsPackage"
+            genModel="model/EGov.genmodel"/>
+   </extension>
+
 </plugin>

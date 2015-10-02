@@ -5,27 +5,8 @@ grammar com.dsleng.etool.dsl.egov.EGovDsl with org.eclipse.xtext.common.Terminal
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://com/dsleng/etool/models/egov" as egov
 import "http://com/dsleng/etool/models/controls" as controls
+import "http://com/dsleng/etool/models/bobjs"
 
-Dept returns egov::Dept:
-	{egov::Dept}
-	'Department'
-	'Name=' name=EString
-	'setup {'
-		'GroupID' groupId=EString','
-		'ArtifactID' artifactId=EString','
-		'Version' version=EString','
-		'Deployment Directory' dirLocation=EString','
-		'Language File' langFile=EString','
-		'Web Directory' webDirectory=EString
-	'}'
-	'{'
-		('BusinessObjects' '{' businessobjects+=BusinessObject ( "," businessobjects+=BusinessObject)* '}' )?
-		('EServices' '{' eservices+=EService ( "," eservices+=EService)* '}' )?
-	'}';
-
-
-EString returns ecore::EString:
-	STRING | ID;
 
 EService returns egov::EService:
 	{egov::EService}
@@ -33,54 +14,33 @@ EService returns egov::EService:
 	name=EString
 	'setup {'
 		'Deployment Directory' dirLocation=EString
+		//BusinessUnit=[bobjs::OrgUnit|EString]
+		//'Business Unit' BusinessUnit=[bobjs::OrgUnit|EString]
 	'}'
 	'{'
 		('Pages' '{' pages+=Page ( "," pages+=Page)* '}' )?
 		'Start Page' indexPage=[egov::Page|EString]
 	'}';
 
-BusinessObject returns egov::BusinessObject:
-	{egov::BusinessObject}
-	'BO=' name=EString
-	'{'
-		('attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
-		('references' '{' references+=References ( "," references+=References)* '}' )?
-	'}';
+EString returns ecore::EString:
+	STRING | ID;
 
 Page returns egov::Page:
-	'Page='
 	name=EString
 	'{'
-		'BO' businessobject=[egov::BusinessObject|EString]
+		('Pages' '{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?
 		('=>' nextPage=[egov::Page|EString])?
 	'}';
 
-Attribute returns egov::Attribute:
-	{egov::Attribute}
-	name=EString
-	'{'
-		('Label=' label=EString)?
-		('Type=' type=DataTypes)?
-		('Control=' Control=[controls::SimpleControl])?
-		('UIType=' UIType=[controls::Type])?
-		
-	'}';
+BOMaps returns egov::BOMapper:
+	{egov::BOMapper}
+	//BusinessObject=[bobjs::BusinessObject|EString]
+	('Attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
+;
 
+Attribute returns egov::BOAttribute:
+	{egov::BOAttribute}
+	//attribute=[bobjs::Attribute|EString]
+	//ControlType=[controls::CompositeWebCtrl|EString]
+;
 
-
-References returns egov::References:
-	{egov::References}
-	'BO=' businessobject=[egov::BusinessObject|EString]
-	'['
-		('Inclusion=' Inclusion=Inclusions)?
-		('Multiplicity=' multiplicity=Multiplicity)?
-	']';
-
-enum DataTypes returns egov::DataTypes:
-				Integer = 'Integer' | String = 'String';
-
-enum Inclusions returns egov::Inclusions:
-				Mandatory = 'Mandatory' | Optional = 'Optional';
-
-enum Multiplicity returns egov::Multiplicity:
-				OnlyOne = 'OnlyOne' | Many = 'Many';

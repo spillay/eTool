@@ -52,11 +52,6 @@
 						<artifactId>com.dsleng.etool.models.egov</artifactId>
 						<version>${etool.version}</version>
 					</dependency>
-					<dependency>
-						<groupId>com.dsleng.etool.models</groupId>
-						<artifactId>com.dsleng.etool.models.controls</artifactId>
-						<version>${etool.version}</version>
-					</dependency>
 				</dependencies>
 			</plugin>
 			<plugin>
@@ -76,11 +71,6 @@
 					<dependency>
 						<groupId>com.dsleng.etool.models</groupId>
 						<artifactId>com.dsleng.etool.models.egov</artifactId>
-						<version>${etool.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>com.dsleng.etool.models</groupId>
-						<artifactId>com.dsleng.etool.models.controls</artifactId>
 						<version>${etool.version}</version>
 					</dependency>
 				</dependencies>

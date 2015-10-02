@@ -11,10 +11,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.dsleng.etool.models.egov,
+Export-Package: com.dsleng.etool.models.bobjs,
+ com.dsleng.etool.models.bobjs.impl,
+ com.dsleng.etool.models.bobjs.util,
+ com.dsleng.etool.models.controls,
+ com.dsleng.etool.models.controls.impl,
+ com.dsleng.etool.models.controls.util,
+ com.dsleng.etool.models.egov,
  com.dsleng.etool.models.egov.impl,
- com.dsleng.etool.models.egov.util,
- controls,
- controls.impl,
- controls.util
+ com.dsleng.etool.models.egov.util
 Bundle-ActivationPolicy: lazy

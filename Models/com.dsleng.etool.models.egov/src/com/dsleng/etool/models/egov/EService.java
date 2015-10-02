@@ -2,8 +2,11 @@
  */
 package com.dsleng.etool.models.egov;
 
+
+
 import org.eclipse.emf.common.util.EList;
 
+import com.dsleng.etool.models.bobjs.OrgUnit;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.egov.EService#getPages <em>Pages</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.EService#getIndexPage <em>Index Page</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.EService#getDirLocation <em>Dir Location</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.EService#getBusinessUnit <em>Business Unit</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getEService()
@@ -24,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface EService extends NamedElement {
-
 	/**
 	 * Returns the value of the '<em><b>Pages</b></em>' containment reference list.
 	 * The list contents are of type {@link com.dsleng.etool.models.egov.Page}.
@@ -92,4 +95,31 @@ public interface EService extends NamedElement {
 	 * @generated
 	 */
 	void setDirLocation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Business Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Business Unit</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Business Unit</em>' reference.
+	 * @see #setBusinessUnit(OrgUnit)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getEService_BusinessUnit()
+	 * @model
+	 * @generated
+	 */
+	OrgUnit getBusinessUnit();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.EService#getBusinessUnit <em>Business Unit</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Business Unit</em>' reference.
+	 * @see #getBusinessUnit()
+	 * @generated
+	 */
+	void setBusinessUnit(OrgUnit value);
+
 } // EService

@@ -76,24 +76,16 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 				return createNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseBusinessObject(BusinessObject object) {
-				return createBusinessObjectAdapter();
-			}
-			@Override
-			public Adapter caseDept(Dept object) {
-				return createDeptAdapter();
-			}
-			@Override
 			public Adapter casePage(Page object) {
 				return createPageAdapter();
 			}
 			@Override
-			public Adapter caseAttribute(Attribute object) {
-				return createAttributeAdapter();
+			public Adapter caseBOMapper(BOMapper object) {
+				return createBOMapperAdapter();
 			}
 			@Override
-			public Adapter caseReferences(References object) {
-				return createReferencesAdapter();
+			public Adapter caseBOAttribute(BOAttribute object) {
+				return createBOAttributeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -144,34 +136,6 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.BusinessObject <em>Business Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.egov.BusinessObject
-	 * @generated
-	 */
-	public Adapter createBusinessObjectAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.Dept <em>Dept</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.egov.Dept
-	 * @generated
-	 */
-	public Adapter createDeptAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.Page <em>Page</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -186,30 +150,30 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.Attribute <em>Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.BOMapper <em>BO Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.egov.Attribute
+	 * @see com.dsleng.etool.models.egov.BOMapper
 	 * @generated
 	 */
-	public Adapter createAttributeAdapter() {
+	public Adapter createBOMapperAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.References <em>References</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.BOAttribute <em>BO Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.egov.References
+	 * @see com.dsleng.etool.models.egov.BOAttribute
 	 * @generated
 	 */
-	public Adapter createReferencesAdapter() {
+	public Adapter createBOAttributeAdapter() {
 		return null;
 	}
 

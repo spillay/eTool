@@ -5,7 +5,6 @@ package com.dsleng.etool.models.egov.impl;
 import com.dsleng.etool.models.egov.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -59,51 +58,11 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 		switch (eClass.getClassifierID()) {
 			case EgovPackage.ESERVICE: return createEService();
 			case EgovPackage.NAMED_ELEMENT: return createNamedElement();
-			case EgovPackage.BUSINESS_OBJECT: return createBusinessObject();
-			case EgovPackage.DEPT: return createDept();
 			case EgovPackage.PAGE: return createPage();
-			case EgovPackage.ATTRIBUTE: return createAttribute();
-			case EgovPackage.REFERENCES: return createReferences();
+			case EgovPackage.BO_MAPPER: return createBOMapper();
+			case EgovPackage.BO_ATTRIBUTE: return createBOAttribute();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case EgovPackage.DATA_TYPES:
-				return createDataTypesFromString(eDataType, initialValue);
-			case EgovPackage.INCLUSIONS:
-				return createInclusionsFromString(eDataType, initialValue);
-			case EgovPackage.MULTIPLICITY:
-				return createMultiplicityFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case EgovPackage.DATA_TYPES:
-				return convertDataTypesToString(eDataType, instanceValue);
-			case EgovPackage.INCLUSIONS:
-				return convertInclusionsToString(eDataType, instanceValue);
-			case EgovPackage.MULTIPLICITY:
-				return convertMultiplicityToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -132,26 +91,6 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BusinessObject createBusinessObject() {
-		BusinessObjectImpl businessObject = new BusinessObjectImpl();
-		return businessObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Dept createDept() {
-		DeptImpl dept = new DeptImpl();
-		return dept;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Page createPage() {
 		PageImpl page = new PageImpl();
 		return page;
@@ -162,9 +101,9 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute createAttribute() {
-		AttributeImpl attribute = new AttributeImpl();
-		return attribute;
+	public BOMapper createBOMapper() {
+		BOMapperImpl boMapper = new BOMapperImpl();
+		return boMapper;
 	}
 
 	/**
@@ -172,69 +111,9 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public References createReferences() {
-		ReferencesImpl references = new ReferencesImpl();
-		return references;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataTypes createDataTypesFromString(EDataType eDataType, String initialValue) {
-		DataTypes result = DataTypes.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDataTypesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Inclusions createInclusionsFromString(EDataType eDataType, String initialValue) {
-		Inclusions result = Inclusions.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertInclusionsToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Multiplicity createMultiplicityFromString(EDataType eDataType, String initialValue) {
-		Multiplicity result = Multiplicity.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMultiplicityToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public BOAttribute createBOAttribute() {
+		BOAttributeImpl boAttribute = new BOAttributeImpl();
+		return boAttribute;
 	}
 
 	/**
