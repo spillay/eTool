@@ -4,10 +4,43 @@
 package com.dsleng.etool.dsl.egov.ui.contentassist
 
 import com.dsleng.etool.dsl.egov.ui.contentassist.AbstractEGovDslProposalProvider
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import com.dsleng.etool.models.egov.BOAttribute
+import com.dsleng.etool.models.egov.BOMapper
+import org.eclipse.xtext.naming.QualifiedName
+import com.dsleng.etool.models.bobjs.OrgUnit
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
+
 class EGovDslProposalProvider extends AbstractEGovDslProposalProvider {
+	
+	override completeAttribute_Attribute(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if ( model instanceof BOAttribute){
+			val bomapper = model.eContainer as BOMapper
+			val package = bomapper.businessObject.eContainer as OrgUnit
+			for(a: bomapper.businessObject.attributes){
+				//val option = QualifiedName.create(package.name,bomapper.businessObject.name,a.name)
+				acceptor.accept(createCompletionProposal(a.name,context))	
+			}
+		} else {
+			super.completeAttribute_Attribute(model, assignment, context, acceptor)
+		}
+		
+		//super.completeAttribute_Attribute(model, assignment, context, acceptor)
+		// if (EcoreUtil2.getContainerOfType(model, BOMapper) != null) {
+            //final IJvmTypeProvider jvmTypeProvider = jvmTypeProviderFactory.createTypeProvider(model.eResource().getResourceSet());
+            // Graphiti specific
+            //final JvmType interfaceToImplement = jvmTypeProvider.findTypeByName(ICustomFeature.class.getName());
+            //typeProposalProvider.createSubTypeProposals(interfaceToImplement, this, context, SprayPackage.Literals.BEHAVIOR__REALIZED_BY, TypeMatchFilters.canInstantiate(), acceptor);
+       // } else {
+            
+        //}
+	}
+	
 }

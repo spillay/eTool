@@ -3,9 +3,17 @@
  */
 package com.dsleng.etool.dsl.bobjs;
 
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+
+import com.dsleng.etool.dsl.bobjs.scoping.BobjsDslQNP;
+
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class BObjDslRuntimeModule extends com.dsleng.etool.dsl.bobjs.AbstractBObjDslRuntimeModule {
-
+	//@Override
+    //public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+     //   return BobjsDslQNP.class;
+   // }
 }

@@ -25,17 +25,16 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Page returns Page:
-	name=EString
-	'{'
-		('Pages' '{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?
+	'PageName='name=EString
+		('{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?
 		('=>' nextPage=[Page|EString])?
-	'}';
+;
 
 BOMaps returns BOMapper:
 	{BOMapper}
 	'BusinessObject=' BusinessObject=[bobjs::BusinessObject|EString]
 	('BOType='botype=[controls::BOType])?
-	('Attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
+	('Modified Attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
 ;
 
 Attribute returns BOAttribute:

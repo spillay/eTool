@@ -3,9 +3,16 @@
  */
 package com.dsleng.etool.dsl.egov;
 
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+
+import com.dsleng.etool.dsl.egov.scoping.EGovDslQNP;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class EGovDslRuntimeModule extends com.dsleng.etool.dsl.egov.AbstractEGovDslRuntimeModule {
-
+	//@Override
+   // public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+    //    return EGovDslQNP.class;
+   // }
 }

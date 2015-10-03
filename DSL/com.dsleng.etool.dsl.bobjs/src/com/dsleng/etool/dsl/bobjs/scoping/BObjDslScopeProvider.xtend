@@ -3,6 +3,16 @@
  */
 package com.dsleng.etool.dsl.bobjs.scoping
 
+import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
+import org.eclipse.xtext.naming.QualifiedName
+import com.dsleng.etool.models.bobjs.Attribute
+import com.dsleng.etool.models.bobjs.BusinessObject
+import com.dsleng.etool.models.bobjs.OrgUnit
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.Scopes
+import com.dsleng.etool.models.bobjs.References
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,6 +20,31 @@ package com.dsleng.etool.dsl.bobjs.scoping
  * on how and when to use it.
  *
  */
+ class BobjsDslQNP extends DefaultDeclarativeQualifiedNameProvider {
+ 	 def QualifiedName qualifiedName(Attribute e) {
+        val bo = e.eContainer as BusinessObject
+        val org = bo.eContainer as OrgUnit
+        return QualifiedName.create(org.package,bo.name,e.name);
+    }
+    def QualifiedName qualifiedName(BusinessObject e) {
+        val org = e.eContainer as OrgUnit
+        return QualifiedName.create(org.package,e.name);
+    }
+ }
 class BObjDslScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
-
+	/* 
+	def IScope scope_BusinessObject_superTypes(BusinessObject e,EReference reference){
+		val org = e.eContainer as OrgUnit
+		Scopes.scopeFor(org.businessobjects)
+	}
+	def IScope scope_BusinessObject_references(BusinessObject e,EReference reference){
+		val org = e.eContainer as OrgUnit
+		Scopes.scopeFor(org.businessobjects)
+	}
+	def IScope scope__References_businessobject(References e,EReference reference){
+		val bo = e.eContainer as BusinessObject
+		val org = bo.eContainer as OrgUnit
+		Scopes.scopeFor(org.businessobjects)
+	}
+	*/ 
 }
