@@ -148,6 +148,24 @@ public interface ControlsFactory extends EFactory {
 	TypeParameter createTypeParameter();
 
 	/**
+	 * Returns a new object of class '<em>Attribute Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Attribute Type</em>'.
+	 * @generated
+	 */
+	AttributeType createAttributeType();
+
+	/**
+	 * Returns a new object of class '<em>BO Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BO Type</em>'.
+	 * @generated
+	 */
+	BOType createBOType();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

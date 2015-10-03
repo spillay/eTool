@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.bobjs.impl;
 
+import com.dsleng.etool.models.bobjs.BOEnum;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
 import com.dsleng.etool.models.bobjs.OrgUnit;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getWebDirectory <em>Web Directory</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getPackage <em>Package</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getBoenums <em>Boenums</em>}</li>
  * </ul>
  *
  * @generated
@@ -191,6 +193,16 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	 * @ordered
 	 */
 	protected String package_ = PACKAGE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBoenums() <em>Boenums</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBoenums()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BOEnum> boenums;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -375,11 +387,25 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BOEnum> getBoenums() {
+		if (boenums == null) {
+			boenums = new EObjectContainmentEList<BOEnum>(BOEnum.class, this, BobjsPackage.ORG_UNIT__BOENUMS);
+		}
+		return boenums;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case BobjsPackage.ORG_UNIT__BUSINESSOBJECTS:
 				return ((InternalEList<?>)getBusinessobjects()).basicRemove(otherEnd, msgs);
+			case BobjsPackage.ORG_UNIT__BOENUMS:
+				return ((InternalEList<?>)getBoenums()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -408,6 +434,8 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				return getWebDirectory();
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				return getPackage();
+			case BobjsPackage.ORG_UNIT__BOENUMS:
+				return getBoenums();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -446,6 +474,10 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				setPackage((String)newValue);
 				return;
+			case BobjsPackage.ORG_UNIT__BOENUMS:
+				getBoenums().clear();
+				getBoenums().addAll((Collection<? extends BOEnum>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -482,6 +514,9 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				setPackage(PACKAGE_EDEFAULT);
 				return;
+			case BobjsPackage.ORG_UNIT__BOENUMS:
+				getBoenums().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -510,6 +545,8 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				return WEB_DIRECTORY_EDEFAULT == null ? webDirectory != null : !WEB_DIRECTORY_EDEFAULT.equals(webDirectory);
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
+			case BobjsPackage.ORG_UNIT__BOENUMS:
+				return boenums != null && !boenums.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

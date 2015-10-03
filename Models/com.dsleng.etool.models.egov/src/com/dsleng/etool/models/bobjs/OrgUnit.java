@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getWebDirectory <em>Web Directory</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getPackage <em>Package</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getBoenums <em>Boenums</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.bobjs.BobjsPackage#getOrgUnit()
@@ -225,5 +226,21 @@ public interface OrgUnit extends NamedElement {
 	 * @generated
 	 */
 	void setPackage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Boenums</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.bobjs.BOEnum}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Boenums</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Boenums</em>' containment reference list.
+	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getOrgUnit_Boenums()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BOEnum> getBoenums();
 
 } // OrgUnit

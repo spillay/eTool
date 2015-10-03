@@ -186,13 +186,22 @@ public interface BobjsPackage extends EPackage {
 	int ORG_UNIT__PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Boenums</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORG_UNIT__BOENUMS = NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Org Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int ORG_UNIT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Org Unit</em>' class.
@@ -369,13 +378,40 @@ public interface BobjsPackage extends EPackage {
 	int BUSINESS_OBJECT__REFERENCES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Super Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_OBJECT__SUPER_TYPES = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Enums</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_OBJECT__ENUMS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Basedon</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_OBJECT__BASEDON = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Business Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_OBJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int BUSINESS_OBJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Business Object</em>' class.
@@ -387,6 +423,181 @@ public interface BobjsPackage extends EPackage {
 	int BUSINESS_OBJECT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.BOEnumImpl <em>BO Enum</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.BOEnumImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getBOEnum()
+	 * @generated
+	 */
+	int BO_ENUM = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_ENUM__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Literal</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_ENUM__LITERAL = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>BO Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_ENUM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>BO Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_ENUM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.LiteralImpl <em>Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.LiteralImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getLiteral()
+	 * @generated
+	 */
+	int LITERAL = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.EnumImpl <em>Enum</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.EnumImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getEnum()
+	 * @generated
+	 */
+	int ENUM = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Boenum</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__BOENUM = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.BasedOnImpl <em>Based On</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.BasedOnImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getBasedOn()
+	 * @generated
+	 */
+	int BASED_ON = 8;
+
+	/**
+	 * The feature id for the '<em><b>Businessobject</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASED_ON__BUSINESSOBJECT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Removes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASED_ON__REMOVES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Based On</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASED_ON_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Based On</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASED_ON_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,7 +605,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getDataTypes()
 	 * @generated
 	 */
-	int DATA_TYPES = 5;
+	int DATA_TYPES = 9;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.Inclusions <em>Inclusions</em>}' enum.
@@ -404,7 +615,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getInclusions()
 	 * @generated
 	 */
-	int INCLUSIONS = 6;
+	int INCLUSIONS = 10;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.Multiplicity <em>Multiplicity</em>}' enum.
@@ -414,7 +625,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getMultiplicity()
 	 * @generated
 	 */
-	int MULTIPLICITY = 7;
+	int MULTIPLICITY = 11;
 
 
 	/**
@@ -535,6 +746,17 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOrgUnit_Package();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.bobjs.OrgUnit#getBoenums <em>Boenums</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Boenums</em>'.
+	 * @see com.dsleng.etool.models.bobjs.OrgUnit#getBoenums()
+	 * @see #getOrgUnit()
+	 * @generated
+	 */
+	EReference getOrgUnit_Boenums();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.Attribute <em>Attribute</em>}'.
@@ -664,6 +886,123 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBusinessObject_References();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.dsleng.etool.models.bobjs.BusinessObject#getSuperTypes <em>Super Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Super Types</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BusinessObject#getSuperTypes()
+	 * @see #getBusinessObject()
+	 * @generated
+	 */
+	EReference getBusinessObject_SuperTypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.bobjs.BusinessObject#getEnums <em>Enums</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Enums</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BusinessObject#getEnums()
+	 * @see #getBusinessObject()
+	 * @generated
+	 */
+	EReference getBusinessObject_Enums();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.bobjs.BusinessObject#getBasedon <em>Basedon</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Basedon</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BusinessObject#getBasedon()
+	 * @see #getBusinessObject()
+	 * @generated
+	 */
+	EReference getBusinessObject_Basedon();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.BOEnum <em>BO Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BO Enum</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BOEnum
+	 * @generated
+	 */
+	EClass getBOEnum();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.bobjs.BOEnum#getLiteral <em>Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Literal</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BOEnum#getLiteral()
+	 * @see #getBOEnum()
+	 * @generated
+	 */
+	EReference getBOEnum_Literal();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.Literal <em>Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Literal</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Literal
+	 * @generated
+	 */
+	EClass getLiteral();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.Enum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enum</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Enum
+	 * @generated
+	 */
+	EClass getEnum();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.bobjs.Enum#getBoenum <em>Boenum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Boenum</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Enum#getBoenum()
+	 * @see #getEnum()
+	 * @generated
+	 */
+	EReference getEnum_Boenum();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.BasedOn <em>Based On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Based On</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BasedOn
+	 * @generated
+	 */
+	EClass getBasedOn();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.bobjs.BasedOn#getBusinessobject <em>Businessobject</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Businessobject</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BasedOn#getBusinessobject()
+	 * @see #getBasedOn()
+	 * @generated
+	 */
+	EReference getBasedOn_Businessobject();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.dsleng.etool.models.bobjs.BasedOn#getRemoves <em>Removes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Removes</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BasedOn#getRemoves()
+	 * @see #getBasedOn()
+	 * @generated
+	 */
+	EReference getBasedOn_Removes();
 
 	/**
 	 * Returns the meta object for enum '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}'.
@@ -811,6 +1150,14 @@ public interface BobjsPackage extends EPackage {
 		EAttribute ORG_UNIT__PACKAGE = eINSTANCE.getOrgUnit_Package();
 
 		/**
+		 * The meta object literal for the '<em><b>Boenums</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORG_UNIT__BOENUMS = eINSTANCE.getOrgUnit_Boenums();
+
+		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl <em>Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -911,6 +1258,102 @@ public interface BobjsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BUSINESS_OBJECT__REFERENCES = eINSTANCE.getBusinessObject_References();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Types</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUSINESS_OBJECT__SUPER_TYPES = eINSTANCE.getBusinessObject_SuperTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Enums</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUSINESS_OBJECT__ENUMS = eINSTANCE.getBusinessObject_Enums();
+
+		/**
+		 * The meta object literal for the '<em><b>Basedon</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUSINESS_OBJECT__BASEDON = eINSTANCE.getBusinessObject_Basedon();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.BOEnumImpl <em>BO Enum</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.BOEnumImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getBOEnum()
+		 * @generated
+		 */
+		EClass BO_ENUM = eINSTANCE.getBOEnum();
+
+		/**
+		 * The meta object literal for the '<em><b>Literal</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BO_ENUM__LITERAL = eINSTANCE.getBOEnum_Literal();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.LiteralImpl <em>Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.LiteralImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getLiteral()
+		 * @generated
+		 */
+		EClass LITERAL = eINSTANCE.getLiteral();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.EnumImpl <em>Enum</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.EnumImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getEnum()
+		 * @generated
+		 */
+		EClass ENUM = eINSTANCE.getEnum();
+
+		/**
+		 * The meta object literal for the '<em><b>Boenum</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENUM__BOENUM = eINSTANCE.getEnum_Boenum();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.BasedOnImpl <em>Based On</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.BasedOnImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getBasedOn()
+		 * @generated
+		 */
+		EClass BASED_ON = eINSTANCE.getBasedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Businessobject</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BASED_ON__BUSINESSOBJECT = eINSTANCE.getBasedOn_Businessobject();
+
+		/**
+		 * The meta object literal for the '<em><b>Removes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BASED_ON__REMOVES = eINSTANCE.getBasedOn_Removes();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}' enum.

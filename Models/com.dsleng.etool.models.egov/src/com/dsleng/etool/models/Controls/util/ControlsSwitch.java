@@ -155,6 +155,20 @@ public class ControlsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ControlsPackage.ATTRIBUTE_TYPE: {
+				AttributeType attributeType = (AttributeType)theEObject;
+				T result = caseAttributeType(attributeType);
+				if (result == null) result = caseType(attributeType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ControlsPackage.BO_TYPE: {
+				BOType boType = (BOType)theEObject;
+				T result = caseBOType(boType);
+				if (result == null) result = caseType(boType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -366,6 +380,36 @@ public class ControlsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTypeParameter(TypeParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttributeType(AttributeType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BO Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BO Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBOType(BOType object) {
 		return null;
 	}
 

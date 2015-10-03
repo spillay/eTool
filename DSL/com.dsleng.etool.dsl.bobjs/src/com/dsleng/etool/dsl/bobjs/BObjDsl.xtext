@@ -18,6 +18,7 @@ OrgUnit returns OrgUnit:
 	'}'
 	'{'
 		('BusinessObjects' '{' businessobjects+=BusinessObject ( "," businessobjects+=BusinessObject)* '}' )?
+		('BO Enums' '{' boenums+=BOEnum ( "," boenums+=BOEnum)* '}' )?
 	'}';
 
 
@@ -25,15 +26,43 @@ OrgUnit returns OrgUnit:
 EString returns ecore::EString:
 	STRING | ID;
 
+BOEnum returns BOEnum: 
+	'name=' name=EString
+		('[' literal+=Literal ( "|" literal+=Literal)* ']' )?
+;
+
+Literal returns Literal: 
+	name=EString
+;
+
+Enum returns Enum: 
+	'name='name=EString '=>' boenum=[BOEnum|EString]
+;
+
 
 BusinessObject returns BusinessObject:
 	{BusinessObject}
 	'BO='
-	name=EString
+	name=EString 
 	'{'
 		('attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
 		('references' '{' references+=References ( "," references+=References)* '}' )?
+		('usesEnums' '{' enums+=SEnum ( "," enums+=SEnum)* '}' )?
+		('superTypes' '{' superTypes+=[BusinessObject|EString] ( "," superTypes+=[BusinessObject|EString])* '}' )?
+		('basedOn' '{' basedon+=BasedOn ( "," basedon+=BasedOn)* '}' )?
 	'}';
+
+BasedOn returns BasedOn: 
+	businessobject=[BusinessObject|EString]
+	'{'
+		'removes' ('[' removes+=[Attribute|EString] ( "," removes+=[Attribute|EString] )* ']' )?
+	'}'
+;
+
+
+SEnum returns Enum: 
+	'name='name=EString '=>' boenum=[BOEnum|EString]
+;
 
 Attribute returns Attribute:
 	name=EString
@@ -55,7 +84,7 @@ References returns References:
 
 
 enum DataTypes returns DataTypes:
-				Integer = 'Integer' | String = 'String';
+				Integer = 'Integer' | String = 'String' | Double = 'Double' | Date = 'Date';
 
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';

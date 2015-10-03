@@ -2,10 +2,8 @@
  */
 package com.dsleng.etool.models.egov;
 
-import com.dsleng.etool.models.Controls.Type;
-
+import com.dsleng.etool.models.Controls.AttributeType;
 import com.dsleng.etool.models.bobjs.Attribute;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getControlType <em>Control Type</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getControltype <em>Controltype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
@@ -27,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface BOAttribute extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Control Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Controltype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Control Type</em>' reference isn't clear,
+	 * If the meaning of the '<em>Controltype</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Control Type</em>' reference.
-	 * @see #setControlType(Type)
-	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute_ControlType()
+	 * @return the value of the '<em>Controltype</em>' reference.
+	 * @see #setControltype(AttributeType)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute_Controltype()
 	 * @model
 	 * @generated
 	 */
-	Type getControlType();
+	AttributeType getControltype();
 
 	/**
-	 * Sets the value of the '{@link com.dsleng.etool.models.egov.BOAttribute#getControlType <em>Control Type</em>}' reference.
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.BOAttribute#getControltype <em>Controltype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Control Type</em>' reference.
-	 * @see #getControlType()
+	 * @param value the new value of the '<em>Controltype</em>' reference.
+	 * @see #getControltype()
 	 * @generated
 	 */
-	void setControlType(Type value);
+	void setControltype(AttributeType value);
 
 	/**
 	 * Returns the value of the '<em><b>Attribute</b></em>' reference.

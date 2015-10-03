@@ -36,7 +36,31 @@ public enum DataTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRING(1, "String", "String");
+	STRING(1, "String", "String"), /**
+	 * The '<em><b>Date</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DATE(2, "Date", "Date"), /**
+	 * The '<em><b>Double</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DOUBLE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DOUBLE(3, "Double", "Double"), /**
+	 * The '<em><b>Boolean</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BOOLEAN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BOOLEAN(4, "Boolean", "Boolean");
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal value.
@@ -69,6 +93,51 @@ public enum DataTypes implements Enumerator {
 	public static final int STRING_VALUE = 1;
 
 	/**
+	 * The '<em><b>Date</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Date</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DATE
+	 * @model name="Date"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATE_VALUE = 2;
+
+	/**
+	 * The '<em><b>Double</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Double</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DOUBLE
+	 * @model name="Double"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DOUBLE_VALUE = 3;
+
+	/**
+	 * The '<em><b>Boolean</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Boolean</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #BOOLEAN
+	 * @model name="Boolean"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BOOLEAN_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Data Types</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,6 +147,9 @@ public enum DataTypes implements Enumerator {
 		new DataTypes[] {
 			INTEGER,
 			STRING,
+			DATE,
+			DOUBLE,
+			BOOLEAN,
 		};
 
 	/**
@@ -136,6 +208,9 @@ public enum DataTypes implements Enumerator {
 		switch (value) {
 			case INTEGER_VALUE: return INTEGER;
 			case STRING_VALUE: return STRING;
+			case DATE_VALUE: return DATE;
+			case DOUBLE_VALUE: return DOUBLE;
+			case BOOLEAN_VALUE: return BOOLEAN;
 		}
 		return null;
 	}

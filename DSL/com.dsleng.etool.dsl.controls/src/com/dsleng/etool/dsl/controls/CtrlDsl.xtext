@@ -11,13 +11,24 @@ ControlManager returns controls::ControlManager:
 		('controls' '{' controls+=ControlDef ( "," controls+=ControlDef)* '}' )?
 		('pageinfos' '{' pageinfos+=PageInfo ( "," pageinfos+=PageInfo)* '}' )?
 		('composites' '{' composites+=Composite ( "," composites+=Composite)* '}' )?
-		('Types' '{' types+=Type ( "," types+=Type)* '}' )?
+		('AttributeTypes' '{' types+=AttributeType ( "," types+=AttributeType)* '}' )?
+		('BOTypes' '{' types+=BOType ( "," types+=BOType)* '}' )?
 	'}';
 
 Type returns controls::Type:
+	AttributeType | BOType
+;
+
+AttributeType returns controls::AttributeType: 
 	'[' 'Name=' name=EString 'Control=' control=[controls::SimpleControl|EString] ']'
 	 ('Parameters' '{' parameters+=TypeParameter ( "," parameters+=TypeParameter)* '}' )?
 ;
+BOType returns controls::BOType: 
+	'[' 'Name=' name=EString 'Control=' control=[controls::SimpleControl|EString] ']'
+	 ('Parameters' '{' parameters+=TypeParameter ( "," parameters+=TypeParameter)* '}' )?
+;
+
+
 
 TypeParameter returns controls::TypeParameter:
 	value=EString "=>" option=[controls::Options|EString]

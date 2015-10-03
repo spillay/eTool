@@ -937,6 +937,117 @@ public interface ControlsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.Controls.impl.AttributeTypeImpl <em>Attribute Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.Controls.impl.AttributeTypeImpl
+	 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getAttributeType()
+	 * @generated
+	 */
+	int ATTRIBUTE_TYPE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_TYPE__NAME = TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_TYPE__CONTROL = TYPE__CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_TYPE__PARAMETERS = TYPE__PARAMETERS;
+
+	/**
+	 * The number of structural features of the '<em>Attribute Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Attribute Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.Controls.impl.BOTypeImpl <em>BO Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.Controls.impl.BOTypeImpl
+	 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getBOType()
+	 * @generated
+	 */
+	int BO_TYPE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_TYPE__NAME = TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_TYPE__CONTROL = TYPE__CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_TYPE__PARAMETERS = TYPE__PARAMETERS;
+
+	/**
+	 * The number of structural features of the '<em>BO Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>BO Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.Controls.ControlDef <em>Control Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1461,6 +1572,26 @@ public interface ControlsPackage extends EPackage {
 	EAttribute getTypeParameter_Value();
 
 	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.Controls.AttributeType <em>Attribute Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute Type</em>'.
+	 * @see com.dsleng.etool.models.Controls.AttributeType
+	 * @generated
+	 */
+	EClass getAttributeType();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.Controls.BOType <em>BO Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BO Type</em>'.
+	 * @see com.dsleng.etool.models.Controls.BOType
+	 * @generated
+	 */
+	EClass getBOType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1902,6 +2033,26 @@ public interface ControlsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TYPE_PARAMETER__VALUE = eINSTANCE.getTypeParameter_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.Controls.impl.AttributeTypeImpl <em>Attribute Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.Controls.impl.AttributeTypeImpl
+		 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getAttributeType()
+		 * @generated
+		 */
+		EClass ATTRIBUTE_TYPE = eINSTANCE.getAttributeType();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.Controls.impl.BOTypeImpl <em>BO Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.Controls.impl.BOTypeImpl
+		 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getBOType()
+		 * @generated
+		 */
+		EClass BO_TYPE = eINSTANCE.getBOType();
 
 	}
 

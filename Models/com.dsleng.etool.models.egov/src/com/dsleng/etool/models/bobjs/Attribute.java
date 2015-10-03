@@ -2,7 +2,6 @@
  */
 package com.dsleng.etool.models.bobjs;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Attribute</b></em>'.
@@ -62,7 +61,7 @@ public interface Attribute extends NamedElement {
 	 * @see com.dsleng.etool.models.bobjs.DataTypes
 	 * @see #setType(DataTypes)
 	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getAttribute_Type()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	DataTypes getType();

@@ -258,6 +258,15 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBOMapper_Botype() {
+		return (EReference)boMapperEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBOAttribute() {
 		return boAttributeEClass;
 	}
@@ -267,7 +276,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBOAttribute_ControlType() {
+	public EReference getBOAttribute_Controltype() {
 		return (EReference)boAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -324,9 +333,10 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		boMapperEClass = createEClass(BO_MAPPER);
 		createEReference(boMapperEClass, BO_MAPPER__ATTRIBUTES);
 		createEReference(boMapperEClass, BO_MAPPER__BUSINESS_OBJECT);
+		createEReference(boMapperEClass, BO_MAPPER__BOTYPE);
 
 		boAttributeEClass = createEClass(BO_ATTRIBUTE);
-		createEReference(boAttributeEClass, BO_ATTRIBUTE__CONTROL_TYPE);
+		createEReference(boAttributeEClass, BO_ATTRIBUTE__CONTROLTYPE);
 		createEReference(boAttributeEClass, BO_ATTRIBUTE__ATTRIBUTE);
 	}
 
@@ -382,9 +392,10 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEClass(boMapperEClass, BOMapper.class, "BOMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOMapper_Attributes(), this.getBOAttribute(), null, "attributes", null, 0, -1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBOMapper_BusinessObject(), theBobjsPackage.getBusinessObject(), null, "BusinessObject", null, 0, 1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBOMapper_Botype(), theControlsPackage.getBOType(), null, "botype", null, 0, 1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boAttributeEClass, BOAttribute.class, "BOAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBOAttribute_ControlType(), theControlsPackage.getType(), null, "ControlType", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBOAttribute_Controltype(), theControlsPackage.getAttributeType(), null, "controltype", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBOAttribute_Attribute(), theBobjsPackage.getAttribute(), null, "attribute", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

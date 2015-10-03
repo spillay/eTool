@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.egov;
 
+import com.dsleng.etool.models.Controls.BOType;
 import com.dsleng.etool.models.bobjs.BusinessObject;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.BOMapper#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.BOMapper#getBusinessObject <em>Business Object</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.BOMapper#getBotype <em>Botype</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getBOMapper()
@@ -67,5 +69,31 @@ public interface BOMapper extends EObject {
 	 * @generated
 	 */
 	void setBusinessObject(BusinessObject value);
+
+	/**
+	 * Returns the value of the '<em><b>Botype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Botype</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Botype</em>' reference.
+	 * @see #setBotype(BOType)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOMapper_Botype()
+	 * @model
+	 * @generated
+	 */
+	BOType getBotype();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.BOMapper#getBotype <em>Botype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Botype</em>' reference.
+	 * @see #getBotype()
+	 * @generated
+	 */
+	void setBotype(BOType value);
 
 } // BOMapper

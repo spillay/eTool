@@ -34,12 +34,13 @@ Page returns Page:
 BOMaps returns BOMapper:
 	{BOMapper}
 	'BusinessObject=' BusinessObject=[bobjs::BusinessObject|EString]
+	('BOType='botype=[controls::BOType])?
 	('Attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
 ;
 
 Attribute returns BOAttribute:
 	{BOAttribute}
 	'Attribute=' attribute=[bobjs::Attribute|EString]
-	'ControlType=' ControlType=[controls::Type|EString]
+	'ControlType=' controltype=[controls::AttributeType|EString]
 ;
 

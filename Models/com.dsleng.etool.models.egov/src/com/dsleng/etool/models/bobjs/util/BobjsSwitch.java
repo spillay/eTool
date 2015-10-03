@@ -2,6 +2,15 @@
  */
 package com.dsleng.etool.models.bobjs.util;
 
+import com.dsleng.etool.models.bobjs.Attribute;
+import com.dsleng.etool.models.bobjs.BOEnum;
+import com.dsleng.etool.models.bobjs.BasedOn;
+import com.dsleng.etool.models.bobjs.BobjsPackage;
+import com.dsleng.etool.models.bobjs.BusinessObject;
+import com.dsleng.etool.models.bobjs.Literal;
+import com.dsleng.etool.models.bobjs.NamedElement;
+import com.dsleng.etool.models.bobjs.OrgUnit;
+import com.dsleng.etool.models.bobjs.References;
 import com.dsleng.etool.models.bobjs.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -99,6 +108,33 @@ public class BobjsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BobjsPackage.BO_ENUM: {
+				BOEnum boEnum = (BOEnum)theEObject;
+				T result = caseBOEnum(boEnum);
+				if (result == null) result = caseNamedElement(boEnum);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BobjsPackage.LITERAL: {
+				Literal literal = (Literal)theEObject;
+				T result = caseLiteral(literal);
+				if (result == null) result = caseNamedElement(literal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BobjsPackage.ENUM: {
+				com.dsleng.etool.models.bobjs.Enum enum_ = (com.dsleng.etool.models.bobjs.Enum)theEObject;
+				T result = caseEnum(enum_);
+				if (result == null) result = caseNamedElement(enum_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BobjsPackage.BASED_ON: {
+				BasedOn basedOn = (BasedOn)theEObject;
+				T result = caseBasedOn(basedOn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -175,6 +211,66 @@ public class BobjsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBusinessObject(BusinessObject object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BO Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BO Enum</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBOEnum(BOEnum object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLiteral(Literal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnum(com.dsleng.etool.models.bobjs.Enum object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Based On</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Based On</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBasedOn(BasedOn object) {
 		return null;
 	}
 

@@ -2,6 +2,8 @@
  */
 package com.dsleng.etool.models.Controls.impl;
 
+import com.dsleng.etool.models.Controls.AttributeType;
+import com.dsleng.etool.models.Controls.BOType;
 import com.dsleng.etool.models.Controls.Composite;
 import com.dsleng.etool.models.Controls.CompositeMobCtrl;
 import com.dsleng.etool.models.Controls.CompositeWebCtrl;
@@ -139,6 +141,20 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * @generated
 	 */
 	private EClass typeParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass attributeTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boTypeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -655,6 +671,24 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAttributeType() {
+		return attributeTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBOType() {
+		return boTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ControlsFactory getControlsFactory() {
 		return (ControlsFactory)getEFactoryInstance();
 	}
@@ -740,6 +774,10 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		typeParameterEClass = createEClass(TYPE_PARAMETER);
 		createEReference(typeParameterEClass, TYPE_PARAMETER__OPTION);
 		createEAttribute(typeParameterEClass, TYPE_PARAMETER__VALUE);
+
+		attributeTypeEClass = createEClass(ATTRIBUTE_TYPE);
+
+		boTypeEClass = createEClass(BO_TYPE);
 	}
 
 	/**
@@ -773,6 +811,8 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		compositeWebCtrlEClass.getESuperTypes().add(this.getComposite());
 		compositeMobCtrlEClass.getESuperTypes().add(this.getComposite());
 		compositeEClass.getESuperTypes().add(this.getSimpleControl());
+		attributeTypeEClass.getESuperTypes().add(this.getType());
+		boTypeEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(controlDefEClass, ControlDef.class, "ControlDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -838,6 +878,10 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		initEClass(typeParameterEClass, TypeParameter.class, "TypeParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypeParameter_Option(), this.getOptions(), null, "option", null, 1, 1, TypeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTypeParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, TypeParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attributeTypeEClass, AttributeType.class, "AttributeType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(boTypeEClass, BOType.class, "BOType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

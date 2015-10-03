@@ -3,20 +3,20 @@
 package com.dsleng.etool.models.bobjs.impl;
 
 import com.dsleng.etool.models.bobjs.Attribute;
+import com.dsleng.etool.models.bobjs.BasedOn;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
 import com.dsleng.etool.models.bobjs.References;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -29,6 +29,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getSuperTypes <em>Super Types</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getEnums <em>Enums</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getBasedon <em>Basedon</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +56,36 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	 * @ordered
 	 */
 	protected EList<References> references;
+
+	/**
+	 * The cached value of the '{@link #getSuperTypes() <em>Super Types</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSuperTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BusinessObject> superTypes;
+
+	/**
+	 * The cached value of the '{@link #getEnums() <em>Enums</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnums()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<com.dsleng.etool.models.bobjs.Enum> enums;
+
+	/**
+	 * The cached value of the '{@link #getBasedon() <em>Basedon</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasedon()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BasedOn> basedon;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +135,42 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BusinessObject> getSuperTypes() {
+		if (superTypes == null) {
+			superTypes = new EObjectResolvingEList<BusinessObject>(BusinessObject.class, this, BobjsPackage.BUSINESS_OBJECT__SUPER_TYPES);
+		}
+		return superTypes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<com.dsleng.etool.models.bobjs.Enum> getEnums() {
+		if (enums == null) {
+			enums = new EObjectContainmentEList<com.dsleng.etool.models.bobjs.Enum>(com.dsleng.etool.models.bobjs.Enum.class, this, BobjsPackage.BUSINESS_OBJECT__ENUMS);
+		}
+		return enums;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BasedOn> getBasedon() {
+		if (basedon == null) {
+			basedon = new EObjectContainmentEList<BasedOn>(BasedOn.class, this, BobjsPackage.BUSINESS_OBJECT__BASEDON);
+		}
+		return basedon;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -109,6 +178,10 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case BobjsPackage.BUSINESS_OBJECT__ENUMS:
+				return ((InternalEList<?>)getEnums()).basicRemove(otherEnd, msgs);
+			case BobjsPackage.BUSINESS_OBJECT__BASEDON:
+				return ((InternalEList<?>)getBasedon()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -125,6 +198,12 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 				return getAttributes();
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				return getReferences();
+			case BobjsPackage.BUSINESS_OBJECT__SUPER_TYPES:
+				return getSuperTypes();
+			case BobjsPackage.BUSINESS_OBJECT__ENUMS:
+				return getEnums();
+			case BobjsPackage.BUSINESS_OBJECT__BASEDON:
+				return getBasedon();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +225,18 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends References>)newValue);
 				return;
+			case BobjsPackage.BUSINESS_OBJECT__SUPER_TYPES:
+				getSuperTypes().clear();
+				getSuperTypes().addAll((Collection<? extends BusinessObject>)newValue);
+				return;
+			case BobjsPackage.BUSINESS_OBJECT__ENUMS:
+				getEnums().clear();
+				getEnums().addAll((Collection<? extends com.dsleng.etool.models.bobjs.Enum>)newValue);
+				return;
+			case BobjsPackage.BUSINESS_OBJECT__BASEDON:
+				getBasedon().clear();
+				getBasedon().addAll((Collection<? extends BasedOn>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +255,15 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				getReferences().clear();
 				return;
+			case BobjsPackage.BUSINESS_OBJECT__SUPER_TYPES:
+				getSuperTypes().clear();
+				return;
+			case BobjsPackage.BUSINESS_OBJECT__ENUMS:
+				getEnums().clear();
+				return;
+			case BobjsPackage.BUSINESS_OBJECT__BASEDON:
+				getBasedon().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,6 +280,12 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 				return attributes != null && !attributes.isEmpty();
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				return references != null && !references.isEmpty();
+			case BobjsPackage.BUSINESS_OBJECT__SUPER_TYPES:
+				return superTypes != null && !superTypes.isEmpty();
+			case BobjsPackage.BUSINESS_OBJECT__ENUMS:
+				return enums != null && !enums.isEmpty();
+			case BobjsPackage.BUSINESS_OBJECT__BASEDON:
+				return basedon != null && !basedon.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

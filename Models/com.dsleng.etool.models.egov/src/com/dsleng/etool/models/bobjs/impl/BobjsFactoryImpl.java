@@ -2,6 +2,19 @@
  */
 package com.dsleng.etool.models.bobjs.impl;
 
+import com.dsleng.etool.models.bobjs.Attribute;
+import com.dsleng.etool.models.bobjs.BOEnum;
+import com.dsleng.etool.models.bobjs.BasedOn;
+import com.dsleng.etool.models.bobjs.BobjsFactory;
+import com.dsleng.etool.models.bobjs.BobjsPackage;
+import com.dsleng.etool.models.bobjs.BusinessObject;
+import com.dsleng.etool.models.bobjs.DataTypes;
+import com.dsleng.etool.models.bobjs.Inclusions;
+import com.dsleng.etool.models.bobjs.Literal;
+import com.dsleng.etool.models.bobjs.Multiplicity;
+import com.dsleng.etool.models.bobjs.NamedElement;
+import com.dsleng.etool.models.bobjs.OrgUnit;
+import com.dsleng.etool.models.bobjs.References;
 import com.dsleng.etool.models.bobjs.*;
 
 import org.eclipse.emf.ecore.EClass;
@@ -62,6 +75,10 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 			case BobjsPackage.ATTRIBUTE: return createAttribute();
 			case BobjsPackage.REFERENCES: return createReferences();
 			case BobjsPackage.BUSINESS_OBJECT: return createBusinessObject();
+			case BobjsPackage.BO_ENUM: return createBOEnum();
+			case BobjsPackage.LITERAL: return createLiteral();
+			case BobjsPackage.ENUM: return createEnum();
+			case BobjsPackage.BASED_ON: return createBasedOn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -153,6 +170,46 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 	public BusinessObject createBusinessObject() {
 		BusinessObjectImpl businessObject = new BusinessObjectImpl();
 		return businessObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BOEnum createBOEnum() {
+		BOEnumImpl boEnum = new BOEnumImpl();
+		return boEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Literal createLiteral() {
+		LiteralImpl literal = new LiteralImpl();
+		return literal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public com.dsleng.etool.models.bobjs.Enum createEnum() {
+		EnumImpl enum_ = new EnumImpl();
+		return enum_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BasedOn createBasedOn() {
+		BasedOnImpl basedOn = new BasedOnImpl();
+		return basedOn;
 	}
 
 	/**

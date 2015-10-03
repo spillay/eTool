@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.egov.impl;
 
+import com.dsleng.etool.models.Controls.BOType;
 import com.dsleng.etool.models.bobjs.BusinessObject;
 
 import com.dsleng.etool.models.egov.BOAttribute;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.impl.BOMapperImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.BOMapperImpl#getBusinessObject <em>Business Object</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.BOMapperImpl#getBotype <em>Botype</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +60,16 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 	 * @ordered
 	 */
 	protected BusinessObject businessObject;
+
+	/**
+	 * The cached value of the '{@link #getBotype() <em>Botype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBotype()
+	 * @generated
+	 * @ordered
+	 */
+	protected BOType botype;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +145,44 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BOType getBotype() {
+		if (botype != null && botype.eIsProxy()) {
+			InternalEObject oldBotype = (InternalEObject)botype;
+			botype = (BOType)eResolveProxy(oldBotype);
+			if (botype != oldBotype) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EgovPackage.BO_MAPPER__BOTYPE, oldBotype, botype));
+			}
+		}
+		return botype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BOType basicGetBotype() {
+		return botype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBotype(BOType newBotype) {
+		BOType oldBotype = botype;
+		botype = newBotype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.BO_MAPPER__BOTYPE, oldBotype, botype));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -155,6 +205,9 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
 				if (resolve) return getBusinessObject();
 				return basicGetBusinessObject();
+			case EgovPackage.BO_MAPPER__BOTYPE:
+				if (resolve) return getBotype();
+				return basicGetBotype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -175,6 +228,9 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
 				setBusinessObject((BusinessObject)newValue);
 				return;
+			case EgovPackage.BO_MAPPER__BOTYPE:
+				setBotype((BOType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -193,6 +249,9 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
 				setBusinessObject((BusinessObject)null);
 				return;
+			case EgovPackage.BO_MAPPER__BOTYPE:
+				setBotype((BOType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -209,6 +268,8 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 				return attributes != null && !attributes.isEmpty();
 			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
 				return businessObject != null;
+			case EgovPackage.BO_MAPPER__BOTYPE:
+				return botype != null;
 		}
 		return super.eIsSet(featureID);
 	}

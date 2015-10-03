@@ -67,6 +67,42 @@ public interface BobjsFactory extends EFactory {
 	BusinessObject createBusinessObject();
 
 	/**
+	 * Returns a new object of class '<em>BO Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BO Enum</em>'.
+	 * @generated
+	 */
+	BOEnum createBOEnum();
+
+	/**
+	 * Returns a new object of class '<em>Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Literal</em>'.
+	 * @generated
+	 */
+	Literal createLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum</em>'.
+	 * @generated
+	 */
+	Enum createEnum();
+
+	/**
+	 * Returns a new object of class '<em>Based On</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Based On</em>'.
+	 * @generated
+	 */
+	BasedOn createBasedOn();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

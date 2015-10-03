@@ -124,6 +124,14 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 				return createTypeParameterAdapter();
 			}
 			@Override
+			public Adapter caseAttributeType(AttributeType object) {
+				return createAttributeTypeAdapter();
+			}
+			@Override
+			public Adapter caseBOType(BOType object) {
+				return createBOTypeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -336,6 +344,34 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.Controls.AttributeType <em>Attribute Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.Controls.AttributeType
+	 * @generated
+	 */
+	public Adapter createAttributeTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.Controls.BOType <em>BO Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.Controls.BOType
+	 * @generated
+	 */
+	public Adapter createBOTypeAdapter() {
 		return null;
 	}
 

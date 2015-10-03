@@ -28,6 +28,7 @@ Workflow {
 	*/
 		platformUri = "${runtimeProject}/.."
 		registerGeneratedEPackage = "com.dsleng.etool.models.bobjs.BobjsPackage"
+		registerGeneratedEPackage = "com.dsleng.etool.models.Controls.ControlsPackage"
 		registerGenModelFile = "platform:/resource/com.dsleng.etool.models.egov/model/EGov.genmodel"
 	}
 
