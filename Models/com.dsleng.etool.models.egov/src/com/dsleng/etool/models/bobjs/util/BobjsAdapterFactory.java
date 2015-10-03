@@ -72,10 +72,6 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 				return createNamedElementAdapter();
 			}
 			@Override
-			public Adapter caseBusinessObject(BusinessObject object) {
-				return createBusinessObjectAdapter();
-			}
-			@Override
 			public Adapter caseOrgUnit(OrgUnit object) {
 				return createOrgUnitAdapter();
 			}
@@ -86,6 +82,10 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseReferences(References object) {
 				return createReferencesAdapter();
+			}
+			@Override
+			public Adapter caseBusinessObject(BusinessObject object) {
+				return createBusinessObjectAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -118,20 +118,6 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.bobjs.BusinessObject <em>Business Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.bobjs.BusinessObject
-	 * @generated
-	 */
-	public Adapter createBusinessObjectAdapter() {
 		return null;
 	}
 
@@ -174,6 +160,20 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReferencesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.bobjs.BusinessObject <em>Business Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.bobjs.BusinessObject
+	 * @generated
+	 */
+	public Adapter createBusinessObjectAdapter() {
 		return null;
 	}
 

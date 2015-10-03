@@ -8,9 +8,9 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import com.dsleng.etool.models.controls.Type
-import com.dsleng.etool.models.controls.Composite
-import com.dsleng.etool.models.controls.SimpleControl
+import com.dsleng.etool.models.Controls.Type
+import com.dsleng.etool.models.Controls.Composite
+import com.dsleng.etool.models.Controls.SimpleControl
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist

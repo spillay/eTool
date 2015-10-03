@@ -241,13 +241,22 @@ public interface EgovPackage extends EPackage {
 	int BO_MAPPER__ATTRIBUTES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Business Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_MAPPER__BUSINESS_OBJECT = 1;
+
+	/**
 	 * The number of structural features of the '<em>BO Mapper</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BO_MAPPER_FEATURE_COUNT = 1;
+	int BO_MAPPER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>BO Mapper</em>' class.
@@ -269,22 +278,22 @@ public interface EgovPackage extends EPackage {
 	int BO_ATTRIBUTE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BO_ATTRIBUTE__ATTRIBUTE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Control Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BO_ATTRIBUTE__CONTROL_TYPE = 1;
+	int BO_ATTRIBUTE__CONTROL_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_ATTRIBUTE__ATTRIBUTE = 1;
 
 	/**
 	 * The number of structural features of the '<em>BO Attribute</em>' class.
@@ -434,6 +443,17 @@ public interface EgovPackage extends EPackage {
 	EReference getBOMapper_Attributes();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.BOMapper#getBusinessObject <em>Business Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Business Object</em>'.
+	 * @see com.dsleng.etool.models.egov.BOMapper#getBusinessObject()
+	 * @see #getBOMapper()
+	 * @generated
+	 */
+	EReference getBOMapper_BusinessObject();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.BOAttribute <em>BO Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,17 +462,6 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBOAttribute();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.BOAttribute#getAttribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute</em>'.
-	 * @see com.dsleng.etool.models.egov.BOAttribute#getAttribute()
-	 * @see #getBOAttribute()
-	 * @generated
-	 */
-	EReference getBOAttribute_Attribute();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.BOAttribute#getControlType <em>Control Type</em>}'.
@@ -464,6 +473,17 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBOAttribute_ControlType();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.BOAttribute#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute</em>'.
+	 * @see com.dsleng.etool.models.egov.BOAttribute#getAttribute()
+	 * @see #getBOAttribute()
+	 * @generated
+	 */
+	EReference getBOAttribute_Attribute();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -593,6 +613,14 @@ public interface EgovPackage extends EPackage {
 		EReference BO_MAPPER__ATTRIBUTES = eINSTANCE.getBOMapper_Attributes();
 
 		/**
+		 * The meta object literal for the '<em><b>Business Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BO_MAPPER__BUSINESS_OBJECT = eINSTANCE.getBOMapper_BusinessObject();
+
+		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl <em>BO Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -603,20 +631,20 @@ public interface EgovPackage extends EPackage {
 		EClass BO_ATTRIBUTE = eINSTANCE.getBOAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BO_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getBOAttribute_Attribute();
-
-		/**
 		 * The meta object literal for the '<em><b>Control Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference BO_ATTRIBUTE__CONTROL_TYPE = eINSTANCE.getBOAttribute_ControlType();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BO_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getBOAttribute_Attribute();
 
 	}
 

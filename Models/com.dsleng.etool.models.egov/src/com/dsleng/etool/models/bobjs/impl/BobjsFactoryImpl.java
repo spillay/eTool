@@ -58,10 +58,10 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case BobjsPackage.NAMED_ELEMENT: return createNamedElement();
-			case BobjsPackage.BUSINESS_OBJECT: return createBusinessObject();
 			case BobjsPackage.ORG_UNIT: return createOrgUnit();
 			case BobjsPackage.ATTRIBUTE: return createAttribute();
 			case BobjsPackage.REFERENCES: return createReferences();
+			case BobjsPackage.BUSINESS_OBJECT: return createBusinessObject();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -120,16 +120,6 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BusinessObject createBusinessObject() {
-		BusinessObjectImpl businessObject = new BusinessObjectImpl();
-		return businessObject;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public OrgUnit createOrgUnit() {
 		OrgUnitImpl orgUnit = new OrgUnitImpl();
 		return orgUnit;
@@ -153,6 +143,16 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 	public References createReferences() {
 		ReferencesImpl references = new ReferencesImpl();
 		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BusinessObject createBusinessObject() {
+		BusinessObjectImpl businessObject = new BusinessObjectImpl();
+		return businessObject;
 	}
 
 	/**

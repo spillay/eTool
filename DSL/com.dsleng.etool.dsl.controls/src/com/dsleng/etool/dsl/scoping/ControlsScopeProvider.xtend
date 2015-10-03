@@ -13,10 +13,10 @@ import org.eclipse.xtext.scoping.Scopes
 //import com.dsleng.etool.models.bobjs.OrgUnit
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.emf.ecore.EClass
-import com.dsleng.etool.models.controls.TypeParameter
-import com.dsleng.etool.models.controls.SimpleControl
-import com.dsleng.etool.models.controls.Type
-import com.dsleng.etool.models.controls.Composite
+import com.dsleng.etool.models.Controls.TypeParameter
+import com.dsleng.etool.models.Controls.SimpleControl
+import com.dsleng.etool.models.Controls.Type
+import com.dsleng.etool.models.Controls.Composite
 import java.util.ArrayList
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
 import org.eclipse.xtext.naming.QualifiedName

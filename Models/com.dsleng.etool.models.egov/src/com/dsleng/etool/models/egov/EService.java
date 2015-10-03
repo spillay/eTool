@@ -2,11 +2,9 @@
  */
 package com.dsleng.etool.models.egov;
 
-
+import com.dsleng.etool.models.bobjs.OrgUnit;
 
 import org.eclipse.emf.common.util.EList;
-
-import com.dsleng.etool.models.bobjs.OrgUnit;
 
 /**
  * <!-- begin-user-doc -->

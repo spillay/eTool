@@ -3,44 +3,43 @@ grammar com.dsleng.etool.dsl.egov.EGovDsl with org.eclipse.xtext.common.Terminal
 
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-import "http://com/dsleng/etool/models/egov" as egov
+import "http://com/dsleng/etool/models/egov"
 import "http://com/dsleng/etool/models/controls" as controls
-import "http://com/dsleng/etool/models/bobjs"
+import "http://com/dsleng/etool/models/bobjs" as bobjs
 
 
-EService returns egov::EService:
-	{egov::EService}
+EService returns EService:
+	{EService}
 	'EService='
 	name=EString
 	'setup {'
 		'Deployment Directory' dirLocation=EString
-		//BusinessUnit=[bobjs::OrgUnit|EString]
-		//'Business Unit' BusinessUnit=[bobjs::OrgUnit|EString]
+		'Business Unit' BusinessUnit=[bobjs::OrgUnit|EString]
 	'}'
 	'{'
 		('Pages' '{' pages+=Page ( "," pages+=Page)* '}' )?
-		'Start Page' indexPage=[egov::Page|EString]
+		'Start Page' indexPage=[Page|EString]
 	'}';
 
 EString returns ecore::EString:
 	STRING | ID;
 
-Page returns egov::Page:
+Page returns Page:
 	name=EString
 	'{'
 		('Pages' '{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?
-		('=>' nextPage=[egov::Page|EString])?
+		('=>' nextPage=[Page|EString])?
 	'}';
 
-BOMaps returns egov::BOMapper:
-	{egov::BOMapper}
-	//BusinessObject=[bobjs::BusinessObject|EString]
+BOMaps returns BOMapper:
+	{BOMapper}
+	'BusinessObject=' BusinessObject=[bobjs::BusinessObject|EString]
 	('Attributes' '{' attributes+=Attribute ( "," attributes+=Attribute)* '}' )?
 ;
 
-Attribute returns egov::BOAttribute:
-	{egov::BOAttribute}
-	//attribute=[bobjs::Attribute|EString]
-	//ControlType=[controls::CompositeWebCtrl|EString]
+Attribute returns BOAttribute:
+	{BOAttribute}
+	'Attribute=' attribute=[bobjs::Attribute|EString]
+	'ControlType=' ControlType=[controls::Type|EString]
 ;
 

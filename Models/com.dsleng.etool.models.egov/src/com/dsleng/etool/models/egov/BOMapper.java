@@ -2,8 +2,7 @@
  */
 package com.dsleng.etool.models.egov;
 
-
-
+import com.dsleng.etool.models.bobjs.BusinessObject;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -19,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.BOMapper#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.BOMapper#getBusinessObject <em>Business Object</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getBOMapper()
@@ -41,5 +41,31 @@ public interface BOMapper extends EObject {
 	 * @generated
 	 */
 	EList<BOAttribute> getAttributes();
+
+	/**
+	 * Returns the value of the '<em><b>Business Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Business Object</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Business Object</em>' reference.
+	 * @see #setBusinessObject(BusinessObject)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOMapper_BusinessObject()
+	 * @model
+	 * @generated
+	 */
+	BusinessObject getBusinessObject();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.BOMapper#getBusinessObject <em>Business Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Business Object</em>' reference.
+	 * @see #getBusinessObject()
+	 * @generated
+	 */
+	void setBusinessObject(BusinessObject value);
 
 } // BOMapper

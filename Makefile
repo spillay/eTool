@@ -1,7 +1,7 @@
 MVN=mvn
 OPTS=deploy
 
-all: core model external pres infra  dsl primefaces product
+all: core model external pres infra  dsl  product
 
 clean-repo:
 	rm -rf /Data/m2/repository/com/dsleng/etool/	

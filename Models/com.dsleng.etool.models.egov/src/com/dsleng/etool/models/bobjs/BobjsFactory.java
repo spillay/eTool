@@ -31,15 +31,6 @@ public interface BobjsFactory extends EFactory {
 	NamedElement createNamedElement();
 
 	/**
-	 * Returns a new object of class '<em>Business Object</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Business Object</em>'.
-	 * @generated
-	 */
-	BusinessObject createBusinessObject();
-
-	/**
 	 * Returns a new object of class '<em>Org Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +56,15 @@ public interface BobjsFactory extends EFactory {
 	 * @generated
 	 */
 	References createReferences();
+
+	/**
+	 * Returns a new object of class '<em>Business Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Business Object</em>'.
+	 * @generated
+	 */
+	BusinessObject createBusinessObject();
 
 	/**
 	 * Returns the package supported by this factory.

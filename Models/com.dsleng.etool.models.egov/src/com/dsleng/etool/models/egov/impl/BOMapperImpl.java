@@ -2,19 +2,23 @@
  */
 package com.dsleng.etool.models.egov.impl;
 
-
+import com.dsleng.etool.models.bobjs.BusinessObject;
 
 import com.dsleng.etool.models.egov.BOAttribute;
 import com.dsleng.etool.models.egov.BOMapper;
 import com.dsleng.etool.models.egov.EgovPackage;
 
 import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.impl.BOMapperImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.BOMapperImpl#getBusinessObject <em>Business Object</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +48,16 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 	 * @ordered
 	 */
 	protected EList<BOAttribute> attributes;
+
+	/**
+	 * The cached value of the '{@link #getBusinessObject() <em>Business Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBusinessObject()
+	 * @generated
+	 * @ordered
+	 */
+	protected BusinessObject businessObject;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,6 +95,44 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BusinessObject getBusinessObject() {
+		if (businessObject != null && businessObject.eIsProxy()) {
+			InternalEObject oldBusinessObject = (InternalEObject)businessObject;
+			businessObject = (BusinessObject)eResolveProxy(oldBusinessObject);
+			if (businessObject != oldBusinessObject) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EgovPackage.BO_MAPPER__BUSINESS_OBJECT, oldBusinessObject, businessObject));
+			}
+		}
+		return businessObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BusinessObject basicGetBusinessObject() {
+		return businessObject;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBusinessObject(BusinessObject newBusinessObject) {
+		BusinessObject oldBusinessObject = businessObject;
+		businessObject = newBusinessObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.BO_MAPPER__BUSINESS_OBJECT, oldBusinessObject, businessObject));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -99,6 +152,9 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 		switch (featureID) {
 			case EgovPackage.BO_MAPPER__ATTRIBUTES:
 				return getAttributes();
+			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
+				if (resolve) return getBusinessObject();
+				return basicGetBusinessObject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,6 +172,9 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 				getAttributes().clear();
 				getAttributes().addAll((Collection<? extends BOAttribute>)newValue);
 				return;
+			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
+				setBusinessObject((BusinessObject)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -131,6 +190,9 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 			case EgovPackage.BO_MAPPER__ATTRIBUTES:
 				getAttributes().clear();
 				return;
+			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
+				setBusinessObject((BusinessObject)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -145,6 +207,8 @@ public class BOMapperImpl extends MinimalEObjectImpl.Container implements BOMapp
 		switch (featureID) {
 			case EgovPackage.BO_MAPPER__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
+			case EgovPackage.BO_MAPPER__BUSINESS_OBJECT:
+				return businessObject != null;
 		}
 		return super.eIsSet(featureID);
 	}

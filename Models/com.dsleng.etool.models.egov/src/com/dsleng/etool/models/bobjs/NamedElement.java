@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface NamedElement extends EObject {
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,5 +47,4 @@ public interface NamedElement extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
 } // NamedElement

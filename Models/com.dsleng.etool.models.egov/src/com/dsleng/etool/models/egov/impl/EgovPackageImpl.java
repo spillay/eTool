@@ -2,12 +2,14 @@
  */
 package com.dsleng.etool.models.egov.impl;
 
+import com.dsleng.etool.models.Controls.ControlsPackage;
 
+import com.dsleng.etool.models.Controls.impl.ControlsPackageImpl;
 
 import com.dsleng.etool.models.bobjs.BobjsPackage;
+
 import com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl;
-import com.dsleng.etool.models.controls.ControlsPackage;
-import com.dsleng.etool.models.controls.impl.ControlsPackageImpl;
+
 import com.dsleng.etool.models.egov.BOAttribute;
 import com.dsleng.etool.models.egov.BOMapper;
 import com.dsleng.etool.models.egov.EService;
@@ -15,8 +17,6 @@ import com.dsleng.etool.models.egov.EgovFactory;
 import com.dsleng.etool.models.egov.EgovPackage;
 import com.dsleng.etool.models.egov.NamedElement;
 import com.dsleng.etool.models.egov.Page;
-
-
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -114,18 +114,18 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		BobjsPackageImpl theBobjsPackage = (BobjsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BobjsPackage.eNS_URI) instanceof BobjsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BobjsPackage.eNS_URI) : BobjsPackage.eINSTANCE);
 		ControlsPackageImpl theControlsPackage = (ControlsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ControlsPackage.eNS_URI) instanceof ControlsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ControlsPackage.eNS_URI) : ControlsPackage.eINSTANCE);
+		BobjsPackageImpl theBobjsPackage = (BobjsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BobjsPackage.eNS_URI) instanceof BobjsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BobjsPackage.eNS_URI) : BobjsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theEgovPackage.createPackageContents();
-		theBobjsPackage.createPackageContents();
 		theControlsPackage.createPackageContents();
+		theBobjsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theEgovPackage.initializePackageContents();
-		theBobjsPackage.initializePackageContents();
 		theControlsPackage.initializePackageContents();
+		theBobjsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theEgovPackage.freeze();
@@ -249,6 +249,15 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBOMapper_BusinessObject() {
+		return (EReference)boMapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBOAttribute() {
 		return boAttributeEClass;
 	}
@@ -258,7 +267,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBOAttribute_Attribute() {
+	public EReference getBOAttribute_ControlType() {
 		return (EReference)boAttributeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -267,7 +276,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBOAttribute_ControlType() {
+	public EReference getBOAttribute_Attribute() {
 		return (EReference)boAttributeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -314,10 +323,11 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 
 		boMapperEClass = createEClass(BO_MAPPER);
 		createEReference(boMapperEClass, BO_MAPPER__ATTRIBUTES);
+		createEReference(boMapperEClass, BO_MAPPER__BUSINESS_OBJECT);
 
 		boAttributeEClass = createEClass(BO_ATTRIBUTE);
-		createEReference(boAttributeEClass, BO_ATTRIBUTE__ATTRIBUTE);
 		createEReference(boAttributeEClass, BO_ATTRIBUTE__CONTROL_TYPE);
+		createEReference(boAttributeEClass, BO_ATTRIBUTE__ATTRIBUTE);
 	}
 
 	/**
@@ -371,10 +381,11 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 
 		initEClass(boMapperEClass, BOMapper.class, "BOMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOMapper_Attributes(), this.getBOAttribute(), null, "attributes", null, 0, -1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBOMapper_BusinessObject(), theBobjsPackage.getBusinessObject(), null, "BusinessObject", null, 0, 1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boAttributeEClass, BOAttribute.class, "BOAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBOAttribute_Attribute(), theBobjsPackage.getAttribute(), null, "attribute", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBOAttribute_ControlType(), theControlsPackage.getType(), null, "ControlType", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBOAttribute_Attribute(), theBobjsPackage.getAttribute(), null, "attribute", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
