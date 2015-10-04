@@ -56,6 +56,11 @@
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>com.dsleng.etool</groupId>
+			<artifactId>com.dsleng.etool.perspective</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.8.1</version>
@@ -80,8 +85,21 @@
 	<artifactId>commons-io</artifactId>
 	<version>1.3.2</version>
 	</dependency>
-
-
+<dependency>
+   <groupId>org.mod4j.org.eclipse.ui</groupId>
+   <artifactId>workbench</artifactId>
+   <version>3.5.0</version>
+</dependency> 
+<dependency>
+   <groupId>org.eclipse.ui</groupId>
+   <artifactId>console</artifactId>
+   <version>3.1.100-v20060605</version>
+</dependency> 
+<dependency>
+   <groupId>org.eclipse.swt</groupId>
+   <artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
+   <version>4.3</version>
+</dependency> 
 	</dependencies>
 	<build>
 		<sourceDirectory>src/main/xtend</sourceDirectory>

@@ -20,14 +20,14 @@ import com.dsleng.etool.models.bobjs.BobjsPackage
 import java.io.File
 import java.io.FileInputStream
 import org.apache.commons.io.IOUtils;
-import com.dsleng.etool.primefaces.semantics.EgovGenerator
+
 import com.dsleng.etool.models.egov.EService
 import com.dsleng.etool.dsl.ControlsInjectorProvider
 import com.dsleng.etool.dsl.bobjs.BObjDslInjectorProvider
 import com.dsleng.etool.models.bobjs.OrgUnit
 import com.dsleng.etool.models.Controls.ControlsPackage
 import com.dsleng.etool.models.Controls.ControlManager
-import com.dsleng.etool.primefaces.semantics.BOGenerator
+import com.dsleng.etool.dsl.egov.generator.EGovDslGenerator
 
 class EgovLangInjectorProvider extends EGovDslInjectorProvider {
 	override protected internalCreateInjector() {
@@ -43,7 +43,7 @@ class EgovLangInjectorProvider extends EGovDslInjectorProvider {
 @InjectWith(typeof(EgovLangInjectorProvider))
 class EgovGeneratorTest {
 	
-	@Inject EgovGenerator underTest
+	@Inject EGovDslGenerator underTest
 	//@Inject BOGenerator BOunderTest
     @Inject ParseHelper<EService> parseHelper 
 	@Inject ValidationTestHelper validationTester
@@ -83,6 +83,9 @@ class EgovGeneratorTest {
 		validationTester.assertNoIssues(egvRoot)
 		
 		val fsa = new InMemoryFileSystemAccess()
+		for(r: egvRoot.eResource.allContents.toIterable.filter(ControlManager)){
+			println("Control Manager" + (r as ControlManager).controls.get(0).name)
+		}
         underTest.doGenerate(egvRoot.eResource, fsa)
         println(fsa.allFiles)
         //assertEquals(2,fsa.allFiles.size)
