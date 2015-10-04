@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<com.dsleng.etool.models:EService xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.dsleng.etool.models="http://com/dsleng/etool/models/egov" name="Permit" indexPage="//@pages.0" dirLocation="permit">
+  <pages name="MainPage">
+    <BOMaps>
+      <attributes>
+        <controltype href="cn.egv#|4"/>
+        <attribute href="cn.egv#|3"/>
+      </attributes>
+      <attributes>
+        <controltype href="cn.egv#|6"/>
+        <attribute href="cn.egv#|5"/>
+      </attributes>
+      <BusinessObject href="cn.egv#|2"/>
+    </BOMaps>
+    <BOMaps>
+      <attributes>
+        <controltype href="cn.egv#|9"/>
+        <attribute href="cn.egv#|8"/>
+      </attributes>
+      <BusinessObject href="cn.egv#|7"/>
+    </BOMaps>
+  </pages>
+  <BusinessUnit href="cn.egv#|0"/>
+</com.dsleng.etool.models:EService>

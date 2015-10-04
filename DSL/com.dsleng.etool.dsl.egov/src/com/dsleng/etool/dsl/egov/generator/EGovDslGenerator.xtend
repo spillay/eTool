@@ -6,6 +6,8 @@ package com.dsleng.etool.dsl.egov.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import com.dsleng.etool.models.egov.EService
+
 
 /**
  * Generates code from your model files on save.
@@ -13,12 +15,17 @@ import org.eclipse.xtext.generator.IFileSystemAccess
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class EGovDslGenerator implements IGenerator {
-	
+	val fileSep = "/"
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		val eg = new EgovGenerator
+		for (e : resource.allContents.toIterable.filter(EService)) {
+			eg.doGenerate(resource,fsa,e.businessUnit.artifactId,e.businessUnit.package)
+		}
+		
+		
+		
+		//val bo = new BOGenerator("org")
+		//bo.doGenerate(resource,fsa)
 	}
+	
 }

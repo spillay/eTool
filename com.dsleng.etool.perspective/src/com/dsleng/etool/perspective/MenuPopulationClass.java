@@ -87,7 +87,7 @@ public class MenuPopulationClass extends ContributionItem {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
 					SimpleProjectMgr pT = new SimpleProjectMgr();
-					ConsoleManager.getInstance().Info("Creating Domain Infrastructure Project");
+					SPConsoleManager.getInstance().Info("Creating Domain Infrastructure Project");
 					pT.createProj("Simple");
 				}
 				

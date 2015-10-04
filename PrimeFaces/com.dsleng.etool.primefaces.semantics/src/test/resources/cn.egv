@@ -1,0 +1,21 @@
+EService=Permit 
+setup {
+	Deployment Directory "permit"
+	Business Unit "CapeNature"
+}
+{
+	Pages { PageName="MainPage" 
+		{ 
+		BusinessObject=Permit
+		Modified Attributes {
+			Attribute=ClientIdNo ControlType=IDControl,
+			Attribute=AmountPaid ControlType=Int	
+		},
+		BusinessObject=Client
+		Modified Attributes {
+			Attribute=firstname1 ControlType=String
+		}
+		} 
+	}
+	Start Page MainPage
+}

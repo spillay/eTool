@@ -1,6 +1,5 @@
-package com.dsleng.etool.primefaces.semantics
+package com.dsleng.etool.dsl.egov.generator
 
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 
@@ -12,26 +11,23 @@ import com.dsleng.etool.models.bobjs.BusinessObject
 import com.dsleng.etool.models.bobjs.OrgUnit
 import com.dsleng.etool.models.bobjs.Attribute
 
-class BOGenerator implements IGenerator {
+class BOGenerator  {
 	
-	private String basePackage=""
+	
 	private String fileSep = "/"
 	private String pkgSep = "."
 	
-	new(String packageName){
-		basePackage = packageName
+	var baseProjectDir = ""
+	var basePackage = ""
+	val srcDir = "/src/main/java/"
+	
+	
+	def doGenerate(Resource resource, IFileSystemAccess fsa,BusinessObject e,String baseProjectDir,String pkg) {
+		basePackage = pkg
+		this.baseProjectDir = baseProjectDir
+		fsa.generateFile(e.genFileName, e.compile)
 	}
 	
-	override doGenerate(Resource resource, IFileSystemAccess fsa) {
-		for (e : resource.allContents.toIterable.filter(BusinessObject)) {
-			fsa.generateFile(e.genFileName, e.compile)
-		}
-	}
-	def processDSL(String fileName,IFileSystemAccess fsa){
-    	val resourceSet = new ResourceSetImpl
-    	val resource = resourceSet.getResource(URI.createURI(fileName), true)
-		doGenerate(resource,fsa)
-	}
 	private def capitalizeFirstLetter(String s) {
     	return s.substring(0,1).toUpperCase() + s.substring(1);
 	}
@@ -42,7 +38,7 @@ class BOGenerator implements IGenerator {
 			fileName += fileSep + (e.eContainer as OrgUnit).name + fileSep + e.name + "Bean.java"
 		}
 		//fileName += fileSep + e.name + "Bean.java"
-		fileName = fileName.replace(" ","_")
+		fileName = baseProjectDir + srcDir + fileName.replace(" ","_")
 	}
 	private def getPackage(BusinessObject e){
 		var pkg = basePackage 

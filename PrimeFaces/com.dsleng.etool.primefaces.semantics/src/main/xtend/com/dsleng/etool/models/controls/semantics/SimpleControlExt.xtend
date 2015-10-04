@@ -1,8 +1,8 @@
 package com.dsleng.etool.models.controls.semantics
 
-import com.dsleng.etool.models.controls.SimpleControl
+import com.dsleng.etool.models.Controls.SimpleControl
 import org.eclipse.xtext.EcoreUtil2
-import com.dsleng.etool.models.controls.Composite
+import com.dsleng.etool.models.Controls.Composite
 
 //import static extension com.dsleng.etool.models.controls.*;
 

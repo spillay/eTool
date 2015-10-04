@@ -1,0 +1,23 @@
+OrgUnit "Western Cape Liquor Authority" 
+	setup {
+			GroupID "za.co.egov",
+			ArtifactID "za.co.egov.wcla",
+			Version "1.0.0-SNAPSHOT",
+			Deployment Directory "/Data/maventest/",
+			Language File "dsl/wcla.egv.xmi",
+			Web Directory "wcla"	
+			Package "za.co.egov.wcla"
+	}
+	{
+		BusinessObjects {
+			BO=WCLAPermits {
+				usesEnums { name=PermitType => PermitTypes }
+				superTypes { PermitType }
+				basedOn { CapeNature { removes [CommonName] }
+			}
+		}	
+	}
+	BO Enums {
+			name="PermitTypes"[EduNotSchool|WelfareCulturalOrg|OrgExhibition|OrgSportsEvent|OrgArtisticPerf|OtherLicense]
+	}
+}

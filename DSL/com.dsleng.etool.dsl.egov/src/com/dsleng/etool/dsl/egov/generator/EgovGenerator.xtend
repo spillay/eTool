@@ -1,44 +1,44 @@
-package com.dsleng.etool.primefaces.semantics
+package com.dsleng.etool.dsl.egov.generator
 
-import org.eclipse.xtext.generator.IGenerator
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IFileSystemAccess
-import org.eclipse.xtext.naming.IQualifiedNameProvider
-
-import com.google.inject.Inject
-import com.dsleng.etool.models.egov.Page
-
-import com.dsleng.etool.models.egov.EService
-
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.common.util.URI
-import com.dsleng.etool.models.egov.EgovPackage
-import org.eclipse.xtext.generator.IFileSystemAccess2
-import org.eclipse.xtext.util.RuntimeIOException
-import java.io.InputStream
-import java.beans.Introspector
-import com.dsleng.etool.models.bobjs.OrgUnit
-import com.dsleng.etool.models.bobjs.BusinessObject
 import com.dsleng.etool.models.bobjs.Attribute
+import com.dsleng.etool.models.bobjs.BusinessObject
+import com.dsleng.etool.models.egov.EService
+import com.dsleng.etool.models.egov.EgovPackage
+import com.dsleng.etool.models.egov.Page
+import java.beans.Introspector
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.xtext.generator.IFileSystemAccess
+import com.dsleng.etool.perspective.SPConsoleManager
 
-class EgovGenerator implements IGenerator {
+class EgovGenerator  {
 
 	//@Inject extension IQualifiedNameProvider
 	val fileSep = "/"
 	var pagelist = newArrayList
+	var baseProjectDir = ""
+	val webDir = "/src/main/webapp/"
 	
 	new(){
 		// Using this to make sure that the ecore file is registered need to fix
 		EgovPackage.eINSTANCE.eClass();
 	}
 	
-	override doGenerate(Resource resource, IFileSystemAccess fsa) {
+	def doGenerate(Resource resource, IFileSystemAccess fsa,String baseProjectDir,String pkg) {
+		SPConsoleManager.instance.Info("Starting Page Generation")
+		this.baseProjectDir = baseProjectDir
+		val bo = new BOGenerator()
 		for (e : resource.allContents.toIterable.filter(Page)) {
 			val pg = e.genFileName
 			fsa.generateFile(pg, e.compile)
 			pagelist.add(pg)
+			
+			for(bm: e.BOMaps){
+				bo.doGenerate(resource,fsa,bm.businessObject,baseProjectDir,pkg)
+			}
 		}
-		fsa.generateFile("index.xhtml",welcomePage)
+		fsa.generateFile(baseProjectDir + webDir + "index.xhtml",welcomePage)
 	}
 	private def lowerFirstLetter(String s) {
     	return s.substring(0,1).toLowerCase + s.substring(1);
@@ -46,7 +46,7 @@ class EgovGenerator implements IGenerator {
 	def processDSL(String fileName,IFileSystemAccess fsa){
     	val resourceSet = new ResourceSetImpl
     	val resource = resourceSet.getResource(URI.createURI(fileName), true)
-		doGenerate(resource,fsa)
+		//doGenerate(resource,fsa)
 	}
 	private def genFileName(Page e){
 		/*
@@ -61,7 +61,7 @@ class EgovGenerator implements IGenerator {
 		var fileName = (e.eContainer as EService).businessUnit.name + fileSep + (e.eContainer as EService).name + fileSep + e.name
 		//fileName = e.name
 		fileName = fileName.replace(" ","_")
-		fileName = fileName + ".xhtml"
+		fileName = baseProjectDir + webDir + fileName + ".xhtml"
 	}
 	private def compile(Page e) ''' 
 «PageHead»
@@ -98,7 +98,8 @@ class EgovGenerator implements IGenerator {
   	private def getPages(){
   		var links = ""
   		for(p: pagelist){
-  			links += "<a href=\"" +p+ "\">" + p + "</a><br/>\n"
+  			val link = p.toString.replace(baseProjectDir + webDir,"")
+  			links += "<a href=\"" +link+ "\">" + link + "</a><br/>\n"
   		}
   		return links
   	}

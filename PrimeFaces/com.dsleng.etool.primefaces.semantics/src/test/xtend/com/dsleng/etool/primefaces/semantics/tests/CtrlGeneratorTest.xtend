@@ -8,12 +8,12 @@ import org.eclipse.xtext.junit4.InjectWith
 import com.google.inject.Inject
 import com.dsleng.etool.primefaces.semantics.CtrlGenerator
 import org.eclipse.xtext.junit4.util.ParseHelper
-import com.dsleng.etool.models.controls.ControlManager
 import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.junit.Test
 import org.apache.commons.io.IOUtils
 import java.io.FileInputStream
 import java.io.File
+import com.dsleng.etool.models.Controls.ControlManager
 
 class CtrlLangInjectorProvider extends ControlsInjectorProvider {
 	override protected internalCreateInjector() {

@@ -17,4 +17,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.console;bundle-version="3.6.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Import-Package: com.dsleng.etool.dsl.egov
+Import-Package: com.dsleng.etool.dsl.bobjs,
+ com.dsleng.etool.dsl.egov

@@ -22,22 +22,22 @@ import org.eclipse.ui.console.MessageConsoleStream;
  * @author suresh
  *
  */
-public class ConsoleManager {
+public class SPConsoleManager {
 	private MessageConsole myConsole;
 	private String consoleName = "DSLEngConsole";
 	private MessageConsoleStream log;
 	private boolean debug;
 
-	private static ConsoleManager instance = null;
+	private static SPConsoleManager instance = null;
 
-	public static ConsoleManager getInstance() {
+	public static SPConsoleManager getInstance() {
 		if (instance == null) {
-			instance = new ConsoleManager();
+			instance = new SPConsoleManager();
 		}
 		return instance;
 	}
 
-	private ConsoleManager() {
+	private SPConsoleManager() {
 		debug = true;
 		InitLog();
 	}

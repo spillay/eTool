@@ -26,11 +26,6 @@
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.dsleng.etool.models</groupId>
-			<artifactId>com.dsleng.etool.models.controls</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>org.eclipse.xtext</groupId>
 			<artifactId>org.eclipse.xtext</artifactId>
 			<version>2.8.4</version>
@@ -48,6 +43,16 @@
 		<dependency>
 			<groupId>com.dsleng.etool.dsl</groupId>
 			<artifactId>com.dsleng.etool.dsl.controls.tests</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.dsleng.etool.dsl</groupId>
+			<artifactId>com.dsleng.etool.dsl.bobjs</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.dsleng.etool.dsl</groupId>
+			<artifactId>com.dsleng.etool.dsl.bobjs.tests</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>

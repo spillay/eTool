@@ -76,7 +76,7 @@ public class SimpleProjectMgr {
 			IFolder modelFolder = project.getFolder("model");
 			modelFolder.create(false, true, null);
 			
-			ConsoleManager.getInstance().Debug("Before egov.egv creation");
+			SPConsoleManager.getInstance().Debug("Before egov.egv creation");
 			
 			IPackageFragmentRoot frag = javaProject.getPackageFragmentRoot(modelFolder);
 			IFile newFile = modelFolder.getFile("egov.egv");

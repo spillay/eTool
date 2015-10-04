@@ -1,13 +1,13 @@
 package com.dsleng.etool.primefaces.semantics
 
-import com.dsleng.etool.models.controls.ControlsFactory
+
 import static extension com.dsleng.etool.models.controls.semantics.SimpleControlExt.*
-import com.dsleng.etool.models.controls.ControlsPackage
+
 import org.eclipse.emf.ecore.resource.Resource
-import com.dsleng.etool.models.controls.SimpleControl
-import com.dsleng.etool.models.controls.Composite
 
-
+import com.dsleng.etool.models.Controls.ControlsPackage
+import com.dsleng.etool.models.Controls.ControlsFactory
+import com.dsleng.etool.models.Controls.SimpleControl
 
 class CtrlGenerator {
 	
@@ -27,4 +27,9 @@ class CtrlGenerator {
 			}
 		}
 	}
+	
+	def  getSyntax(SimpleControl control){
+		return "hello"
+	}
+	
 }
