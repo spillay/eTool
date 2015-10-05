@@ -15,7 +15,6 @@ import com.dsleng.etool.models.Controls.ControlManager
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class EGovDslGenerator implements IGenerator {
-	val fileSep = "/"
 	// Only Relying on One set of controls
 	var ControlManager cm
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
@@ -27,10 +26,6 @@ class EGovDslGenerator implements IGenerator {
 		for (e : resource.allContents.toIterable.filter(EService)) {
 			eg.doGenerate(resource,fsa,e.businessUnit.artifactId,e.businessUnit.package,cm)
 		}
-		
-		
-		//val bo = new BOGenerator("org")
-		//bo.doGenerate(resource,fsa)
 	}
 	
 }
