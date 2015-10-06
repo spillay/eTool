@@ -20,6 +20,8 @@
             <eStructuralFeatures xsi:type="ecore:EReference" name="nextPage" eType="#//dsleng/etool/models/egov/Page"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="BOMaps" upperBound="-1"
                 eType="#//dsleng/etool/models/egov/BOMapper" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="pagetype" eType="#//dsleng/etool/models/Controls/PageType"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="BOMapper">
             <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
@@ -124,6 +126,9 @@
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="AttributeType" eSuperTypes="#//dsleng/etool/models/Controls/Type"/>
           <eClassifiers xsi:type="ecore:EClass" name="BOType" eSuperTypes="#//dsleng/etool/models/Controls/Type"/>
+          <eClassifiers xsi:type="ecore:EClass" name="PageType" eSuperTypes="#//dsleng/etool/models/Controls/Type"/>
+          <eClassifiers xsi:type="ecore:EClass" name="BOCtrl" eSuperTypes="#//dsleng/etool/models/Controls/Composite"/>
+          <eClassifiers xsi:type="ecore:EClass" name="PageCtrl" eSuperTypes="#//dsleng/etool/models/Controls/Composite"/>
         </eSubpackages>
         <eSubpackages name="bobjs" nsURI="http://com/dsleng/etool/models/bobjs" nsPrefix="com.dsleng.etool.models">
           <eClassifiers xsi:type="ecore:EClass" name="NamedElement">

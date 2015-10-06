@@ -3,6 +3,7 @@
 package com.dsleng.etool.models.Controls.impl;
 
 import com.dsleng.etool.models.Controls.AttributeType;
+import com.dsleng.etool.models.Controls.BOCtrl;
 import com.dsleng.etool.models.Controls.BOType;
 import com.dsleng.etool.models.Controls.Composite;
 import com.dsleng.etool.models.Controls.CompositeMobCtrl;
@@ -14,7 +15,9 @@ import com.dsleng.etool.models.Controls.ControlsFactory;
 import com.dsleng.etool.models.Controls.ControlsPackage;
 import com.dsleng.etool.models.Controls.OptionInstance;
 import com.dsleng.etool.models.Controls.Options;
+import com.dsleng.etool.models.Controls.PageCtrl;
 import com.dsleng.etool.models.Controls.PageInfo;
+import com.dsleng.etool.models.Controls.PageType;
 import com.dsleng.etool.models.Controls.Resource;
 import com.dsleng.etool.models.Controls.SimpleControl;
 import com.dsleng.etool.models.Controls.Type;
@@ -155,6 +158,27 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * @generated
 	 */
 	private EClass boTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pageTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boCtrlEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pageCtrlEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -689,6 +713,33 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPageType() {
+		return pageTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBOCtrl() {
+		return boCtrlEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPageCtrl() {
+		return pageCtrlEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ControlsFactory getControlsFactory() {
 		return (ControlsFactory)getEFactoryInstance();
 	}
@@ -778,6 +829,12 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		attributeTypeEClass = createEClass(ATTRIBUTE_TYPE);
 
 		boTypeEClass = createEClass(BO_TYPE);
+
+		pageTypeEClass = createEClass(PAGE_TYPE);
+
+		boCtrlEClass = createEClass(BO_CTRL);
+
+		pageCtrlEClass = createEClass(PAGE_CTRL);
 	}
 
 	/**
@@ -813,6 +870,9 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		compositeEClass.getESuperTypes().add(this.getSimpleControl());
 		attributeTypeEClass.getESuperTypes().add(this.getType());
 		boTypeEClass.getESuperTypes().add(this.getType());
+		pageTypeEClass.getESuperTypes().add(this.getType());
+		boCtrlEClass.getESuperTypes().add(this.getComposite());
+		pageCtrlEClass.getESuperTypes().add(this.getComposite());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(controlDefEClass, ControlDef.class, "ControlDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -882,6 +942,12 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		initEClass(attributeTypeEClass, AttributeType.class, "AttributeType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(boTypeEClass, BOType.class, "BOType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pageTypeEClass, PageType.class, "PageType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(boCtrlEClass, BOCtrl.class, "BOCtrl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(pageCtrlEClass, PageCtrl.class, "PageCtrl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

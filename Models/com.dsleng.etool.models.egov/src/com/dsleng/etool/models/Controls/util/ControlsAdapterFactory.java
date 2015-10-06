@@ -132,6 +132,18 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 				return createBOTypeAdapter();
 			}
 			@Override
+			public Adapter casePageType(PageType object) {
+				return createPageTypeAdapter();
+			}
+			@Override
+			public Adapter caseBOCtrl(BOCtrl object) {
+				return createBOCtrlAdapter();
+			}
+			@Override
+			public Adapter casePageCtrl(PageCtrl object) {
+				return createPageCtrlAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -372,6 +384,48 @@ public class ControlsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBOTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.Controls.PageType <em>Page Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.Controls.PageType
+	 * @generated
+	 */
+	public Adapter createPageTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.Controls.BOCtrl <em>BO Ctrl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.Controls.BOCtrl
+	 * @generated
+	 */
+	public Adapter createBOCtrlAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.Controls.PageCtrl <em>Page Ctrl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.Controls.PageCtrl
+	 * @generated
+	 */
+	public Adapter createPageCtrlAdapter() {
 		return null;
 	}
 

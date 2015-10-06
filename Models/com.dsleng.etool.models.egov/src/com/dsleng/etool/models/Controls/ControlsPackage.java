@@ -1048,6 +1048,245 @@ public interface ControlsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.Controls.impl.PageTypeImpl <em>Page Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.Controls.impl.PageTypeImpl
+	 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getPageType()
+	 * @generated
+	 */
+	int PAGE_TYPE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_TYPE__NAME = TYPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_TYPE__CONTROL = TYPE__CONTROL;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_TYPE__PARAMETERS = TYPE__PARAMETERS;
+
+	/**
+	 * The number of structural features of the '<em>Page Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Page Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.Controls.impl.BOCtrlImpl <em>BO Ctrl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.Controls.impl.BOCtrlImpl
+	 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getBOCtrl()
+	 * @generated
+	 */
+	int BO_CTRL = 17;
+
+	/**
+	 * The feature id for the '<em><b>Uses</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL__USES = COMPOSITE__USES;
+
+	/**
+	 * The feature id for the '<em><b>Option Instance</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL__OPTION_INSTANCE = COMPOSITE__OPTION_INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL__NAME = COMPOSITE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nested Controls</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL__NESTED_CONTROLS = COMPOSITE__NESTED_CONTROLS;
+
+	/**
+	 * The feature id for the '<em><b>Sibling</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL__SIBLING = COMPOSITE__SIBLING;
+
+	/**
+	 * The feature id for the '<em><b>Uses Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL__USES_CONTROL = COMPOSITE__USES_CONTROL;
+
+	/**
+	 * The number of structural features of the '<em>BO Ctrl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL_FEATURE_COUNT = COMPOSITE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Code</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL___GET_CODE = COMPOSITE___GET_CODE;
+
+	/**
+	 * The number of operations of the '<em>BO Ctrl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_CTRL_OPERATION_COUNT = COMPOSITE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.Controls.impl.PageCtrlImpl <em>Page Ctrl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.Controls.impl.PageCtrlImpl
+	 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getPageCtrl()
+	 * @generated
+	 */
+	int PAGE_CTRL = 18;
+
+	/**
+	 * The feature id for the '<em><b>Uses</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL__USES = COMPOSITE__USES;
+
+	/**
+	 * The feature id for the '<em><b>Option Instance</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL__OPTION_INSTANCE = COMPOSITE__OPTION_INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL__NAME = COMPOSITE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Nested Controls</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL__NESTED_CONTROLS = COMPOSITE__NESTED_CONTROLS;
+
+	/**
+	 * The feature id for the '<em><b>Sibling</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL__SIBLING = COMPOSITE__SIBLING;
+
+	/**
+	 * The feature id for the '<em><b>Uses Control</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL__USES_CONTROL = COMPOSITE__USES_CONTROL;
+
+	/**
+	 * The number of structural features of the '<em>Page Ctrl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL_FEATURE_COUNT = COMPOSITE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Code</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL___GET_CODE = COMPOSITE___GET_CODE;
+
+	/**
+	 * The number of operations of the '<em>Page Ctrl</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE_CTRL_OPERATION_COUNT = COMPOSITE_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.Controls.ControlDef <em>Control Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1592,6 +1831,36 @@ public interface ControlsPackage extends EPackage {
 	EClass getBOType();
 
 	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.Controls.PageType <em>Page Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Page Type</em>'.
+	 * @see com.dsleng.etool.models.Controls.PageType
+	 * @generated
+	 */
+	EClass getPageType();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.Controls.BOCtrl <em>BO Ctrl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>BO Ctrl</em>'.
+	 * @see com.dsleng.etool.models.Controls.BOCtrl
+	 * @generated
+	 */
+	EClass getBOCtrl();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.Controls.PageCtrl <em>Page Ctrl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Page Ctrl</em>'.
+	 * @see com.dsleng.etool.models.Controls.PageCtrl
+	 * @generated
+	 */
+	EClass getPageCtrl();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2053,6 +2322,36 @@ public interface ControlsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BO_TYPE = eINSTANCE.getBOType();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.Controls.impl.PageTypeImpl <em>Page Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.Controls.impl.PageTypeImpl
+		 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getPageType()
+		 * @generated
+		 */
+		EClass PAGE_TYPE = eINSTANCE.getPageType();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.Controls.impl.BOCtrlImpl <em>BO Ctrl</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.Controls.impl.BOCtrlImpl
+		 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getBOCtrl()
+		 * @generated
+		 */
+		EClass BO_CTRL = eINSTANCE.getBOCtrl();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.Controls.impl.PageCtrlImpl <em>Page Ctrl</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.Controls.impl.PageCtrlImpl
+		 * @see com.dsleng.etool.models.Controls.impl.ControlsPackageImpl#getPageCtrl()
+		 * @generated
+		 */
+		EClass PAGE_CTRL = eINSTANCE.getPageCtrl();
 
 	}
 

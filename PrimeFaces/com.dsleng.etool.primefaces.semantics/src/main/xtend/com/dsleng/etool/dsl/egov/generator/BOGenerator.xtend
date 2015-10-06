@@ -25,6 +25,7 @@ class BOGenerator  {
 	def doGenerate(Resource resource, IFileSystemAccess fsa,BusinessObject e,String baseProjectDir,String pkg) {
 		basePackage = pkg
 		this.baseProjectDir = baseProjectDir
+		
 		fsa.generateFile(e.genFileName, e.compile)
 	}
 	
@@ -48,19 +49,28 @@ class BOGenerator  {
 		}
 		pkg = pkg.replace(" ","_")
 	}
-	
+	private def doAttributesDecl(BusinessObject e){
+		var syntax = ""
+		for(attr: e.attributes){
+			syntax += attr.compile
+		}
+		return syntax
+	}
+	private def doAttributesGS(BusinessObject e){
+		var syntax = ""
+		for(attr: e.attributes){
+			syntax += attr.getandset
+		}
+		return syntax
+	}
 	private def compile(BusinessObject e)'''
 «PageHead(getPackage(e))»
 «importStmt("javax.faces.bean.ManagedBean")»
 «importStmt("javax.faces.bean.RequestScoped")»
 «importStmt("java.io.Serializable")»
 «classHead(e)»
-«FOR att: e.attributes»
-«att.compile»
-«ENDFOR»
-«FOR att: e.attributes»
-«att.getandset»
-«ENDFOR»
+«e.doAttributesDecl»
+«e.doAttributesGS»
 «classTail»
 	'''
 
@@ -91,6 +101,33 @@ class BOGenerator  {
 					this.«vnme»=«vnme»;
 				}
 				'''
+			case BOOLEAN:
+				'''
+				public boolean get«nme»(){
+					return «vnme»;
+				}
+				public void set«nme»(boolean «vnme»){
+					this.«vnme»=«vnme»;
+				}
+				'''
+			case DATE:
+				'''
+				public String get«nme»(){
+					return «vnme»;
+				}
+				public void set«nme»(String «vnme»){
+					this.«vnme»=«vnme»;
+				}
+				'''	
+			case DOUBLE:
+				'''
+				public double get«nme»(){
+					return «vnme»;
+				}
+				public void set«nme»(double «vnme»){
+					this.«vnme»=«vnme»;
+				}
+				'''	
 			default: {
 			}
   			
@@ -109,6 +146,18 @@ class BOGenerator  {
 			case INTEGER:
 				'''
 				int «nme»;
+				'''
+			case BOOLEAN:
+				'''
+				boolean «nme»;
+				'''
+			case DATE:
+				'''
+				String «nme»;
+				'''
+			case DOUBLE:
+				'''
+				double «nme»;
 				'''
 			default: {
 			}

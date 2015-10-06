@@ -204,13 +204,31 @@ public interface EgovPackage extends EPackage {
 	int PAGE__BO_MAPS = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Pagetype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__PAGETYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__TITLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -431,6 +449,28 @@ public interface EgovPackage extends EPackage {
 	EReference getPage_BOMaps();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.Page#getPagetype <em>Pagetype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Pagetype</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getPagetype()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Pagetype();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Page#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getTitle()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_Title();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.BOMapper <em>BO Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -613,6 +653,22 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PAGE__BO_MAPS = eINSTANCE.getPage_BOMaps();
+
+		/**
+		 * The meta object literal for the '<em><b>Pagetype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__PAGETYPE = eINSTANCE.getPage_Pagetype();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__TITLE = eINSTANCE.getPage_Title();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.BOMapperImpl <em>BO Mapper</em>}' class.

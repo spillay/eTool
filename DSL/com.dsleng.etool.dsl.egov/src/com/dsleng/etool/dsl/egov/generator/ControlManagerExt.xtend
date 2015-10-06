@@ -5,7 +5,6 @@ import com.dsleng.etool.models.Controls.SimpleControl
 import com.dsleng.etool.models.bobjs.Attribute
 
 import static extension com.dsleng.etool.dsl.egov.generator.BusinessManagerExt.*
-import com.dsleng.etool.models.Controls.AttributeType
 
 class ControlManagerExt {
 	def static getSyntax(SimpleControl e){
@@ -14,28 +13,25 @@ class ControlManagerExt {
 	def static getSyntax(ControlManager e){
 		return "ControlManagerSyntax"
 	}
-	def static getSyntax(AttributeType type,Attribute attr){
-		// TODO: Implement use the type to get the control
-		return "<!--" + "Missing: " + attr.name + " -->\n"
-	}
+	
 	def static getStringType(ControlManager e,Attribute a)'''
-<h:outputText value="«a.label»: " />
-<p:inputText value="#{«a.usingName»}" />
+<h:outputText value="«a.label»" />
+<p:inputText value="«a.usingName»" />
 	'''
 	def static getIntegerType(ControlManager e,Attribute a)'''
-<h:outputText value="«a.label»: " />
-<p:inputText value="#{«a.usingName»}" />
+<h:outputText value="«a.label»" />
+<p:inputText value="«a.usingName»" />
 	'''
 	def static getDateType(ControlManager e,Attribute a)'''
 <h:outputText value="«a.label»: Date Type" />
-<p:inputText value="#{«a.usingName»}" />
+<p:inputText value="«a.usingName»" />
 	'''
 	def static getBooleanType(ControlManager e,Attribute a)'''
 <h:outputText value="«a.label»: Boolean Type" />
-<p:inputText value="#{«a.usingName»}" />
+<p:inputText value="«a.usingName»" />
 	'''
 	def static getDoubleType(ControlManager e,Attribute a)'''
 <h:outputText value="«a.label»: Double Type" />
-<p:inputText value="#{«a.usingName»}" />
+<p:inputText value="«a.usingName»" />
 	'''
 }

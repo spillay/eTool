@@ -72,6 +72,9 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 			case ControlsPackage.TYPE_PARAMETER: return createTypeParameter();
 			case ControlsPackage.ATTRIBUTE_TYPE: return createAttributeType();
 			case ControlsPackage.BO_TYPE: return createBOType();
+			case ControlsPackage.PAGE_TYPE: return createPageType();
+			case ControlsPackage.BO_CTRL: return createBOCtrl();
+			case ControlsPackage.PAGE_CTRL: return createPageCtrl();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -235,6 +238,36 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 	public BOType createBOType() {
 		BOTypeImpl boType = new BOTypeImpl();
 		return boType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PageType createPageType() {
+		PageTypeImpl pageType = new PageTypeImpl();
+		return pageType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BOCtrl createBOCtrl() {
+		BOCtrlImpl boCtrl = new BOCtrlImpl();
+		return boCtrl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PageCtrl createPageCtrl() {
+		PageCtrlImpl pageCtrl = new PageCtrlImpl();
+		return pageCtrl;
 	}
 
 	/**

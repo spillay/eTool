@@ -13,6 +13,7 @@ ControlManager returns controls::ControlManager:
 		('composites' '{' composites+=Composite ( "," composites+=Composite)* '}' )?
 		('AttributeTypes' '{' types+=AttributeType ( "," types+=AttributeType)* '}' )?
 		('BOTypes' '{' types+=BOType ( "," types+=BOType)* '}' )?
+		('PageTypes' '{' types+=PageType ( "," types+=PageType)* '}' )?
 	'}';
 
 Type returns controls::Type:
@@ -24,10 +25,13 @@ AttributeType returns controls::AttributeType:
 	 ('Parameters' '{' parameters+=TypeParameter ( "," parameters+=TypeParameter)* '}' )?
 ;
 BOType returns controls::BOType: 
-	'[' 'Name=' name=EString 'Control=' control=[controls::SimpleControl|EString] ']'
+	'[' 'Name=' name=EString 'Control=' control=[controls::BOCtrl|EString] ']'
 	 ('Parameters' '{' parameters+=TypeParameter ( "," parameters+=TypeParameter)* '}' )?
 ;
-
+PageType returns controls::PageType: 
+	'[' 'Name=' name=EString 'Control=' control=[controls::PageCtrl|EString] ']'
+	 ('Parameters' '{' parameters+=TypeParameter ( "," parameters+=TypeParameter)* '}' )?
+;
 
 
 TypeParameter returns controls::TypeParameter:
@@ -37,7 +41,7 @@ TypeParameter returns controls::TypeParameter:
 
 
 Composite returns controls::SimpleControl:
-	 CompositeWebCtrl | CompositeMobCtrl | SimpleWebCtrl;
+	 CompositeWebCtrl | CompositeMobCtrl | SimpleWebCtrl | CompositeBOCtrl | CompositePageCtrl;
 
 
 
@@ -98,9 +102,26 @@ CompositeWebCtrl returns controls::CompositeWebCtrl:
 	'CompositeWebCtrl'
 	name=EString'<<'usesControl=[controls::SimpleControl|EString]'>>'
 	'{'
-		('nestedControls' '(' nestedControls+=[controls::SimpleControl|EString] ( "," nestedControls+=[controls::SimpleControl|EString])* ')' )?
+		//('nestedControls' '(' nestedControls+=[controls::SimpleControl|EString] ( "," nestedControls+=[controls::SimpleControl|EString])* ')' )?
 		('sibling' '(' sibling+=[controls::SimpleControl|EString] ( "," sibling+=[controls::SimpleControl|EString])* ')' )?
 	'}';
+
+CompositeBOCtrl returns controls::BOCtrl:
+	{controls::BOCtrl}
+	'CompositeBOCtrl'
+	name=EString'<<'usesControl=[controls::SimpleControl|EString]'>>'
+	'{'
+		('nestedControls' '(' nestedControls+=[controls::SimpleControl|EString] ( "," nestedControls+=[controls::SimpleControl|EString])* ')' )?
+	'}'
+;
+CompositePageCtrl returns controls::PageCtrl:
+	{controls::PageCtrl}
+	'CompositePageCtrl'
+	name=EString'<<'usesControl=[controls::SimpleControl|EString]'>>'
+	'{'
+		('nestedControls' '(' nestedControls+=[controls::SimpleControl|EString] ( "," nestedControls+=[controls::SimpleControl|EString])* ')' )?
+	'}'
+;
 	
 SimpleMobCtrl returns controls::SimpleControl:
 	{controls::SimpleControl}

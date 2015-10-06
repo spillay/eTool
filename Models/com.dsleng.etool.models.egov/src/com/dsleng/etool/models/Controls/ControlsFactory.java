@@ -166,6 +166,33 @@ public interface ControlsFactory extends EFactory {
 	BOType createBOType();
 
 	/**
+	 * Returns a new object of class '<em>Page Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Page Type</em>'.
+	 * @generated
+	 */
+	PageType createPageType();
+
+	/**
+	 * Returns a new object of class '<em>BO Ctrl</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BO Ctrl</em>'.
+	 * @generated
+	 */
+	BOCtrl createBOCtrl();
+
+	/**
+	 * Returns a new object of class '<em>Page Ctrl</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Page Ctrl</em>'.
+	 * @generated
+	 */
+	PageCtrl createPageCtrl();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -231,6 +231,24 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPage_Pagetype() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPage_Title() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBOMapper() {
 		return boMapperEClass;
 	}
@@ -329,6 +347,8 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		pageEClass = createEClass(PAGE);
 		createEReference(pageEClass, PAGE__NEXT_PAGE);
 		createEReference(pageEClass, PAGE__BO_MAPS);
+		createEReference(pageEClass, PAGE__PAGETYPE);
+		createEAttribute(pageEClass, PAGE__TITLE);
 
 		boMapperEClass = createEClass(BO_MAPPER);
 		createEReference(boMapperEClass, BO_MAPPER__ATTRIBUTES);
@@ -388,6 +408,8 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPage_NextPage(), this.getPage(), null, "nextPage", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_BOMaps(), this.getBOMapper(), null, "BOMaps", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPage_Pagetype(), theControlsPackage.getPageType(), null, "pagetype", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_Title(), ecorePackage.getEString(), "title", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boMapperEClass, BOMapper.class, "BOMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOMapper_Attributes(), this.getBOAttribute(), null, "attributes", null, 0, -1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

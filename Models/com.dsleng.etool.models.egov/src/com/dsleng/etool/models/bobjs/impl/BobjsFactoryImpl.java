@@ -15,8 +15,6 @@ import com.dsleng.etool.models.bobjs.Multiplicity;
 import com.dsleng.etool.models.bobjs.NamedElement;
 import com.dsleng.etool.models.bobjs.OrgUnit;
 import com.dsleng.etool.models.bobjs.References;
-import com.dsleng.etool.models.bobjs.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;

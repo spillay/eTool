@@ -169,6 +169,29 @@ public class ControlsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ControlsPackage.PAGE_TYPE: {
+				PageType pageType = (PageType)theEObject;
+				T result = casePageType(pageType);
+				if (result == null) result = caseType(pageType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ControlsPackage.BO_CTRL: {
+				BOCtrl boCtrl = (BOCtrl)theEObject;
+				T result = caseBOCtrl(boCtrl);
+				if (result == null) result = caseComposite(boCtrl);
+				if (result == null) result = caseSimpleControl(boCtrl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ControlsPackage.PAGE_CTRL: {
+				PageCtrl pageCtrl = (PageCtrl)theEObject;
+				T result = casePageCtrl(pageCtrl);
+				if (result == null) result = caseComposite(pageCtrl);
+				if (result == null) result = caseSimpleControl(pageCtrl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -410,6 +433,51 @@ public class ControlsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBOType(BOType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Page Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Page Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePageType(PageType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BO Ctrl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BO Ctrl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBOCtrl(BOCtrl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Page Ctrl</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Page Ctrl</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePageCtrl(PageCtrl object) {
 		return null;
 	}
 

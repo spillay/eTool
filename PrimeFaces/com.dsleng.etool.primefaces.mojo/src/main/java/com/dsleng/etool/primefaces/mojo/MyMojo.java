@@ -15,6 +15,7 @@ public class MyMojo extends AbstractMojo
 {
     public void execute() throws MojoExecutionException
     {
+    	
         getLog().info( "Hello, world." );
     }
 }

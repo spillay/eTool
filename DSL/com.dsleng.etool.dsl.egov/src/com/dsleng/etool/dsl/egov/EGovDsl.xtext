@@ -25,7 +25,7 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Page returns Page:
-	'PageName='name=EString
+	'PageName='name=EString 'PageTitle'title=EString ('PageType='pagetype=[controls::PageType])?
 		('{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?
 		('=>' nextPage=[Page|EString])?
 ;

@@ -15,6 +15,6 @@ class BusinessManagerExt {
 		return e
 	}
 	def static getUsingName(Attribute e){
-		return (e.eContainer as BusinessObject).usingBeanName + "." + Introspector.decapitalize(e.name)
+		return "#{" + (e.eContainer as BusinessObject).usingBeanName + "." + Introspector.decapitalize(e.name) + "}"
 	}
 }

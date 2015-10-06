@@ -11,8 +11,6 @@ import com.dsleng.etool.models.bobjs.Literal;
 import com.dsleng.etool.models.bobjs.NamedElement;
 import com.dsleng.etool.models.bobjs.OrgUnit;
 import com.dsleng.etool.models.bobjs.References;
-import com.dsleng.etool.models.bobjs.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 

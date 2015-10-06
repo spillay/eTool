@@ -13,13 +13,13 @@ class PageUtils {
 	
 	public def genContents()'''
 «PageHead»
-«title»
+«PageTitle»
 «pageContents»
 «PageTail»
 	'''
-	protected def title()'''
+	protected def PageTitle()'''
 <h:head>
-     <title>title»</title>
+     <title>«title»</title>
 </h:head>
   		
   	'''
