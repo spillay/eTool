@@ -19,12 +19,20 @@ ControlManager {
 		},
 		Control inputMask {ns "http://primefaces.org/ui" prefix "p"
 			options { mask("9-9-9-9-9-9-9-9-9-9-9-9-9","(999) 999-9999","a*@a*"),value("Literal:String") }
+		},
+		Control commandButton {ns "http://primefaces.org/ui" prefix "p"
+			options { value("Submit"),update("display"),oncomplete("PF('dlg').show()")}
 		}
 		
 	} 
 	composites { 
 		SimpleWebCtrl Body<<body>> {},
 		SimpleWebCtrl Form<<form>> {},
+		SimpleWebCtrl CommandButton<<commandButton>>{
+			options["commandButton.value"=("commandButton.value.Submit"),
+			"commandButton.update"=("commandButton.update.display"),
+			"commandButton.oncomplete"=("commandButton.oncomplete.PF(\'dlg\').show()")]
+		},
 		SimpleWebCtrl Panel<<panel>> {
 			options["panel.header"=("panel.header.Literal:String")]
 		},
@@ -111,7 +119,8 @@ ControlManager {
 		Parameters {
 			Label => "outputText.value",
 			Name => "inputMask.value"
-		}
+		},
+		[Name=SubmitButton Control=CommandButton]
 		
 	}
 	BOTypes {

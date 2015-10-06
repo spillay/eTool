@@ -88,6 +88,10 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 				return createBOAttributeAdapter();
 			}
 			@Override
+			public Adapter casePreDefinedValue(PreDefinedValue object) {
+				return createPreDefinedValueAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -174,6 +178,20 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBOAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.PreDefinedValue <em>Pre Defined Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.egov.PreDefinedValue
+	 * @generated
+	 */
+	public Adapter createPreDefinedValueAdapter() {
 		return null;
 	}
 

@@ -67,6 +67,15 @@ public interface EgovFactory extends EFactory {
 	BOAttribute createBOAttribute();
 
 	/**
+	 * Returns a new object of class '<em>Pre Defined Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pre Defined Value</em>'.
+	 * @generated
+	 */
+	PreDefinedValue createPreDefinedValue();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

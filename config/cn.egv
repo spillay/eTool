@@ -13,7 +13,8 @@ Pages {
 				Attribute=IdNo ControlType=IDControl,
 				Attribute=email ControlType=Email,
 				Attribute=telphoneno ControlType=Telephone,
-				Attribute=cellno ControlType=Telephone
+				Attribute=cellno ControlType=Telephone,
+				Attribute=PrefContact ControlType=String PredefinedValues["EMAIL","TEL","CELL"]
 			},
 			BusinessObject=Permit BOType=TwoPanelGrid
 			Modified Attributes {
@@ -26,6 +27,9 @@ Pages {
 			Modified Attributes {
 				Attribute=DateChanged ControlType=Date
 			}
+		}
+		Standalone Controls {
+			SubmitButton
 		} 
 	}
 	Start Page MainPage

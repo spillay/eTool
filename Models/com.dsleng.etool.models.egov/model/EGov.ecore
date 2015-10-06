@@ -22,6 +22,8 @@
                 eType="#//dsleng/etool/models/egov/BOMapper" containment="true"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="pagetype" eType="#//dsleng/etool/models/Controls/PageType"/>
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="extraControls"
+                upperBound="-1" eType="#//dsleng/etool/models/Controls/AttributeType"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="BOMapper">
             <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
@@ -33,6 +35,12 @@
           <eClassifiers xsi:type="ecore:EClass" name="BOAttribute">
             <eStructuralFeatures xsi:type="ecore:EReference" name="controltype" eType="#//dsleng/etool/models/Controls/AttributeType"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//dsleng/etool/models/bobjs/Attribute"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="predefinedvalues"
+                upperBound="-1" eType="#//dsleng/etool/models/egov/PreDefinedValue"
+                containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="PreDefinedValue">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
         </eSubpackages>
         <eSubpackages name="Controls" nsURI="http://com/dsleng/etool/models/controls"

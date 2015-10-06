@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.egov.impl;
 
+import com.dsleng.etool.models.Controls.AttributeType;
 import com.dsleng.etool.models.Controls.PageType;
 import com.dsleng.etool.models.egov.BOMapper;
 import com.dsleng.etool.models.egov.EgovPackage;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getBOMaps <em>BO Maps</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getPagetype <em>Pagetype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getExtraControls <em>Extra Controls</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +91,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getExtraControls() <em>Extra Controls</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtraControls()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<AttributeType> extraControls;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,6 +235,18 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<AttributeType> getExtraControls() {
+		if (extraControls == null) {
+			extraControls = new EObjectResolvingEList<AttributeType>(AttributeType.class, this, EgovPackage.PAGE__EXTRA_CONTROLS);
+		}
+		return extraControls;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -249,6 +274,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return basicGetPagetype();
 			case EgovPackage.PAGE__TITLE:
 				return getTitle();
+			case EgovPackage.PAGE__EXTRA_CONTROLS:
+				return getExtraControls();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -275,6 +302,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case EgovPackage.PAGE__TITLE:
 				setTitle((String)newValue);
 				return;
+			case EgovPackage.PAGE__EXTRA_CONTROLS:
+				getExtraControls().clear();
+				getExtraControls().addAll((Collection<? extends AttributeType>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -299,6 +330,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case EgovPackage.PAGE__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
+			case EgovPackage.PAGE__EXTRA_CONTROLS:
+				getExtraControls().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -319,6 +353,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return pagetype != null;
 			case EgovPackage.PAGE__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case EgovPackage.PAGE__EXTRA_CONTROLS:
+				return extraControls != null && !extraControls.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

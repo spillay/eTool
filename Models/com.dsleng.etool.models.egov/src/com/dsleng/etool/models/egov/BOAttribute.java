@@ -4,6 +4,7 @@ package com.dsleng.etool.models.egov;
 
 import com.dsleng.etool.models.Controls.AttributeType;
 import com.dsleng.etool.models.bobjs.Attribute;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getControltype <em>Controltype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getPredefinedvalues <em>Predefinedvalues</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute()
@@ -75,5 +77,21 @@ public interface BOAttribute extends EObject {
 	 * @generated
 	 */
 	void setAttribute(Attribute value);
+
+	/**
+	 * Returns the value of the '<em><b>Predefinedvalues</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.egov.PreDefinedValue}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Predefinedvalues</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Predefinedvalues</em>' containment reference list.
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute_Predefinedvalues()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<PreDefinedValue> getPredefinedvalues();
 
 } // BOAttribute

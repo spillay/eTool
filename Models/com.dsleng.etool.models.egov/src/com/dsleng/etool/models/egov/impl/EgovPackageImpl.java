@@ -18,6 +18,7 @@ import com.dsleng.etool.models.egov.EgovPackage;
 import com.dsleng.etool.models.egov.NamedElement;
 import com.dsleng.etool.models.egov.Page;
 
+import com.dsleng.etool.models.egov.PreDefinedValue;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -66,6 +67,13 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * @generated
 	 */
 	private EClass boAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass preDefinedValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -249,6 +257,15 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPage_ExtraControls() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBOMapper() {
 		return boMapperEClass;
 	}
@@ -312,6 +329,33 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBOAttribute_Predefinedvalues() {
+		return (EReference)boAttributeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPreDefinedValue() {
+		return preDefinedValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPreDefinedValue_Value() {
+		return (EAttribute)preDefinedValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EgovFactory getEgovFactory() {
 		return (EgovFactory)getEFactoryInstance();
 	}
@@ -349,6 +393,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		createEReference(pageEClass, PAGE__BO_MAPS);
 		createEReference(pageEClass, PAGE__PAGETYPE);
 		createEAttribute(pageEClass, PAGE__TITLE);
+		createEReference(pageEClass, PAGE__EXTRA_CONTROLS);
 
 		boMapperEClass = createEClass(BO_MAPPER);
 		createEReference(boMapperEClass, BO_MAPPER__ATTRIBUTES);
@@ -358,6 +403,10 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		boAttributeEClass = createEClass(BO_ATTRIBUTE);
 		createEReference(boAttributeEClass, BO_ATTRIBUTE__CONTROLTYPE);
 		createEReference(boAttributeEClass, BO_ATTRIBUTE__ATTRIBUTE);
+		createEReference(boAttributeEClass, BO_ATTRIBUTE__PREDEFINEDVALUES);
+
+		preDefinedValueEClass = createEClass(PRE_DEFINED_VALUE);
+		createEAttribute(preDefinedValueEClass, PRE_DEFINED_VALUE__VALUE);
 	}
 
 	/**
@@ -410,6 +459,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEReference(getPage_BOMaps(), this.getBOMapper(), null, "BOMaps", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_Pagetype(), theControlsPackage.getPageType(), null, "pagetype", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_Title(), ecorePackage.getEString(), "title", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPage_ExtraControls(), theControlsPackage.getAttributeType(), null, "extraControls", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boMapperEClass, BOMapper.class, "BOMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOMapper_Attributes(), this.getBOAttribute(), null, "attributes", null, 0, -1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -419,6 +469,10 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEClass(boAttributeEClass, BOAttribute.class, "BOAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOAttribute_Controltype(), theControlsPackage.getAttributeType(), null, "controltype", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBOAttribute_Attribute(), theBobjsPackage.getAttribute(), null, "attribute", null, 0, 1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBOAttribute_Predefinedvalues(), this.getPreDefinedValue(), null, "predefinedvalues", null, 0, -1, BOAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(preDefinedValueEClass, PreDefinedValue.class, "PreDefinedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPreDefinedValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, PreDefinedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

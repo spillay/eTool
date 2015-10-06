@@ -168,6 +168,18 @@ class ControlManagerUtils {
 		var options = getOptions(baseControl.optionInstance,type,attr)
 		val startTag = "<" + baseControl.uses.prefix + ":" + baseControl.uses.name + options + ">"
 		val endTag = "</" + baseControl.uses.prefix + ":" + baseControl.uses.name + ">"
+		
+		
+		var nested = ""
+		for(n: e.nestedControls){
+			if ( n instanceof Composite){
+				nested += getCompositeSyntax(n,type,attr)
+			}
+			if ( n instanceof SimpleControl){
+				nested += getSimpleControlSyntax(n,type,attr)
+			}
+		}
+		
 		var siblings = "\n"
 		for(s: e.sibling){
 			if ( s instanceof Composite){
@@ -178,7 +190,7 @@ class ControlManagerUtils {
 			}
 			
 		}
-		syntax = startTag +  endTag + siblings
+		syntax = startTag +  nested + endTag + siblings
 		
 	}
 	public def getControlSyntax(AttributeType type,Attribute attr){

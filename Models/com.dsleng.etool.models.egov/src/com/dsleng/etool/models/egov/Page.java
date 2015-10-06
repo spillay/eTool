@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.egov;
 
+import com.dsleng.etool.models.Controls.AttributeType;
 import com.dsleng.etool.models.Controls.PageType;
 import org.eclipse.emf.common.util.EList;
 
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.egov.Page#getBOMaps <em>BO Maps</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Page#getPagetype <em>Pagetype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Page#getTitle <em>Title</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Page#getExtraControls <em>Extra Controls</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getPage()
@@ -118,5 +120,21 @@ public interface Page extends NamedElement {
 	 * @generated
 	 */
 	void setTitle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Extra Controls</b></em>' reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.Controls.AttributeType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extra Controls</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extra Controls</em>' reference list.
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_ExtraControls()
+	 * @model
+	 * @generated
+	 */
+	EList<AttributeType> getExtraControls();
 
 } // Page

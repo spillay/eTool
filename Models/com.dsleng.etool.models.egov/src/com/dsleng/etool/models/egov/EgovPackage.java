@@ -222,13 +222,22 @@ public interface EgovPackage extends EPackage {
 	int PAGE__TITLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Extra Controls</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__EXTRA_CONTROLS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -323,13 +332,22 @@ public interface EgovPackage extends EPackage {
 	int BO_ATTRIBUTE__ATTRIBUTE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Predefinedvalues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_ATTRIBUTE__PREDEFINEDVALUES = 2;
+
+	/**
 	 * The number of structural features of the '<em>BO Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BO_ATTRIBUTE_FEATURE_COUNT = 2;
+	int BO_ATTRIBUTE_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>BO Attribute</em>' class.
@@ -339,6 +357,44 @@ public interface EgovPackage extends EPackage {
 	 * @ordered
 	 */
 	int BO_ATTRIBUTE_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.PreDefinedValueImpl <em>Pre Defined Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.egov.impl.PreDefinedValueImpl
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getPreDefinedValue()
+	 * @generated
+	 */
+	int PRE_DEFINED_VALUE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_DEFINED_VALUE__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Pre Defined Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_DEFINED_VALUE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Pre Defined Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_DEFINED_VALUE_OPERATION_COUNT = 0;
 
 
 	/**
@@ -471,6 +527,17 @@ public interface EgovPackage extends EPackage {
 	EAttribute getPage_Title();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.dsleng.etool.models.egov.Page#getExtraControls <em>Extra Controls</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Extra Controls</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getExtraControls()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_ExtraControls();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.BOMapper <em>BO Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -544,6 +611,38 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBOAttribute_Attribute();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.BOAttribute#getPredefinedvalues <em>Predefinedvalues</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Predefinedvalues</em>'.
+	 * @see com.dsleng.etool.models.egov.BOAttribute#getPredefinedvalues()
+	 * @see #getBOAttribute()
+	 * @generated
+	 */
+	EReference getBOAttribute_Predefinedvalues();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.PreDefinedValue <em>Pre Defined Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pre Defined Value</em>'.
+	 * @see com.dsleng.etool.models.egov.PreDefinedValue
+	 * @generated
+	 */
+	EClass getPreDefinedValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.PreDefinedValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.dsleng.etool.models.egov.PreDefinedValue#getValue()
+	 * @see #getPreDefinedValue()
+	 * @generated
+	 */
+	EAttribute getPreDefinedValue_Value();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -671,6 +770,14 @@ public interface EgovPackage extends EPackage {
 		EAttribute PAGE__TITLE = eINSTANCE.getPage_Title();
 
 		/**
+		 * The meta object literal for the '<em><b>Extra Controls</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__EXTRA_CONTROLS = eINSTANCE.getPage_ExtraControls();
+
+		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.BOMapperImpl <em>BO Mapper</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -729,6 +836,32 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BO_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getBOAttribute_Attribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Predefinedvalues</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BO_ATTRIBUTE__PREDEFINEDVALUES = eINSTANCE.getBOAttribute_Predefinedvalues();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.PreDefinedValueImpl <em>Pre Defined Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.impl.PreDefinedValueImpl
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getPreDefinedValue()
+		 * @generated
+		 */
+		EClass PRE_DEFINED_VALUE = eINSTANCE.getPreDefinedValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRE_DEFINED_VALUE__VALUE = eINSTANCE.getPreDefinedValue_Value();
 
 	}
 

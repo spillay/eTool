@@ -27,6 +27,7 @@ EString returns ecore::EString:
 Page returns Page:
 	'PageName='name=EString 'PageTitle'title=EString ('PageType='pagetype=[controls::PageType])?
 		('{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?
+		('Standalone Controls {' extraControls+=[controls::AttributeType|EString] ( "," extraControls+=[controls::AttributeType|EString])* '}' )?
 		('=>' nextPage=[Page|EString])?
 ;
 
@@ -41,5 +42,11 @@ Attribute returns BOAttribute:
 	{BOAttribute}
 	'Attribute=' attribute=[bobjs::Attribute|EString]
 	'ControlType=' controltype=[controls::AttributeType|EString]
+	('PredefinedValues' '[' predefinedvalues+=PreDefinedValue ( "," predefinedvalues+=PreDefinedValue)* ']' )?
+;
+
+PreDefinedValue returns PreDefinedValue: 
+	{PreDefinedValue}
+	value=EString
 ;
 

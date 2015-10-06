@@ -7,13 +7,19 @@ import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.egov.BOAttribute;
 import com.dsleng.etool.models.egov.EgovPackage;
 
+import com.dsleng.etool.models.egov.PreDefinedValue;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getControltype <em>Controltype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getPredefinedvalues <em>Predefinedvalues</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +56,16 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 	 * @ordered
 	 */
 	protected Attribute attribute;
+
+	/**
+	 * The cached value of the '{@link #getPredefinedvalues() <em>Predefinedvalues</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPredefinedvalues()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PreDefinedValue> predefinedvalues;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +167,32 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<PreDefinedValue> getPredefinedvalues() {
+		if (predefinedvalues == null) {
+			predefinedvalues = new EObjectContainmentEList<PreDefinedValue>(PreDefinedValue.class, this, EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES);
+		}
+		return predefinedvalues;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
+				return ((InternalEList<?>)getPredefinedvalues()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -159,6 +202,8 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
+				return getPredefinedvalues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,6 +213,7 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -176,6 +222,10 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 				return;
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((Attribute)newValue);
+				return;
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
+				getPredefinedvalues().clear();
+				getPredefinedvalues().addAll((Collection<? extends PreDefinedValue>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,6 +245,9 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((Attribute)null);
 				return;
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
+				getPredefinedvalues().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -211,6 +264,8 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 				return controltype != null;
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				return attribute != null;
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
+				return predefinedvalues != null && !predefinedvalues.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
