@@ -62,6 +62,8 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 			case EgovPackage.BO_MAPPER: return createBOMapper();
 			case EgovPackage.BO_ATTRIBUTE: return createBOAttribute();
 			case EgovPackage.PRE_DEFINED_VALUE: return createPreDefinedValue();
+			case EgovPackage.CONTROL_MAPPER: return createControlMapper();
+			case EgovPackage.PRE_DEFINED_CONTAINER: return createPreDefinedContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,6 +127,26 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	public PreDefinedValue createPreDefinedValue() {
 		PreDefinedValueImpl preDefinedValue = new PreDefinedValueImpl();
 		return preDefinedValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ControlMapper createControlMapper() {
+		ControlMapperImpl controlMapper = new ControlMapperImpl();
+		return controlMapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PreDefinedContainer createPreDefinedContainer() {
+		PreDefinedContainerImpl preDefinedContainer = new PreDefinedContainerImpl();
+		return preDefinedContainer;
 	}
 
 	/**

@@ -9,23 +9,28 @@ Pages {
 		
 			BusinessObject=Client BOType=TwoPanelGrid
 			Modified Attributes {
-				Attribute=firstname1 ControlType=String,
-				Attribute=IdNo ControlType=IDControl,
-				Attribute=email ControlType=Email,
-				Attribute=telphoneno ControlType=Telephone,
-				Attribute=cellno ControlType=Telephone,
-				Attribute=PrefContact ControlType=String PredefinedValues["EMAIL","TEL","CELL"]
+				Attribute=firstname1 ControlType=String{},
+				Attribute=IdNo ControlType=IDControl{},
+				Attribute=email ControlType=Email{},
+				Attribute=telphoneno ControlType=Telephone{},
+				Attribute=cellno ControlType=Telephone{},
+				Attribute=PrefContact ControlType=Selection {
+					ControlMappers [DataContainer mapsTo "selectItems.value"]
+					PredefinedContainers [ 
+						PrefContactData("EMAIL","TEL","CELL")
+					]
+				}
 			},
 			BusinessObject=Permit BOType=TwoPanelGrid
 			Modified Attributes {
-				Attribute=AmountPaid ControlType=Int,
-				Attribute=DateIssued ControlType=Date,
-				Attribute=DteValidFrom ControlType=Date,
-				Attribute=DteValidTo ControlType=Date	
+				Attribute=AmountPaid ControlType=Int{},
+				Attribute=DateIssued ControlType=Date{},
+				Attribute=DteValidFrom ControlType=Date{},
+				Attribute=DteValidTo ControlType=Date{}	
 			},
 			BusinessObject=PermitHistory BOType=TwoPanelGrid 
 			Modified Attributes {
-				Attribute=DateChanged ControlType=Date
+				Attribute=DateChanged ControlType=Date{}
 			}
 		}
 		Standalone Controls {
@@ -34,3 +39,5 @@ Pages {
 	}
 	Start Page MainPage
 }
+
+

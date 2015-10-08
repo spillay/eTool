@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.bobjs.util;
 
+import com.dsleng.etool.models.bobjs.Annotation;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BOEnum;
 import com.dsleng.etool.models.bobjs.BasedOn;
@@ -9,6 +10,8 @@ import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
 import com.dsleng.etool.models.bobjs.Literal;
 import com.dsleng.etool.models.bobjs.NamedElement;
+import com.dsleng.etool.models.bobjs.OpParameter;
+import com.dsleng.etool.models.bobjs.Operation;
 import com.dsleng.etool.models.bobjs.OrgUnit;
 import com.dsleng.etool.models.bobjs.References;
 import org.eclipse.emf.common.notify.Adapter;
@@ -109,6 +112,18 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBasedOn(BasedOn object) {
 				return createBasedOnAdapter();
+			}
+			@Override
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
+			}
+			@Override
+			public Adapter caseOpParameter(OpParameter object) {
+				return createOpParameterAdapter();
+			}
+			@Override
+			public Adapter caseAnnotation(Annotation object) {
+				return createAnnotationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -253,6 +268,48 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBasedOnAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.bobjs.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.bobjs.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.bobjs.OpParameter <em>Op Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.bobjs.OpParameter
+	 * @generated
+	 */
+	public Adapter createOpParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.bobjs.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.bobjs.Annotation
+	 * @generated
+	 */
+	public Adapter createAnnotationAdapter() {
 		return null;
 	}
 

@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.bobjs.util;
 
+import com.dsleng.etool.models.bobjs.Annotation;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BOEnum;
 import com.dsleng.etool.models.bobjs.BasedOn;
@@ -9,6 +10,8 @@ import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
 import com.dsleng.etool.models.bobjs.Literal;
 import com.dsleng.etool.models.bobjs.NamedElement;
+import com.dsleng.etool.models.bobjs.OpParameter;
+import com.dsleng.etool.models.bobjs.Operation;
 import com.dsleng.etool.models.bobjs.OrgUnit;
 import com.dsleng.etool.models.bobjs.References;
 import org.eclipse.emf.ecore.EObject;
@@ -130,6 +133,24 @@ public class BobjsSwitch<T> extends Switch<T> {
 			case BobjsPackage.BASED_ON: {
 				BasedOn basedOn = (BasedOn)theEObject;
 				T result = caseBasedOn(basedOn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BobjsPackage.OPERATION: {
+				Operation operation = (Operation)theEObject;
+				T result = caseOperation(operation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BobjsPackage.OP_PARAMETER: {
+				OpParameter opParameter = (OpParameter)theEObject;
+				T result = caseOpParameter(opParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BobjsPackage.ANNOTATION: {
+				Annotation annotation = (Annotation)theEObject;
+				T result = caseAnnotation(annotation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,6 +290,51 @@ public class BobjsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBasedOn(BasedOn object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOperation(Operation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Op Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Op Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOpParameter(OpParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Annotation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnnotation(Annotation object) {
 		return null;
 	}
 

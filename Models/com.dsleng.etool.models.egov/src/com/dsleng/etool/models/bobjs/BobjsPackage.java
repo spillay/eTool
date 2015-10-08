@@ -268,13 +268,22 @@ public interface BobjsPackage extends EPackage {
 	int ATTRIBUTE__MANDATORY = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Data Management</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__DATA_MANAGEMENT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ATTRIBUTE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
@@ -405,13 +414,22 @@ public interface BobjsPackage extends EPackage {
 	int BUSINESS_OBJECT__BASEDON = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_OBJECT__OPERATIONS = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Business Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BUSINESS_OBJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int BUSINESS_OBJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Business Object</em>' class.
@@ -598,6 +616,162 @@ public interface BobjsPackage extends EPackage {
 	int BASED_ON_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.OperationImpl <em>Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.OperationImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getOperation()
+	 * @generated
+	 */
+	int OPERATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Opparameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__OPPARAMETERS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Syntax</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__SYNTAX = 3;
+
+	/**
+	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__ANNOTATIONS = 4;
+
+	/**
+	 * The number of structural features of the '<em>Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.OpParameterImpl <em>Op Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.OpParameterImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getOpParameter()
+	 * @generated
+	 */
+	int OP_PARAMETER = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_PARAMETER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_PARAMETER__TYPE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Op Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_PARAMETER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Op Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OP_PARAMETER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.AnnotationImpl <em>Annotation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.AnnotationImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getAnnotation()
+	 * @generated
+	 */
+	int ANNOTATION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -605,7 +779,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getDataTypes()
 	 * @generated
 	 */
-	int DATA_TYPES = 9;
+	int DATA_TYPES = 12;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.Inclusions <em>Inclusions</em>}' enum.
@@ -615,7 +789,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getInclusions()
 	 * @generated
 	 */
-	int INCLUSIONS = 10;
+	int INCLUSIONS = 13;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.Multiplicity <em>Multiplicity</em>}' enum.
@@ -625,7 +799,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getMultiplicity()
 	 * @generated
 	 */
-	int MULTIPLICITY = 11;
+	int MULTIPLICITY = 14;
 
 
 	/**
@@ -813,6 +987,17 @@ public interface BobjsPackage extends EPackage {
 	EAttribute getAttribute_Mandatory();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.bobjs.Attribute#isDataManagement <em>Data Management</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Data Management</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Attribute#isDataManagement()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_DataManagement();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.References <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -921,6 +1106,17 @@ public interface BobjsPackage extends EPackage {
 	EReference getBusinessObject_Basedon();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.bobjs.BusinessObject#getOperations <em>Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operations</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BusinessObject#getOperations()
+	 * @see #getBusinessObject()
+	 * @generated
+	 */
+	EReference getBusinessObject_Operations();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.BOEnum <em>BO Enum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1003,6 +1199,124 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBasedOn_Removes();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Operation
+	 * @generated
+	 */
+	EClass getOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.bobjs.Operation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Operation#getName()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.bobjs.Operation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Operation#getType()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Type();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.bobjs.Operation#getOpparameters <em>Opparameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Opparameters</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Operation#getOpparameters()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Opparameters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.bobjs.Operation#getSyntax <em>Syntax</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Syntax</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Operation#getSyntax()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Syntax();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.bobjs.Operation#getAnnotations <em>Annotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Annotations</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Operation#getAnnotations()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EReference getOperation_Annotations();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.OpParameter <em>Op Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Op Parameter</em>'.
+	 * @see com.dsleng.etool.models.bobjs.OpParameter
+	 * @generated
+	 */
+	EClass getOpParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.bobjs.OpParameter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.dsleng.etool.models.bobjs.OpParameter#getName()
+	 * @see #getOpParameter()
+	 * @generated
+	 */
+	EAttribute getOpParameter_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.bobjs.OpParameter#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see com.dsleng.etool.models.bobjs.OpParameter#getType()
+	 * @see #getOpParameter()
+	 * @generated
+	 */
+	EAttribute getOpParameter_Type();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Annotation
+	 * @generated
+	 */
+	EClass getAnnotation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.bobjs.Annotation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.dsleng.etool.models.bobjs.Annotation#getName()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EAttribute getAnnotation_Name();
 
 	/**
 	 * Returns the meta object for enum '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}'.
@@ -1200,6 +1514,14 @@ public interface BobjsPackage extends EPackage {
 		EAttribute ATTRIBUTE__MANDATORY = eINSTANCE.getAttribute_Mandatory();
 
 		/**
+		 * The meta object literal for the '<em><b>Data Management</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__DATA_MANAGEMENT = eINSTANCE.getAttribute_DataManagement();
+
+		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.ReferencesImpl <em>References</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1284,6 +1606,14 @@ public interface BobjsPackage extends EPackage {
 		EReference BUSINESS_OBJECT__BASEDON = eINSTANCE.getBusinessObject_Basedon();
 
 		/**
+		 * The meta object literal for the '<em><b>Operations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BUSINESS_OBJECT__OPERATIONS = eINSTANCE.getBusinessObject_Operations();
+
+		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.BOEnumImpl <em>BO Enum</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1354,6 +1684,100 @@ public interface BobjsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BASED_ON__REMOVES = eINSTANCE.getBasedOn_Removes();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.OperationImpl <em>Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.OperationImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getOperation()
+		 * @generated
+		 */
+		EClass OPERATION = eINSTANCE.getOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__NAME = eINSTANCE.getOperation_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__TYPE = eINSTANCE.getOperation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Opparameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__OPPARAMETERS = eINSTANCE.getOperation_Opparameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Syntax</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__SYNTAX = eINSTANCE.getOperation_Syntax();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION__ANNOTATIONS = eINSTANCE.getOperation_Annotations();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.OpParameterImpl <em>Op Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.OpParameterImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getOpParameter()
+		 * @generated
+		 */
+		EClass OP_PARAMETER = eINSTANCE.getOpParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OP_PARAMETER__NAME = eINSTANCE.getOpParameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OP_PARAMETER__TYPE = eINSTANCE.getOpParameter_Type();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.AnnotationImpl <em>Annotation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.AnnotationImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getAnnotation()
+		 * @generated
+		 */
+		EClass ANNOTATION = eINSTANCE.getAnnotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANNOTATION__NAME = eINSTANCE.getAnnotation_Name();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}' enum.

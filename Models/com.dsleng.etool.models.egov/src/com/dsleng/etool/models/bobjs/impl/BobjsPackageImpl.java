@@ -6,6 +6,7 @@ import com.dsleng.etool.models.Controls.ControlsPackage;
 
 import com.dsleng.etool.models.Controls.impl.ControlsPackageImpl;
 
+import com.dsleng.etool.models.bobjs.Annotation;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BOEnum;
 import com.dsleng.etool.models.bobjs.BasedOn;
@@ -17,6 +18,8 @@ import com.dsleng.etool.models.bobjs.Inclusions;
 import com.dsleng.etool.models.bobjs.Literal;
 import com.dsleng.etool.models.bobjs.Multiplicity;
 import com.dsleng.etool.models.bobjs.NamedElement;
+import com.dsleng.etool.models.bobjs.OpParameter;
+import com.dsleng.etool.models.bobjs.Operation;
 import com.dsleng.etool.models.bobjs.OrgUnit;
 import com.dsleng.etool.models.bobjs.References;
 
@@ -101,6 +104,27 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * @generated
 	 */
 	private EClass basedOnEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass opParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -350,6 +374,15 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAttribute_DataManagement() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReferences() {
 		return referencesEClass;
 	}
@@ -440,6 +473,15 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBusinessObject_Operations() {
+		return (EReference)businessObjectEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBOEnum() {
 		return boEnumEClass;
 	}
@@ -505,6 +547,105 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 */
 	public EReference getBasedOn_Removes() {
 		return (EReference)basedOnEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperation() {
+		return operationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Name() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Type() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Opparameters() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Syntax() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperation_Annotations() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOpParameter() {
+		return opParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpParameter_Name() {
+		return (EAttribute)opParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpParameter_Type() {
+		return (EAttribute)opParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnnotation() {
+		return annotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnnotation_Name() {
+		return (EAttribute)annotationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -581,6 +722,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
 		createEAttribute(attributeEClass, ATTRIBUTE__DEFAULT_VALUE);
 		createEAttribute(attributeEClass, ATTRIBUTE__MANDATORY);
+		createEAttribute(attributeEClass, ATTRIBUTE__DATA_MANAGEMENT);
 
 		referencesEClass = createEClass(REFERENCES);
 		createEReference(referencesEClass, REFERENCES__BUSINESSOBJECT);
@@ -593,6 +735,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		createEReference(businessObjectEClass, BUSINESS_OBJECT__SUPER_TYPES);
 		createEReference(businessObjectEClass, BUSINESS_OBJECT__ENUMS);
 		createEReference(businessObjectEClass, BUSINESS_OBJECT__BASEDON);
+		createEReference(businessObjectEClass, BUSINESS_OBJECT__OPERATIONS);
 
 		boEnumEClass = createEClass(BO_ENUM);
 		createEReference(boEnumEClass, BO_ENUM__LITERAL);
@@ -605,6 +748,20 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		basedOnEClass = createEClass(BASED_ON);
 		createEReference(basedOnEClass, BASED_ON__BUSINESSOBJECT);
 		createEReference(basedOnEClass, BASED_ON__REMOVES);
+
+		operationEClass = createEClass(OPERATION);
+		createEAttribute(operationEClass, OPERATION__NAME);
+		createEAttribute(operationEClass, OPERATION__TYPE);
+		createEReference(operationEClass, OPERATION__OPPARAMETERS);
+		createEAttribute(operationEClass, OPERATION__SYNTAX);
+		createEReference(operationEClass, OPERATION__ANNOTATIONS);
+
+		opParameterEClass = createEClass(OP_PARAMETER);
+		createEAttribute(opParameterEClass, OP_PARAMETER__NAME);
+		createEAttribute(opParameterEClass, OP_PARAMETER__TYPE);
+
+		annotationEClass = createEClass(ANNOTATION);
+		createEAttribute(annotationEClass, ANNOTATION__NAME);
 
 		// Create enums
 		dataTypesEEnum = createEEnum(DATA_TYPES);
@@ -667,6 +824,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		initEAttribute(getAttribute_Type(), this.getDataTypes(), "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_DataManagement(), ecorePackage.getEBoolean(), "dataManagement", "false", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referencesEClass, References.class, "References", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferences_Businessobject(), this.getBusinessObject(), null, "businessobject", null, 0, 1, References.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -679,6 +837,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		initEReference(getBusinessObject_SuperTypes(), this.getBusinessObject(), null, "superTypes", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessObject_Enums(), this.getEnum(), null, "enums", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessObject_Basedon(), this.getBasedOn(), null, "basedon", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBusinessObject_Operations(), this.getOperation(), null, "operations", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boEnumEClass, BOEnum.class, "BOEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOEnum_Literal(), this.getLiteral(), null, "literal", null, 0, -1, BOEnum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -692,6 +851,20 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		initEReference(getBasedOn_Businessobject(), this.getBusinessObject(), null, "businessobject", null, 0, 1, BasedOn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBasedOn_Removes(), this.getAttribute(), null, "removes", null, 0, -1, BasedOn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOperation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Type(), this.getDataTypes(), "type", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Opparameters(), this.getOpParameter(), null, "opparameters", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Syntax(), ecorePackage.getEString(), "syntax", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(opParameterEClass, OpParameter.class, "OpParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOpParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, OpParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpParameter_Type(), this.getDataTypes(), "type", null, 0, 1, OpParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnnotation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(dataTypesEEnum, DataTypes.class, "DataTypes");
 		addEEnumLiteral(dataTypesEEnum, DataTypes.INTEGER);
@@ -699,6 +872,8 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		addEEnumLiteral(dataTypesEEnum, DataTypes.DATE);
 		addEEnumLiteral(dataTypesEEnum, DataTypes.DOUBLE);
 		addEEnumLiteral(dataTypesEEnum, DataTypes.BOOLEAN);
+		addEEnumLiteral(dataTypesEEnum, DataTypes.DATA_MAP);
+		addEEnumLiteral(dataTypesEEnum, DataTypes.VOID);
 
 		initEEnum(inclusionsEEnum, Inclusions.class, "Inclusions");
 		addEEnumLiteral(inclusionsEEnum, Inclusions.MANDATORY);

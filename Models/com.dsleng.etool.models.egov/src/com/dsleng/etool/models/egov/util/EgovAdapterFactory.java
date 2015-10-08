@@ -92,6 +92,14 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 				return createPreDefinedValueAdapter();
 			}
 			@Override
+			public Adapter caseControlMapper(ControlMapper object) {
+				return createControlMapperAdapter();
+			}
+			@Override
+			public Adapter casePreDefinedContainer(PreDefinedContainer object) {
+				return createPreDefinedContainerAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -192,6 +200,34 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPreDefinedValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.ControlMapper <em>Control Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.egov.ControlMapper
+	 * @generated
+	 */
+	public Adapter createControlMapperAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.PreDefinedContainer <em>Pre Defined Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.egov.PreDefinedContainer
+	 * @generated
+	 */
+	public Adapter createPreDefinedContainerAdapter() {
 		return null;
 	}
 

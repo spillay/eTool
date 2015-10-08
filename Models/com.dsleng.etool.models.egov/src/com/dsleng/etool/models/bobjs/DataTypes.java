@@ -60,7 +60,23 @@ public enum DataTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(4, "Boolean", "Boolean");
+	BOOLEAN(4, "Boolean", "Boolean"), /**
+	 * The '<em><b>Data Map</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATA_MAP_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DATA_MAP(5, "DataMap", "DataMap"), /**
+	 * The '<em><b>Void</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #VOID_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	VOID(6, "Void", "void");
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal value.
@@ -138,6 +154,36 @@ public enum DataTypes implements Enumerator {
 	public static final int BOOLEAN_VALUE = 4;
 
 	/**
+	 * The '<em><b>Data Map</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Data Map</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DATA_MAP
+	 * @model name="DataMap"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATA_MAP_VALUE = 5;
+
+	/**
+	 * The '<em><b>Void</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Void</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #VOID
+	 * @model name="Void" literal="void"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int VOID_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>Data Types</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +196,8 @@ public enum DataTypes implements Enumerator {
 			DATE,
 			DOUBLE,
 			BOOLEAN,
+			DATA_MAP,
+			VOID,
 		};
 
 	/**
@@ -211,6 +259,8 @@ public enum DataTypes implements Enumerator {
 			case DATE_VALUE: return DATE;
 			case DOUBLE_VALUE: return DOUBLE;
 			case BOOLEAN_VALUE: return BOOLEAN;
+			case DATA_MAP_VALUE: return DATA_MAP;
+			case VOID_VALUE: return VOID;
 		}
 		return null;
 	}

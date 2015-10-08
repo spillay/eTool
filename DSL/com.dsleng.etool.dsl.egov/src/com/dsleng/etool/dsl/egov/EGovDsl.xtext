@@ -41,8 +41,20 @@ BOMaps returns BOMapper:
 Attribute returns BOAttribute:
 	{BOAttribute}
 	'Attribute=' attribute=[bobjs::Attribute|EString]
-	'ControlType=' controltype=[controls::AttributeType|EString]
-	('PredefinedValues' '[' predefinedvalues+=PreDefinedValue ( "," predefinedvalues+=PreDefinedValue)* ']' )?
+	'ControlType=' controltype=[controls::AttributeType|EString] 
+	'{' ('ControlMappers' '[' controlparameters+=ControlMapper ( "," controlparameters+=ControlMapper)* ']' )?
+	('PredefinedContainers ' '[' predefinedcontainers+=PreDefinedContainer ( "," predefinedcontainers+=PreDefinedContainer)* ']' )?
+	'}'
+;
+ControlMapper returns ControlMapper:
+	{ControlMapper}
+	mappedTo='Name' 'mapsTo' option=[controls::Options|EString] |
+	mappedTo='Type' 'mapsTo' option=[controls::Options|EString] |
+	mappedTo='Label' 'mapsTo' option=[controls::Options|EString] |
+	mappedTo='DataContainer' 'mapsTo' option=[controls::Options|EString] 
+;
+PreDefinedContainer returns PreDefinedContainer: 
+	name=EString '(' predefinedvalues+=PreDefinedValue ( "," predefinedvalues+=PreDefinedValue)* ')'
 ;
 
 PreDefinedValue returns PreDefinedValue: 

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#isMandatory <em>Mandatory</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#isDataManagement <em>Data Management</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +108,26 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * @ordered
 	 */
 	protected boolean mandatory = MANDATORY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDataManagement() <em>Data Management</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDataManagement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DATA_MANAGEMENT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDataManagement() <em>Data Management</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDataManagement()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean dataManagement = DATA_MANAGEMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +237,27 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDataManagement() {
+		return dataManagement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDataManagement(boolean newDataManagement) {
+		boolean oldDataManagement = dataManagement;
+		dataManagement = newDataManagement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT, oldDataManagement, dataManagement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -227,6 +269,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return getDefaultValue();
 			case BobjsPackage.ATTRIBUTE__MANDATORY:
 				return isMandatory();
+			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
+				return isDataManagement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -250,6 +294,9 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return;
 			case BobjsPackage.ATTRIBUTE__MANDATORY:
 				setMandatory((Boolean)newValue);
+				return;
+			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
+				setDataManagement((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,6 +322,9 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 			case BobjsPackage.ATTRIBUTE__MANDATORY:
 				setMandatory(MANDATORY_EDEFAULT);
 				return;
+			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
+				setDataManagement(DATA_MANAGEMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -295,6 +345,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
 			case BobjsPackage.ATTRIBUTE__MANDATORY:
 				return mandatory != MANDATORY_EDEFAULT;
+			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
+				return dataManagement != DATA_MANAGEMENT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -317,6 +369,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 		result.append(defaultValue);
 		result.append(", mandatory: ");
 		result.append(mandatory);
+		result.append(", dataManagement: ");
+		result.append(dataManagement);
 		result.append(')');
 		return result.toString();
 	}

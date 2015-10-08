@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getSuperTypes <em>Super Types</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getEnums <em>Enums</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getBasedon <em>Basedon</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getOperations <em>Operations</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.bobjs.BobjsPackage#getBusinessObject()
@@ -104,5 +105,21 @@ public interface BusinessObject extends NamedElement {
 	 * @generated
 	 */
 	EList<BasedOn> getBasedon();
+
+	/**
+	 * Returns the value of the '<em><b>Operations</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.bobjs.Operation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operations</em>' containment reference list.
+	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getBusinessObject_Operations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Operation> getOperations();
 
 } // BusinessObject

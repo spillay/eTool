@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.bobjs.impl;
 
+import com.dsleng.etool.models.bobjs.Annotation;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BOEnum;
 import com.dsleng.etool.models.bobjs.BasedOn;
@@ -13,6 +14,8 @@ import com.dsleng.etool.models.bobjs.Inclusions;
 import com.dsleng.etool.models.bobjs.Literal;
 import com.dsleng.etool.models.bobjs.Multiplicity;
 import com.dsleng.etool.models.bobjs.NamedElement;
+import com.dsleng.etool.models.bobjs.OpParameter;
+import com.dsleng.etool.models.bobjs.Operation;
 import com.dsleng.etool.models.bobjs.OrgUnit;
 import com.dsleng.etool.models.bobjs.References;
 import org.eclipse.emf.ecore.EClass;
@@ -77,6 +80,9 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 			case BobjsPackage.LITERAL: return createLiteral();
 			case BobjsPackage.ENUM: return createEnum();
 			case BobjsPackage.BASED_ON: return createBasedOn();
+			case BobjsPackage.OPERATION: return createOperation();
+			case BobjsPackage.OP_PARAMETER: return createOpParameter();
+			case BobjsPackage.ANNOTATION: return createAnnotation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -208,6 +214,36 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 	public BasedOn createBasedOn() {
 		BasedOnImpl basedOn = new BasedOnImpl();
 		return basedOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operation createOperation() {
+		OperationImpl operation = new OperationImpl();
+		return operation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OpParameter createOpParameter() {
+		OpParameterImpl opParameter = new OpParameterImpl();
+		return opParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Annotation createAnnotation() {
+		AnnotationImpl annotation = new AnnotationImpl();
+		return annotation;
 	}
 
 	/**

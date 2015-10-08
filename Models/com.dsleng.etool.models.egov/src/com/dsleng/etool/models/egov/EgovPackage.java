@@ -332,13 +332,22 @@ public interface EgovPackage extends EPackage {
 	int BO_ATTRIBUTE__ATTRIBUTE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Predefinedvalues</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Controlparameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BO_ATTRIBUTE__PREDEFINEDVALUES = 2;
+	int BO_ATTRIBUTE__CONTROLPARAMETERS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Predefinedcontainers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_ATTRIBUTE__PREDEFINEDCONTAINERS = 3;
 
 	/**
 	 * The number of structural features of the '<em>BO Attribute</em>' class.
@@ -347,7 +356,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BO_ATTRIBUTE_FEATURE_COUNT = 3;
+	int BO_ATTRIBUTE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>BO Attribute</em>' class.
@@ -395,6 +404,109 @@ public interface EgovPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRE_DEFINED_VALUE_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.ControlMapperImpl <em>Control Mapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.egov.impl.ControlMapperImpl
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getControlMapper()
+	 * @generated
+	 */
+	int CONTROL_MAPPER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MAPPER__OPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MAPPER__ATTRIBUTE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Mapped To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MAPPER__MAPPED_TO = 2;
+
+	/**
+	 * The number of structural features of the '<em>Control Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MAPPER_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Control Mapper</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MAPPER_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.PreDefinedContainerImpl <em>Pre Defined Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.egov.impl.PreDefinedContainerImpl
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getPreDefinedContainer()
+	 * @generated
+	 */
+	int PRE_DEFINED_CONTAINER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_DEFINED_CONTAINER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Predefinedvalues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_DEFINED_CONTAINER__PREDEFINEDVALUES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Pre Defined Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_DEFINED_CONTAINER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Pre Defined Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRE_DEFINED_CONTAINER_OPERATION_COUNT = 0;
 
 
 	/**
@@ -613,15 +725,26 @@ public interface EgovPackage extends EPackage {
 	EReference getBOAttribute_Attribute();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.BOAttribute#getPredefinedvalues <em>Predefinedvalues</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.BOAttribute#getControlparameters <em>Controlparameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Predefinedvalues</em>'.
-	 * @see com.dsleng.etool.models.egov.BOAttribute#getPredefinedvalues()
+	 * @return the meta object for the containment reference list '<em>Controlparameters</em>'.
+	 * @see com.dsleng.etool.models.egov.BOAttribute#getControlparameters()
 	 * @see #getBOAttribute()
 	 * @generated
 	 */
-	EReference getBOAttribute_Predefinedvalues();
+	EReference getBOAttribute_Controlparameters();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.BOAttribute#getPredefinedcontainers <em>Predefinedcontainers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Predefinedcontainers</em>'.
+	 * @see com.dsleng.etool.models.egov.BOAttribute#getPredefinedcontainers()
+	 * @see #getBOAttribute()
+	 * @generated
+	 */
+	EReference getBOAttribute_Predefinedcontainers();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.PreDefinedValue <em>Pre Defined Value</em>}'.
@@ -643,6 +766,81 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPreDefinedValue_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.ControlMapper <em>Control Mapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Control Mapper</em>'.
+	 * @see com.dsleng.etool.models.egov.ControlMapper
+	 * @generated
+	 */
+	EClass getControlMapper();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.ControlMapper#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see com.dsleng.etool.models.egov.ControlMapper#getOption()
+	 * @see #getControlMapper()
+	 * @generated
+	 */
+	EReference getControlMapper_Option();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.ControlMapper#getAttribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute</em>'.
+	 * @see com.dsleng.etool.models.egov.ControlMapper#getAttribute()
+	 * @see #getControlMapper()
+	 * @generated
+	 */
+	EReference getControlMapper_Attribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.ControlMapper#getMappedTo <em>Mapped To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped To</em>'.
+	 * @see com.dsleng.etool.models.egov.ControlMapper#getMappedTo()
+	 * @see #getControlMapper()
+	 * @generated
+	 */
+	EAttribute getControlMapper_MappedTo();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.PreDefinedContainer <em>Pre Defined Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pre Defined Container</em>'.
+	 * @see com.dsleng.etool.models.egov.PreDefinedContainer
+	 * @generated
+	 */
+	EClass getPreDefinedContainer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.PreDefinedContainer#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.dsleng.etool.models.egov.PreDefinedContainer#getName()
+	 * @see #getPreDefinedContainer()
+	 * @generated
+	 */
+	EAttribute getPreDefinedContainer_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.PreDefinedContainer#getPredefinedvalues <em>Predefinedvalues</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Predefinedvalues</em>'.
+	 * @see com.dsleng.etool.models.egov.PreDefinedContainer#getPredefinedvalues()
+	 * @see #getPreDefinedContainer()
+	 * @generated
+	 */
+	EReference getPreDefinedContainer_Predefinedvalues();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -838,12 +1036,20 @@ public interface EgovPackage extends EPackage {
 		EReference BO_ATTRIBUTE__ATTRIBUTE = eINSTANCE.getBOAttribute_Attribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Predefinedvalues</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Controlparameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BO_ATTRIBUTE__PREDEFINEDVALUES = eINSTANCE.getBOAttribute_Predefinedvalues();
+		EReference BO_ATTRIBUTE__CONTROLPARAMETERS = eINSTANCE.getBOAttribute_Controlparameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Predefinedcontainers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BO_ATTRIBUTE__PREDEFINEDCONTAINERS = eINSTANCE.getBOAttribute_Predefinedcontainers();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.PreDefinedValueImpl <em>Pre Defined Value</em>}' class.
@@ -862,6 +1068,66 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PRE_DEFINED_VALUE__VALUE = eINSTANCE.getPreDefinedValue_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.ControlMapperImpl <em>Control Mapper</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.impl.ControlMapperImpl
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getControlMapper()
+		 * @generated
+		 */
+		EClass CONTROL_MAPPER = eINSTANCE.getControlMapper();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_MAPPER__OPTION = eINSTANCE.getControlMapper_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_MAPPER__ATTRIBUTE = eINSTANCE.getControlMapper_Attribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped To</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTROL_MAPPER__MAPPED_TO = eINSTANCE.getControlMapper_MappedTo();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.PreDefinedContainerImpl <em>Pre Defined Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.impl.PreDefinedContainerImpl
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getPreDefinedContainer()
+		 * @generated
+		 */
+		EClass PRE_DEFINED_CONTAINER = eINSTANCE.getPreDefinedContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRE_DEFINED_CONTAINER__NAME = eINSTANCE.getPreDefinedContainer_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Predefinedvalues</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRE_DEFINED_CONTAINER__PREDEFINEDVALUES = eINSTANCE.getPreDefinedContainer_Predefinedvalues();
 
 	}
 

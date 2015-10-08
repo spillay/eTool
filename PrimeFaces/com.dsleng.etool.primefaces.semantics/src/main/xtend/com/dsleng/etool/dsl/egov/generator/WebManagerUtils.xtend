@@ -3,7 +3,10 @@ package com.dsleng.etool.dsl.egov.generator
 import static extension com.dsleng.etool.dsl.egov.generator.WebManagerExt.*
 import static extension com.dsleng.etool.dsl.egov.generator.BusinessManagerExt.*
 import com.dsleng.etool.models.egov.Page
+import com.dsleng.etool.models.bobjs.BobjsPackage
 import com.dsleng.etool.models.Controls.Composite
+import com.dsleng.etool.models.bobjs.BobjsFactory
+import com.dsleng.etool.models.bobjs.DataTypes
 
 class WebManagerUtils {
 	var baseProjectDir = ""
@@ -18,16 +21,18 @@ class WebManagerUtils {
 
 	def getContents(Page e, ControlManagerUtils uCtrl) {
 		var contents = ""
+		var BusUtils = new BusinessManagerUtils()
 		if (e.BOMaps.size > 0) {
 			// val bmap = e.BOMaps.get(0)
 			for (bmap : e.BOMaps) {
+				BusUtils.doPredefinedData(bmap)
 				contents += uCtrl.getHeadSyntax(bmap.botype, bmap.botype.parameters, bmap.businessObject)
-				for (a : bmap.businessObject.Prepare.attributes) {
+				for (a : bmap.businessObject.Prepare.attributes.filter[elem|!elem.dataManagement]) {
 					var processed = false
 					for (ba : bmap.attributes) {
 						if (ba.attribute == a) {
 							// Use Control Type
-							contents += uCtrl.getControlSyntax(ba.controltype, a)
+							contents += uCtrl.getControlSyntax(ba, a)
 							processed = true
 						}
 					}

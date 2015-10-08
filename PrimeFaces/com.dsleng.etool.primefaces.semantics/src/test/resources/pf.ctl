@@ -22,6 +22,18 @@ ControlManager {
 		},
 		Control commandButton {ns "http://primefaces.org/ui" prefix "p"
 			options { value("Submit"),update("display"),oncomplete("PF('dlg').show()")}
+		},
+		Control selectOneMenu {ns "http://primefaces.org/ui" prefix "p"
+			options { value("Literal:String"),style("width:150px") }
+		},
+		Control ajax {ns "http://primefaces.org/ui" prefix "p"
+			options { listener("Literal:String"),update("Literal:String")}
+		},
+		Control selectItem {ns "http://primefaces.org/ui" prefix "f"
+			options { itemLabel("Literal:String"),itemValue(""),noSelectionOption(true,false)}
+		},
+		Control selectItems {ns "http://primefaces.org/ui" prefix "f"
+			options {value("Literal:String")}
 		}
 		
 	} 
@@ -60,6 +72,17 @@ ControlManager {
 		SimpleWebCtrl Email<<inputMask>> {
 			options["inputMask.mask"=("inputMask.mask.a*@a*"),"inputMask.value"=("inputMask.value.Literal:String")]
 		},
+		SimpleWebCtrl SelectOneMenu<<selectOneMenu>> {
+			options["selectOneMenu.style"=("selectOneMenu.style.width:150px"),"selectOneMenu.value"=("selectOneMenu.value.Literal:String")]
+		},
+		SimpleWebCtrl Ajax<<ajax>> {
+		},
+		SimpleWebCtrl SelectItem<<selectItem>> {
+			options["selectItem.noSelectionOption"=("selectItem.noSelectionOption.true")]
+		},
+		SimpleWebCtrl SelectItems<<selectItems>> {
+			options["selectItems.value"=("selectItems.value.Literal:String")]
+		},
 		CompositeWebCtrl StringInput<<Label>> {
 			sibling(Input)
 		},
@@ -83,6 +106,12 @@ ControlManager {
 		},
 		CompositeWebCtrl InlineCalendarInput<<Label>> {
 			sibling(InlineCalendar)
+		},
+		CompositeWebCtrl SelectOneMenuInput<<SelectOneMenu>>{
+			nestedControls(Ajax,SelectItem,SelectItems)
+		},
+		CompositeWebCtrl DropDown<<Label>> {
+			sibling(SelectOneMenuInput)
 		},
 		CompositeBOCtrl TwoPanelBO<<Panel>> {
 			nestedControls(TwoPanelGrid)
@@ -119,6 +148,11 @@ ControlManager {
 		Parameters {
 			Label => "outputText.value",
 			Name => "inputMask.value"
+		},
+		[Name=Selection Control=DropDown]
+		Parameters {
+			Label => "outputText.value",
+			Name => "selectOneMenu.value"
 		},
 		[Name=SubmitButton Control=CommandButton]
 		

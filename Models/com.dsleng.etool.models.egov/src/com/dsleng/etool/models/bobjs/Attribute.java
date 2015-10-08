@@ -15,6 +15,7 @@ package com.dsleng.etool.models.bobjs;
  *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#isMandatory <em>Mandatory</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#isDataManagement <em>Data Management</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.bobjs.BobjsPackage#getAttribute()
@@ -128,5 +129,32 @@ public interface Attribute extends NamedElement {
 	 * @generated
 	 */
 	void setMandatory(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Data Management</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Management</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Management</em>' attribute.
+	 * @see #setDataManagement(boolean)
+	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getAttribute_DataManagement()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isDataManagement();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.bobjs.Attribute#isDataManagement <em>Data Management</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data Management</em>' attribute.
+	 * @see #isDataManagement()
+	 * @generated
+	 */
+	void setDataManagement(boolean value);
 
 } // Attribute

@@ -5,9 +5,10 @@ package com.dsleng.etool.models.egov.impl;
 import com.dsleng.etool.models.Controls.AttributeType;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.egov.BOAttribute;
+import com.dsleng.etool.models.egov.ControlMapper;
 import com.dsleng.etool.models.egov.EgovPackage;
 
-import com.dsleng.etool.models.egov.PreDefinedValue;
+import com.dsleng.etool.models.egov.PreDefinedContainer;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -31,7 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getControltype <em>Controltype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getPredefinedvalues <em>Predefinedvalues</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getControlparameters <em>Controlparameters</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.BOAttributeImpl#getPredefinedcontainers <em>Predefinedcontainers</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,14 +60,24 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 	protected Attribute attribute;
 
 	/**
-	 * The cached value of the '{@link #getPredefinedvalues() <em>Predefinedvalues</em>}' containment reference list.
+	 * The cached value of the '{@link #getControlparameters() <em>Controlparameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPredefinedvalues()
+	 * @see #getControlparameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PreDefinedValue> predefinedvalues;
+	protected EList<ControlMapper> controlparameters;
+
+	/**
+	 * The cached value of the '{@link #getPredefinedcontainers() <em>Predefinedcontainers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPredefinedcontainers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PreDefinedContainer> predefinedcontainers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,11 +179,23 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PreDefinedValue> getPredefinedvalues() {
-		if (predefinedvalues == null) {
-			predefinedvalues = new EObjectContainmentEList<PreDefinedValue>(PreDefinedValue.class, this, EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES);
+	public EList<ControlMapper> getControlparameters() {
+		if (controlparameters == null) {
+			controlparameters = new EObjectContainmentEList<ControlMapper>(ControlMapper.class, this, EgovPackage.BO_ATTRIBUTE__CONTROLPARAMETERS);
 		}
-		return predefinedvalues;
+		return controlparameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<PreDefinedContainer> getPredefinedcontainers() {
+		if (predefinedcontainers == null) {
+			predefinedcontainers = new EObjectContainmentEList<PreDefinedContainer>(PreDefinedContainer.class, this, EgovPackage.BO_ATTRIBUTE__PREDEFINEDCONTAINERS);
+		}
+		return predefinedcontainers;
 	}
 
 	/**
@@ -182,8 +206,10 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
-				return ((InternalEList<?>)getPredefinedvalues()).basicRemove(otherEnd, msgs);
+			case EgovPackage.BO_ATTRIBUTE__CONTROLPARAMETERS:
+				return ((InternalEList<?>)getControlparameters()).basicRemove(otherEnd, msgs);
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDCONTAINERS:
+				return ((InternalEList<?>)getPredefinedcontainers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,8 +228,10 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				if (resolve) return getAttribute();
 				return basicGetAttribute();
-			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
-				return getPredefinedvalues();
+			case EgovPackage.BO_ATTRIBUTE__CONTROLPARAMETERS:
+				return getControlparameters();
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDCONTAINERS:
+				return getPredefinedcontainers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,9 +251,13 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((Attribute)newValue);
 				return;
-			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
-				getPredefinedvalues().clear();
-				getPredefinedvalues().addAll((Collection<? extends PreDefinedValue>)newValue);
+			case EgovPackage.BO_ATTRIBUTE__CONTROLPARAMETERS:
+				getControlparameters().clear();
+				getControlparameters().addAll((Collection<? extends ControlMapper>)newValue);
+				return;
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDCONTAINERS:
+				getPredefinedcontainers().clear();
+				getPredefinedcontainers().addAll((Collection<? extends PreDefinedContainer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -245,8 +277,11 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				setAttribute((Attribute)null);
 				return;
-			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
-				getPredefinedvalues().clear();
+			case EgovPackage.BO_ATTRIBUTE__CONTROLPARAMETERS:
+				getControlparameters().clear();
+				return;
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDCONTAINERS:
+				getPredefinedcontainers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -264,8 +299,10 @@ public class BOAttributeImpl extends MinimalEObjectImpl.Container implements BOA
 				return controltype != null;
 			case EgovPackage.BO_ATTRIBUTE__ATTRIBUTE:
 				return attribute != null;
-			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDVALUES:
-				return predefinedvalues != null && !predefinedvalues.isEmpty();
+			case EgovPackage.BO_ATTRIBUTE__CONTROLPARAMETERS:
+				return controlparameters != null && !controlparameters.isEmpty();
+			case EgovPackage.BO_ATTRIBUTE__PREDEFINEDCONTAINERS:
+				return predefinedcontainers != null && !predefinedcontainers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

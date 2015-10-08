@@ -35,12 +35,26 @@
           <eClassifiers xsi:type="ecore:EClass" name="BOAttribute">
             <eStructuralFeatures xsi:type="ecore:EReference" name="controltype" eType="#//dsleng/etool/models/Controls/AttributeType"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//dsleng/etool/models/bobjs/Attribute"/>
-            <eStructuralFeatures xsi:type="ecore:EReference" name="predefinedvalues"
-                upperBound="-1" eType="#//dsleng/etool/models/egov/PreDefinedValue"
+            <eStructuralFeatures xsi:type="ecore:EReference" name="controlparameters"
+                upperBound="-1" eType="#//dsleng/etool/models/egov/ControlMapper"
+                containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="predefinedcontainers"
+                upperBound="-1" eType="#//dsleng/etool/models/egov/PreDefinedContainer"
                 containment="true"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="PreDefinedValue">
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="ControlMapper">
+            <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//dsleng/etool/models/Controls/Options"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//dsleng/etool/models/bobjs/Attribute"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="PreDefinedContainer">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="predefinedvalues"
+                upperBound="-1" eType="#//dsleng/etool/models/egov/PreDefinedValue"
+                containment="true"/>
           </eClassifiers>
         </eSubpackages>
         <eSubpackages name="Controls" nsURI="http://com/dsleng/etool/models/controls"
@@ -161,6 +175,9 @@
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//dsleng/etool/models/bobjs/DataTypes"/>
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="mandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataManagement"
+                eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+                defaultValueLiteral="false"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EEnum" name="DataTypes">
             <eLiterals name="Integer"/>
@@ -168,6 +185,8 @@
             <eLiterals name="Date" value="2"/>
             <eLiterals name="Double" value="3"/>
             <eLiterals name="Boolean" value="4"/>
+            <eLiterals name="DataMap" value="5"/>
+            <eLiterals name="Void" value="6" literal="void"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="References">
             <eStructuralFeatures xsi:type="ecore:EReference" name="businessobject"
@@ -194,6 +213,8 @@
                 eType="#//dsleng/etool/models/bobjs/Enum" containment="true"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="basedon" upperBound="-1"
                 eType="#//dsleng/etool/models/bobjs/BasedOn" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+                eType="#//dsleng/etool/models/bobjs/Operation" containment="true"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="BOEnum" eSuperTypes="#//dsleng/etool/models/bobjs/NamedElement">
             <eStructuralFeatures xsi:type="ecore:EReference" name="literal" upperBound="-1"
@@ -209,6 +230,22 @@
                 eType="#//dsleng/etool/models/bobjs/BusinessObject"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="removes" upperBound="-1"
                 eType="#//dsleng/etool/models/bobjs/Attribute"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Operation">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//dsleng/etool/models/bobjs/DataTypes"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="opparameters" upperBound="-1"
+                eType="#//dsleng/etool/models/bobjs/OpParameter" containment="true"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="syntax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
+                eType="#//dsleng/etool/models/bobjs/Annotation" containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="OpParameter">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//dsleng/etool/models/bobjs/DataTypes"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
         </eSubpackages>
       </eSubpackages>

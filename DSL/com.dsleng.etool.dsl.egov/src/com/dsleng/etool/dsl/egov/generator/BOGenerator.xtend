@@ -10,6 +10,7 @@ import java.beans.Introspector
 import com.dsleng.etool.models.bobjs.BusinessObject
 import com.dsleng.etool.models.bobjs.OrgUnit
 import com.dsleng.etool.models.bobjs.Attribute
+import static extension com.dsleng.etool.dsl.egov.generator.BusinessManagerExt.*
 
 class BOGenerator  {
 	
@@ -68,8 +69,16 @@ class BOGenerator  {
 «importStmt("javax.faces.bean.ManagedBean")»
 «importStmt("javax.faces.bean.RequestScoped")»
 «importStmt("java.io.Serializable")»
+«importStmt("java.util.HashMap")»
+«importStmt("java.util.Map")»
+«importStmt("javax.annotation.PostConstruct")»
+«importStmt("javax.faces.application.FacesMessage")»
+«importStmt("javax.faces.bean.ManagedBean")»
+«importStmt("javax.faces.bean.ViewScoped")»
+«importStmt("javax.faces.context.FacesContext")»
 «classHead(e)»
 «e.doAttributesDecl»
+«e.ops»
 «e.doAttributesGS»
 «classTail»
 	'''
@@ -128,6 +137,15 @@ class BOGenerator  {
 					this.«vnme»=«vnme»;
 				}
 				'''	
+			case DATA_MAP:
+				'''
+				public Map<String,String> get«nme»(){
+					return «vnme»;
+				}
+				public void set«nme»(Map<String,String> «vnme»){
+					this.«vnme»=«vnme»;
+				}
+				'''	
 			default: {
 			}
   			
@@ -159,6 +177,10 @@ class BOGenerator  {
 				'''
 				double «nme»;
 				'''
+			case DATA_MAP:'''
+				Map<String,String> «nme»;
+			'''
+				
 			default: {
 			}
   			
@@ -168,7 +190,7 @@ class BOGenerator  {
 	
 	private def classHead(BusinessObject e)'''
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class «e.name»Bean implements Serializable {
 
         private static final long serialVersionUID = 1L;

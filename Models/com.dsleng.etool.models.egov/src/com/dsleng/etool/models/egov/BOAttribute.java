@@ -18,7 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getControltype <em>Controltype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getPredefinedvalues <em>Predefinedvalues</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getControlparameters <em>Controlparameters</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.BOAttribute#getPredefinedcontainers <em>Predefinedcontainers</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute()
@@ -79,19 +80,35 @@ public interface BOAttribute extends EObject {
 	void setAttribute(Attribute value);
 
 	/**
-	 * Returns the value of the '<em><b>Predefinedvalues</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.models.egov.PreDefinedValue}.
+	 * Returns the value of the '<em><b>Controlparameters</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.egov.ControlMapper}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Predefinedvalues</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Controlparameters</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Predefinedvalues</em>' containment reference list.
-	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute_Predefinedvalues()
+	 * @return the value of the '<em>Controlparameters</em>' containment reference list.
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute_Controlparameters()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PreDefinedValue> getPredefinedvalues();
+	EList<ControlMapper> getControlparameters();
+
+	/**
+	 * Returns the value of the '<em><b>Predefinedcontainers</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.egov.PreDefinedContainer}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Predefinedcontainers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Predefinedcontainers</em>' containment reference list.
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getBOAttribute_Predefinedcontainers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<PreDefinedContainer> getPredefinedcontainers();
 
 } // BOAttribute

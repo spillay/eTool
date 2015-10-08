@@ -104,6 +104,18 @@ public class EgovSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EgovPackage.CONTROL_MAPPER: {
+				ControlMapper controlMapper = (ControlMapper)theEObject;
+				T result = caseControlMapper(controlMapper);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EgovPackage.PRE_DEFINED_CONTAINER: {
+				PreDefinedContainer preDefinedContainer = (PreDefinedContainer)theEObject;
+				T result = casePreDefinedContainer(preDefinedContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -195,6 +207,36 @@ public class EgovSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePreDefinedValue(PreDefinedValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Control Mapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Control Mapper</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseControlMapper(ControlMapper object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pre Defined Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pre Defined Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePreDefinedContainer(PreDefinedContainer object) {
 		return null;
 	}
 
