@@ -1,24 +1,72 @@
 <?xml version="1.0" encoding="ASCII"?>
 <com.dsleng.etool.models:EService xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.dsleng.etool.models="http://com/dsleng/etool/models/egov" name="Permit" indexPage="//@pages.0" dirLocation="permit">
-  <pages name="MainPage">
+  <pages name="MainPage" title="Permit Application">
     <BOMaps>
       <attributes>
-        <controltype href="cn.egv#|4"/>
-        <attribute href="cn.egv#|3"/>
+        <controltype href="cn.egv#|7"/>
+        <attribute href="cn.egv#|6"/>
       </attributes>
-      <attributes>
-        <controltype href="cn.egv#|6"/>
-        <attribute href="cn.egv#|5"/>
-      </attributes>
-      <BusinessObject href="cn.egv#|2"/>
-    </BOMaps>
-    <BOMaps>
       <attributes>
         <controltype href="cn.egv#|9"/>
         <attribute href="cn.egv#|8"/>
       </attributes>
-      <BusinessObject href="cn.egv#|7"/>
+      <attributes>
+        <controltype href="cn.egv#|11"/>
+        <attribute href="cn.egv#|10"/>
+      </attributes>
+      <attributes>
+        <controltype href="cn.egv#|13"/>
+        <attribute href="cn.egv#|12"/>
+      </attributes>
+      <attributes>
+        <controltype href="cn.egv#|15"/>
+        <attribute href="cn.egv#|14"/>
+      </attributes>
+      <attributes>
+        <controltype href="cn.egv#|17"/>
+        <attribute href="cn.egv#|16"/>
+        <controlparameters mappedTo="DataContainer">
+          <option href="cn.egv#|18"/>
+        </controlparameters>
+        <predefinedcontainers name="PrefContactData">
+          <predefinedvalues value="EMAIL"/>
+          <predefinedvalues value="TEL"/>
+          <predefinedvalues value="CELL"/>
+        </predefinedcontainers>
+      </attributes>
+      <BusinessObject href="cn.egv#|4"/>
+      <botype href="cn.egv#|5"/>
     </BOMaps>
+    <BOMaps>
+      <attributes>
+        <controltype href="cn.egv#|22"/>
+        <attribute href="cn.egv#|21"/>
+      </attributes>
+      <attributes>
+        <controltype href="cn.egv#|24"/>
+        <attribute href="cn.egv#|23"/>
+      </attributes>
+      <attributes>
+        <controltype href="cn.egv#|26"/>
+        <attribute href="cn.egv#|25"/>
+      </attributes>
+      <attributes>
+        <controltype href="cn.egv#|28"/>
+        <attribute href="cn.egv#|27"/>
+      </attributes>
+      <BusinessObject href="cn.egv#|19"/>
+      <botype href="cn.egv#|20"/>
+    </BOMaps>
+    <BOMaps>
+      <attributes>
+        <controltype href="cn.egv#|32"/>
+        <attribute href="cn.egv#|31"/>
+      </attributes>
+      <BusinessObject href="cn.egv#|29"/>
+      <botype href="cn.egv#|30"/>
+    </BOMaps>
+    <pagetype href="cn.egv#|2"/>
+    <extraControls href="cn.egv#|3"/>
   </pages>
   <BusinessUnit href="cn.egv#|0"/>
 </com.dsleng.etool.models:EService>

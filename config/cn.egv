@@ -5,7 +5,7 @@ setup {
 }
 {
 Pages { 
-	PageName="MainPage" PageTitle "Permit Application" PageType=PageForm { 
+	PageName="MainPage" PageTitle "Permit Application" PageType=PageLayout { 
 		
 			BusinessObject=Client BOType=TwoPanelGrid
 			Modified Attributes {

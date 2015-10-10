@@ -120,6 +120,7 @@ CompositePageCtrl returns controls::PageCtrl:
 	name=EString'<<'usesControl=[controls::SimpleControl|EString]'>>'
 	'{'
 		('nestedControls' '(' nestedControls+=[controls::SimpleControl|EString] ( "," nestedControls+=[controls::SimpleControl|EString])* ')' )?
+		('sibling' '(' sibling+=[controls::SimpleControl|EString] ( "," sibling+=[controls::SimpleControl|EString])* ')' )?
 	'}'
 ;
 	

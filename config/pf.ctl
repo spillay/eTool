@@ -1,5 +1,7 @@
 ControlManager {
 	controls {
+		Control nullControl {ns "http://primefaces.org/ui" prefix "p"},	
+		Control spContents {ns "http://primefaces.org/ui" prefix "p"},
 		Control inputText {ns "http://primefaces.org/ui" prefix "p"
 			options { "value" ("Literal:String") }
 		},	
@@ -8,6 +10,12 @@ ControlManager {
 		},
 		Control panelGrid {ns "http://primefaces.org/ui" prefix "p"
 			options{columns("2","4"), cellpadding("4") }
+		},
+		Control layout {ns "http://primefaces.org/ui" prefix "p"
+			options{style("min-width:400px;min-height:200px;") }
+		},
+		Control layoutUnit {ns "http://primefaces.org/ui" prefix "p"
+			options{position("west","north","south","east","center"),resizable("true",'false'),size("100"),minSize("40"),maxSize("200") }
 		},
 		Control body {ns "http://java.sun.com/jsf/html" prefix "h"},
 		Control form {ns "http://java.sun.com/jsf/html" prefix "h"},
@@ -38,12 +46,24 @@ ControlManager {
 		
 	} 
 	composites { 
-		SimpleWebCtrl Body<<body>> {},
-		SimpleWebCtrl Form<<form>> {},
+		SimpleWebCtrl Null<<nullControl>> {},
+		SimpleWebCtrl Contents<<spContents>> {},
 		SimpleWebCtrl CommandButton<<commandButton>>{
 			options["commandButton.value"=("commandButton.value.Submit"),
 			"commandButton.update"=("commandButton.update.display"),
 			"commandButton.oncomplete"=("commandButton.oncomplete.PF(\'dlg\').show()")]
+		},
+		SimpleWebCtrl Layout<<layout>> {
+			options["layout.style"=("layout.style.min-width:400px;min-height:200px;")]
+		},
+		SimpleWebCtrl WestLayout<<layoutUnit>> {
+			options["layoutUnit.position"=("layoutUnit.position.west"),"layoutUnit.size"=("layoutUnit.size.100"),"layoutUnit.minSize"=("layoutUnit.minSize.40"),"layoutUnit.maxSize"=("layoutUnit.maxSize.200")]
+		},
+		SimpleWebCtrl NorthLayout<<layoutUnit>> {
+			options["layoutUnit.position"=("layoutUnit.position.north"),"layoutUnit.size"=("layoutUnit.size.100"),"layoutUnit.minSize"=("layoutUnit.minSize.40"),"layoutUnit.maxSize"=("layoutUnit.maxSize.200")]
+		},
+		SimpleWebCtrl CenterLayout<<layoutUnit>> {
+			options["layoutUnit.position"=("layoutUnit.position.center"),"layoutUnit.size"=("layoutUnit.size.100"),"layoutUnit.minSize"=("layoutUnit.minSize.40"),"layoutUnit.maxSize"=("layoutUnit.maxSize.200")]
 		},
 		SimpleWebCtrl Panel<<panel>> {
 			options["panel.header"=("panel.header.Literal:String")]
@@ -83,6 +103,17 @@ ControlManager {
 		SimpleWebCtrl SelectItems<<selectItems>> {
 			options["selectItems.value"=("selectItems.value.Literal:String")]
 		},
+		SimpleWebCtrl Body<<body>> {},
+		SimpleWebCtrl Form<<form>> {},
+		CompositeWebCtrl CPanel<<Panel>>{
+			nestedControls(Contents)
+		},
+		CompositeWebCtrl CForm<<Form>>{
+			nestedControls(CPanel)
+		},
+		CompositeWebCtrl CBody<<Body>> {
+			nestedControls(CForm)
+		},
 		CompositeWebCtrl StringInput<<Label>> {
 			sibling(Input)
 		},
@@ -98,12 +129,9 @@ ControlManager {
 		CompositeWebCtrl EmailInput<<Label>> {
 			sibling(Email)
 		},
-		CompositePageCtrl PageForm<<Body>> {
-			nestedControls(Form,Panel)
+		CompositePageCtrl PageForm<<CBody>> {
 		},
-		CompositeWebCtrl CalendarInput<<Label>> {
-			sibling(PopupCalendar)
-		},
+		
 		CompositeWebCtrl InlineCalendarInput<<Label>> {
 			sibling(InlineCalendar)
 		},
@@ -115,6 +143,22 @@ ControlManager {
 		},
 		CompositeBOCtrl TwoPanelBO<<Panel>> {
 			nestedControls(TwoPanelGrid)
+		},
+		CompositeWebCtrl CalendarInput<<Label>> {
+			sibling(PopupCalendar)
+		},
+		CompositeWebCtrl Center<<CenterLayout>> {
+			nestedControls(CBody)
+		},
+		CompositeWebCtrl West<<WestLayout>> {
+		},
+		CompositeWebCtrl North<<NorthLayout>> {
+		},
+		CompositeWebCtrl WC<<Null>> {
+			sibling(West,North,Center)
+		},
+		CompositePageCtrl PageLayout<<Layout>> {
+			nestedControls(WC)
 		}
 		
 	}
@@ -168,6 +212,10 @@ ControlManager {
 	PageTypes {
 		[Name="PageForm" Control=PageForm]
 		Parameters{
+			Name => "panel.header"
+		},
+		[Name="PageLayout" Control=PageLayout]
+		Parameters {
 			Name => "panel.header"
 		}
 	}

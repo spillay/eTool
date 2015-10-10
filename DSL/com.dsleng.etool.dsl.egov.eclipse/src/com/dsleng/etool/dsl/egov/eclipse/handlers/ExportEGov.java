@@ -153,6 +153,7 @@ public class ExportEGov extends AbstractHandler {
 		Debug(input.getParent().toString());
 		IContainer o = ResourcesPlugin.getWorkspace().getRoot().getContainerForLocation(input.getLocation());
 		Debug("Container Location " + o.getLocation().toString());
+		createEcore(input);
 	}
 	private void createEcore(IFile input){
         Injector injector = new EGovDslStandaloneSetup().createInjectorAndDoEMFRegistration();

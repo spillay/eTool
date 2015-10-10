@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="ASCII"?>
+<com.dsleng.etool.models:ControlManager xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.dsleng.etool.models="http://com/dsleng/etool/models/controls">
+  <controls ns="http://primefaces.org/ui" prefix="p" name="inputText">
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <controls ns="http://java.sun.com/jsf/html" prefix="h" name="outputText">
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="panelGrid">
+    <options name="columns">
+      <valueplaceholder name="2"/>
+      <valueplaceholder name="4"/>
+    </options>
+    <options name="cellpadding">
+      <valueplaceholder name="4"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="layout">
+    <options name="style">
+      <valueplaceholder name="min-width:400px;min-height:200px;"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="layoutUnit">
+    <options name="position">
+      <valueplaceholder name="west"/>
+      <valueplaceholder name="north"/>
+      <valueplaceholder name="south"/>
+      <valueplaceholder name="east"/>
+      <valueplaceholder name="center"/>
+    </options>
+    <options name="resizable">
+      <valueplaceholder name="true"/>
+      <valueplaceholder name="false"/>
+    </options>
+    <options name="size">
+      <valueplaceholder name="100"/>
+    </options>
+    <options name="minSize">
+      <valueplaceholder name="40"/>
+    </options>
+    <options name="maxSize">
+      <valueplaceholder name="200"/>
+    </options>
+  </controls>
+  <controls ns="http://java.sun.com/jsf/html" prefix="h" name="body"/>
+  <controls ns="http://java.sun.com/jsf/html" prefix="h" name="form"/>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="panel">
+    <options name="header">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="calendar">
+    <options name="mode">
+      <valueplaceholder name="popup"/>
+      <valueplaceholder name="inline"/>
+    </options>
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="inputMask">
+    <options name="mask">
+      <valueplaceholder name="9-9-9-9-9-9-9-9-9-9-9-9-9"/>
+      <valueplaceholder name="(999) 999-9999"/>
+      <valueplaceholder name="a*@a*"/>
+    </options>
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="commandButton">
+    <options name="value">
+      <valueplaceholder name="Submit"/>
+    </options>
+    <options name="update">
+      <valueplaceholder name="display"/>
+    </options>
+    <options name="oncomplete">
+      <valueplaceholder name="PF('dlg').show()"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="selectOneMenu">
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+    <options name="style">
+      <valueplaceholder name="width:150px"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="p" name="ajax">
+    <options name="listener">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+    <options name="update">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="f" name="selectItem">
+    <options name="itemLabel">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+    <options name="itemValue">
+      <valueplaceholder name=""/>
+    </options>
+    <options name="noSelectionOption">
+      <valueplaceholder name="true"/>
+      <valueplaceholder name="false"/>
+    </options>
+  </controls>
+  <controls ns="http://primefaces.org/ui" prefix="f" name="selectItems">
+    <options name="value">
+      <valueplaceholder name="Literal:String"/>
+    </options>
+  </controls>
+  <composites uses="//@controls.5" name="Body"/>
+  <composites uses="//@controls.6" name="Form"/>
+  <composites uses="//@controls.10" name="CommandButton">
+    <optionInstance option="//@controls.10/@options.0" value="//@controls.10/@options.0/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.10/@options.1" value="//@controls.10/@options.1/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.10/@options.2" value="//@controls.10/@options.2/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.3" name="Layout">
+    <optionInstance option="//@controls.3/@options.0" value="//@controls.3/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.4" name="WestLayout">
+    <optionInstance option="//@controls.4/@options.0" value="//@controls.4/@options.0/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.4/@options.2" value="//@controls.4/@options.2/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.4/@options.3" value="//@controls.4/@options.3/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.4/@options.4" value="//@controls.4/@options.4/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.4" name="CenterLayout">
+    <optionInstance option="//@controls.4/@options.0" value="//@controls.4/@options.0/@valueplaceholder.4"/>
+    <optionInstance option="//@controls.4/@options.2" value="//@controls.4/@options.2/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.4/@options.3" value="//@controls.4/@options.3/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.4/@options.4" value="//@controls.4/@options.4/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.7" name="Panel">
+    <optionInstance option="//@controls.7/@options.0" value="//@controls.7/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.1" name="Label">
+    <optionInstance option="//@controls.1/@options.0" value="//@controls.0/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.0" name="Input">
+    <optionInstance option="//@controls.0/@options.0" value="//@controls.0/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.2" name="TwoPanelGrid">
+    <optionInstance option="//@controls.2/@options.0" value="//@controls.2/@options.0/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.2/@options.1" value="//@controls.2/@options.1/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.8" name="PopupCalendar">
+    <optionInstance option="//@controls.8/@options.0" value="//@controls.8/@options.0/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.8/@options.1" value="//@controls.8/@options.1/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.8" name="InlineCalendar">
+    <optionInstance option="//@controls.8/@options.0" value="//@controls.8/@options.0/@valueplaceholder.1"/>
+    <optionInstance option="//@controls.8/@options.1" value="//@controls.8/@options.1/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.9" name="ID">
+    <optionInstance option="//@controls.9/@options.0" value="//@controls.9/@options.0/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.9/@options.1" value="//@controls.9/@options.1/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.9" name="Telephone">
+    <optionInstance option="//@controls.9/@options.0" value="//@controls.9/@options.0/@valueplaceholder.1"/>
+    <optionInstance option="//@controls.9/@options.1" value="//@controls.9/@options.1/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.9" name="Email">
+    <optionInstance option="//@controls.9/@options.0" value="//@controls.9/@options.0/@valueplaceholder.2"/>
+    <optionInstance option="//@controls.9/@options.1" value="//@controls.9/@options.1/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.11" name="SelectOneMenu">
+    <optionInstance option="//@controls.11/@options.1" value="//@controls.11/@options.1/@valueplaceholder.0"/>
+    <optionInstance option="//@controls.11/@options.0" value="//@controls.11/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.12" name="Ajax"/>
+  <composites uses="//@controls.13" name="SelectItem">
+    <optionInstance option="//@controls.13/@options.2" value="//@controls.13/@options.2/@valueplaceholder.0"/>
+  </composites>
+  <composites uses="//@controls.14" name="SelectItems">
+    <optionInstance option="//@controls.14/@options.0" value="//@controls.14/@options.0/@valueplaceholder.0"/>
+  </composites>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="StringInput" sibling="//@composites.8" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="IntInput" sibling="//@composites.8" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="IDInput" sibling="//@composites.12" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="TelephoneInput" sibling="//@composites.13" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="EmailInput" sibling="//@composites.14" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:PageCtrl" name="PageForm" nestedControls="//@composites.1 //@composites.6" usesControl="//@composites.0"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="InlineCalendarInput" sibling="//@composites.11" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="SelectOneMenuInput" nestedControls="//@composites.16 //@composites.17 //@composites.18" usesControl="//@composites.15"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="DropDown" sibling="//@composites.26" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:BOCtrl" name="TwoPanelBO" nestedControls="//@composites.9" usesControl="//@composites.6"/>
+  <composites xsi:type="com.dsleng.etool.models:CompositeWebCtrl" name="CalendarInput" sibling="//@composites.10" usesControl="//@composites.7"/>
+  <composites xsi:type="com.dsleng.etool.models:PageCtrl" name="Center" nestedControls="//@composites.24" usesControl="//@composites.5"/>
+  <composites xsi:type="com.dsleng.etool.models:PageCtrl" name="West" usesControl="//@composites.4"/>
+  <composites xsi:type="com.dsleng.etool.models:PageCtrl" name="PageLayout" nestedControls="//@composites.31 //@composites.30" usesControl="//@composites.3"/>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="String" control="//@composites.19">
+    <parameters option="//@controls.1/@options.0" value="Label"/>
+    <parameters option="//@controls.0/@options.0" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="Int" control="//@composites.20">
+    <parameters option="//@controls.1/@options.0" value="Label"/>
+    <parameters option="//@controls.0/@options.0" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="IDControl" control="//@composites.21">
+    <parameters option="//@controls.1/@options.0" value="Label"/>
+    <parameters option="//@controls.9/@options.1" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="Date" control="//@composites.29">
+    <parameters option="//@controls.1/@options.0" value="Label"/>
+    <parameters option="//@controls.8/@options.1" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="Telephone" control="//@composites.22">
+    <parameters option="//@controls.1/@options.0" value="Label"/>
+    <parameters option="//@controls.9/@options.1" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="Email" control="//@composites.23">
+    <parameters option="//@controls.1/@options.0" value="Label"/>
+    <parameters option="//@controls.9/@options.1" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="Selection" control="//@composites.27">
+    <parameters option="//@controls.1/@options.0" value="Label"/>
+    <parameters option="//@controls.11/@options.0" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:AttributeType" name="SubmitButton" control="//@composites.2"/>
+  <types xsi:type="com.dsleng.etool.models:BOType" name="TwoPanelGrid" control="//@composites.28">
+    <parameters option="//@controls.7/@options.0" value="Name"/>
+  </types>
+  <types xsi:type="com.dsleng.etool.models:BOType" name="DataTable" control="//@composites.7"/>
+  <types xsi:type="com.dsleng.etool.models:PageType" name="PageForm" control="//@composites.24">
+    <parameters option="//@controls.7/@options.0" value="Name"/>
+  </types>
+</com.dsleng.etool.models:ControlManager>

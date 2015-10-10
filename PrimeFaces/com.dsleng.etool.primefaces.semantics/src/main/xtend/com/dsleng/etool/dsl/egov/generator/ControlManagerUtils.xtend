@@ -90,6 +90,19 @@ class ControlManagerBase {
 		this.cm = cm
 	}
 	
+	def getNullControlSyntax(){
+		return ""
+	}
+	def getContentsControlSyntax(){
+		return "spContents"
+	}
+	def getContentsControlHeadSyntax(){
+		return "spContents"
+	}
+	def getContentsControlTailSyntax(){
+		return ""
+	}
+	
 	//def getOptions(EList<OptionInstance> e,AttributeType type,Attribute attr){
 	def getOptions(EList<OptionInstance> e,OptionManager optMgr){
 		var options = ""
@@ -105,6 +118,12 @@ class ControlManagerBase {
 	}
 	//def getSimpleControlHeadSyntax(SimpleControl e,EList<TypeParameter> parameters,BusinessObject b){
 	def getSimpleControlHeadSyntax(SimpleControl e,OptionManager optMgr){
+		if ( e.name == "Null"){
+			return nullControlSyntax
+		}
+		if ( e.name == "Contents"){
+			return contentsControlHeadSyntax
+		}
 		var options = ""
 		for(o: e.optionInstance){
 			val rvalue = optMgr.getValue(o.option) 
@@ -118,6 +137,12 @@ class ControlManagerBase {
 		return startTag
 	}
 	def getSimpleControlTailSyntax(SimpleControl e){
+		if ( e.name == "Null"){
+			return nullControlSyntax
+		}
+		if ( e.name == "Contents"){
+			return contentsControlTailSyntax
+		}
 		val endTag = "</" + e.uses.prefix + ":" + e.uses.name + ">\n"
 		return endTag
 	}
@@ -132,36 +157,53 @@ class ControlManagerBase {
 		}
 		
 		for(nestControl: e.nestedControls){
-			if ( baseControl instanceof Composite){
+			if ( nestControl instanceof Composite){
 				syntax += getCompositeHeadSyntax(nestControl as Composite,optMgr)
-			} else if (baseControl instanceof SimpleControl){
+			} else if (nestControl instanceof SimpleControl){
 				syntax += getSimpleControlHeadSyntax(nestControl as SimpleControl,optMgr)
 			}
 		}
 		return syntax
 	}
-	def String getCompositeTailSyntax(Composite e){
+	def String getCompositeTailSyntax(Composite e,OptionManager optMgr){
 		var syntax = "" 	
 		for (i : e.nestedControls.size >.. 0) {
 			val nestControl = e.nestedControls.get(i)
 			if ( nestControl instanceof Composite){
-				syntax += getCompositeTailSyntax(nestControl as Composite)
+				syntax += getCompositeTailSyntax(nestControl as Composite,optMgr)
 			} else if (nestControl instanceof SimpleControl){
 				syntax += getSimpleControlTailSyntax(nestControl as SimpleControl)
 			}
 		}
 		val baseControl = e.usesControl
 		if ( baseControl instanceof Composite){
-			syntax += getCompositeTailSyntax(baseControl as Composite)
+			syntax += getCompositeTailSyntax(baseControl as Composite,optMgr)
 		} else if (baseControl instanceof SimpleControl){
 			syntax += getSimpleControlTailSyntax(baseControl as SimpleControl)
 		}
-		
-		return syntax
+		var siblings = "\n"
+		for(s: e.sibling){
+			//siblings += "Processing: " + s.name
+			if ( s instanceof Composite){
+				//siblings += "as composite \n"
+				siblings += getCompositeSyntax(s,optMgr)
+			} else if ( s instanceof SimpleControl){
+				//siblings += "as simple \n"
+				siblings += getSimpleControlSyntax(s,optMgr)
+			}
+			
+		}
+		return syntax + siblings
 	}
 	
 	
 	def  getSimpleControlSyntax(SimpleControl e,OptionManager optMgr){
+		if ( e.name == "Null"){
+			return nullControlSyntax
+		}
+		if ( e.name == "Contents"){
+			return contentsControlSyntax
+		}
 		var options = getOptions(e.optionInstance,optMgr)
 		if ( e.uses != null){
 			val startTag = "<" + e.uses.prefix + ":" + e.uses.name + options + ">"
@@ -240,10 +282,10 @@ class ControlManagerUtils extends ControlManagerBase {
 		}
 		return syntax
 	}
-	def getTailSyntax(BOType boType){
+	def getTailSyntax(BOType boType,EList<TypeParameter> parameters,BusinessObject b){
 		var syntax = ""
 		if ( boType.control instanceof Composite){
-			syntax += getCompositeTailSyntax(boType.control as Composite)
+			syntax += getCompositeTailSyntax(boType.control as Composite,new OptionManager(parameters,b))
 		} else if (boType.control instanceof SimpleControl){
 			syntax += getSimpleControlTailSyntax(boType.control as SimpleControl)
 		}
@@ -261,10 +303,13 @@ class ControlManagerUtils extends ControlManagerBase {
 		}
 		return syntax
 	}
-	def getTailSyntax(PageType pageType){
+	def getTailSyntax(PageType pageType,String name){
 		var syntax = ""
+		val parameters = pageType.parameters
+		val b = BobjsFactory.eINSTANCE.createBusinessObject
+		b.name = name
 		if ( pageType.control instanceof Composite){
-			syntax += getCompositeTailSyntax(pageType.control as Composite)
+			syntax += getCompositeTailSyntax(pageType.control as Composite,new OptionManager(parameters,b))
 		} else if (pageType.control instanceof SimpleControl){
 			syntax += getSimpleControlTailSyntax(pageType.control as SimpleControl)
 		}

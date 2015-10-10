@@ -40,7 +40,7 @@ class WebManagerUtils {
 						contents += uCtrl.genSyntax(a)
 					}
 				}
-				contents += uCtrl.getTailSyntax(bmap.botype)
+				contents += uCtrl.getTailSyntax(bmap.botype, bmap.botype.parameters, bmap.businessObject)
 			}
 		}
 		return contents
@@ -50,9 +50,10 @@ class WebManagerUtils {
 		val pg = new PageManager(p, baseProjectDir, webDir)
 		pg.pageTitle = p.title
 		var contents = uCtrl.getHeadSyntax(p.pagetype, p.title)
-		contents += p.getContents(uCtrl)
-		contents += dialog
-		contents += uCtrl.getTailSyntax(p.pagetype)
+		var innerContents = p.getContents(uCtrl)
+		innerContents += dialog
+		contents += uCtrl.getTailSyntax(p.pagetype,p.title)
+		contents = contents.replace("spContents",innerContents)
 		pg.contents = contents
 		return pg
 	}
