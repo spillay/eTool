@@ -8,7 +8,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 
 import static extension com.dsleng.etool.dsl.egov.generator.ControlManagerExt.*
-
+import static extension com.dsleng.etool.dsl.egov.generator.BusinessManagerExt.*
+import com.dsleng.etool.dsl.egov.Lg
 
 class PageGenerator  {
 
@@ -25,7 +26,7 @@ class PageGenerator  {
 	}
 	
 	def doGenerate(Resource resource, IFileSystemAccess fsa,String baseProjectDir,String pkg,ControlManager cm) {
-		//SPConsoleManager.instance.Info("Starting Page Generation")
+		Lg.info("Starting Page Generation")
 		this.cm = cm
 		println(cm.syntax)
 		uCtrl = new ControlManagerUtils(cm)
@@ -40,11 +41,19 @@ class PageGenerator  {
 			pagelist.add(pg.genFileName)
 			
 			// Create Business Objects
+			Lg.info("Starting BO Generation")
 			for(bm: p.BOMaps){
 				bo.doGenerate(resource,fsa,bm.businessObject,baseProjectDir,pkg)
 			}
+			Lg.info("Completed BO Generation")
+			Lg.info("Cleaning BO")
+			for(bm: p.BOMaps){
+				bm.businessObject.cleanUp
+			}
 		}
+		Lg.info("Starting Welcome Page Generation")
 		val index = new WelComePage(pagelist,baseProjectDir,webDir)
 		fsa.generateFile(index.genFileName,index.genContents)
+		Lg.info("Generation Process Completed")
 	}	
 }

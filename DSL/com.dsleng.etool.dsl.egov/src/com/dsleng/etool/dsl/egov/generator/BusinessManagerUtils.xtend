@@ -6,6 +6,7 @@ import com.dsleng.etool.models.bobjs.DataTypes
 import com.dsleng.etool.models.bobjs.Attribute
 import org.eclipse.emf.common.util.EList
 import com.dsleng.etool.models.egov.PreDefinedValue
+import com.dsleng.etool.dsl.egov.Lg
 
 class BusinessManagerUtils {
 	def getSyntax(Attribute a,EList<PreDefinedValue> v){
@@ -21,9 +22,10 @@ class BusinessManagerUtils {
 		return syntax
 	}
 	def doPredefinedData(BOMapper bmap) {
-		for (ba : bmap.attributes) {
-			
+		Lg.debug("Processing doPredefinedData")
+		for (ba : bmap.attributes) {		
 			if (ba.controltype.name == "Selection" && ba.predefinedcontainers.size > 0) {
+				Lg.debug("Found Predefined Data: for attribute" + ba.attribute.name)
 				// Add an attribute to BO
 				var initSyntax = ""
 				for(pdc:ba.predefinedcontainers){
@@ -33,6 +35,10 @@ class BusinessManagerUtils {
 					newAttr.dataManagement = true
 					bmap.businessObject.attributes.add(newAttr)
 					initSyntax = newAttr.getSyntax(pdc.predefinedvalues)
+				}
+				Lg.debug("No of Business Operations " + bmap.businessObject.operations.size) 
+				for(ops: bmap.businessObject.operations){
+					Lg.debug("Business Operations " + ops.name) 
 				}
 				// Add the Initializer
 				var op = BobjsFactory.eINSTANCE.createOperation()

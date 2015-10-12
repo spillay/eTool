@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.xtext.generator.IFileSystemAccess
-import com.dsleng.etool.perspective.SPConsoleManager
+import com.dsleng.etool.dsl.egov.Lg
 
 class EgovGenerator  {
 
@@ -26,7 +26,7 @@ class EgovGenerator  {
 	}
 	
 	def doGenerate(Resource resource, IFileSystemAccess fsa,String baseProjectDir,String pkg) {
-		SPConsoleManager.instance.Info("Starting Page Generation")
+		Lg.info("Starting Page Generation")
 		this.baseProjectDir = baseProjectDir
 		val bo = new BOGenerator()
 		for (e : resource.allContents.toIterable.filter(Page)) {

@@ -38,6 +38,7 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
+import com.dsleng.etool.models.egov.BOMapper;
 import com.dsleng.etool.models.egov.EService;
 import com.dsleng.etool.perspective.SPConsoleManager;
 import com.google.common.collect.Iterables;
@@ -117,19 +118,24 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
                     	TreeIterator<EObject> _allContents = state.getAllContents();
                         Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
                         Iterable<EService> _filter = Iterables.<EService>filter(_iterable, EService.class);
+                        
+                        
+                        SPConsoleManager.getInstance().Info("Creating Base Project");
                         pM.cleanUp(tmpPath);
                         PFProject pF = new PFProject(tmpPath);
                         for (final EService e : _filter) {
                         	pF.Execute(e);
                         }
+                        SPConsoleManager.getInstance().Info("Completed Base Project");
                         generator.doGenerate(state, fsa2);
                         //pF.Eclisify();
                         
                         List<Object> fileSystemObjects = new ArrayList<Object>();
                         fileSystemObjects.add(pF.getProjectName());
                         pM.LoadProject(tmpPath, project,fileSystemObjects);
-                        
+                        SPConsoleManager.getInstance().Info("Deploying to WildFly");
                         pF.Deploy();
+                        SPConsoleManager.getInstance().Info("Deployment to WildFly Completed");
                         return Boolean.TRUE;
                     }
                 });

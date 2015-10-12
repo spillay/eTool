@@ -249,7 +249,8 @@ ControlManager {
 		[Name="PageLayout" Control=PageLayout]
 		Parameters {
 			Name => "panel.header"
-		}
+		},
+		[Name="PageFour" Control=PageLayout]
 	}
 		
 }

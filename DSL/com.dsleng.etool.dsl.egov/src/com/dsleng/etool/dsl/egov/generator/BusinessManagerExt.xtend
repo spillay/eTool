@@ -5,8 +5,21 @@ import java.beans.Introspector
 import com.dsleng.etool.models.bobjs.Attribute
 import com.dsleng.etool.models.egov.BOMapper
 import com.dsleng.etool.models.bobjs.Operation
+import com.dsleng.etool.dsl.egov.Lg
 
 class BusinessManagerExt {
+	def static cleanUp(BusinessObject e){
+		// Remove any operations from the Model
+		e.operations.clear
+		// Remove any attributes for DataManagemnt
+		var it = e.attributes.iterator
+		while(it.hasNext){
+			val o = it.next
+			if (o.dataManagement) {
+				it.remove()
+			}
+		}
+	}
 	def static getUsingBeanName(BusinessObject e){
 		return Introspector.decapitalize(e.name) + "Bean"
 	}
