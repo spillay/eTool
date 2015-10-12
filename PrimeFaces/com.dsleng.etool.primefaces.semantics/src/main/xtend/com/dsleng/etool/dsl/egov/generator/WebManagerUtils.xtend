@@ -22,6 +22,7 @@ class WebManagerUtils {
 	def getContents(Page e, ControlManagerUtils uCtrl) {
 		var contents = ""
 		var BusUtils = new BusinessManagerUtils()
+		val pageContents = new OptionManager(e)
 		if (e.BOMaps.size > 0) {
 			// val bmap = e.BOMaps.get(0)
 			for (bmap : e.BOMaps) {
@@ -32,27 +33,29 @@ class WebManagerUtils {
 					for (ba : bmap.attributes) {
 						if (ba.attribute == a) {
 							// Use Control Type
-							contents += uCtrl.getControlSyntax(ba, a)
+							contents += uCtrl.getControlSyntax(ba, a,pageContents)
 							processed = true
 						}
 					}
 					if (!processed) {
-						contents += uCtrl.genSyntax(a)
+						// Uncomment to generate defaults
+						//contents += uCtrl.genSyntax(a)
 					}
 				}
-				contents += uCtrl.getTailSyntax(bmap.botype, bmap.botype.parameters, bmap.businessObject)
+				contents += uCtrl.getTailSyntax(bmap.botype, bmap.botype.parameters, bmap.businessObject,pageContents)
 			}
 		}
 		return contents
 	}
 
 	def createPage(Page p) {
+		val pageContents = new OptionManager(p)
 		val pg = new PageManager(p, baseProjectDir, webDir)
 		pg.pageTitle = p.title
 		var contents = uCtrl.getHeadSyntax(p.pagetype, p.title)
 		var innerContents = p.getContents(uCtrl)
 		innerContents += dialog
-		contents += uCtrl.getTailSyntax(p.pagetype,p.title)
+		contents += uCtrl.getTailSyntax(p.pagetype,p.title,pageContents)
 		contents = contents.replace("spContents",innerContents)
 		pg.contents = contents
 		return pg

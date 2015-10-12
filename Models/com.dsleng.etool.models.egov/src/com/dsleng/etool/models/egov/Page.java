@@ -20,6 +20,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.egov.Page#getPagetype <em>Pagetype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Page#getTitle <em>Title</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Page#getExtraControls <em>Extra Controls</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Page#getNorth <em>North</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Page#getSouth <em>South</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Page#getWest <em>West</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Page#getEast <em>East</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getPage()
@@ -136,5 +140,109 @@ public interface Page extends NamedElement {
 	 * @generated
 	 */
 	EList<AttributeType> getExtraControls();
+
+	/**
+	 * Returns the value of the '<em><b>North</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>North</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>North</em>' attribute.
+	 * @see #setNorth(String)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_North()
+	 * @model
+	 * @generated
+	 */
+	String getNorth();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Page#getNorth <em>North</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>North</em>' attribute.
+	 * @see #getNorth()
+	 * @generated
+	 */
+	void setNorth(String value);
+
+	/**
+	 * Returns the value of the '<em><b>South</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>South</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>South</em>' attribute.
+	 * @see #setSouth(String)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_South()
+	 * @model
+	 * @generated
+	 */
+	String getSouth();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Page#getSouth <em>South</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>South</em>' attribute.
+	 * @see #getSouth()
+	 * @generated
+	 */
+	void setSouth(String value);
+
+	/**
+	 * Returns the value of the '<em><b>West</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>West</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>West</em>' attribute.
+	 * @see #setWest(String)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_West()
+	 * @model
+	 * @generated
+	 */
+	String getWest();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Page#getWest <em>West</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>West</em>' attribute.
+	 * @see #getWest()
+	 * @generated
+	 */
+	void setWest(String value);
+
+	/**
+	 * Returns the value of the '<em><b>East</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>East</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>East</em>' attribute.
+	 * @see #setEast(String)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_East()
+	 * @model
+	 * @generated
+	 */
+	String getEast();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Page#getEast <em>East</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>East</em>' attribute.
+	 * @see #getEast()
+	 * @generated
+	 */
+	void setEast(String value);
 
 } // Page

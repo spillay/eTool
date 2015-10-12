@@ -28,11 +28,15 @@ Pages {
 				Attribute=DteValidFrom ControlType=Date{},
 				Attribute=DteValidTo ControlType=Date{}	
 			},
-			BusinessObject=PermitHistory BOType=TwoPanelGrid 
+			BusinessObject=PermitHistory BOType=DataTable 
 			Modified Attributes {
-				Attribute=DateChanged ControlType=Date{}
+				Attribute=PermitNo ControlType=DataColumn {},
+				Attribute=PermitStatus ControlType=DataColumn {},
+				Attribute=PermitDescription ControlType=DataColumn {},
+				Attribute=DateChanged ControlType=DataColumn {}
 			}
 		}
+		Content Sections North="North" West="West" 
 		Standalone Controls {
 			SubmitButton
 		} 

@@ -37,6 +37,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getPagetype <em>Pagetype</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getExtraControls <em>Extra Controls</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getNorth <em>North</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getSouth <em>South</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getWest <em>West</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getEast <em>East</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +105,86 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @ordered
 	 */
 	protected EList<AttributeType> extraControls;
+
+	/**
+	 * The default value of the '{@link #getNorth() <em>North</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNorth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NORTH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNorth() <em>North</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNorth()
+	 * @generated
+	 * @ordered
+	 */
+	protected String north = NORTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSouth() <em>South</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSouth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOUTH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSouth() <em>South</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSouth()
+	 * @generated
+	 * @ordered
+	 */
+	protected String south = SOUTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWest() <em>West</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWest()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String WEST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getWest() <em>West</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWest()
+	 * @generated
+	 * @ordered
+	 */
+	protected String west = WEST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEast() <em>East</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEast()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EAST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEast() <em>East</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEast()
+	 * @generated
+	 * @ordered
+	 */
+	protected String east = EAST_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +331,90 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNorth() {
+		return north;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNorth(String newNorth) {
+		String oldNorth = north;
+		north = newNorth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.PAGE__NORTH, oldNorth, north));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSouth() {
+		return south;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSouth(String newSouth) {
+		String oldSouth = south;
+		south = newSouth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.PAGE__SOUTH, oldSouth, south));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getWest() {
+		return west;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWest(String newWest) {
+		String oldWest = west;
+		west = newWest;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.PAGE__WEST, oldWest, west));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEast() {
+		return east;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEast(String newEast) {
+		String oldEast = east;
+		east = newEast;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.PAGE__EAST, oldEast, east));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -276,6 +444,14 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return getTitle();
 			case EgovPackage.PAGE__EXTRA_CONTROLS:
 				return getExtraControls();
+			case EgovPackage.PAGE__NORTH:
+				return getNorth();
+			case EgovPackage.PAGE__SOUTH:
+				return getSouth();
+			case EgovPackage.PAGE__WEST:
+				return getWest();
+			case EgovPackage.PAGE__EAST:
+				return getEast();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -306,6 +482,18 @@ public class PageImpl extends NamedElementImpl implements Page {
 				getExtraControls().clear();
 				getExtraControls().addAll((Collection<? extends AttributeType>)newValue);
 				return;
+			case EgovPackage.PAGE__NORTH:
+				setNorth((String)newValue);
+				return;
+			case EgovPackage.PAGE__SOUTH:
+				setSouth((String)newValue);
+				return;
+			case EgovPackage.PAGE__WEST:
+				setWest((String)newValue);
+				return;
+			case EgovPackage.PAGE__EAST:
+				setEast((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -333,6 +521,18 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case EgovPackage.PAGE__EXTRA_CONTROLS:
 				getExtraControls().clear();
 				return;
+			case EgovPackage.PAGE__NORTH:
+				setNorth(NORTH_EDEFAULT);
+				return;
+			case EgovPackage.PAGE__SOUTH:
+				setSouth(SOUTH_EDEFAULT);
+				return;
+			case EgovPackage.PAGE__WEST:
+				setWest(WEST_EDEFAULT);
+				return;
+			case EgovPackage.PAGE__EAST:
+				setEast(EAST_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -355,6 +555,14 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case EgovPackage.PAGE__EXTRA_CONTROLS:
 				return extraControls != null && !extraControls.isEmpty();
+			case EgovPackage.PAGE__NORTH:
+				return NORTH_EDEFAULT == null ? north != null : !NORTH_EDEFAULT.equals(north);
+			case EgovPackage.PAGE__SOUTH:
+				return SOUTH_EDEFAULT == null ? south != null : !SOUTH_EDEFAULT.equals(south);
+			case EgovPackage.PAGE__WEST:
+				return WEST_EDEFAULT == null ? west != null : !WEST_EDEFAULT.equals(west);
+			case EgovPackage.PAGE__EAST:
+				return EAST_EDEFAULT == null ? east != null : !EAST_EDEFAULT.equals(east);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -371,6 +579,14 @@ public class PageImpl extends NamedElementImpl implements Page {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (title: ");
 		result.append(title);
+		result.append(", North: ");
+		result.append(north);
+		result.append(", South: ");
+		result.append(south);
+		result.append(", West: ");
+		result.append(west);
+		result.append(", East: ");
+		result.append(east);
 		result.append(')');
 		return result.toString();
 	}

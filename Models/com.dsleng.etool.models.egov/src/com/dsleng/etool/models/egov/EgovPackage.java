@@ -231,13 +231,49 @@ public interface EgovPackage extends EPackage {
 	int PAGE__EXTRA_CONTROLS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>North</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__NORTH = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>South</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__SOUTH = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>West</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__WEST = NAMED_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>East</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__EAST = NAMED_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -650,6 +686,50 @@ public interface EgovPackage extends EPackage {
 	EReference getPage_ExtraControls();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Page#getNorth <em>North</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>North</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getNorth()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_North();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Page#getSouth <em>South</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>South</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getSouth()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_South();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Page#getWest <em>West</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>West</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getWest()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_West();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Page#getEast <em>East</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>East</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getEast()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EAttribute getPage_East();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.BOMapper <em>BO Mapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -974,6 +1054,38 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PAGE__EXTRA_CONTROLS = eINSTANCE.getPage_ExtraControls();
+
+		/**
+		 * The meta object literal for the '<em><b>North</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__NORTH = eINSTANCE.getPage_North();
+
+		/**
+		 * The meta object literal for the '<em><b>South</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__SOUTH = eINSTANCE.getPage_South();
+
+		/**
+		 * The meta object literal for the '<em><b>West</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__WEST = eINSTANCE.getPage_West();
+
+		/**
+		 * The meta object literal for the '<em><b>East</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PAGE__EAST = eINSTANCE.getPage_East();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.BOMapperImpl <em>BO Mapper</em>}' class.

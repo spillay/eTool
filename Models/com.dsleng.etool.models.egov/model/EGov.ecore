@@ -24,6 +24,10 @@
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="extraControls"
                 upperBound="-1" eType="#//dsleng/etool/models/Controls/AttributeType"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="North" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="South" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="West" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="East" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="BOMapper">
             <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"

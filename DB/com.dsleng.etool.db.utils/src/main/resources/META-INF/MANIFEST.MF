@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: entities-master
+Bundle-SymbolicName: za.co.egov.entities.master
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: DSLENG
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

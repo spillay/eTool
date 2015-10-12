@@ -1,7 +1,9 @@
 ControlManager {
 	controls {
 		Control nullControl {ns "http://primefaces.org/ui" prefix "p"},	
-		Control spContents {ns "http://primefaces.org/ui" prefix "p"},
+		Control spContents {ns "http://primefaces.org/ui" prefix "p"
+			options {"position"("North","South","West","East","Center")}
+		},
 		Control inputText {ns "http://primefaces.org/ui" prefix "p"
 			options { "value" ("Literal:String") }
 		},	
@@ -42,12 +44,26 @@ ControlManager {
 		},
 		Control selectItems {ns "http://primefaces.org/ui" prefix "f"
 			options {value("Literal:String")}
+		},
+		Control dataTable {ns "http://primefaces.org/ui" prefix "p"
+			options {var("Literal:String")}
+		},
+		Control column {ns "http://primefaces.org/ui" prefix "p"
+			options {headerText("Literal:String"),value("Literal:String")}
 		}
 		
 	} 
 	composites { 
 		SimpleWebCtrl Null<<nullControl>> {},
-		SimpleWebCtrl Contents<<spContents>> {},
+		SimpleWebCtrl CenterContents<<spContents>> {
+			options["spContents.position"=("spContents.position.Center")]
+		},
+		SimpleWebCtrl WestContents<<spContents>> {
+			options["spContents.position"=("spContents.position.West")]
+		},
+		SimpleWebCtrl NorthContents<<spContents>> {
+			options["spContents.position"=("spContents.position.North")]
+		},
 		SimpleWebCtrl CommandButton<<commandButton>>{
 			options["commandButton.value"=("commandButton.value.Submit"),
 			"commandButton.update"=("commandButton.update.display"),
@@ -105,8 +121,14 @@ ControlManager {
 		},
 		SimpleWebCtrl Body<<body>> {},
 		SimpleWebCtrl Form<<form>> {},
+		SimpleWebCtrl DataTable<<dataTable>> {
+			options["dataTable.var"=("dataTable.var.Literal:String")]
+		},
+		SimpleWebCtrl Column<<column>>{
+			options["column.headerText"=("column.headerText.Literal:String"),"column.value"=("column.value.Literal:String")]
+		},
 		CompositeWebCtrl CPanel<<Panel>>{
-			nestedControls(Contents)
+			nestedControls(CenterContents)
 		},
 		CompositeWebCtrl CForm<<Form>>{
 			nestedControls(CPanel)
@@ -151,8 +173,10 @@ ControlManager {
 			nestedControls(CBody)
 		},
 		CompositeWebCtrl West<<WestLayout>> {
+			nestedControls(WestContents)
 		},
 		CompositeWebCtrl North<<NorthLayout>> {
+			nestedControls(NorthContents)
 		},
 		CompositeWebCtrl WC<<Null>> {
 			sibling(West,North,Center)
@@ -198,7 +222,12 @@ ControlManager {
 			Label => "outputText.value",
 			Name => "selectOneMenu.value"
 		},
-		[Name=SubmitButton Control=CommandButton]
+		[Name=SubmitButton Control=CommandButton],
+		[Name=DataColumn Control=Column]
+		Parameters{
+			Label => "column.headerText",
+			Name => "column.value"
+		}
 		
 	}
 	BOTypes {
@@ -207,7 +236,10 @@ ControlManager {
 			Name => "panel.header"
 		}
 		,
-		[Name="DataTable" Control=Label]
+		[Name="DataTable" Control=DataTable]
+		Parameters {
+			Name => "dataTable.var"
+		}
 	}
 	PageTypes {
 		[Name="PageForm" Control=PageForm]

@@ -27,6 +27,7 @@ EString returns ecore::EString:
 Page returns Page:
 	'PageName='name=EString 'PageTitle'title=EString ('PageType='pagetype=[controls::PageType])?
 		('{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?
+		('Content Sections' ('North=' North=EString)? ('South=' South=EString)? ('West=' West=EString)? ('East=' East=EString)?)?
 		('Standalone Controls {' extraControls+=[controls::AttributeType|EString] ( "," extraControls+=[controls::AttributeType|EString])* '}' )?
 		('=>' nextPage=[Page|EString])?
 ;

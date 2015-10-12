@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dsleng.etool.db.utils</groupId>
+	<artifactId>com.dsleng.etool.db.utils</artifactId>
+	<packaging>eclipse-plugin</packaging>
+	<parent>
+		<groupId>com.dsleng.etool.db</groupId>
+		<artifactId>com.dsleng.etool.db.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../com.dsleng.etool.db.parent</relativePath>
+	</parent>
+	<properties>
+		<packageName>za.co.egov.entities.master</packageName>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>hibernate3-maven-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<id>generate-xml-files</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>hbm2cfgxml</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate-hbmxml-files</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>hbm2hbmxml</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate-entities</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>hbm2java</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate-dao</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>hbmtemplate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<components>
+						<component>
+							<name>hbm2cfgxml</name>
+							<implementation>jdbcconfiguration</implementation>
+							<outputDirectory>target/hibernate3/generated-mappings/</outputDirectory>
+						</component>
+						<component>
+                    		<name>hbm2hbmxml</name>
+                    		<outputDirectory>target/hibernate3/generated-mappings/</outputDirectory>
+                		</component>
+						<component>
+							<name>hbm2java</name>
+							<implementation>jdbcconfiguration</implementation>
+							<outputDirectory>target/hibernate3/generated-sources/</outputDirectory>
+						</component>
+						<component>
+							<name>hbmtemplate</name>
+							<implementation>jdbcconfiguration</implementation>
+							<outputDirectory>target/hibernate3/generated-sources/</outputDirectory>
+						</component>
+					</components>
+					<componentProperties>
+						<templatepath>src/main/resources/templates/</templatepath>
+						<filepattern>{package-name}/{class-name}DAO.java</filepattern>
+                		<template>daohome.ftl</template>
+						<propertyfile>src/main/resources/hibernate.properties</propertyfile>
+						<configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile> 
+						<revengfile>src/main/resources/reveng.xml</revengfile> 
+						<jdk5>true</jdk5>
+						<ejb3>true</ejb3>
+						<packagename>${packageName}</packagename>
+						<format>true</format>
+						<haltonerror>true</haltonerror>
+					</componentProperties>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>cglib</groupId>
+						<artifactId>cglib-nodep</artifactId>
+						<version>2.2.2</version>
+					</dependency>
+					<dependency>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>9.1-901.jdbc4</version>
+					</dependency>
+					<dependency>
+						<groupId>org.hibernate</groupId>
+						<artifactId>hibernate-tools</artifactId>
+						<version>3.2.0.ga</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>hibernate3-maven-plugin</artifactId> 
+				<version>2.2</version> <configuration> <components> <component> <name>hbm2cfgxml</name> 
+				<implementation>jdbcconfiguration</implementation> </component> <component> 
+				<name>hbm2hbmxml</name> <implementation>jdbcconfiguration</implementation> 
+				<outputDirectory>target/hibernate3/generated-resources/</outputDirectory> 
+				</component> <component> <name>hbm2java</name> <implementation>annotationconfiguration</implementation> 
+				<outputDirectory>target/hibernate3/generated-sources/</outputDirectory> </component> 
+				<component> <name>hbm2dao</name> <implementation>jdbcconfiguration</implementation> 
+				<outputDirectory>target/hibernate3/generated-sources/</outputDirectory> </component> 
+				</components> <componentProperties> <revengfile>src/main/resources/reveng.xml</revengfile> 
+				<propertyfile>src/main/resources/hibernate.properties</propertyfile> <packagename>za.co.egov.entities.master</packagename> 
+				<configurationfile>target/hibernate3/generated-mappings/hibernate.cfg.xml</configurationfile> 
+				<jdk5>true</jdk5> <ejb3>true</ejb3> </componentProperties> </configuration> 
+				<dependencies> <dependency> <groupId>cglib</groupId> <artifactId>cglib-nodep</artifactId> 
+				<version>2.2.2</version> </dependency> <dependency> <groupId>postgresql</groupId> 
+				<artifactId>postgresql</artifactId> <version>9.1-901.jdbc4</version> </dependency> 
+				<dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-tools</artifactId> 
+				<version>3.2.0.ga</version> </dependency> </dependencies> </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

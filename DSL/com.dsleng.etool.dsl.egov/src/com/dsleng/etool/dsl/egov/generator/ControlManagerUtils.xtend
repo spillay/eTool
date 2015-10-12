@@ -20,6 +20,8 @@ import com.dsleng.etool.models.Controls.PageType
 import java.util.ArrayList
 import com.dsleng.etool.models.bobjs.BobjsFactory
 import com.dsleng.etool.models.egov.BOAttribute
+import com.dsleng.etool.models.egov.Page
+import com.dsleng.etool.models.Controls.ControlsFactory
 
 class OptionValue {
 	Options opt
@@ -37,6 +39,14 @@ class OptionManager extends ArrayList<OptionValue>{
 		val res = this.filter[elem| elem.opt == o]
 		if ( res.size > 0){
 			return res.get(0).name
+		}
+		return null
+	}
+	def String getValue(String o){
+		for(op:this){
+			if (op.name == o){
+				return op.opt.name
+			}
 		}
 		return null
 	}
@@ -82,6 +92,27 @@ class OptionManager extends ArrayList<OptionValue>{
 				}
 		}
 	}
+	new(Page p){
+		var n = ControlsFactory.eINSTANCE.createOptions()
+		n.name = p.north
+		this.add(new OptionValue(n,"North"))
+		
+		var s = ControlsFactory.eINSTANCE.createOptions()
+		s.name = p.south
+		this.add(new OptionValue(s,"South"))
+		
+		var w = ControlsFactory.eINSTANCE.createOptions()
+		w.name = p.west
+		this.add(new OptionValue(w,"West"))
+		
+		var e = ControlsFactory.eINSTANCE.createOptions()
+		e.name = p.east
+		this.add(new OptionValue(e,"East"))
+		
+		var c = ControlsFactory.eINSTANCE.createOptions()
+		c.name = "spContents"
+		this.add(new OptionValue(c,"Center"))
+	}
 }
 
 class ControlManagerBase {
@@ -93,8 +124,8 @@ class ControlManagerBase {
 	def getNullControlSyntax(){
 		return ""
 	}
-	def getContentsControlSyntax(){
-		return "spContents"
+	def getContentsControlSyntax(SimpleControl e,OptionManager optMgr){
+		return optMgr.getValue(e.optionInstance.get(0).value.get(0).name)
 	}
 	def getContentsControlHeadSyntax(){
 		return "spContents"
@@ -121,7 +152,7 @@ class ControlManagerBase {
 		if ( e.name == "Null"){
 			return nullControlSyntax
 		}
-		if ( e.name == "Contents"){
+		if ( e.name == "spContents"){
 			return contentsControlHeadSyntax
 		}
 		var options = ""
@@ -140,7 +171,7 @@ class ControlManagerBase {
 		if ( e.name == "Null"){
 			return nullControlSyntax
 		}
-		if ( e.name == "Contents"){
+		if ( e.name == "spContents"){
 			return contentsControlTailSyntax
 		}
 		val endTag = "</" + e.uses.prefix + ":" + e.uses.name + ">\n"
@@ -165,19 +196,19 @@ class ControlManagerBase {
 		}
 		return syntax
 	}
-	def String getCompositeTailSyntax(Composite e,OptionManager optMgr){
+	def String getCompositeTailSyntax(Composite e,OptionManager optMgr,OptionManager pageContents){
 		var syntax = "" 	
 		for (i : e.nestedControls.size >.. 0) {
 			val nestControl = e.nestedControls.get(i)
 			if ( nestControl instanceof Composite){
-				syntax += getCompositeTailSyntax(nestControl as Composite,optMgr)
+				syntax += getCompositeTailSyntax(nestControl as Composite,optMgr,pageContents)
 			} else if (nestControl instanceof SimpleControl){
 				syntax += getSimpleControlTailSyntax(nestControl as SimpleControl)
 			}
 		}
 		val baseControl = e.usesControl
 		if ( baseControl instanceof Composite){
-			syntax += getCompositeTailSyntax(baseControl as Composite,optMgr)
+			syntax += getCompositeTailSyntax(baseControl as Composite,optMgr,pageContents)
 		} else if (baseControl instanceof SimpleControl){
 			syntax += getSimpleControlTailSyntax(baseControl as SimpleControl)
 		}
@@ -186,10 +217,10 @@ class ControlManagerBase {
 			//siblings += "Processing: " + s.name
 			if ( s instanceof Composite){
 				//siblings += "as composite \n"
-				siblings += getCompositeSyntax(s,optMgr)
+				siblings += getCompositeSyntax(s,optMgr,pageContents)
 			} else if ( s instanceof SimpleControl){
 				//siblings += "as simple \n"
-				siblings += getSimpleControlSyntax(s,optMgr)
+				siblings += getSimpleControlSyntax(s,optMgr,pageContents)
 			}
 			
 		}
@@ -197,12 +228,12 @@ class ControlManagerBase {
 	}
 	
 	
-	def  getSimpleControlSyntax(SimpleControl e,OptionManager optMgr){
+	def  getSimpleControlSyntax(SimpleControl e,OptionManager optMgr,OptionManager pageContents){
 		if ( e.name == "Null"){
 			return nullControlSyntax
 		}
-		if ( e.name == "Contents"){
-			return contentsControlSyntax
+		if ( e.uses != null && e.uses.name == "spContents"){
+			return getContentsControlSyntax(e,pageContents)
 		}
 		var options = getOptions(e.optionInstance,optMgr)
 		if ( e.uses != null){
@@ -213,7 +244,7 @@ class ControlManagerBase {
 			return "problem with: " + e.name
 		}
 	}
-	def  String getCompositeSyntax(Composite e,OptionManager optMgr){
+	def  String getCompositeSyntax(Composite e,OptionManager optMgr,OptionManager pageContents){
 		var baseControl = e.usesControl
 		var syntax = ""
 		var options = getOptions(baseControl.optionInstance,optMgr)
@@ -224,9 +255,9 @@ class ControlManagerBase {
 		var nested = ""
 		for(n: e.nestedControls){
 			if ( n instanceof Composite){
-				nested += getCompositeSyntax(n,optMgr)
+				nested += getCompositeSyntax(n,optMgr,pageContents)
 			} else if ( n instanceof SimpleControl){
-				nested += getSimpleControlSyntax(n,optMgr)
+				nested += getSimpleControlSyntax(n,optMgr,pageContents)
 			}
 		}
 		
@@ -235,10 +266,10 @@ class ControlManagerBase {
 			//siblings += "Processing: " + s.name
 			if ( s instanceof Composite){
 				//siblings += "as composite \n"
-				siblings += getCompositeSyntax(s,optMgr)
+				siblings += getCompositeSyntax(s,optMgr,pageContents)
 			} else if ( s instanceof SimpleControl){
 				//siblings += "as simple \n"
-				siblings += getSimpleControlSyntax(s,optMgr)
+				siblings += getSimpleControlSyntax(s,optMgr,pageContents)
 			}
 			
 		}
@@ -282,10 +313,10 @@ class ControlManagerUtils extends ControlManagerBase {
 		}
 		return syntax
 	}
-	def getTailSyntax(BOType boType,EList<TypeParameter> parameters,BusinessObject b){
+	def getTailSyntax(BOType boType,EList<TypeParameter> parameters,BusinessObject b,OptionManager pageContents){
 		var syntax = ""
 		if ( boType.control instanceof Composite){
-			syntax += getCompositeTailSyntax(boType.control as Composite,new OptionManager(parameters,b))
+			syntax += getCompositeTailSyntax(boType.control as Composite,new OptionManager(parameters,b),pageContents)
 		} else if (boType.control instanceof SimpleControl){
 			syntax += getSimpleControlTailSyntax(boType.control as SimpleControl)
 		}
@@ -303,13 +334,13 @@ class ControlManagerUtils extends ControlManagerBase {
 		}
 		return syntax
 	}
-	def getTailSyntax(PageType pageType,String name){
+	def getTailSyntax(PageType pageType,String name,OptionManager pageContents){
 		var syntax = ""
 		val parameters = pageType.parameters
 		val b = BobjsFactory.eINSTANCE.createBusinessObject
 		b.name = name
 		if ( pageType.control instanceof Composite){
-			syntax += getCompositeTailSyntax(pageType.control as Composite,new OptionManager(parameters,b))
+			syntax += getCompositeTailSyntax(pageType.control as Composite,new OptionManager(parameters,b),pageContents)
 		} else if (pageType.control instanceof SimpleControl){
 			syntax += getSimpleControlTailSyntax(pageType.control as SimpleControl)
 		}
@@ -317,20 +348,20 @@ class ControlManagerUtils extends ControlManagerBase {
 	}
 	
 
-	public def getControlSyntax(BOAttribute ba,Attribute attr){
+	public def getControlSyntax(BOAttribute ba,Attribute attr,OptionManager pageContents){
 		switch ba.controltype.control {
 			Composite:
-				return getCompositeSyntax((ba.controltype.control as Composite),new OptionManager(ba,attr)) + "\n"
+				return getCompositeSyntax((ba.controltype.control as Composite),new OptionManager(ba,attr),pageContents) + "\n"
 			SimpleControl:
-				return getSimpleControlSyntax((ba.controltype.control as SimpleControl),new OptionManager(ba,attr)) + "\n"
+				return getSimpleControlSyntax((ba.controltype.control as SimpleControl),new OptionManager(ba,attr),pageContents) + "\n"
 		}
 	}
-	public def getControlSyntax(AttributeType type,Attribute attr){
+	public def getControlSyntax(AttributeType type,Attribute attr,OptionManager pageContents){
 		switch type.control {
 			Composite:
-				return getCompositeSyntax((type.control as Composite),new OptionManager(type,attr)) + "\n"
+				return getCompositeSyntax((type.control as Composite),new OptionManager(type,attr),pageContents) + "\n"
 			SimpleControl:
-				return getSimpleControlSyntax((type.control as SimpleControl),new OptionManager(type,attr)) + "\n"
+				return getSimpleControlSyntax((type.control as SimpleControl),new OptionManager(type,attr),pageContents) + "\n"
 		}
 	}
 	

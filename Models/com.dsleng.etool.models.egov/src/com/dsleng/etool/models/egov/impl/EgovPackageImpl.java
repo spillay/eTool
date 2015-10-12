@@ -282,6 +282,42 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPage_North() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPage_South() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPage_West() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPage_East() {
+		return (EAttribute)pageEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBOMapper() {
 		return boMapperEClass;
 	}
@@ -482,6 +518,10 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		createEReference(pageEClass, PAGE__PAGETYPE);
 		createEAttribute(pageEClass, PAGE__TITLE);
 		createEReference(pageEClass, PAGE__EXTRA_CONTROLS);
+		createEAttribute(pageEClass, PAGE__NORTH);
+		createEAttribute(pageEClass, PAGE__SOUTH);
+		createEAttribute(pageEClass, PAGE__WEST);
+		createEAttribute(pageEClass, PAGE__EAST);
 
 		boMapperEClass = createEClass(BO_MAPPER);
 		createEReference(boMapperEClass, BO_MAPPER__ATTRIBUTES);
@@ -558,6 +598,10 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEReference(getPage_Pagetype(), theControlsPackage.getPageType(), null, "pagetype", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_Title(), ecorePackage.getEString(), "title", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_ExtraControls(), theControlsPackage.getAttributeType(), null, "extraControls", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_North(), ecorePackage.getEString(), "North", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_South(), ecorePackage.getEString(), "South", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_West(), ecorePackage.getEString(), "West", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPage_East(), ecorePackage.getEString(), "East", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boMapperEClass, BOMapper.class, "BOMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOMapper_Attributes(), this.getBOAttribute(), null, "attributes", null, 0, -1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
