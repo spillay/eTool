@@ -25,5 +25,5 @@
                 id="MenuPopulation"/>
       </menu>
    </menuContribution>
-</extension>
+  </extension>
 </plugin>

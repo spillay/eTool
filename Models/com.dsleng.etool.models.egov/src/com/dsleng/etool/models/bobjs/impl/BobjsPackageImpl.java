@@ -880,8 +880,10 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		addEEnumLiteral(inclusionsEEnum, Inclusions.OPTIONAL);
 
 		initEEnum(multiplicityEEnum, Multiplicity.class, "Multiplicity");
-		addEEnumLiteral(multiplicityEEnum, Multiplicity.ONLY_ONE);
-		addEEnumLiteral(multiplicityEEnum, Multiplicity.MANY);
+		addEEnumLiteral(multiplicityEEnum, Multiplicity.ONE_TOONE);
+		addEEnumLiteral(multiplicityEEnum, Multiplicity.ONE_TOMANY);
+		addEEnumLiteral(multiplicityEEnum, Multiplicity.MANY_TOMANY);
+		addEEnumLiteral(multiplicityEEnum, Multiplicity.MANY_TOONE);
 
 		// Create resource
 		createResource(eNS_URI);

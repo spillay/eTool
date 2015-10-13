@@ -5,7 +5,7 @@ package com.dsleng.etool.dsl.bobjs;
 
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 
-import com.dsleng.etool.dsl.bobjs.scoping.BobjsDslQNP;
+//import com.dsleng.etool.dsl.bobjs.scoping.BobjsDslQNP;
 
 
 /**
@@ -13,7 +13,7 @@ import com.dsleng.etool.dsl.bobjs.scoping.BobjsDslQNP;
  */
 public class BObjDslRuntimeModule extends com.dsleng.etool.dsl.bobjs.AbstractBObjDslRuntimeModule {
 	//@Override
-    //public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
-     //   return BobjsDslQNP.class;
-   // }
+   // public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
+   //     return BobjsDslQNP.class;
+    //}
 }

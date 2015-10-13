@@ -22,8 +22,8 @@ OrgUnit "CapeNature"
 					AmountPaid {Label="Amount Paid" Type=Double}
 				}
 				references {
-					BO=PermitType[Inclusion=Mandatory Multiplicity=Many],
-					BO=PermitHistory[Inclusion=Optional Multiplicity=Many]
+					BO=PermitType[Inclusion=Mandatory Multiplicity=Many-to-One],
+					BO=PermitHistory[Inclusion=Optional Multiplicity=One-to-Many]
 				}
 			},
 			BO=PermitHistory {
@@ -60,7 +60,7 @@ OrgUnit "CapeNature"
 					PrefContact {Label="Preferred Contact-Type" Type=String}
 				}
 				references {
-					BO=Permit[Inclusion=Optional Multiplicity=Many]
+					BO=Permit[Inclusion=Optional Multiplicity=One-to-Many]
 				}
 			}
 		}

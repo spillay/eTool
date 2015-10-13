@@ -203,8 +203,10 @@
             <eLiterals name="Optional" value="1"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EEnum" name="Multiplicity">
-            <eLiterals name="OnlyOne" literal="OnlyOne"/>
-            <eLiterals name="Many" value="1"/>
+            <eLiterals name="oneToone" literal="onetoone"/>
+            <eLiterals name="oneTomany" value="1"/>
+            <eLiterals name="manyTomany" value="2"/>
+            <eLiterals name="manyToone" value="3"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="BusinessObject" eSuperTypes="#//dsleng/etool/models/bobjs/NamedElement">
             <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"

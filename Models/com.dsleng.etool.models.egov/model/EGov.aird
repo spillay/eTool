@@ -2447,6 +2447,14 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_AXhYoWmmEeW34rmmgmvIlQ" fontName="Ubuntu" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_AXhYommmEeW34rmmgmvIlQ"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_sK11UHHnEeWVqrJlxZLXdQ" type="3010" element="_sKda0HHnEeWVqrJlxZLXdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_sK11UXHnEeWVqrJlxZLXdQ" fontName="Ubuntu" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_sK11UnHnEeWVqrJlxZLXdQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_vHJOYHHnEeWVqrJlxZLXdQ" type="3010" element="_vG5WwHHnEeWVqrJlxZLXdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_vHJ1cHHnEeWVqrJlxZLXdQ" fontName="Ubuntu" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_vHJ1cXHnEeWVqrJlxZLXdQ"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_AXfjeWmmEeW34rmmgmvIlQ"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_AXfjemmmEeW34rmmgmvIlQ"/>
             </children>
@@ -3112,18 +3120,34 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AXY1xGmmEeW34rmmgmvIlQ" name="OnlyOne" tooltipText="">
-          <target xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/OnlyOne"/>
-          <semanticElements xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/OnlyOne"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AXY1xGmmEeW34rmmgmvIlQ" name="oneToone" tooltipText="">
+          <target xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/oneToone"/>
+          <semanticElements xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/oneToone"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_AXZc0GmmEeW34rmmgmvIlQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AXZc0WmmEeW34rmmgmvIlQ" name="Many" tooltipText="">
-          <target xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/Many"/>
-          <semanticElements xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/Many"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AXZc0WmmEeW34rmmgmvIlQ" name="oneTomany" tooltipText="">
+          <target xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/oneTomany"/>
+          <semanticElements xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/oneTomany"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_AXZc0mmmEeW34rmmgmvIlQ" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_sKda0HHnEeWVqrJlxZLXdQ" name="manyTomany" tooltipText="">
+          <target xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/manyTomany"/>
+          <semanticElements xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/manyTomany"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_sKeB4HHnEeWVqrJlxZLXdQ" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_vG5WwHHnEeWVqrJlxZLXdQ" name="manyToone" tooltipText="">
+          <target xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/manyToone"/>
+          <semanticElements xmi:type="ecore:EEnumLiteral" href="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/manyToone"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vG590HHnEeWVqrJlxZLXdQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
@@ -3233,7 +3257,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AXXnoGmmEeW34rmmgmvIlQ" name="multiplicity : Multiplicity = OnlyOne" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_AXXnoGmmEeW34rmmgmvIlQ" name="multiplicity : Multiplicity = onetoone" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="EGov.ecore#//dsleng/etool/models/bobjs/References/multiplicity"/>
           <semanticElements xmi:type="ecore:EAttribute" href="EGov.ecore#//dsleng/etool/models/bobjs/References/multiplicity"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_AXXnoWmmEeW34rmmgmvIlQ" labelAlignment="LEFT">

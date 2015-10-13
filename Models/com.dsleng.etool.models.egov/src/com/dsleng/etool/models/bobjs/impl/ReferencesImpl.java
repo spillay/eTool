@@ -70,7 +70,7 @@ public class ReferencesImpl extends MinimalEObjectImpl.Container implements Refe
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Multiplicity MULTIPLICITY_EDEFAULT = Multiplicity.ONLY_ONE;
+	protected static final Multiplicity MULTIPLICITY_EDEFAULT = Multiplicity.ONE_TOONE;
 
 	/**
 	 * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.

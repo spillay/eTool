@@ -22,8 +22,13 @@ class EGovDslGenerator implements IGenerator {
 			println(c.toString)
 			cm = c
 		}
+		
+		
 		val eg = new PageGenerator
 		for (e : resource.allContents.toIterable.filter(EService)) {
+			// Generate the hbms
+			val db = new DBGenerator()
+			db.doGenerate(e.businessUnit,fsa,e.businessUnit.artifactId,e.businessUnit.package)
 			eg.doGenerate(resource,fsa,e.businessUnit.artifactId,e.businessUnit.package,cm)
 		}
 	}

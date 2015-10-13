@@ -12,6 +12,7 @@
 	</parent>
 	<properties>
 		<packageName>za.co.egov.entities.master</packageName>
+		<hibernate.hbm2ddl.sqlfile>schema.ddl</hibernate.hbm2ddl.sqlfile>
 	</properties>
 
 	<build>
@@ -21,6 +22,13 @@
 				<artifactId>hibernate3-maven-plugin</artifactId>
 				<version>2.2</version>
 				<executions>
+				<execution>
+						<id>generate-ddl-files</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>hbm2ddl</goal>
+						</goals>
+					</execution>
 					<execution>
 						<id>generate-xml-files</id>
 						<phase>generate-resources</phase>
@@ -28,6 +36,7 @@
 							<goal>hbm2cfgxml</goal>
 						</goals>
 					</execution>
+					
 					<execution>
 						<id>generate-hbmxml-files</id>
 						<phase>generate-resources</phase>
@@ -71,6 +80,14 @@
 							<implementation>jdbcconfiguration</implementation>
 							<outputDirectory>target/hibernate3/generated-sources/</outputDirectory>
 						</component>
+                        <component>
+                            <name>hbm2ddl</name>
+                            <implementation>annotationconfiguration</implementation>
+                        	
+                        </component>
+                        <component>
+                            <name>hbmdoc</name>
+                        </component>
 					</components>
 					<componentProperties>
 						<templatepath>src/main/resources/templates/</templatepath>
@@ -84,6 +101,9 @@
 						<packagename>${packageName}</packagename>
 						<format>true</format>
 						<haltonerror>true</haltonerror>
+						<hbm2ddl update="true" create="true" export="false"
+                     outputfilename="${hibernate.hbm2ddl.sqlfile}" format="true"
+                     console="true" />
 					</componentProperties>
 				</configuration>
 				<dependencies>

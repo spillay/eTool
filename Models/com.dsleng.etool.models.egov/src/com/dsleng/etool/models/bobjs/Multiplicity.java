@@ -19,54 +19,98 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum Multiplicity implements Enumerator {
 	/**
-	 * The '<em><b>Only One</b></em>' literal object.
+	 * The '<em><b>One Toone</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONLY_ONE_VALUE
+	 * @see #ONE_TOONE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ONLY_ONE(0, "OnlyOne", "OnlyOne"),
-
-	/**
-	 * The '<em><b>Many</b></em>' literal object.
+	ONE_TOONE(0, "oneToone", "onetoone"), /**
+	 * The '<em><b>One Tomany</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MANY_VALUE
+	 * @see #ONE_TOMANY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MANY(1, "Many", "Many");
+	ONE_TOMANY(1, "oneTomany", "oneTomany"), /**
+	 * The '<em><b>Many Tomany</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MANY_TOMANY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MANY_TOMANY(2, "manyTomany", "manyTomany"), /**
+	 * The '<em><b>Many Toone</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MANY_TOONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MANY_TOONE(3, "manyToone", "manyToone");
 
 	/**
-	 * The '<em><b>Only One</b></em>' literal value.
+	 * The '<em><b>One Toone</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Only One</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>One Toone</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ONLY_ONE
-	 * @model name="OnlyOne"
+	 * @see #ONE_TOONE
+	 * @model name="oneToone" literal="onetoone"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONLY_ONE_VALUE = 0;
+	public static final int ONE_TOONE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Many</b></em>' literal value.
+	 * The '<em><b>One Tomany</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Many</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>One Tomany</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #MANY
-	 * @model name="Many"
+	 * @see #ONE_TOMANY
+	 * @model name="oneTomany"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MANY_VALUE = 1;
+	public static final int ONE_TOMANY_VALUE = 1;
+
+	/**
+	 * The '<em><b>Many Tomany</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Many Tomany</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MANY_TOMANY
+	 * @model name="manyTomany"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MANY_TOMANY_VALUE = 2;
+
+	/**
+	 * The '<em><b>Many Toone</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Many Toone</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MANY_TOONE
+	 * @model name="manyToone"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MANY_TOONE_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Multiplicity</b></em>' enumerators.
@@ -76,8 +120,10 @@ public enum Multiplicity implements Enumerator {
 	 */
 	private static final Multiplicity[] VALUES_ARRAY =
 		new Multiplicity[] {
-			ONLY_ONE,
-			MANY,
+			ONE_TOONE,
+			ONE_TOMANY,
+			MANY_TOMANY,
+			MANY_TOONE,
 		};
 
 	/**
@@ -134,8 +180,10 @@ public enum Multiplicity implements Enumerator {
 	 */
 	public static Multiplicity get(int value) {
 		switch (value) {
-			case ONLY_ONE_VALUE: return ONLY_ONE;
-			case MANY_VALUE: return MANY;
+			case ONE_TOONE_VALUE: return ONE_TOONE;
+			case ONE_TOMANY_VALUE: return ONE_TOMANY;
+			case MANY_TOMANY_VALUE: return MANY_TOMANY;
+			case MANY_TOONE_VALUE: return MANY_TOONE;
 		}
 		return null;
 	}

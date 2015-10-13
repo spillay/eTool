@@ -39,7 +39,17 @@ Pages {
 		Content Sections North="NorthSPSPPP" West="West" 
 		Standalone Controls {
 			SubmitButton
-		} 
+		},
+		PageName="SecondPage" PageTitle "Permit Type" PageType=PageLayout {
+			BusinessObject=Client BOType=TwoPanelGrid 
+			Modified Attributes {
+				Attribute=firstname1 ControlType=String{},
+				Attribute=firstname2 ControlType=String{},
+				Attribute=IdNo ControlType=IDControl{}
+				
+			}
+		}
+		Content Sections North=North West=West 
 	}
 	Start Page MainPage
 }

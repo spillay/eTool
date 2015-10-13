@@ -55,7 +55,7 @@ BusinessObject returns BusinessObject:
 BasedOn returns BasedOn: 
 	businessobject=[BusinessObject|EString]
 	'{'
-		'removes' ('[' removes+=[Attribute|EString] ( "," removes+=[Attribute|EString] )* ']' )?
+		('removes' ('[' removes+=[Attribute|EString] ( "," removes+=[Attribute|EString] )* ']' )?)?
 	'}'
 ;
 
@@ -93,5 +93,5 @@ enum Inclusions returns Inclusions:
 				Mandatory = 'Mandatory' | Optional = 'Optional';
 
 enum Multiplicity returns Multiplicity:
-				OnlyOne = 'OnlyOne' | Many = 'Many';
+				oneToone = 'One-to-One' | oneTomany ='One-to-Many' | manyToone = 'Many-to-One' | manyTomany = 'Many-to-Many';
 

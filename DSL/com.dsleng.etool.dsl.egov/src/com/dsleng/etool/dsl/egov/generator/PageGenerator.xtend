@@ -33,6 +33,9 @@ class PageGenerator  {
 		
 		
 		this.baseProjectDir = baseProjectDir
+		
+		
+		
 		val bo = new BOGenerator()
 		val wUtil = new WebManagerUtils(baseProjectDir,webDir,uCtrl)
 		for (p : resource.allContents.toIterable.filter(Page)) {

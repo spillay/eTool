@@ -4,10 +4,37 @@
 package com.dsleng.etool.dsl.bobjs.ui.contentassist
 
 import com.dsleng.etool.dsl.bobjs.ui.contentassist.AbstractBObjDslProposalProvider
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import com.dsleng.etool.models.bobjs.BusinessObject
+import com.dsleng.etool.models.bobjs.OrgUnit
+import org.eclipse.xtext.EcoreUtil2
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class BObjDslProposalProvider extends AbstractBObjDslProposalProvider {
+	/* 
+	override completeBusinessObject_SuperTypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if ( model instanceof BusinessObject){
+			EcoreUtil2.resolveAll(model.eResource.resourceSet)
+			val res = model.eResource.resourceSet.resources
+			for(r: res){
+				val org = r.allContents.filter[elem|(elem instanceof OrgUnit)]
+				while(org.hasNext){
+					val o = org.next as OrgUnit
+					for(b: o.businessobjects){
+						acceptor.accept(createCompletionProposal(b.name,context))	
+					}
+				}
+			}
+		} else {
+			super.completeBusinessObject_SuperTypes(model, assignment, context, acceptor)
+		}
+		
+	}
+	*/
 }
