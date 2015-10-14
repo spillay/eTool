@@ -11,6 +11,7 @@ import com.dsleng.etool.models.bobjs.BusinessObject
 import com.dsleng.etool.models.bobjs.OrgUnit
 import com.dsleng.etool.models.bobjs.Attribute
 import static extension com.dsleng.etool.dsl.egov.generator.BusinessManagerExt.*
+import com.dsleng.etool.models.egov.Page
 
 class BOGenerator  {
 	
@@ -21,23 +22,24 @@ class BOGenerator  {
 	var baseProjectDir = ""
 	var basePackage = ""
 	val srcDir = "/src/main/java/"
+	private Page page
 	
 	
-	def doGenerate(Resource resource, IFileSystemAccess fsa,BusinessObject e,String baseProjectDir,String pkg) {
+	def doGenerate(Resource resource, IFileSystemAccess fsa,BusinessObject e,String baseProjectDir,String pkg,Page p) {
 		basePackage = pkg
 		this.baseProjectDir = baseProjectDir
-		
-		fsa.generateFile(e.genFileName, e.compile)
+		this.page = p
+		fsa.generateFile(e.genFileName(p), e.compile)
 	}
 	
 	private def capitalizeFirstLetter(String s) {
     	return s.substring(0,1).toUpperCase() + s.substring(1);
 	}
-	private def genFileName(BusinessObject e){
+	private def genFileName(BusinessObject e,Page p){
 		var fileName = basePackage.replace(".",fileSep);
 		if (e.eContainer instanceof OrgUnit)
 		{
-			fileName += fileSep + (e.eContainer as OrgUnit).name + fileSep + e.name + "Bean.java"
+			fileName += fileSep + "beans" + fileSep + p.name + "_" + e.name + "Bean.java"
 		}
 		//fileName += fileSep + e.name + "Bean.java"
 		fileName = baseProjectDir + srcDir + fileName.replace(" ","_")
@@ -47,6 +49,14 @@ class BOGenerator  {
 		if (e.eContainer instanceof OrgUnit)
 		{
 			pkg += pkgSep + (e.eContainer as OrgUnit).name
+		}
+		pkg = pkg.replace(" ","_")
+	}
+	private def getBeanPackage(BusinessObject e){
+		var pkg = basePackage 
+		if (e.eContainer instanceof OrgUnit)
+		{
+			pkg += pkgSep + "beans"
 		}
 		pkg = pkg.replace(" ","_")
 	}
@@ -65,7 +75,7 @@ class BOGenerator  {
 		return syntax
 	}
 	private def compile(BusinessObject e)'''
-«PageHead(getPackage(e))»
+«PageHead(getBeanPackage(e))»
 «importStmt("javax.faces.bean.ManagedBean")»
 «importStmt("javax.faces.bean.RequestScoped")»
 «importStmt("java.io.Serializable")»
@@ -191,7 +201,7 @@ class BOGenerator  {
 	private def classHead(BusinessObject e)'''
 @ManagedBean
 @ViewScoped
-public class «e.name»Bean implements Serializable {
+public class «page.name + "_" + e.name»Bean implements Serializable {
 
         private static final long serialVersionUID = 1L;
 

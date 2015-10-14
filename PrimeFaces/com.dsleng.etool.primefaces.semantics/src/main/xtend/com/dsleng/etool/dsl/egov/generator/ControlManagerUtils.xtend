@@ -58,17 +58,17 @@ class OptionManager extends ArrayList<OptionValue>{
 			}
 		}
 	}
-	new(BOAttribute type,Attribute attr){
+	new(BOAttribute type,Attribute attr,Page page){
 		for(p: type.controlparameters){
 				switch p.mappedTo {
 					case "Label":
 						this.add(new OptionValue(p.option,attr.label))
 					case "Name":
-						this.add(new OptionValue(p.option,attr.usingName))
+						this.add(new OptionValue(p.option,attr.getUsingName(page)))
 					case "Type":
 						this.add(new OptionValue(p.option,attr.type.toString))
 					case "DataContainer":
-						this.add(new OptionValue(p.option,attr.getUsingNameFor(type.predefinedcontainers.get(0).name)))
+						this.add(new OptionValue(p.option,attr.getUsingNameFor(type.predefinedcontainers.get(0).name,page)))
 				}
 		}
 		//DO Attribute Types which represent generic attributes
@@ -78,17 +78,17 @@ class OptionManager extends ArrayList<OptionValue>{
 					case "Label":
 						this.add(new OptionValue(p.option,attr.label))
 					case "Name":
-						this.add(new OptionValue(p.option,attr.usingName))
+						this.add(new OptionValue(p.option,attr.getUsingName(page)))
 				}
 		}
 	}
-	new(AttributeType type,Attribute attr){
+	new(AttributeType type,Attribute attr,Page page){
 		for(p: type.parameters){
 				switch p.value {
 					case "Label":
 						this.add(new OptionValue(p.option,attr.label))
 					case "Name":
-						this.add(new OptionValue(p.option,attr.usingName))
+						this.add(new OptionValue(p.option,attr.getUsingName(page)))
 				}
 		}
 	}
@@ -277,18 +277,18 @@ class ControlManagerBase {
 		
 	}
 	
-public def genSyntax(Attribute e){
+public def genSyntax(Attribute e,Page page){
   		switch e.type {
 			case STRING:
-				return cm.getStringType(e)
+				return cm.getStringType(e,page)
 			case DATE:
-				return cm.getDateType(e)
+				return cm.getDateType(e,page)
 			case INTEGER:
-				return cm.getIntegerType(e)
+				return cm.getIntegerType(e,page)
 			case BOOLEAN:
-				return cm.getBooleanType(e)
+				return cm.getBooleanType(e,page)
 			case DOUBLE:
-				return cm.getDoubleType(e)
+				return cm.getDoubleType(e,page)
 			default: {
 			}
   			
@@ -348,20 +348,20 @@ class ControlManagerUtils extends ControlManagerBase {
 	}
 	
 
-	public def getControlSyntax(BOAttribute ba,Attribute attr,OptionManager pageContents){
+	public def getControlSyntax(BOAttribute ba,Attribute attr,OptionManager pageContents,Page page){
 		switch ba.controltype.control {
 			Composite:
-				return getCompositeSyntax((ba.controltype.control as Composite),new OptionManager(ba,attr),pageContents) + "\n"
+				return getCompositeSyntax((ba.controltype.control as Composite),new OptionManager(ba,attr,page),pageContents) + "\n"
 			SimpleControl:
-				return getSimpleControlSyntax((ba.controltype.control as SimpleControl),new OptionManager(ba,attr),pageContents) + "\n"
+				return getSimpleControlSyntax((ba.controltype.control as SimpleControl),new OptionManager(ba,attr,page),pageContents) + "\n"
 		}
 	}
-	public def getControlSyntax(AttributeType type,Attribute attr,OptionManager pageContents){
+	public def getControlSyntax(AttributeType type,Attribute attr,OptionManager pageContents,Page page){
 		switch type.control {
 			Composite:
-				return getCompositeSyntax((type.control as Composite),new OptionManager(type,attr),pageContents) + "\n"
+				return getCompositeSyntax((type.control as Composite),new OptionManager(type,attr,page),pageContents) + "\n"
 			SimpleControl:
-				return getSimpleControlSyntax((type.control as SimpleControl),new OptionManager(type,attr),pageContents) + "\n"
+				return getSimpleControlSyntax((type.control as SimpleControl),new OptionManager(type,attr,page),pageContents) + "\n"
 		}
 	}
 	

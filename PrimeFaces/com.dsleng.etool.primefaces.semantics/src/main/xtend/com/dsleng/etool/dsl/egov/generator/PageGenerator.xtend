@@ -46,7 +46,7 @@ class PageGenerator  {
 			// Create Business Objects
 			Lg.info("Starting BO Generation")
 			for(bm: p.BOMaps){
-				bo.doGenerate(resource,fsa,bm.businessObject,baseProjectDir,pkg)
+				bo.doGenerate(resource,fsa,bm.businessObject,baseProjectDir,pkg,p)
 			}
 			Lg.info("Completed BO Generation")
 			Lg.info("Cleaning BO")

@@ -35,7 +35,7 @@ class EgovGenerator  {
 			pagelist.add(pg)
 			
 			for(bm: e.BOMaps){
-				bo.doGenerate(resource,fsa,bm.businessObject,baseProjectDir,pkg)
+				bo.doGenerate(resource,fsa,bm.businessObject,baseProjectDir,pkg,e)
 			}
 		}
 		fsa.generateFile(baseProjectDir + webDir + "index.xhtml",welcomePage)

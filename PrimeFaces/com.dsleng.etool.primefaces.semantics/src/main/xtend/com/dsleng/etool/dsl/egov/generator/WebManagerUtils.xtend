@@ -33,7 +33,7 @@ class WebManagerUtils {
 					for (ba : bmap.attributes) {
 						if (ba.attribute == a) {
 							// Use Control Type
-							contents += uCtrl.getControlSyntax(ba, a,pageContents)
+							contents += uCtrl.getControlSyntax(ba, a,pageContents,e)
 							processed = true
 						}
 					}

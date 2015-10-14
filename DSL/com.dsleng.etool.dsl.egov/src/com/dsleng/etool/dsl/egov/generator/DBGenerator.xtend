@@ -22,7 +22,7 @@ class DBGenerator {
 	
 	var baseProjectDir = ""
 	var basePackage = ""
-	val srcDir = "/src/main/java/"
+	val resDir = "/src/main/resources/"
 	
 	new(){
 		// Using this to make sure that the ecore file is registered need to fix
@@ -36,7 +36,7 @@ class DBGenerator {
 		for (e : model.businessobjects) {
 			var hbm = e.genFileName
 			fsa.generateFile(hbm, e.compile)
-			hbms.add(hbm)
+			hbms.add(e.genCFGHDMFileName)
 		}
 		if ( model.businessobjects.size > 0 ){
 			fsa.generateFile(genCFGFileName(model.businessobjects.get(0)),genCFG(hbms))
@@ -44,22 +44,25 @@ class DBGenerator {
 		
 	}
 	private def genCFGFileName(BusinessObject e){
+		return baseProjectDir + resDir + "hibernate.cfg.xml"
+	}
+	private def genCFGHDMFileName(BusinessObject e){
 		var fileName = basePackage.replace(".",fileSep);
 		if (e.eContainer instanceof OrgUnit)
 		{
-			fileName += fileSep + (e.eContainer as OrgUnit).name + fileSep +  "hibernate.cfg.xml"
+			fileName +=  fileSep + e.name + ".hbm.xml"
 		}
 		//fileName += fileSep + e.name + "Bean.java"
-		fileName = baseProjectDir + srcDir + fileName.replace(" ","_")
+		fileName =  fileName.replace(" ","_")
 	}
 	private def genFileName(BusinessObject e){
 		var fileName = basePackage.replace(".",fileSep);
 		if (e.eContainer instanceof OrgUnit)
 		{
-			fileName += fileSep + (e.eContainer as OrgUnit).name + fileSep + e.name + ".hbm.xml"
+			fileName +=  fileSep + e.name + ".hbm.xml"
 		}
 		//fileName += fileSep + e.name + "Bean.java"
-		fileName = baseProjectDir + srcDir + fileName.replace(" ","_")
+		fileName = baseProjectDir + resDir + fileName.replace(" ","_")
 	}
 	private def getTableAttributes(BusinessObject e){
 		var att = ""

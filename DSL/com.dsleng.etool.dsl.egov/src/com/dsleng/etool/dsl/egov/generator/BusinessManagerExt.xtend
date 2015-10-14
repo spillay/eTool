@@ -8,6 +8,7 @@ import com.dsleng.etool.models.bobjs.Operation
 import com.dsleng.etool.dsl.egov.Lg
 import com.dsleng.etool.models.bobjs.OrgUnit
 import com.dsleng.etool.models.bobjs.References
+import com.dsleng.etool.models.egov.Page
 
 class BusinessManagerExt {
 	// Hibernate Info
@@ -116,20 +117,20 @@ def static getTBDouble(Attribute e)'''
 	def static getTableName(BusinessObject e){
 		return  e.name.toLowerCase
 	}
-	def static getUsingBeanName(BusinessObject e){
-		return Introspector.decapitalize(e.name) + "Bean"
+	def static getUsingBeanName(BusinessObject e,Page p){
+		return Introspector.decapitalize(p.name + "_" + e.name) + "Bean"
 	}
-	def static getDeclBeanName(BusinessObject e){
-		return e.name + "Bean"
+	def static getDeclBeanName(BusinessObject e,Page p){
+		return p.name + "_" + e.name + "Bean"
 	}
 	def static Prepare(BusinessObject e){
 		return e
 	}
-	def static getUsingName(Attribute e){
-		return "#{" + (e.eContainer as BusinessObject).usingBeanName + "." + Introspector.decapitalize(e.name) + "}"
+	def static getUsingName(Attribute e,Page p){
+		return "#{" + (e.eContainer as BusinessObject).getUsingBeanName(p)+ "." + Introspector.decapitalize(e.name) + "}"
 	}
-	def static getUsingNameFor(Attribute e,String name){
-		return "#{" + (e.eContainer as BusinessObject).usingBeanName + "." + Introspector.decapitalize(name) + "}"
+	def static getUsingNameFor(Attribute e,String name,Page p){
+		return "#{" + (e.eContainer as BusinessObject).getUsingBeanName(p) + "." + Introspector.decapitalize(name) + "}"
 	}
 	def static viewCheck(Attribute e){
 		return e.dataManagement
