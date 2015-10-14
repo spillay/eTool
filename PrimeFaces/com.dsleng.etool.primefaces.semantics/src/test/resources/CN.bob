@@ -23,6 +23,7 @@ OrgUnit "CapeNature"
 				}
 				references {
 					BO=PermitType[Inclusion=Mandatory Multiplicity=Many-to-One],
+					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One],
 					BO=PermitHistory[Inclusion=Optional Multiplicity=One-to-Many]
 				}
 			},
@@ -61,6 +62,11 @@ OrgUnit "CapeNature"
 				}
 				references {
 					BO=Permit[Inclusion=Optional Multiplicity=One-to-Many]
+				}
+			},
+			BO=PermitStatus {
+				attributes {
+					Status {Label="Permit Status" Type=String}
 				}
 			}
 		}

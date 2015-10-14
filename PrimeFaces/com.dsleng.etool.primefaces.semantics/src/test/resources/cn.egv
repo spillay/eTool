@@ -5,7 +5,7 @@ setup {
 }
 {
 Pages { 
-	PageName="MainPage" PageTitle "Permit Application" PageType=PageLayout { 
+	PageName="PermitApp" PageTitle "Permit Application" PageType=PageLayout { 
 		
 			BusinessObject=Client BOType=TwoPanelGrid
 			Modified Attributes {
@@ -40,18 +40,57 @@ Pages {
 		Standalone Controls {
 			SubmitButton
 		},
-		PageName="SecondPage" PageTitle "Permit Type" PageType=PageLayout {
+		PageName="ClientEnquiry" PageTitle "Permit Enquiry" PageType=PageLayout {
 			BusinessObject=Client BOType=TwoPanelGrid 
 			Modified Attributes {
-				Attribute=firstname1 ControlType=String{},
-				Attribute=firstname2 ControlType=String{},
-				Attribute=IdNo ControlType=IDControl{}
-				
+				Attribute=IdNo ControlType=IDControl{}	
+			},
+			BusinessObject=Permit BOType=DataTable 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=DataColumn {},
+				Attribute=PermitStatus ControlType=DataColumn {}
+			}
+		}
+		Content Sections North=North West=West 
+		,
+		PageName="DeptView" PageTitle "Dept Enquiry" PageType=PageLayout {
+			BusinessObject=PermitStatus BOType=TwoPanelGrid 
+			Modified Attributes {
+				Attribute=Status ControlType=Selection {
+					ControlMappers [DataContainer mapsTo "selectItems.value"]
+					PredefinedContainers [ 
+						PrefContactData("Submitted","Evaluated","Accepted","Rejected","Approved")
+					]
+				}
+			},
+			BusinessObject=Permit BOType=DataTable 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=DataColumn {},
+				Attribute=PermitStatus ControlType=DataColumn {}
+			}
+		}
+		Content Sections North=North West=West 
+		,
+		PageName="UpdateStatus" PageTitle "Manual Update Status" PageType=PageLayout {
+			BusinessObject=Permit BOType=TwoPanelGrid 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=String {},
+				Attribute=PermitStatus ControlType=Selection {
+					ControlMappers [DataContainer mapsTo "selectItems.value"]
+					PredefinedContainers [ 
+						PrefContactData("Submitted","Evaluated","Accepted","Rejected","Approved")
+					]
+				}
+			},
+			BusinessObject=Permit BOType=DataTable 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=DataColumn {},
+				Attribute=PermitStatus ControlType=DataColumn {}
 			}
 		}
 		Content Sections North=North West=West 
 	}
-	Start Page MainPage
+	Start Page PermitApp
 }
 
 

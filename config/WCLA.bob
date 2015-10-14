@@ -1,4 +1,4 @@
-OrgUnit "Western Cape Liquor Authority" 
+OrgUnit "WCLA" 
 	setup {
 			GroupID "za.co.egov",
 			ArtifactID "za.co.egov.wcla",
@@ -10,9 +10,13 @@ OrgUnit "Western Cape Liquor Authority"
 	}
 	{
 		BusinessObjects {
+			BO=ClientWS {
+				basedOn { Client {} }
+			},
 			BO=WCLAPermits {
-				usesEnums { name=PermitType => PermitTypes }
-				superTypes { PermitType }
+				usesEnums { name=PermitType => PermitTypes
+				}
+				superTypes { Permit }
 				basedOn { CapeNature { removes [CommonName] }
 			}
 		}	

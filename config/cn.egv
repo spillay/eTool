@@ -5,7 +5,7 @@ setup {
 }
 {
 Pages { 
-	PageName="MainPage" PageTitle "Permit Application" PageType=PageLayout { 
+	PageName="PermitApp" PageTitle "Permit Application" PageType=PageLayout { 
 		
 			BusinessObject=Client BOType=TwoPanelGrid
 			Modified Attributes {
@@ -36,12 +36,61 @@ Pages {
 				Attribute=DateChanged ControlType=DataColumn {}
 			}
 		}
-		Content Sections North="North" West="West" 
+		Content Sections North="NorthSPSPPP" West="West" 
 		Standalone Controls {
 			SubmitButton
-		} 
+		},
+		PageName="ClientEnquiry" PageTitle "Permit Enquiry" PageType=PageLayout {
+			BusinessObject=Client BOType=TwoPanelGrid 
+			Modified Attributes {
+				Attribute=IdNo ControlType=IDControl{}	
+			},
+			BusinessObject=Permit BOType=DataTable 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=DataColumn {},
+				Attribute=PermitStatus ControlType=DataColumn {}
+			}
+		}
+		Content Sections North=North West=West 
+		,
+		PageName="DeptView" PageTitle "Dept Enquiry" PageType=PageLayout {
+			BusinessObject=PermitStatus BOType=TwoPanelGrid 
+			Modified Attributes {
+				Attribute=Status ControlType=Selection {
+					ControlMappers [DataContainer mapsTo "selectItems.value"]
+					PredefinedContainers [ 
+						PrefContactData("Submitted","Evaluated","Accepted","Rejected","Approved")
+					]
+				}
+			},
+			BusinessObject=Permit BOType=DataTable 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=DataColumn {},
+				Attribute=PermitStatus ControlType=DataColumn {}
+			}
+		}
+		Content Sections North=North West=West 
+		,
+		PageName="UpdateStatus" PageTitle "Manual Update Status" PageType=PageLayout {
+			BusinessObject=Permit BOType=TwoPanelGrid 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=String {},
+				Attribute=PermitStatus ControlType=Selection {
+					ControlMappers [DataContainer mapsTo "selectItems.value"]
+					PredefinedContainers [ 
+						PrefContactData("Submitted","Evaluated","Accepted","Rejected","Approved")
+					]
+				}
+			},
+			BusinessObject=Permit BOType=DataTable 
+			Modified Attributes {
+				Attribute=PermitNo ControlType=DataColumn {},
+				Attribute=PermitStatus ControlType=DataColumn {}
+			}
+		}
+		Content Sections North=North West=West 
 	}
-	Start Page MainPage
+	Start Page PermitApp
 }
 
 
