@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-15T01:05:30.328 by  eTool 1.0.0 Author Suresh Pillay-->
+<hibernate-mapping>
+    <class name="za.co.egov.cn.WildAnimals" table="wildanimals" schema="public">
+    	<id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+    <property name="CommonName" type="string">
+         <column name="commonname" length="20" not-null="false" />
+    </property>
+    </class>
+</hibernate-mapping>

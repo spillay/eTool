@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-15T01:05:30.329 by  eTool 1.0.0 Author Suresh Pillay-->
+<hibernate-mapping>
+    <class name="za.co.egov.cn.Client" table="client" schema="public">
+    	<id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+    <property name="IdNo" type="string">
+         <column name="idno" length="20" not-null="false" />
+    </property>
+    <property name="cardno" type="string">
+         <column name="cardno" length="20" not-null="false" />
+    </property>
+    <property name="firstname1" type="string">
+         <column name="firstname1" length="20" not-null="false" />
+    </property>
+    <property name="firstname2" type="string">
+         <column name="firstname2" length="20" not-null="false" />
+    </property>
+    <property name="firstname3" type="string">
+         <column name="firstname3" length="20" not-null="false" />
+    </property>
+    <property name="surname" type="string">
+         <column name="surname" length="20" not-null="false" />
+    </property>
+    <property name="telphoneno" type="string">
+         <column name="telphoneno" length="20" not-null="false" />
+    </property>
+    <property name="cellno" type="string">
+         <column name="cellno" length="20" not-null="false" />
+    </property>
+    <property name="email" type="string">
+         <column name="email" length="20" not-null="false" />
+    </property>
+    <property name="PrefContact" type="string">
+         <column name="prefcontact" length="20" not-null="false" />
+    </property>
+    <!-- 
+    <set name="CLIENT_PERMITS" inverse="true" cascade="all">
+                <key column="CLIENT_PERMIT_ID" not-null="true" />
+                <one-to-many class="za.co.egov.cn.Permit"/>
+            </set>
+     -->
+    </class>
+     
+</hibernate-mapping>

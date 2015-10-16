@@ -12,6 +12,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		<property name="annotatedClasses">
 			<list>
 				<value>za.co.egov.cn.Client</value>
+				<value>za.co.egov.cn.PermitType</value>
+				<value>za.co.egov.cn.Permit</value>
+				<value>za.co.egov.cn.PermitStatus</value>
+				<value>za.co.egov.cn.PermitHistory</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

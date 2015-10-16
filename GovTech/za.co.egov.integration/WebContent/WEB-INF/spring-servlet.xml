@@ -11,8 +11,10 @@
  
  	<import resource="classpath:config/database.xml"/>
  	<import resource="classpath:config/hibernate.xml"/>
+ 	<!-- 
     <context:component-scan base-package="za.co.egov.integration" />
     <context:component-scan base-package="za.co.egov.cn" />
+    -->
     <context:component-scan base-package="za.co.egov.ws" />
     <mvc:annotation-driven />
 </beans>

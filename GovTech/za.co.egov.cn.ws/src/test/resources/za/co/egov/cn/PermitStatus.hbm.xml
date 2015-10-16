@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-15T01:05:30.330 by  eTool 1.0.0 Author Suresh Pillay-->
+<hibernate-mapping>
+    <class name="za.co.egov.cn.PermitStatus" table="permitstatus" schema="public">
+    	<id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+    <property name="Status" type="string">
+         <column name="status" length="20" not-null="false" />
+    </property>
+    <!-- 
+    <set name="PERMIT_PERMITSTATUSS" inverse="true" cascade="all">
+                <key column="PERMIT_PERMITSTATUS_ID" not-null="true" />
+                <one-to-many class="za.co.egov.cn.Permit"/>
+            </set>
+             -->
+    </class>
+</hibernate-mapping>

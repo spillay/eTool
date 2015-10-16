@@ -1,5 +1,5 @@
 package za.co.egov.cn;
-// Generated 15 Oct 2015 7:30:30 PM by Hibernate Tools 3.2.2.GA
+// Generated 16 Oct 2015 12:19:42 PM by Hibernate Tools 3.2.2.GA
 
 
 import javax.persistence.Column;
@@ -21,6 +21,7 @@ public class Client  implements java.io.Serializable {
 
      private Integer id;
      private String IdNo;
+     private String cardno;
      private String firstname1;
      private String firstname2;
      private String firstname3;
@@ -33,8 +34,9 @@ public class Client  implements java.io.Serializable {
     public Client() {
     }
 
-    public Client(String IdNo, String firstname1, String firstname2, String firstname3, String surname, String telphoneno, String cellno, String email, String PrefContact) {
+    public Client(String IdNo, String cardno, String firstname1, String firstname2, String firstname3, String surname, String telphoneno, String cellno, String email, String PrefContact) {
        this.IdNo = IdNo;
+       this.cardno = cardno;
        this.firstname1 = firstname1;
        this.firstname2 = firstname2;
        this.firstname3 = firstname3;
@@ -63,6 +65,15 @@ public class Client  implements java.io.Serializable {
     
     public void setIdNo(String IdNo) {
         this.IdNo = IdNo;
+    }
+    
+    @Column(name="cardno", length=20)
+    public String getCardno() {
+        return this.cardno;
+    }
+    
+    public void setCardno(String cardno) {
+        this.cardno = cardno;
     }
     
     @Column(name="firstname1", length=20)

@@ -23,7 +23,7 @@
 		<jackson.version>2.4.0</jackson.version>
 		<jaxb-api.version>2.2.11</jaxb-api.version>
 	</properties>
-		<dependencies>
+	<dependencies>
 		<!-- JUnit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -47,7 +47,6 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.release}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -83,6 +82,63 @@
 	</dependencies>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>hibernate3-maven-plugin</artifactId>
+				<version>2.2</version>
+				<executions>
+					<execution>
+						<id>generate-entities</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>hbm2java</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate-schema</id>
+						<phase>generate-test-resources</phase>
+						<goals>
+							<goal>hbm2ddl</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<components>
+						<component>
+							<name>hbm2java</name>
+							<implementation>configuration</implementation>
+							<outputDirectory>src/main/java</outputDirectory>
+						</component>
+						<component>
+							<name>hbm2ddl</name>
+							<implementation>configuration</implementation>
+						</component>
+					</components>
+					<componentProperties>
+						<configurationfile>src/test/resources/hibernate.cfg.xml</configurationfile>
+						<packagename>${packageName}</packagename>
+						<jdk5>true</jdk5>
+						<ejb3>true</ejb3>
+					</componentProperties>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>cglib</groupId>
+						<artifactId>cglib-nodep</artifactId>
+						<version>2.2.2</version>
+					</dependency>
+					<dependency>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>9.1-901.jdbc4</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12.4</version>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
