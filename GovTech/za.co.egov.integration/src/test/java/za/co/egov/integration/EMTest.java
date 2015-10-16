@@ -14,13 +14,18 @@ import org.hibernate.annotations.NamedQuery;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import za.co.egov.cn.Client;
 import za.co.egov.cn.Permit;
 import za.co.egov.cn.PermitStatus;
 import za.co.egov.cn.PermitType;
+import za.co.egov.cn.service.ClientService;
+import za.co.egov.ws.PermitInfo;
 
 public class EMTest {
+	@Autowired
+	ClientService dao;
 	private static EntityManager em;
 	 
 	
@@ -34,12 +39,15 @@ public class EMTest {
         em.persist(p);
         em.getTransaction().commit();
 	}
-	@Before
-	public void setupDB(){
-		cleanup();
+	private void init(){
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("punit");
         em = emf.createEntityManager();
-        
+	}
+	@Before
+	public void setupDB(){
+		init();
+		cleanup();
+	
         em.getTransaction().begin();
         PermitType p1 = new PermitType();
         p1.setName("Fishing");
@@ -83,8 +91,6 @@ public class EMTest {
 	
 	@Test
 	public void getData() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("punit");
-        em = emf.createEntityManager();
         em.getTransaction().begin();
         List res = em.createQuery(
         	    "SELECT c FROM Client c WHERE c.idNo LIKE :custID")
@@ -95,13 +101,22 @@ public class EMTest {
         while(it.hasNext()){
         	Client o = it.next();
         	System.out.println("Found Client" + o.getIdNo());
+        	PermitInfo pi = new PermitInfo(o);
+        	System.out.println("xml: " + pi.getContent());
         }
         em.getTransaction().commit();
-        
+        try {
+    		List<Client> clients = dao.getAll();
+    		if ( clients.size() > 0){
+    			PermitInfo pi = new PermitInfo(clients.get(0));
+    			System.out.println("xml: " + pi.getContent());
+    		}
+    	} catch (Exception e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+    	}
 	}
 	public void cleanup(){
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("punit");
-        em = emf.createEntityManager();
         em.getTransaction().begin();
 		
 		em.createQuery(

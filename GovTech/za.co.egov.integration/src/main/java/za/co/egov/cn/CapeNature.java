@@ -1,5 +1,5 @@
 package za.co.egov.cn;
-// Generated 16 Oct 2015 12:19:42 PM by Hibernate Tools 3.2.2.GA
+// Generated 16 Oct 2015 3:55:56 PM by Hibernate Tools 3.2.2.GA
 
 
 import javax.persistence.Column;

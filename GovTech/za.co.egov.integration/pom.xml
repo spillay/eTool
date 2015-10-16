@@ -73,12 +73,31 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.release}</version>
 		</dependency>
+			<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.9.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.release}</version>
+		</dependency>
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901.jdbc4</version>
 		</dependency>
-
+		<dependency>
+	<groupId>com.fasterxml.jackson.core</groupId>
+	<artifactId>jackson-core</artifactId>
+	<version>2.6.3</version>
+</dependency>
+<dependency>
+	<groupId>com.fasterxml</groupId>
+	<artifactId>classmate</artifactId>
+	<version>0.8.0</version>
+</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -89,14 +108,14 @@
 				<executions>
 					<execution>
 						<id>generate-entities</id>
-						<phase>generate-test-sources</phase>
+						<phase>generate-sources</phase>
 						<goals>
 							<goal>hbm2java</goal>
 						</goals>
 					</execution>
 					<execution>
 						<id>generate-schema</id>
-						<phase>generate-test-resources</phase>
+						<phase>generate-resources</phase>
 						<goals>
 							<goal>hbm2ddl</goal>
 						</goals>
