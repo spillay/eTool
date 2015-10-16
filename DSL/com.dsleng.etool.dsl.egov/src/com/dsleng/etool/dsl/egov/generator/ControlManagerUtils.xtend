@@ -12,7 +12,6 @@ import com.dsleng.etool.models.Controls.SimpleControl
 import com.dsleng.etool.models.Controls.Options
 import com.dsleng.etool.models.Controls.OptionInstance
 import com.dsleng.etool.models.Controls.BOType
-import com.dsleng.etool.models.bobjs.BobjsPackage
 import org.eclipse.emf.common.util.EList
 import com.dsleng.etool.models.bobjs.BusinessObject
 import com.dsleng.etool.models.Controls.TypeParameter

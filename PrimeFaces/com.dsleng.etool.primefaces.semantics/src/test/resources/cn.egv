@@ -88,6 +88,13 @@ Pages {
 				Attribute=PermitStatus ControlType=DataColumn {}
 			}
 		}
+		Content Sections North=North West=West,
+		PageName="PermitType" PageTitle "Manager Permit Types" PageType=PageLayout {
+			BusinessObject=PermitType BOType=TwoPanelGrid 
+			Modified Attributes {
+				Attribute=name ControlType=String {}	
+			}
+		}
 		Content Sections North=North West=West 
 	}
 	Start Page PermitApp

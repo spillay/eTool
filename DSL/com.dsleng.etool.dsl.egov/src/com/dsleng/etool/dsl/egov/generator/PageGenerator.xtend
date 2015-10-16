@@ -36,7 +36,7 @@ class PageGenerator  {
 		
 		
 		
-		val bo = new BOGenerator()
+		val bo = new BeanGenerator()
 		val wUtil = new WebManagerUtils(baseProjectDir,webDir,uCtrl)
 		for (p : resource.allContents.toIterable.filter(Page)) {
 			val pg = wUtil.createPage(p)

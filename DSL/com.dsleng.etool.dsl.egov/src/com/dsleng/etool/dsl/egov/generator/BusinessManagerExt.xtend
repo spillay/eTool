@@ -3,12 +3,10 @@ package com.dsleng.etool.dsl.egov.generator
 import com.dsleng.etool.models.bobjs.BusinessObject
 import java.beans.Introspector
 import com.dsleng.etool.models.bobjs.Attribute
-import com.dsleng.etool.models.egov.BOMapper
-import com.dsleng.etool.models.bobjs.Operation
-import com.dsleng.etool.dsl.egov.Lg
 import com.dsleng.etool.models.bobjs.OrgUnit
 import com.dsleng.etool.models.bobjs.References
 import com.dsleng.etool.models.egov.Page
+import com.dsleng.etool.models.bobjs.DataTypes
 
 class BusinessManagerExt {
 	// Hibernate Info
@@ -99,6 +97,19 @@ def static getTBDouble(Attribute e)'''
 		}
 	}
 	// End Hibernate Info
+	def static String toSPString(DataTypes e){
+		switch e {
+			case STRING: '''String'''
+			case INTEGER: '''int'''
+			case BOOLEAN: '''boolean'''
+			case DATE: '''String'''
+			case DOUBLE: '''double'''
+			case DATA_MAP: '''Map<String,String>'''
+			default: {
+			}
+			
+		}
+	}
 	def static cleanUp(BusinessObject e){
 		// Remove any operations from the Model
 		e.operations.clear
@@ -118,16 +129,16 @@ def static getTBDouble(Attribute e)'''
 		return  e.name.toLowerCase
 	}
 	def static getUsingBeanName(BusinessObject e,Page p){
-		return Introspector.decapitalize(p.name + "_" + e.name) + "Bean"
+		return Introspector.decapitalize(p.name) + "Bean"
 	}
 	def static getDeclBeanName(BusinessObject e,Page p){
-		return p.name + "_" + e.name + "Bean"
+		return p.name + "Bean"
 	}
 	def static Prepare(BusinessObject e){
 		return e
 	}
 	def static getUsingName(Attribute e,Page p){
-		return "#{" + (e.eContainer as BusinessObject).getUsingBeanName(p)+ "." + Introspector.decapitalize(e.name) + "}"
+		return "#{" + (e.eContainer as BusinessObject).getUsingBeanName(p)+ "." + Introspector.decapitalize((e.eContainer as BusinessObject).name) + "." +Introspector.decapitalize(e.name) + "}"
 	}
 	def static getUsingNameFor(Attribute e,String name,Page p){
 		return "#{" + (e.eContainer as BusinessObject).getUsingBeanName(p) + "." + Introspector.decapitalize(name) + "}"
@@ -135,32 +146,5 @@ def static getTBDouble(Attribute e)'''
 	def static viewCheck(Attribute e){
 		return e.dataManagement
 	}
-	def static getOps(BusinessObject e){
-		var syntax = ""
-		for(op: e.operations){
-			syntax += op.opSyntax + "\n"
-		}
-		return syntax
-	}
-	def static getOpSyntax(Operation op){
-		var syntax = ""
-		for(a: op.annotations){
-			syntax += "@" + a.name + "\n"
-		}
-		syntax +='''
-public void «op.name»('''
-		
-		for(p: op.opparameters){
-			syntax +='''
-«p.type» «p.name»; 
-'''
-		}
-		syntax +=''')
-{
-'''
-		syntax += op.syntax
-		syntax +='''
-}
-'''
-	}
+	
 }

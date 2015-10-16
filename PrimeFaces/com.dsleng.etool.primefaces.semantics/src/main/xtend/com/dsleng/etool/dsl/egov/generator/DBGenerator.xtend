@@ -1,18 +1,11 @@
 package com.dsleng.etool.dsl.egov.generator
 
-import org.eclipse.emf.ecore.resource.Resource
+
 import org.eclipse.xtext.generator.IFileSystemAccess
-
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
-import org.eclipse.emf.common.util.URI
-
-import java.beans.Introspector
 import com.dsleng.etool.models.bobjs.BusinessObject
 import com.dsleng.etool.models.bobjs.OrgUnit
-import com.dsleng.etool.models.bobjs.Attribute
 import static extension com.dsleng.etool.dsl.egov.generator.BusinessManagerExt.*
 import com.dsleng.etool.models.bobjs.BobjsPackage
-import java.util.Date
 import java.time.LocalDateTime
 import java.util.ArrayList
 

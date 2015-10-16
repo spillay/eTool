@@ -28,7 +28,7 @@ class EgovGenerator  {
 	def doGenerate(Resource resource, IFileSystemAccess fsa,String baseProjectDir,String pkg) {
 		Lg.info("Starting Page Generation")
 		this.baseProjectDir = baseProjectDir
-		val bo = new BOGenerator()
+		val bo = new BeanGenerator()
 		for (e : resource.allContents.toIterable.filter(Page)) {
 			val pg = e.genFileName
 			fsa.generateFile(pg, e.compile)

@@ -15,6 +15,7 @@ import com.dsleng.etool.models.Controls.ControlManager
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class EGovDslGenerator implements IGenerator {
+	// Starting Point of Generation
 	// Only Relying on One set of controls
 	var ControlManager cm
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
@@ -22,8 +23,6 @@ class EGovDslGenerator implements IGenerator {
 			println(c.toString)
 			cm = c
 		}
-		
-		
 		val eg = new PageGenerator
 		for (e : resource.allContents.toIterable.filter(EService)) {
 			// Generate the hbms
