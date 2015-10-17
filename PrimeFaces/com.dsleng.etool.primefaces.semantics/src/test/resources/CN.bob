@@ -12,30 +12,32 @@ OrgUnit "CapeNature"
 		BusinessObjects{
 			BO=Permit {
 				attributes {
-					PermitNo {Label="Permit Number" Type=String},
-					ReferenceNo {Label="Reference Number" Type=String},
-					PermitStatus {Label="Permit Status" Type=String},
+					permitNo {Label="Permit Number" Type=String},
+					referenceNo {Label="Reference Number" Type=String},
+					permitStatus {Label="Permit Status" Type=String},
 					
-					DateIssued {Label="DateIssued" Type=Date},
-					DteValidFrom {Label="Date Valid From" Type=Date},
-					DteValidTo {Label="Date Valid To" Type=Date},
-					AmountPaid {Label="Amount Paid" Type=Double}
+					dateIssued {Label="DateIssued" Type=Date},
+					dteValidFrom {Label="Date Valid From" Type=Date},
+					dteValidTo {Label="Date Valid To" Type=Date},
+					amountPaid {Label="Amount Paid" Type=Double}
 				}
 				references {
 					BO=PermitType[Inclusion=Mandatory Multiplicity=Many-to-One],
-					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One],
-					BO=PermitHistory[Inclusion=Optional Multiplicity=One-to-Many]
+					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One]
 				}
 			},
 			BO=PermitHistory {
 				attributes { 
-					DateChanged {Label="Date Changed" Type=Date},
-					ReferenceNo {Label="Reference Number" Type=String},
-					PermitNo {Label="Permit Number" Type=String},
-					PermitStatus {Label="Permit Status" Type=String},
-					PermitDescription {Label="Permit Description" Type=String},
-					NotificationSend {Label="Notification Send-Boolean" Type=String},
-					ReasonForChge {Label="Reason For Change" Type=String}
+					dateChanged {Label="Date Changed" Type=Date},
+					referenceNo {Label="Reference Number" Type=String},
+					permitDescription {Label="Permit Description" Type=String},
+					notificationSend {Label="Notification Send-Boolean" Type=String},
+					reasonForChge {Label="Reason For Change" Type=String}
+				}
+				references {
+					BO=PermitType[Inclusion=Mandatory Multiplicity=Many-to-One],
+					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One],
+					BO=Permit[Inclusion=Optional Multiplicity=Many-to-One]
 				}
 			},
 			BO=PermitType {
@@ -45,12 +47,12 @@ OrgUnit "CapeNature"
 				superTypes {PermitType}
 			},
 			BO=WildAnimals {
-				attributes { CommonName{Label="Animals Common Name" Type=String}}
+				attributes { commonName{Label="Animals Common Name" Type=String}}
 				superTypes { CapeNature }
 			},
 			BO=Client {			
 				attributes { 
-					IdNo {Label="Identity Number" Type=String },
+					idno {Label="Identity Number" Type=String },
 					firstname1 {Label="First Name" Type=String},
 					firstname2 {Label="First Name" Type=String},
 					firstname3 {Label="First Name" Type=String},
@@ -58,15 +60,12 @@ OrgUnit "CapeNature"
 					telphoneno {Label="Telephone No" Type=String},
 					cellno {Label="Cell No" Type=String},
 					email {Label="Email Address" Type=String},
-					PrefContact {Label="Preferred Contact-Type" Type=String}
-				}
-				references {
-					BO=Permit[Inclusion=Optional Multiplicity=One-to-Many]
+					prefContact {Label="Preferred Contact-Type" Type=String}
 				}
 			},
 			BO=PermitStatus {
 				attributes {
-					Status {Label="Permit Status" Type=String}
+					status {Label="Permit Status" Type=String}
 				}
 			}
 		}

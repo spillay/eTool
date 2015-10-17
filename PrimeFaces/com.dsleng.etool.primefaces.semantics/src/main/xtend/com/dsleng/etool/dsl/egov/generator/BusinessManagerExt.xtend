@@ -15,12 +15,12 @@ class BusinessManagerExt {
 	}
 	def static getTBString(Attribute e)'''
 <property name="«e.name»" type="string">
-     <column name="«e.columnName»" length="20" not-null="false" />
+     <column name="«e.columnName»" length="100" not-null="false" />
 </property>
 	'''
 	def static getTBDate(Attribute e)'''
 <property name="«e.name»" type="date">
-     <column name="«e.columnName»" length="13" not-null="false" />
+     <column name="«e.columnName»" length="30" not-null="false" />
 </property>
 	'''
 def static getTBInteger(Attribute e)'''

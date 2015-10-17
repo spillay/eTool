@@ -86,7 +86,7 @@ class DAOGenerator extends BaseDL {
 	}
 	
 	public override def getImplFQN(){
-		val imp = (baseObj.eContainer as OrgUnit).package + ".dao." + baseObj.name + "DAO"
+		val imp = (baseObj.eContainer as OrgUnit).package + ".dao." + getImplName
 		return imp
 	}
 	public def getInterfaceSyntax() {
@@ -190,11 +190,11 @@ class DAOGenerator extends BaseDL {
 		opSave.syntax ='''
 		  session = sessionFactory.openSession();  
 		  transaction = session.beginTransaction();  
-		  «baseObj.name» o = («baseObj.name») session.save(persisted);
+		  int i =  (int) session.save(persisted);
 		  transaction.commit();  
 		  session.close();
-		  return o;
-
+		  persisted.setId(i);
+		  return persisted;
 '''		
 		jc.addOperation(opSave)
 		
@@ -278,7 +278,7 @@ class ServiceGenerator extends BaseDL {
 		return this.basePackage + ".service"
 	}
 	public override def getImplFQN(){
-		val imp = (baseObj.eContainer as OrgUnit).package + ".service." + baseObj.name + "Service"
+		val imp = (baseObj.eContainer as OrgUnit).package + ".service." + implName
 		return imp
 	}
 	public def getInterfaceSyntax() {

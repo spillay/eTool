@@ -264,6 +264,7 @@ class JavaAttribute {
 	new(String name, String type,String defValue) {
 		this.name = name
 		this.type = type
+		this.defValue = defValue
 	}
 	new(String boname) {
 		type = boname
@@ -276,7 +277,7 @@ class JavaAttribute {
 
 	// Special Class to Manage Injection Objects
 	def createGetSet(){
-		if (annotations.contains("Autowired")){
+		if (annotations.contains("Autowired") || this.type == "Log"){
 			return false
 		} else {
 			return true;

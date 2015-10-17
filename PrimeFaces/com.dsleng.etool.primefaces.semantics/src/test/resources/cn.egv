@@ -10,11 +10,11 @@ Pages {
 			BusinessObject=Client BOType=TwoPanelGrid
 			Modified Attributes {
 				Attribute=firstname1 ControlType=String{},
-				Attribute=IdNo ControlType=IDControl{},
+				Attribute=idno ControlType=IDControl{},
 				Attribute=email ControlType=Email{},
 				Attribute=telphoneno ControlType=Telephone{},
 				Attribute=cellno ControlType=Telephone{},
-				Attribute=PrefContact ControlType=Selection {
+				Attribute=prefContact ControlType=Selection {
 					ControlMappers [DataContainer mapsTo "selectItems.value"]
 					PredefinedContainers [ 
 						PrefContactData("EMAIL","TEL","CELL")
@@ -23,17 +23,15 @@ Pages {
 			},
 			BusinessObject=Permit BOType=TwoPanelGrid
 			Modified Attributes {
-				Attribute=AmountPaid ControlType=Int{},
-				Attribute=DateIssued ControlType=Date{},
-				Attribute=DteValidFrom ControlType=Date{},
-				Attribute=DteValidTo ControlType=Date{}	
+				Attribute=amountPaid ControlType=Int{},
+				Attribute=dateIssued ControlType=Date{},
+				Attribute=dteValidFrom ControlType=Date{},
+				Attribute=dteValidTo ControlType=Date{}	
 			},
 			BusinessObject=PermitHistory BOType=DataTable 
 			Modified Attributes {
-				Attribute=PermitNo ControlType=DataColumn {},
-				Attribute=PermitStatus ControlType=DataColumn {},
-				Attribute=PermitDescription ControlType=DataColumn {},
-				Attribute=DateChanged ControlType=DataColumn {}
+				Attribute=permitDescription ControlType=DataColumn {},
+				Attribute=dateChanged ControlType=DataColumn {}
 			}
 		}
 		Content Sections North="NorthSPSPPP" West="West" 
@@ -43,12 +41,12 @@ Pages {
 		PageName="ClientEnquiry" PageTitle "Permit Enquiry" PageType=PageLayout {
 			BusinessObject=Client BOType=TwoPanelGrid 
 			Modified Attributes {
-				Attribute=IdNo ControlType=IDControl{}	
+				Attribute=idno ControlType=IDControl{}	
 			},
 			BusinessObject=Permit BOType=DataTable 
 			Modified Attributes {
-				Attribute=PermitNo ControlType=DataColumn {},
-				Attribute=PermitStatus ControlType=DataColumn {}
+				Attribute=permitNo ControlType=DataColumn {},
+				Attribute=permitStatus ControlType=DataColumn {}
 			}
 		}
 		Content Sections North=North West=West 
@@ -56,7 +54,7 @@ Pages {
 		PageName="DeptView" PageTitle "Dept Enquiry" PageType=PageLayout {
 			BusinessObject=PermitStatus BOType=TwoPanelGrid 
 			Modified Attributes {
-				Attribute=Status ControlType=Selection {
+				Attribute=status ControlType=Selection {
 					ControlMappers [DataContainer mapsTo "selectItems.value"]
 					PredefinedContainers [ 
 						PrefContactData("Submitted","Evaluated","Accepted","Rejected","Approved")
@@ -65,8 +63,8 @@ Pages {
 			},
 			BusinessObject=Permit BOType=DataTable 
 			Modified Attributes {
-				Attribute=PermitNo ControlType=DataColumn {},
-				Attribute=PermitStatus ControlType=DataColumn {}
+				Attribute=permitNo ControlType=DataColumn {},
+				Attribute=permitStatus ControlType=DataColumn {}
 			}
 		}
 		Content Sections North=North West=West 
@@ -74,8 +72,8 @@ Pages {
 		PageName="UpdateStatus" PageTitle "Manual Update Status" PageType=PageLayout {
 			BusinessObject=Permit BOType=TwoPanelGrid 
 			Modified Attributes {
-				Attribute=PermitNo ControlType=String {},
-				Attribute=PermitStatus ControlType=Selection {
+				Attribute=permitNo ControlType=String {},
+				Attribute=permitStatus ControlType=Selection {
 					ControlMappers [DataContainer mapsTo "selectItems.value"]
 					PredefinedContainers [ 
 						PrefContactData("Submitted","Evaluated","Accepted","Rejected","Approved")
@@ -84,8 +82,8 @@ Pages {
 			},
 			BusinessObject=Permit BOType=DataTable 
 			Modified Attributes {
-				Attribute=PermitNo ControlType=DataColumn {},
-				Attribute=PermitStatus ControlType=DataColumn {}
+				Attribute=permitNo ControlType=DataColumn {},
+				Attribute=permitStatus ControlType=DataColumn {}
 			}
 		}
 		Content Sections North=North West=West,

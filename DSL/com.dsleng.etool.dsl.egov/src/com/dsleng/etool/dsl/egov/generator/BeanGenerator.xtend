@@ -100,8 +100,12 @@ class BeanGenerator  {
 		jc.addImports("javax.faces.application.FacesMessage")
 		jc.addImports("javax.faces.bean.ViewScoped")
 		jc.addImports("javax.faces.context.FacesContext")
+		jc.addImports("org.apache.commons.logging.Log")
+		jc.addImports("org.apache.commons.logging.LogFactory")
 		jc.addAnnotations("ManagedBean")
 		jc.addAnnotations("ViewScoped")
+		jc.addImplements("Serializable")
+		jc.addAttribute(new JavaAttribute("logger","Log","LogFactory.getLog(getClass())"))
 		return jc.syntax
 	}
 	

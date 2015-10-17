@@ -17,7 +17,7 @@ OrgUnit "WCLA"
 				usesEnums { name=PermitType => PermitTypes
 				}
 				superTypes { Permit }
-				basedOn { CapeNature { removes [CommonName] }
+				basedOn { CapeNature { removes [commonName] }
 			}
 		}	
 	}
