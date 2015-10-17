@@ -73,9 +73,9 @@ class BeanGenerator  {
 				op.name = bmap.businessObject.name + "_" + ba.attribute.name + "_" + "init"
 				op.type = DataTypes.VOID
 				op.syntax = initSyntax
-				var an = BobjsFactory.eINSTANCE.createAnnotation()
-				an.name = "PostConstruct"
-				op.annotations.add(an)
+				//var an = BobjsFactory.eINSTANCE.createAnnotation()
+				//an.name = "PostConstruct"
+				//op.annotations.add(an)
 				jc.addOperation(op)
 			}
 		}
@@ -106,10 +106,18 @@ class BeanGenerator  {
 		jc.addAnnotations("ViewScoped")
 		jc.addImplements("Serializable")
 		jc.addAttribute(new JavaAttribute("logger","Log","LogFactory.getLog(getClass())"))
+		
+		var op = new JavaOperation("init","void")
+		op.addAnnotations("PostConstruct")
+		op.syntax = getPostConstructSyntax.toString
+		jc.addOperation(op)
 		return jc.syntax
 	}
 	
-	
+	private def getPostConstructSyntax()'''
+		ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+		WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext).getAutowireCapableBeanFactory().autowireBean(this);
+'''
 	private def genFileName(Page p){
 		var fileName = basePackage.replace(".",fileSep);
 		fileName += fileSep + "beans" + fileSep + p.name  + "Bean.java"
