@@ -18,7 +18,7 @@ public class SPPrimefacesGenTest {
 
 	@Test
 	public void testCreateBaseProj() {
-		pT.createBaseProj("za.co.gov", "za.co.gov.eservices", "1.0.0-SNAPSHOT");
+		pT.createBaseProj("za.co.gov", "za.co.gov.eservices", "1.0.0-SNAPSHOT","za.co.gov","beaninput");
 	}
 
 }

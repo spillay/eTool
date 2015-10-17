@@ -30,7 +30,7 @@ public class PFProject {
 			OrgUnit dp = e.getBusinessUnit();
 			SPPrimefacesGen pT = new SPPrimefacesGen(dp.getDirLocation());
 			setLangFile(dp.getDirLocation() + fileSep + dp.getArtifactId() + fileSep + dp.getLangFile());
-			pT.createBaseProj(dp.getGroupId(), dp.getArtifactId(), dp.getVersion(),dp.getLangFile(),dp.getWebDirectory());
+			pT.createBaseProj(dp.getGroupId(), dp.getArtifactId(), dp.getVersion(),dp.getLangFile(),dp.getWebDirectory(),dp.getPackage(),"#beanInput#");
 		}
 	}
 	

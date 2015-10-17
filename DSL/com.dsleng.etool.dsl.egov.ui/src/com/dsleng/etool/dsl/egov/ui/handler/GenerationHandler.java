@@ -124,15 +124,16 @@ public class GenerationHandler extends AbstractHandler implements IHandler {
                         pM.cleanUp(tmpPath);
                         PFProject pF = new PFProject(tmpPath);
                         for (final EService e : _filter) {
-                        	pF.Execute(e);
+                        	pF.Execute(e,"#input#");
                         }
                         SPConsoleManager.getInstance().Info("Completed Base Project");
                         generator.doGenerate(state, fsa2);
                         //pF.Eclisify();
                         
-                        List<Object> fileSystemObjects = new ArrayList<Object>();
-                        fileSystemObjects.add(pF.getProjectName());
-                        pM.LoadProject(tmpPath, project,fileSystemObjects);
+                        //List<Object> fileSystemObjects = new ArrayList<Object>();
+                        //fileSystemObjects.add(pF.getProjectName());
+                        //pM.LoadProject(tmpPath, project,fileSystemObjects);
+                        
                         SPConsoleManager.getInstance().Info("Deploying to WildFly");
                         pF.Deploy();
                         SPConsoleManager.getInstance().Info("Deployment to WildFly Completed");

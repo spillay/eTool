@@ -44,7 +44,7 @@ public class PFProject {
 		SPMaven o = new SPMaven();
 		o.execute(baseDir+artifactid+"/pom.xml", "wildfly:deploy");
 	}
-	public void Execute(EObject model){
+	public void Execute(EObject model,String beanInput){
 		if ( model instanceof EService){
 			EService e = (EService) model;
 			OrgUnit dp = e.getBusinessUnit();
@@ -56,7 +56,7 @@ public class PFProject {
 			}
 			artifactid = dp.getArtifactId();
 			setLangFile(dp.getDirLocation() + fileSep + dp.getArtifactId() + fileSep + dp.getLangFile());
-			pT.createBaseProj(dp.getGroupId(), dp.getArtifactId(), dp.getVersion(),dp.getLangFile(),dp.getWebDirectory());
+			pT.createBaseProj(dp.getGroupId(), dp.getArtifactId(), dp.getVersion(),dp.getLangFile(),dp.getWebDirectory(),dp.getPackage(),beanInput);
 		}
 	}
 	

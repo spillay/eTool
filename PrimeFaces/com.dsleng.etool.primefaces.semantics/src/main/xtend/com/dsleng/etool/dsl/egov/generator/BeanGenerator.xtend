@@ -71,7 +71,7 @@ class BeanGenerator  {
 				// Add the Initializer
 				var op = BobjsFactory.eINSTANCE.createOperation()
 				op.name = bmap.businessObject.name + "_" + ba.attribute.name + "_" + "init"
-				//op.type = DataTypes.DATA_MAP_VALUE
+				op.type = DataTypes.VOID
 				op.syntax = initSyntax
 				var an = BobjsFactory.eINSTANCE.createAnnotation()
 				an.name = "PostConstruct"
@@ -83,7 +83,7 @@ class BeanGenerator  {
 	private def getSyntax(Page p){
 		var e = BobjsFactory.eINSTANCE.createBusinessObject
 		e.name = p.name + "Bean"
-		jc = new JavaClass(e);
+		jc = new JavaClass(e,"Impl");
 		jc.package = basePackage + ".beans"
 		for(b:p.BOMaps){
 			var pName = (b.businessObject.eContainer as OrgUnit).package

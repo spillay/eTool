@@ -1,7 +1,7 @@
 OrgUnit "CapeNature" 
 	setup {
 			GroupID "za.co.egov",
-			ArtifactID "za.co.egov.cn",
+			ArtifactID "za.co.egov.cn.web",
 			Version "1.0.0-SNAPSHOT",
 			Deployment Directory "/Data/maventest/",
 			Language File "dsl/s1.egv.xmi",

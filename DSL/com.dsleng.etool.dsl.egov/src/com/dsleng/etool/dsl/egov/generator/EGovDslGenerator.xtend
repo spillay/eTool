@@ -28,6 +28,10 @@ class EGovDslGenerator implements IGenerator {
 			// Generate the hbms
 			val db = new DBGenerator()
 			db.doGenerate(e.businessUnit,fsa,e.businessUnit.artifactId,e.businessUnit.package)
+			
+			val dataLayer = new DataLayerGenerator()
+			dataLayer.doGenerate(e.businessUnit,fsa,e.businessUnit.artifactId,e.businessUnit.package)
+			
 			eg.doGenerate(resource,fsa,e.businessUnit.artifactId,e.businessUnit.package,cm)
 		}
 	}

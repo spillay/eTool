@@ -26,7 +26,7 @@ public class SPPrimefacesGen extends SPGenerator {
 	}
 
 	
-	public void createBaseProj(String groupId,String artifactId,String version,String langFile,String webdir){
+	public void createBaseProj(String groupId,String artifactId,String version,String langFile,String webdir,String packageName,String beanInput){
 			InvocationRequest request = new DefaultInvocationRequest();
 			//request.setPomFile( new File( "/path/to/pom.xml" ) );
 			request.setGoals( Collections.singletonList( "archetype:generate" ) );
@@ -41,11 +41,13 @@ public class SPPrimefacesGen extends SPGenerator {
 	        properties.setProperty("archetypeCatalog", "local");
 	        
 	        properties.setProperty("version", version);
-	        properties.setProperty("package", artifactId);
+	        properties.setProperty("package", packageName);
 	        properties.setProperty("langFile", langFile);
 	        properties.setProperty("webdir", webdir);
 	        
-	       		
+	        properties.setProperty("packageName", packageName);
+	        properties.setProperty("beanInput", beanInput);
+	        
 	        request.setProperties(properties);
 	        
 	        request.setBaseDirectory(new File(getBaseDirectory()));
