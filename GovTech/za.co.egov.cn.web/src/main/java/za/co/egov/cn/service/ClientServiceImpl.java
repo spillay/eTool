@@ -44,4 +44,8 @@ public class ClientServiceImpl implements ClientService {
 	public List<Client> getByID(String id) {
 		return dataDao.getByID(id);
 	}
+	@Override
+	public Client getByCardNo(String cardno) {
+		return dataDao.getClient(cardno);
+	}
 }

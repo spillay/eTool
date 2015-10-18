@@ -11,6 +11,9 @@
     <property name="permitNo" type="string">
          <column name="permitno" length="100" not-null="false" />
     </property>
+    <property name="comment" type="string">
+         <column name="comment" length="100" not-null="false" />
+    </property>
     <property name="referenceNo" type="string">
          <column name="referenceno" length="100" not-null="false" />
     </property>

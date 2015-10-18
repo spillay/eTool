@@ -28,6 +28,7 @@ import javax.servlet.ServletContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -38,15 +39,38 @@ public class DeptViewBean implements Serializable {
 	private PermitStatus permitStatus;
 	private String selectedStatus;
 	private Permit selectedPermit;
+	
+	private boolean payPanel;
+	private boolean approvedPanel;
+	
+	public boolean isPayPanel() {
+		return payPanel;
+	}
+
+	public void setPayPanel(boolean payPanel) {
+		this.payPanel = payPanel;
+	}
+
+	public boolean isApprovedPanel() {
+		return approvedPanel;
+	}
+
+	public void setApprovedPanel(boolean approvedPanel) {
+		this.approvedPanel = approvedPanel;
+	}
+
 	public Permit getSelectedPermit() {
 		return selectedPermit;
 	}
 
 	public void setSelectedPermit(Permit selectedPermit) {
 		this.selectedPermit = selectedPermit;
-		logger.debug("Selected Permit: " + selectedPermit.getId());
-		logger.debug("Selected Permit: " + selectedPermit.getClient().getIdno());
-		logger.debug("Selected Permit: " + selectedPermit.getClient().getEmail());
+		logger.debug("Selected Permit Table ID: " + selectedPermit.getId());
+		logger.debug("Selected Permit ID No: " + selectedPermit.getClient().getIdno());
+		logger.debug("Selected Permit Client Email: " + selectedPermit.getClient().getEmail());
+		logger.debug("Selected Permit Status: " + selectedPermit.getPermitstatus().getStatus());
+		logger.debug("Selected Permit Type: " + selectedPermit.getPermittype().getName());
+		
 	}
 
 	private Map<String, String> permitStatusData;
@@ -59,6 +83,20 @@ public class DeptViewBean implements Serializable {
 
 	public void setSelectedStatus(String selectedStatus) {
 		this.selectedStatus = selectedStatus;
+		logger.debug("Selected Status ===>");
+		switch(selectedStatus){
+		case "Paid":
+			this.payPanel = true;
+			this.approvedPanel = false;
+			break;
+		case "Approved":
+			this.approvedPanel = true;
+			this.payPanel = false;
+			break;
+		}
+		RequestContext.getCurrentInstance().update("statusdetailForm");
+		RequestContext.getCurrentInstance().update("statusdetailForm:permintNoOutput");
+		RequestContext.getCurrentInstance().update("statusdetailForm:permintNoInput");
 	}
 
 	public Map<String, String> getPermitStatusData() {
@@ -93,6 +131,8 @@ public class DeptViewBean implements Serializable {
 			logger.debug("with id: " + p.getId());
 			permitStatusData.put(p.getStatus(), p.getStatus());
 		}
+		this.payPanel = false;
+		this.approvedPanel = false;
 	}
 	
 	private PermitStatus getStatus(String name){
@@ -104,6 +144,13 @@ public class DeptViewBean implements Serializable {
 			}
 		}
 		return null;
+	}
+	public void updateStatus(ActionEvent actionEvent) {
+		logger.debug("update status permit: " + this.selectedPermit.getId());
+		selectedPermit.setPermitstatus(getStatus(selectedStatus));
+		permitData.updateEntity(selectedPermit);
+		this.approvedPanel = false;
+		this.payPanel = false;
 	}
 	public void updateAction(ActionEvent actionEvent) {
 		logger.debug("update permit: " + this.selectedPermit.getId());

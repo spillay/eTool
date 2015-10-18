@@ -14,7 +14,7 @@
 <p:layoutUnit position="center" size="100" minSize="40" maxSize="200"><h:body><h:form><p:panel header="Permit Enquiry"><p:panel header="Client">
 <p:panelGrid columns="2" cellpadding="4">
 <h:outputText value="Identity Number"></h:outputText>
-<p:inputMask mask="9-9-9-9-9-9-9-9-9-9-9-9-9" value="#{clientEnquiryBean.client.idno}"></p:inputMask>
+<p:inputMask mask="9-9-9-9-9-9-9-9-9-9-9-9-9" value="#{clientEnquiryBean.client.idno}" required="true" requiredMessage="Valid Green Barcode ID is Required"></p:inputMask>
 <p:growl id="growl" life="2000" />
 <p:commandButton value="search" id="ajax" update="growl,PermitTable" actionListener="#{clientEnquiryBean.searchAction}"  styleClass="ui-priority-primary" />
 
@@ -32,6 +32,7 @@
 
 
 </p:panel>
+<p:commandButton value="Done" id="doneBtn"  immediate="true" validateClient="false" action="/index.xhtml?faces-redirect=true"/>
 </h:form>
 </h:body>
 </p:layoutUnit>

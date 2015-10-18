@@ -31,6 +31,7 @@ import javax.servlet.ServletContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,9 +51,17 @@ public class PermitAppBean implements Serializable {
 	private Log logger = LogFactory.getLog(getClass());
 	private List<Permit> permits = new ArrayList<Permit>();
 	private String comments;
+	private boolean submitButtonState;
 	
 	
-	
+	public boolean isSubmitButtonState() {
+		return submitButtonState;
+	}
+
+	public void setSubmitButtonState(boolean submitButtonState) {
+		this.submitButtonState = submitButtonState;
+	}
+
 	public String getComments() {
 		return comments;
 	}
@@ -151,6 +160,7 @@ public class PermitAppBean implements Serializable {
         WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext)
            .getAutowireCapableBeanFactory().autowireBean(this);
 
+        this.submitButtonState = true;
         Client_prefContact_init();
         Permittype_init();
     }
@@ -163,18 +173,25 @@ public class PermitAppBean implements Serializable {
 
 	}
 	public void onEdit(RowEditEvent event) {
+		logger.debug("OnEdit");
+		this.submitButtonState = false;
+    	RequestContext.getCurrentInstance().update("mainForm:submitBtn");
         FacesMessage msg = new FacesMessage("Permit Edited", ((Permit) event.getObject()).getPermitNo());
         ((Permit) event.getObject()).setPermittype(this.getPermitType(selectedPermittype));
+        ((Permit) event.getObject()).setComment(getComments());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
      
     public void onCancel(RowEditEvent event) {
+    	logger.debug("OnCancel");
         FacesMessage msg = new FacesMessage("Edit Cancelled", ((Permit) event.getObject()).getPermitNo());
         FacesContext.getCurrentInstance().addMessage(null, msg);
         permits.remove(((Permit) event.getObject()));
     }
      
     public void onEdit(CellEditEvent event) {
+    	logger.debug("OnEdit CellEditEvent");
+    	
         Object oldValue = event.getOldValue();
         Object newValue = event.getNewValue();
          
@@ -184,6 +201,7 @@ public class PermitAppBean implements Serializable {
         }
     }
 	public String addAction() {
+		this.submitButtonState = true;
 		Permit p = new Permit();
 		p.setPermitNo("New");
         permits.add(p);

@@ -1,5 +1,5 @@
 package za.co.egov.cn;
-// Generated 18 Oct 2015 4:49:29 AM by Hibernate Tools 3.2.2.GA
+// Generated 18 Oct 2015 4:05:49 PM by Hibernate Tools 3.2.2.GA
 
 
 import java.util.Date;
@@ -31,6 +31,7 @@ public class Permit  implements java.io.Serializable {
 
      private Integer id;
      private String permitNo;
+     private String comment;
      private String referenceNo;
      private String permitStatus;
      private Date dateIssued;
@@ -51,8 +52,9 @@ public class Permit  implements java.io.Serializable {
         this.permitstatus = permitstatus;
         this.client = client;
     }
-    public Permit(String permitNo, String referenceNo, String permitStatus, Date dateIssued, Date dteValidFrom, Date dteValidTo, double amountPaid, PermitType permittype, PermitStatus permitstatus, Client client, Set<PermitHistory> PERMITHISTORY_PERMITS) {
+    public Permit(String permitNo, String comment, String referenceNo, String permitStatus, Date dateIssued, Date dteValidFrom, Date dteValidTo, double amountPaid, PermitType permittype, PermitStatus permitstatus, Client client, Set<PermitHistory> PERMITHISTORY_PERMITS) {
        this.permitNo = permitNo;
+       this.comment = comment;
        this.referenceNo = referenceNo;
        this.permitStatus = permitStatus;
        this.dateIssued = dateIssued;
@@ -83,6 +85,15 @@ public class Permit  implements java.io.Serializable {
     
     public void setPermitNo(String permitNo) {
         this.permitNo = permitNo;
+    }
+    
+    @Column(name="comment", length=100)
+    public String getComment() {
+        return this.comment;
+    }
+    
+    public void setComment(String comment) {
+        this.comment = comment;
     }
     
     @Column(name="referenceno", length=100)

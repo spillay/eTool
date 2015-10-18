@@ -1,0 +1,671 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.3.9
+-- Dumped by pg_dump version 9.3.9
+-- Started on 2015-10-18 14:03:28 SAST
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 184 (class 3079 OID 11787)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2051 (class 0 OID 0)
+-- Dependencies: 184
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 171 (class 1259 OID 30127)
+-- Name: capenature; Type: TABLE; Schema: public; Owner: egov; Tablespace: 
+--
+
+CREATE TABLE capenature (
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.capenature OWNER TO egov;
+
+--
+-- TOC entry 170 (class 1259 OID 30125)
+-- Name: capenature_id_seq; Type: SEQUENCE; Schema: public; Owner: egov
+--
+
+CREATE SEQUENCE capenature_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.capenature_id_seq OWNER TO egov;
+
+--
+-- TOC entry 2052 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: capenature_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: egov
+--
+
+ALTER SEQUENCE capenature_id_seq OWNED BY capenature.id;
+
+
+--
+-- TOC entry 173 (class 1259 OID 30135)
+-- Name: client; Type: TABLE; Schema: public; Owner: egov; Tablespace: 
+--
+
+CREATE TABLE client (
+    id integer NOT NULL,
+    idno character varying(100),
+    cardno character varying(100),
+    cardpin character varying(100),
+    firstname1 character varying(100),
+    firstname2 character varying(100),
+    firstname3 character varying(100),
+    surname character varying(100),
+    telphoneno character varying(100),
+    cellno character varying(100),
+    email character varying(100),
+    prefcontact character varying(100)
+);
+
+
+ALTER TABLE public.client OWNER TO egov;
+
+--
+-- TOC entry 172 (class 1259 OID 30133)
+-- Name: client_id_seq; Type: SEQUENCE; Schema: public; Owner: egov
+--
+
+CREATE SEQUENCE client_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.client_id_seq OWNER TO egov;
+
+--
+-- TOC entry 2053 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: client_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: egov
+--
+
+ALTER SEQUENCE client_id_seq OWNED BY client.id;
+
+
+--
+-- TOC entry 175 (class 1259 OID 30146)
+-- Name: permit; Type: TABLE; Schema: public; Owner: egov; Tablespace: 
+--
+
+CREATE TABLE permit (
+    id integer NOT NULL,
+    permitno character varying(100),
+    referenceno character varying(100),
+    permitstatus character varying(100),
+    dateissued date,
+    dtevalidfrom date,
+    dtevalidto date,
+    amountpaid double precision,
+    permit_permittype_id integer NOT NULL,
+    permit_permitstatus_id integer NOT NULL,
+    permit_client_id integer NOT NULL
+);
+
+
+ALTER TABLE public.permit OWNER TO egov;
+
+--
+-- TOC entry 174 (class 1259 OID 30144)
+-- Name: permit_id_seq; Type: SEQUENCE; Schema: public; Owner: egov
+--
+
+CREATE SEQUENCE permit_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.permit_id_seq OWNER TO egov;
+
+--
+-- TOC entry 2054 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: permit_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: egov
+--
+
+ALTER SEQUENCE permit_id_seq OWNED BY permit.id;
+
+
+--
+-- TOC entry 177 (class 1259 OID 30154)
+-- Name: permithistory; Type: TABLE; Schema: public; Owner: egov; Tablespace: 
+--
+
+CREATE TABLE permithistory (
+    id integer NOT NULL,
+    datechanged date,
+    referenceno character varying(100),
+    permitdescription character varying(100),
+    notificationsend character varying(100),
+    reasonforchge character varying(100),
+    permithistory_permittype_id integer NOT NULL,
+    permithistory_permitstatus_id integer NOT NULL,
+    permithistory_permit_id integer NOT NULL
+);
+
+
+ALTER TABLE public.permithistory OWNER TO egov;
+
+--
+-- TOC entry 176 (class 1259 OID 30152)
+-- Name: permithistory_id_seq; Type: SEQUENCE; Schema: public; Owner: egov
+--
+
+CREATE SEQUENCE permithistory_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.permithistory_id_seq OWNER TO egov;
+
+--
+-- TOC entry 2055 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: permithistory_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: egov
+--
+
+ALTER SEQUENCE permithistory_id_seq OWNED BY permithistory.id;
+
+
+--
+-- TOC entry 179 (class 1259 OID 30162)
+-- Name: permitstatus; Type: TABLE; Schema: public; Owner: egov; Tablespace: 
+--
+
+CREATE TABLE permitstatus (
+    id integer NOT NULL,
+    status character varying(100)
+);
+
+
+ALTER TABLE public.permitstatus OWNER TO egov;
+
+--
+-- TOC entry 178 (class 1259 OID 30160)
+-- Name: permitstatus_id_seq; Type: SEQUENCE; Schema: public; Owner: egov
+--
+
+CREATE SEQUENCE permitstatus_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.permitstatus_id_seq OWNER TO egov;
+
+--
+-- TOC entry 2056 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: permitstatus_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: egov
+--
+
+ALTER SEQUENCE permitstatus_id_seq OWNED BY permitstatus.id;
+
+
+--
+-- TOC entry 181 (class 1259 OID 30170)
+-- Name: permittype; Type: TABLE; Schema: public; Owner: egov; Tablespace: 
+--
+
+CREATE TABLE permittype (
+    id integer NOT NULL,
+    name character varying(100)
+);
+
+
+ALTER TABLE public.permittype OWNER TO egov;
+
+--
+-- TOC entry 180 (class 1259 OID 30168)
+-- Name: permittype_id_seq; Type: SEQUENCE; Schema: public; Owner: egov
+--
+
+CREATE SEQUENCE permittype_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.permittype_id_seq OWNER TO egov;
+
+--
+-- TOC entry 2057 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: permittype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: egov
+--
+
+ALTER SEQUENCE permittype_id_seq OWNED BY permittype.id;
+
+
+--
+-- TOC entry 183 (class 1259 OID 30178)
+-- Name: wildanimals; Type: TABLE; Schema: public; Owner: egov; Tablespace: 
+--
+
+CREATE TABLE wildanimals (
+    id integer NOT NULL,
+    commonname character varying(100)
+);
+
+
+ALTER TABLE public.wildanimals OWNER TO egov;
+
+--
+-- TOC entry 182 (class 1259 OID 30176)
+-- Name: wildanimals_id_seq; Type: SEQUENCE; Schema: public; Owner: egov
+--
+
+CREATE SEQUENCE wildanimals_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.wildanimals_id_seq OWNER TO egov;
+
+--
+-- TOC entry 2058 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: wildanimals_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: egov
+--
+
+ALTER SEQUENCE wildanimals_id_seq OWNED BY wildanimals.id;
+
+
+--
+-- TOC entry 1896 (class 2604 OID 30130)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY capenature ALTER COLUMN id SET DEFAULT nextval('capenature_id_seq'::regclass);
+
+
+--
+-- TOC entry 1897 (class 2604 OID 30138)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY client ALTER COLUMN id SET DEFAULT nextval('client_id_seq'::regclass);
+
+
+--
+-- TOC entry 1898 (class 2604 OID 30149)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permit ALTER COLUMN id SET DEFAULT nextval('permit_id_seq'::regclass);
+
+
+--
+-- TOC entry 1899 (class 2604 OID 30157)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permithistory ALTER COLUMN id SET DEFAULT nextval('permithistory_id_seq'::regclass);
+
+
+--
+-- TOC entry 1900 (class 2604 OID 30165)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permitstatus ALTER COLUMN id SET DEFAULT nextval('permitstatus_id_seq'::regclass);
+
+
+--
+-- TOC entry 1901 (class 2604 OID 30173)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permittype ALTER COLUMN id SET DEFAULT nextval('permittype_id_seq'::regclass);
+
+
+--
+-- TOC entry 1902 (class 2604 OID 30181)
+-- Name: id; Type: DEFAULT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY wildanimals ALTER COLUMN id SET DEFAULT nextval('wildanimals_id_seq'::regclass);
+
+
+--
+-- TOC entry 2031 (class 0 OID 30127)
+-- Dependencies: 171
+-- Data for Name: capenature; Type: TABLE DATA; Schema: public; Owner: egov
+--
+
+
+
+--
+-- TOC entry 2059 (class 0 OID 0)
+-- Dependencies: 170
+-- Name: capenature_id_seq; Type: SEQUENCE SET; Schema: public; Owner: egov
+--
+
+SELECT pg_catalog.setval('capenature_id_seq', 1, false);
+
+
+--
+-- TOC entry 2033 (class 0 OID 30135)
+-- Dependencies: 173
+-- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: egov
+--
+
+INSERT INTO client VALUES (1, '1-2-1-2-2-3-4-2-3-4-3-2-4', NULL, NULL, '432432423', NULL, NULL, NULL, '(432) 432-4234', '(423) 432-4324', 'fs@df', 'EMAIL');
+INSERT INTO client VALUES (2, '1-2-1-2-2-3-4-2-3-4-3-2-4', NULL, NULL, '432432423', NULL, NULL, NULL, '(432) 432-4234', '(423) 432-4324', 'fs@df', 'EMAIL');
+INSERT INTO client VALUES (3, '1-1-1-1-1-1-1-1-1-1-1-1-1', NULL, NULL, 's1', NULL, NULL, NULL, '(432) 432-4242', '(423) 423-4324', 'fs@df', 'EMAIL');
+INSERT INTO client VALUES (4, '2-2-2-2-2-2-2-2-2-2-2-2-2', NULL, NULL, 'dsdsa', NULL, NULL, NULL, '(323) 323-2332', '(233) 232-3232', 'fd@sf', 'EMAIL');
+INSERT INTO client VALUES (5, '3-3-3-3-3-3-3-3-3-3-3-3-3', NULL, NULL, 'sp', NULL, NULL, NULL, '(424) 342-3423', '(423) 432-4234', 'ds@ad', 'EMAIL');
+INSERT INTO client VALUES (6, '3-3-3-3-3-3-3-3-3-3-3-3-3', NULL, NULL, 'dasdad', NULL, NULL, NULL, '(321) 321-3213', '(312) 321-3123', 'da@ds', 'EMAIL');
+INSERT INTO client VALUES (7, '3-3-3-3-3-3-3-3-3-3-3-3-3', NULL, NULL, 'dasdsad', NULL, NULL, NULL, '(313) 232-1321', '(321) 132-1321', 'ad@sd', 'EMAIL');
+INSERT INTO client VALUES (8, '5-5-5-5-5-5-5-5-5-5-5-5-5', NULL, NULL, 'dasdsa', NULL, NULL, NULL, '(321) 111-1111', '(323) 213-2323', 'ds@ad', 'EMAIL');
+INSERT INTO client VALUES (9, '5-3-4-5-4-3-5-3-4-5-3-4-5', NULL, NULL, 'wfsdfdsfsdf', NULL, NULL, NULL, '(424) 342-3424', '(234) 325-3255', 'as@da', 'EMAIL');
+INSERT INTO client VALUES (10, '1-2-2-1-1-2-1-2-2-1-2-1-2', NULL, NULL, 'adsd', NULL, NULL, NULL, '(321) 434-2432', '(321) 213-2132', 'lf@ds', 'EMAIL');
+INSERT INTO client VALUES (11, '1-2-2-1-1-2-1-2-2-1-2-1-2', NULL, NULL, 'adsd', NULL, NULL, NULL, '(321) 434-2432', '(321) 213-2132', 'lf@ds', 'EMAIL');
+INSERT INTO client VALUES (12, '2-1-2-3-2-4-2-3-4-5-3-4-5', NULL, NULL, 'adsd', NULL, NULL, NULL, '(321) 434-2432', '(321) 213-2132', 'lf@ds', 'EMAIL');
+INSERT INTO client VALUES (13, '5-4-3-5-4-3-5-3-4-5-4-3-5', NULL, NULL, 'adsd', NULL, NULL, NULL, '(321) 434-2432', '(321) 213-2132', 'lf@ds', 'EMAIL');
+INSERT INTO client VALUES (14, '1-2-4-3-4-3-2-4-2-3-4-3-2', NULL, NULL, 'fsdfdsj', NULL, NULL, NULL, '(432) 434-2343', '(322) 233-2322', 'ss@df', 'EMAIL');
+INSERT INTO client VALUES (15, '3-1-3-2-3-2-1-3-2-1-3-2-1', NULL, NULL, 'dsadsa', NULL, NULL, NULL, '(321) 323-1312', '(231) 312-3123', 'as@da', 'EMAIL');
+INSERT INTO client VALUES (16, '2-1-3-2-3-2-3-1-3-2-1-3-2', NULL, NULL, 'asdsadas', NULL, NULL, NULL, '', '', '', NULL);
+INSERT INTO client VALUES (17, '3-2-1-3-2-1-3-2-1-3-1-2-3', NULL, NULL, 'dasdsa', NULL, NULL, NULL, '', '', '', NULL);
+
+
+--
+-- TOC entry 2060 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: egov
+--
+
+SELECT pg_catalog.setval('client_id_seq', 17, true);
+
+
+--
+-- TOC entry 2035 (class 0 OID 30146)
+-- Dependencies: 175
+-- Data for Name: permit; Type: TABLE DATA; Schema: public; Owner: egov
+--
+
+INSERT INTO permit VALUES (11, 'New', NULL, NULL, NULL, NULL, NULL, 0, 1, 1, 9);
+INSERT INTO permit VALUES (12, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 10);
+INSERT INTO permit VALUES (13, 'New', NULL, NULL, NULL, NULL, NULL, 0, 1, 1, 10);
+INSERT INTO permit VALUES (14, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 11);
+INSERT INTO permit VALUES (15, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 12);
+INSERT INTO permit VALUES (16, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 13);
+INSERT INTO permit VALUES (17, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 14);
+INSERT INTO permit VALUES (2, NULL, NULL, NULL, '2015-10-13', '2015-10-12', '2015-10-12', 234, 2, 1, 2);
+INSERT INTO permit VALUES (18, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 15);
+INSERT INTO permit VALUES (19, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 16);
+INSERT INTO permit VALUES (20, 'New', NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 17);
+INSERT INTO permit VALUES (3, '1234', NULL, NULL, '2015-10-14', '2015-10-15', '2015-10-14', 342, 2, 2, 3);
+INSERT INTO permit VALUES (4, '1223', NULL, NULL, '2015-10-07', '2015-10-13', '2015-10-20', 3433213, 2, 2, 2);
+INSERT INTO permit VALUES (8, '1223345435', NULL, NULL, '2015-10-13', '2015-10-21', '2015-10-14', 235, 2, 2, 7);
+INSERT INTO permit VALUES (10, 'dsadsada', NULL, NULL, '2015-10-13', '2015-10-14', '2015-10-14', 230, 1, 2, 8);
+INSERT INTO permit VALUES (5, '8798797', NULL, NULL, '2015-10-06', '2015-10-15', '2015-10-21', 234, 2, 2, 4);
+INSERT INTO permit VALUES (9, 'PB1234', NULL, NULL, '2015-10-20', '2015-10-14', '2015-10-15', 230, 2, 2, 8);
+
+
+--
+-- TOC entry 2061 (class 0 OID 0)
+-- Dependencies: 174
+-- Name: permit_id_seq; Type: SEQUENCE SET; Schema: public; Owner: egov
+--
+
+SELECT pg_catalog.setval('permit_id_seq', 20, true);
+
+
+--
+-- TOC entry 2037 (class 0 OID 30154)
+-- Dependencies: 177
+-- Data for Name: permithistory; Type: TABLE DATA; Schema: public; Owner: egov
+--
+
+
+
+--
+-- TOC entry 2062 (class 0 OID 0)
+-- Dependencies: 176
+-- Name: permithistory_id_seq; Type: SEQUENCE SET; Schema: public; Owner: egov
+--
+
+SELECT pg_catalog.setval('permithistory_id_seq', 1, false);
+
+
+--
+-- TOC entry 2039 (class 0 OID 30162)
+-- Dependencies: 179
+-- Data for Name: permitstatus; Type: TABLE DATA; Schema: public; Owner: egov
+--
+
+INSERT INTO permitstatus VALUES (1, 'Submitted');
+INSERT INTO permitstatus VALUES (2, 'Approved');
+INSERT INTO permitstatus VALUES (3, 'Paid');
+
+
+--
+-- TOC entry 2063 (class 0 OID 0)
+-- Dependencies: 178
+-- Name: permitstatus_id_seq; Type: SEQUENCE SET; Schema: public; Owner: egov
+--
+
+SELECT pg_catalog.setval('permitstatus_id_seq', 3, true);
+
+
+--
+-- TOC entry 2041 (class 0 OID 30170)
+-- Dependencies: 181
+-- Data for Name: permittype; Type: TABLE DATA; Schema: public; Owner: egov
+--
+
+INSERT INTO permittype VALUES (1, 'Fishing');
+INSERT INTO permittype VALUES (2, 'Hunting');
+
+
+--
+-- TOC entry 2064 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: permittype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: egov
+--
+
+SELECT pg_catalog.setval('permittype_id_seq', 2, true);
+
+
+--
+-- TOC entry 2043 (class 0 OID 30178)
+-- Dependencies: 183
+-- Data for Name: wildanimals; Type: TABLE DATA; Schema: public; Owner: egov
+--
+
+
+
+--
+-- TOC entry 2065 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: wildanimals_id_seq; Type: SEQUENCE SET; Schema: public; Owner: egov
+--
+
+SELECT pg_catalog.setval('wildanimals_id_seq', 1, false);
+
+
+--
+-- TOC entry 1904 (class 2606 OID 30132)
+-- Name: capenature_pkey; Type: CONSTRAINT; Schema: public; Owner: egov; Tablespace: 
+--
+
+ALTER TABLE ONLY capenature
+    ADD CONSTRAINT capenature_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1906 (class 2606 OID 30143)
+-- Name: client_pkey; Type: CONSTRAINT; Schema: public; Owner: egov; Tablespace: 
+--
+
+ALTER TABLE ONLY client
+    ADD CONSTRAINT client_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1908 (class 2606 OID 30151)
+-- Name: permit_pkey; Type: CONSTRAINT; Schema: public; Owner: egov; Tablespace: 
+--
+
+ALTER TABLE ONLY permit
+    ADD CONSTRAINT permit_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1910 (class 2606 OID 30159)
+-- Name: permithistory_pkey; Type: CONSTRAINT; Schema: public; Owner: egov; Tablespace: 
+--
+
+ALTER TABLE ONLY permithistory
+    ADD CONSTRAINT permithistory_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1912 (class 2606 OID 30167)
+-- Name: permitstatus_pkey; Type: CONSTRAINT; Schema: public; Owner: egov; Tablespace: 
+--
+
+ALTER TABLE ONLY permitstatus
+    ADD CONSTRAINT permitstatus_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1914 (class 2606 OID 30175)
+-- Name: permittype_pkey; Type: CONSTRAINT; Schema: public; Owner: egov; Tablespace: 
+--
+
+ALTER TABLE ONLY permittype
+    ADD CONSTRAINT permittype_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1916 (class 2606 OID 30183)
+-- Name: wildanimals_pkey; Type: CONSTRAINT; Schema: public; Owner: egov; Tablespace: 
+--
+
+ALTER TABLE ONLY wildanimals
+    ADD CONSTRAINT wildanimals_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1918 (class 2606 OID 30189)
+-- Name: fkc4e3841b1ab213ef; Type: FK CONSTRAINT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permit
+    ADD CONSTRAINT fkc4e3841b1ab213ef FOREIGN KEY (permit_permitstatus_id) REFERENCES permitstatus(id);
+
+
+--
+-- TOC entry 1919 (class 2606 OID 30194)
+-- Name: fkc4e3841bc65d8acf; Type: FK CONSTRAINT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permit
+    ADD CONSTRAINT fkc4e3841bc65d8acf FOREIGN KEY (permit_client_id) REFERENCES client(id);
+
+
+--
+-- TOC entry 1917 (class 2606 OID 30184)
+-- Name: fkc4e3841be659c82f; Type: FK CONSTRAINT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permit
+    ADD CONSTRAINT fkc4e3841be659c82f FOREIGN KEY (permit_permittype_id) REFERENCES permittype(id);
+
+
+--
+-- TOC entry 1922 (class 2606 OID 30209)
+-- Name: fkccdf9c1923950bad; Type: FK CONSTRAINT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permithistory
+    ADD CONSTRAINT fkccdf9c1923950bad FOREIGN KEY (permithistory_permittype_id) REFERENCES permittype(id);
+
+
+--
+-- TOC entry 1921 (class 2606 OID 30204)
+-- Name: fkccdf9c19f62a6fed; Type: FK CONSTRAINT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permithistory
+    ADD CONSTRAINT fkccdf9c19f62a6fed FOREIGN KEY (permithistory_permitstatus_id) REFERENCES permitstatus(id);
+
+
+--
+-- TOC entry 1920 (class 2606 OID 30199)
+-- Name: fkccdf9c19f9ec9b4d; Type: FK CONSTRAINT; Schema: public; Owner: egov
+--
+
+ALTER TABLE ONLY permithistory
+    ADD CONSTRAINT fkccdf9c19f9ec9b4d FOREIGN KEY (permithistory_permit_id) REFERENCES permit(id);
+
+
+--
+-- TOC entry 2050 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2015-10-18 14:03:28 SAST
+
+--
+-- PostgreSQL database dump complete
+--
+

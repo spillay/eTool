@@ -8,6 +8,9 @@
             <column name="ID" />
             <generator class="identity"></generator>
         </id>
+    <property name="createDate" type="date">
+         <column name="createdate" length="30" not-null="false" />
+    </property>
     <property name="idno" type="string">
          <column name="idno" length="100" not-null="false" />
     </property>
@@ -40,7 +43,7 @@
     </property>
     <property name="prefContact" type="string">
          <column name="prefcontact" length="100" not-null="false" />
-    </property>
+    </property> 
     <set name="PERMIT_CLIENTS" inverse="true" cascade="all">
                 <key column="PERMIT_CLIENT_ID" not-null="true" />
                 <one-to-many class="za.co.egov.cn.Permit"/>

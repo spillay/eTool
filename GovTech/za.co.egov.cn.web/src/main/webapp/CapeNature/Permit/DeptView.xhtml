@@ -48,6 +48,12 @@
 						<p:column headerText="Permit Type">
 							<h:outputText value="#{permit.permittype.name}" />
 						</p:column>
+						<p:column headerText="Comments">
+							<h:outputText value="#{permit.comment}" />
+						</p:column>
+						<p:column headerText="Amount">
+							<h:outputText value="#{permit.amountPaid}" />
+						</p:column>
 						<p:column headerText="Date Issued">
 							<h:outputText value="#{permit.dateIssued}" />
 						</p:column>
@@ -62,9 +68,53 @@
 								action="#{deptViewBean.setSelectedPermit(permit)}"
 								update=":detail" oncomplete="PF('detail').show()" />
 						</p:column>
+						<p:column>
+							<p:commandButton value="Status"
+								action="#{deptViewBean.setSelectedPermit(permit)}"
+								update=":statusdetail" oncomplete="PF('statusdetail').show()" />
+						</p:column>
 					</p:dataTable>
 				</p:panel>
+				<p:commandButton value="Done" id="doneBtn"  immediate="true" validateClient="false" action="/index.xhtml?faces-redirect=true"/>
 			</h:form>
+			<p:dialog id="statusdetail" widgetVar="statusdetail">
+				<h:form id="statusdetailForm">
+					<p:panel header="Permit Details">
+				<p:panelGrid columns="2" cellpadding="4">
+							
+							<h:outputText value="DateIssued"></h:outputText>
+							<p:inputText 
+								value="#{deptViewBean.selectedPermit.dateIssued}" readonly="true"></p:inputText>
+							<h:outputText value="Date Valid From"></h:outputText>
+							<p:inputText
+								value="#{deptViewBean.selectedPermit.dteValidFrom}"  readonly="true"></p:inputText>
+							<h:outputText value="Date Valid To"></h:outputText>
+							<p:inputText
+								value="#{deptViewBean.selectedPermit.dteValidTo}"  readonly="true"></p:inputText>
+							<h:outputText value="Type"></h:outputText>
+							<p:inputText value="#{deptViewBean.selectedPermit.permittype.name}" readonly="true"></p:inputText>
+							<h:outputText value="Current Status"></h:outputText>
+							<p:inputText value="#{deptViewBean.selectedPermit.permitstatus.status}" readonly="true"></p:inputText>
+							<h:outputText value="Permit Status"></h:outputText>
+							<p:selectOneMenu style="width:150px"
+								value="#{deptViewBean.selectedStatus}">
+								<p:ajax></p:ajax>
+								<f:selectItem noSelectionOption="true">
+								</f:selectItem>
+								<f:selectItems value="#{deptViewBean.permitStatusData}"></f:selectItems>
+							</p:selectOneMenu>
+							<h:outputText id="permintNoOutput" value="Permit No:" rendered="#{deptViewBean.approvedPanel}"></h:outputText>
+							<p:inputText id="permintNoInput"
+								value="#{deptViewBean.selectedPermit.permitNo}" rendered="#{deptViewBean.approvedPanel}"></p:inputText>
+							<h:outputText value="Amount Paid" rendered="#{deptViewBean.payPanel}"></h:outputText>
+							<p:inputText value="#{deptViewBean.selectedPermit.amountPaid}" rendered="#{deptViewBean.payPanel}"></p:inputText>
+						
+				</p:panelGrid>
+				<p:commandButton value="Save" actionListener="#{deptViewBean.updateStatus}" update=":mainForm:PermitTable" oncomplete="PF('statusdetail').hide()" />
+				<p:button value="Close" onclick="PF('statusdetail').hide(); return false" />
+				</p:panel>
+				</h:form>
+			</p:dialog>
 			<p:dialog id="detail" widgetVar="detail">
 				<h:form>
 					<p:panel header="Client Details">
@@ -90,7 +140,9 @@
 								value="#{deptViewBean.selectedPermit.client.email}"
 								readonly="true"></p:inputMask>
 						</p:panelGrid>
+						
 					</p:panel>
+					
 					<p:panel header="Permit Details">
 
 						<p:panelGrid columns="2" cellpadding="4">

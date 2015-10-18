@@ -13,4 +13,6 @@ public interface ClientService  {
 	public List<Client> getEntities();
 	public Optional<Client> getEntity(Long i);
 	public List<Client> getByID(String id);
+	Client getByCardNo(String cardno);
+
 }
