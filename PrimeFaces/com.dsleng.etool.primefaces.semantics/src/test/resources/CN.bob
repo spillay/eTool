@@ -23,7 +23,8 @@ OrgUnit "CapeNature"
 				}
 				references {
 					BO=PermitType[Inclusion=Mandatory Multiplicity=Many-to-One],
-					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One]
+					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One],
+					BO=Client[Inclusion=Mandatory Multiplicity=Many-to-One]
 				}
 			},
 			BO=PermitHistory {
@@ -53,6 +54,8 @@ OrgUnit "CapeNature"
 			BO=Client {			
 				attributes { 
 					idno {Label="Identity Number" Type=String },
+					cardno {Label="Card No" Type=String},
+					cardpin {Label="Card Pin" Type=String},
 					firstname1 {Label="First Name" Type=String},
 					firstname2 {Label="First Name" Type=String},
 					firstname3 {Label="First Name" Type=String},

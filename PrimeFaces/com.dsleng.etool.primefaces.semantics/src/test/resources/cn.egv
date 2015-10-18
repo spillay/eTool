@@ -9,6 +9,8 @@ Pages {
 		
 			BusinessObject=Client BOType=TwoPanelGrid
 			Modified Attributes {
+				Attribute=cardno ControlType=String{},
+				Attribute=cardpin ControlType=String{},
 				Attribute=firstname1 ControlType=String{},
 				Attribute=idno ControlType=IDControl{},
 				Attribute=email ControlType=Email{},
