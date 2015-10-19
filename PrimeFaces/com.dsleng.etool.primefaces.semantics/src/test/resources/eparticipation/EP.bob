@@ -1,0 +1,56 @@
+OrgUnit "gt" 
+	setup {
+			GroupID "za.co.egov.epart",
+			ArtifactID "za.co.egov.epart.web",
+			Version "1.0.0-SNAPSHOT",
+			Deployment Directory "/Data/maventest/",
+			Language File "dsl/ep.egv.xmi",
+			Web Directory "eparticipation"	
+			Package "za.co.egov.epart"
+}	{
+	BusinessObjects {
+		BO=Citizen {
+			attributes {
+				firstName { Label="First Name" Type=String },
+				surname { Label="Surname" Type=String },
+				email { Label="Email" Type=String}
+			}
+		},
+		BO=Complaint {
+			attributes {
+				name { Label="Summary" Type=String },
+				desc { Label="Detail" Type=String}
+			}
+			references {
+				BO=Citizen [Inclusion=Mandatory Multiplicity=Many-to-One],
+				BO=ComplaintType [Inclusion=Mandatory Multiplicity=Many-to-One],
+				BO=Department [Inclusion=Mandatory Multiplicity=Many-to-One],
+				BO=Province [Inclusion=Mandatory Multiplicity=Many-to-One]
+			}
+		},
+		BO=Department {
+			attributes {
+				name { Label="Department" Type=String  }
+			}
+		},
+		BO=Province {
+			attributes {
+				name { Label="Province" Type=String }
+			}
+			
+		},
+		BO=ComplaintType {
+			attributes {
+				name { Label="Type of Complaint" Type=String}
+			}
+		},
+		BO=ComplaintHelp {
+			attributes {
+				key { Label="key" Type=String},
+				comval {Label="Completed Complaint" Type=String}
+			}
+		}
+		
+	}
+		
+}

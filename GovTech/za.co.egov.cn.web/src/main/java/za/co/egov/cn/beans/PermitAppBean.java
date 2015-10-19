@@ -132,7 +132,6 @@ public class PermitAppBean implements Serializable {
 	}
 	private PermitType getPermitType(String permitTypeName){
 		Iterator<PermitType> it = permittypeData.getEntities().iterator();
-		permitTypes = new HashMap<String,String>();
 		while(it.hasNext()){
 			PermitType p = it.next();
 			if (p.getName().compareTo(permitTypeName)==0){

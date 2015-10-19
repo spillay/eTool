@@ -15,6 +15,9 @@ public class PermitHelper {
 	private String permittype;
 	private String permitstatus;
 
+	public PermitHelper(){
+		
+	}
 	public PermitHelper(Permit c) {
 			this.permitNo = c.getPermitNo();
 			this.comment = c.getComment();
@@ -26,5 +29,29 @@ public class PermitHelper {
 			this.dteValidTo = c.getDteValidTo();
 			this.amountPaid = c.getAmountPaid();
 			this.permittype = c.getPermittype().getName();
+	}
+	public String getWData(Permit c){
+		String val = "";
+		val+="permitNo:"+ c.getPermitNo();
+		val+="\n";
+		val+="comment:"+ c.getComment();
+		val+="\n";
+		val+="referenceNo:"+ c.getReferenceNo();
+		val+="\n";
+		val+="permitstatus:"+ c.getPermitstatus().getStatus();
+		val+="\n";
+		val+="referenceNo:"+ c.getReferenceNo();
+		val+="\n";
+		val+="dateIssued:"+ c.getDateIssued();
+		val+="\n";
+		val+="dteValidFrom:"+ c.getDteValidFrom();
+		val+="\n";
+		val+="dteValidTo:"+ c.getDteValidTo();
+		val+="\n";
+		val+="amountPaid:"+ c.getAmountPaid();
+		val+="\n";
+		val+="permittype:"+ c.getPermittype().getName();
+		val+="\n";
+		return val;
 	}
 }

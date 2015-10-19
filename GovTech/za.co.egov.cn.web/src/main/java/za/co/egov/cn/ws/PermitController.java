@@ -39,8 +39,8 @@ public class PermitController {
 		}
 		ClientHelper ch = new ClientHelper(c);
 		//PermitInfo p =  new PermitInfo(c);
-		logger.info("Client Info: " + ch.getData());
-		return ch.getData();
+		logger.info("Client Info: " + ch.getWData(c));
+		return ch.getWData(c);
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

@@ -8,9 +8,6 @@
             <column name="ID" />
             <generator class="identity"></generator>
         </id>
-    <property name="createDate" type="date">
-         <column name="createdate" length="30" not-null="false" />
-    </property>
     <property name="idno" type="string">
          <column name="idno" length="100" not-null="false" />
     </property>

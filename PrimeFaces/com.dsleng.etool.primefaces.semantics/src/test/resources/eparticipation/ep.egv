@@ -1,0 +1,48 @@
+EService=eParticipation 
+setup {
+	Deployment Directory "epart"
+	Business Unit "gt"
+} 
+{
+	Pages {
+		PageName=Complaint  PageTitle"Complaint Submission Form" PageType=PageLayout {
+		BusinessObject=Citizen BOType=TwoPanelGrid 
+		Modified Attributes {
+			Attribute=firstName ControlType=String {},
+			Attribute=surname ControlType=String {},
+			Attribute=email ControlType=Email {}
+		},
+		BusinessObject=Province BOType=TwoPanelGrid
+		Modified Attributes {
+			Attribute=name ControlType=Selection {}
+		},
+		BusinessObject=Department BOType=TwoPanelGrid
+		Modified Attributes {
+			Attribute=name ControlType=Selection {}
+		},
+		BusinessObject=Complaint BOType=TwoPanelGrid
+		Modified Attributes{
+			Attribute=name ControlType=String{},
+			Attribute=desc ControlType=String{}
+		}
+			
+	},
+	PageName=DeptView PageTitle "Department View" PageType=PageLayout {
+		BusinessObject=Department BOType=TwoPanelGrid 
+		Modified Attributes
+		{
+			Attribute=name ControlType=Selection {}
+		},
+		BusinessObject=Province BOType=TwoPanelGrid 
+		Modified Attributes {
+			Attribute=name ControlType=Selection {}
+		},
+		BusinessObject=Complaint  BOType=TwoPanelGrid 
+		Modified Attributes 
+		{
+			Attribute=name ControlType=DataColumn{}
+		}
+	}
+} 
+	Start Page Complaint	
+}

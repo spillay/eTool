@@ -102,6 +102,8 @@ class BeanGenerator  {
 		jc.addImports("javax.faces.context.FacesContext")
 		jc.addImports("org.apache.commons.logging.Log")
 		jc.addImports("org.apache.commons.logging.LogFactory")
+		jc.addImports("javax.servlet.ServletContext")
+		jc.addImports("org.springframework.web.context.support.WebApplicationContextUtils");
 		jc.addAnnotations("ManagedBean")
 		jc.addAnnotations("ViewScoped")
 		jc.addImplements("Serializable")

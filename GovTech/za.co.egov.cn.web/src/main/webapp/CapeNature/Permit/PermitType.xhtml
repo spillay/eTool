@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-    	xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
-    	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-     <title>Manager Permit Types</title>
+	<title>Manager Permit Types</title>
+	<h:outputStylesheet library="css" name="mygov.css"></h:outputStylesheet>
 </h:head>
-  		
+
 <p:layout style="min-width:400px;min-height:200px;">
+	<p:layoutUnit position="west" size="100" minSize="40" maxSize="200">
+		<h2 class="sidebar">
+			<div id="hmenu">
+				<ul>
+					<li><a href="aboutus.html">About Us</a></li>
+					<li><a href="resources.html">Resource Centre</a></li>
+					<li><a href="newsroom.html">Newsroom</a></li>
+					<li><a href="programmes.html">Programmes</a></li>
+					<li><a href="services.html">Services</a></li>
+					<li><a href="faq.html">FAQ's</a></li>
+					<li><a href="links.html">Links</a></li>
+					<li><a href="aboutsite.html"> About the website</a></li>
+					<li><a href="terms.html">Terms and conditions of use</a></li>
+				</ul>
+			</div>
+		</h2>
+	</p:layoutUnit>
+	<p:layoutUnit position="north" size="100" minSize="40" maxSize="200">
 
-<p:layoutUnit position="west" size="100" minSize="40" maxSize="200">West</p:layoutUnit>
-<p:layoutUnit position="north" size="100" minSize="40" maxSize="200">North</p:layoutUnit>
-<p:layoutUnit position="center" size="100" minSize="40" maxSize="200"><h:body><h:form><p:panel header="Manager Permit Types"><p:panel header="PermitType">
-<p:panelGrid columns="2" cellpadding="4">
-<h:outputText value="Name"></h:outputText>
-<p:inputText value="#{permitTypeBean.permitType.name}"></p:inputText>
-</p:panelGrid>
-</p:panel>
+		<div class="siteheader">
 
-<p:dialog header="Greeting" widgetVar="dlg" modal="true" resizable="false">
-    <h:panelGrid id="display" columns="1" cellpadding="4">
-         <h:outputText value="TestDialog" />
-    </h:panelGrid>
-</p:dialog>
+			<h:graphicImage library="images" name="flag.png" alt="RSA flag"
+				style="width: 102px; height: 68px; align: right;">
+			</h:graphicImage>
 
-</p:panel>
-</h:form>
-</h:body>
-</p:layoutUnit>
+
+			<h:graphicImage library="images" name="coat.jpeg" alt="Coat of Arms"
+				style="width: 77px; height: 100px; align: left;">
+			</h:graphicImage>
+
+			<h:graphicImage library="images" name="wcagric.jpeg"
+				alt="Agriculture"
+				style="width: 1017px; height: 100px; align: middle;">
+			</h:graphicImage>
+
+		</div>
+	</p:layoutUnit>
+	<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
+		<h:body>
+			<h:form>
+				<p:panel header="Manager Permit Types">
+					<p:panel header="PermitType">
+						<p:panelGrid columns="2" cellpadding="4">
+							<h:outputText value="Name"></h:outputText>
+							<p:inputText value="#{permitTypeBean.permitType.name}"></p:inputText>
+						</p:panelGrid>
+					</p:panel>
+
+					<p:dialog header="Greeting" widgetVar="dlg" modal="true"
+						resizable="false">
+						<h:panelGrid id="display" columns="1" cellpadding="4">
+							<h:outputText value="TestDialog" />
+						</h:panelGrid>
+					</p:dialog>
+
+				</p:panel>
+			</h:form>
+		</h:body>
+	</p:layoutUnit>
 </p:layout>
 
 </html>
