@@ -13,6 +13,7 @@ import za.co.egov.cn.service.ClientService;
 import za.co.egov.cn.service.PermitService;
 import za.co.egov.cn.service.PermitStatusService;
 import za.co.egov.cn.service.PermitTypeService;
+import za.co.egov.notifications.SMS;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -225,6 +226,9 @@ public class PermitAppBean implements Serializable {
 			pt.setClient(client);
 			permitData.saveEntity(pt);
 		}
+		SMS not = new SMS();
+		
+		not.sendRecvMessage(client.getCellno());
 	}
 
 	public void addMessage(String summary) {

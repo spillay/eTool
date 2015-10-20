@@ -42,15 +42,13 @@
 						</p:inputText>
 						<h:outputText value="First Name 2"></h:outputText>
 						<p:inputText id="firstname2"
-							value="#{permitAppBean.client.firstname2}" required="true"
-							requiredMessage="Valid First Name is Required">
-							<f:validateLength minimum="2" />
+							value="#{permitAppBean.client.firstname2}" >
+							
 						</p:inputText>
 						<h:outputText value="First Name 3"></h:outputText>
 						<p:inputText id="firstname3"
-							value="#{permitAppBean.client.firstname3}" required="true"
-							requiredMessage="Valid First Name is Required">
-							<f:validateLength minimum="2" />
+							value="#{permitAppBean.client.firstname3}" >
+							
 						</p:inputText>
 						<h:outputText value="Telephone No"></h:outputText>
 						<p:inputMask mask="(999) 999-9999" value="#{permitAppBean.client.telphoneno}"></p:inputMask>

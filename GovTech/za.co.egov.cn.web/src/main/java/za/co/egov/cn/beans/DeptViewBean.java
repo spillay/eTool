@@ -9,6 +9,7 @@ import za.co.egov.cn.PermitType;
 import za.co.egov.cn.service.ClientService;
 import za.co.egov.cn.service.PermitService;
 import za.co.egov.cn.service.PermitStatusService;
+import za.co.egov.notifications.SMS;
 import za.co.egov.cn.Client;
 import za.co.egov.cn.Permit;
 import javax.faces.bean.ManagedBean;
@@ -149,6 +150,15 @@ public class DeptViewBean implements Serializable {
 		logger.debug("update status permit: " + this.selectedPermit.getId());
 		selectedPermit.setPermitstatus(getStatus(selectedStatus));
 		permitData.updateEntity(selectedPermit);
+		SMS not = new SMS();
+		if(this.approvedPanel){
+			String no = selectedPermit.getClient().getCellno();
+			not.sendApprovedMessage(no);
+		}
+		if(this.payPanel){
+			String no = selectedPermit.getClient().getCellno();
+			not.sendPaidMessage(no);
+		}
 		this.approvedPanel = false;
 		this.payPanel = false;
 	}
