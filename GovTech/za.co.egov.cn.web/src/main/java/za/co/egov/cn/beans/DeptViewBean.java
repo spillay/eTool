@@ -161,9 +161,10 @@ public class DeptViewBean implements Serializable {
 		PermitStatus p = this.getStatus(selectedStatus);
 		logger.debug("selected status id: " + p.getId());
 		// TODO: Fix get subset
-		//permits = permitData.getByStatus(p.getId().toString());
 		permits.clear();
-		permits = permitData.getEntities();
+		permits = permitData.getByStatus(p);
+		
+		//permits = permitData.getEntities();
 		addMessage("Welcome to GovTech 2015!!");
     }
      

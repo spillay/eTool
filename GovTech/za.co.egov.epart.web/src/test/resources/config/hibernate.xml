@@ -16,7 +16,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 <value>za.co.egov.epart.Department</value>
 <value>za.co.egov.epart.Province</value>
 <value>za.co.egov.epart.ComplaintType</value>
-
+<value>za.co.egov.epart.ComplaintHelp</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -45,5 +45,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 <bean id="ProvinceService" class="za.co.egov.epart.service.ProvinceServiceImpl"></bean>
 <bean id="ComplaintTypeDAO" class="za.co.egov.epart.dao.ComplaintTypeDAOImpl"></bean>
 <bean id="ComplaintTypeService" class="za.co.egov.epart.service.ComplaintTypeServiceImpl"></bean>
-
+<bean id="ComplaintHelpDAO" class="za.co.egov.epart.dao.ComplaintHelpDAOImpl"></bean>
+<bean id="ComplaintHelpService" class="za.co.egov.epart.service.ComplaintHelpServiceImpl"></bean>
 </beans>    

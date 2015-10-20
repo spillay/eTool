@@ -1,5 +1,5 @@
 package za.co.egov.epart;
-// Generated 19 Oct 2015 9:46:06 PM by Hibernate Tools 3.2.2.GA
+// Generated 20 Oct 2015 1:33:32 PM by Hibernate Tools 3.2.2.GA
 
 
 import javax.persistence.Column;
@@ -24,7 +24,7 @@ public class Complaint  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private String desc;
+     private String description;
      private Citizen citizen;
      private ComplaintType complainttype;
      private Department department;
@@ -40,9 +40,9 @@ public class Complaint  implements java.io.Serializable {
         this.department = department;
         this.province = province;
     }
-    public Complaint(String name, String desc, Citizen citizen, ComplaintType complainttype, Department department, Province province) {
+    public Complaint(String name, String description, Citizen citizen, ComplaintType complainttype, Department department, Province province) {
        this.name = name;
-       this.desc = desc;
+       this.description = description;
        this.citizen = citizen;
        this.complainttype = complainttype;
        this.department = department;
@@ -69,13 +69,13 @@ public class Complaint  implements java.io.Serializable {
         this.name = name;
     }
     
-    @Column(name="desc", length=100)
-    public String getDesc() {
-        return this.desc;
+    @Column(name="description", length=100)
+    public String getDescription() {
+        return this.description;
     }
     
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="COMPLAINT_CITIZEN_ID", nullable=false)

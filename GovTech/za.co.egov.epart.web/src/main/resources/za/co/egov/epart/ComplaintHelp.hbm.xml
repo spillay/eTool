@@ -14,5 +14,7 @@
     <property name="comval" type="string">
          <column name="comval" length="100" not-null="false" />
     </property>
+     <many-to-one name="complainttype" class="za.co.egov.epart.ComplaintType"
+                column="COMPLAINTHELP_COMPLAINTTYPE_ID" not-null="true"/>
     </class>
 </hibernate-mapping>

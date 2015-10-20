@@ -11,8 +11,8 @@
     <property name="name" type="string">
          <column name="name" length="100" not-null="false" />
     </property>
-    <property name="desc" type="string">
-         <column name="desc" length="100" not-null="false" />
+    <property name="description" type="string">
+         <column name="description" length="100" not-null="false" />
     </property>
     <many-to-one name="citizen" class="za.co.egov.epart.Citizen"
                 column="COMPLAINT_CITIZEN_ID" not-null="true"/>

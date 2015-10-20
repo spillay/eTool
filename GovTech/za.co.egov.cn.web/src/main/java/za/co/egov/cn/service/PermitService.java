@@ -6,6 +6,8 @@ import za.co.egov.cn.Client;
 *
 */
 import za.co.egov.cn.Permit;
+import za.co.egov.cn.PermitStatus;
+
 import java.util.List;
 import java.util.Optional;
 public interface PermitService  {
@@ -13,6 +15,6 @@ public interface PermitService  {
 	public Permit saveEntity(Permit o);
 	public List<Permit> getEntities();
 	public Optional<Permit> getEntity(Long i);
-	public List<Permit> getByStatus(String id);
+	public List<Permit> getByStatus(PermitStatus p);
 	public void updateEntity(Permit o);
 }

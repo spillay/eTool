@@ -1,12 +1,15 @@
 package za.co.egov.epart;
-// Generated 19 Oct 2015 9:27:56 PM by Hibernate Tools 3.2.2.GA
+// Generated 20 Oct 2015 1:33:32 PM by Hibernate Tools 3.2.2.GA
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,13 +25,19 @@ public class ComplaintHelp  implements java.io.Serializable {
      private Integer id;
      private String key;
      private String comval;
+     private ComplaintType complainttype;
 
     public ComplaintHelp() {
     }
 
-    public ComplaintHelp(String key, String comval) {
+	
+    public ComplaintHelp(ComplaintType complainttype) {
+        this.complainttype = complainttype;
+    }
+    public ComplaintHelp(String key, String comval, ComplaintType complainttype) {
        this.key = key;
        this.comval = comval;
+       this.complainttype = complainttype;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -58,6 +67,15 @@ public class ComplaintHelp  implements java.io.Serializable {
     
     public void setComval(String comval) {
         this.comval = comval;
+    }
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="COMPLAINTHELP_COMPLAINTTYPE_ID", nullable=false)
+    public ComplaintType getComplainttype() {
+        return this.complainttype;
+    }
+    
+    public void setComplainttype(ComplaintType complainttype) {
+        this.complainttype = complainttype;
     }
 
 

@@ -5,6 +5,7 @@ package za.co.egov.cn.dao;
 *
 */
 import za.co.egov.cn.Permit;
+import za.co.egov.cn.PermitStatus;
 
 import java.util.Iterator;
 import java.util.List;
@@ -128,5 +129,22 @@ public class PermitDAOImpl implements PermitDAO {
 		session.update(o);
 		transaction.commit();  
 		session.close();
+	}
+	@Override
+	public List<Permit> getPermitsByStatus(PermitStatus status) {
+		session = sessionFactory.openSession();  
+		transaction = session.beginTransaction();  
+		@SuppressWarnings("unchecked")
+		List<Permit> list = (List<Permit>) session.createCriteria(Permit.class).add(Restrictions.eq("permitstatus", status)).list();
+		Iterator<Permit> cit = list.iterator();
+		while(cit.hasNext()){
+			Permit p = cit.next();
+			Hibernate.initialize(p.getPermitstatus());
+			Hibernate.initialize(p.getPermittype());
+			Hibernate.initialize(p.getClient());
+		}
+		transaction.commit();  
+		session.close();
+		return list;
 	}
 }

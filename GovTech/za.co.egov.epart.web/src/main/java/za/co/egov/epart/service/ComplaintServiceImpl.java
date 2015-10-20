@@ -5,6 +5,8 @@ package za.co.egov.epart.service;
 *
 */
 import za.co.egov.epart.Complaint;
+import za.co.egov.epart.Department;
+import za.co.egov.epart.Province;
 import za.co.egov.epart.dao.ComplaintDAO;
 import za.co.egov.epart.service.ComplaintService;
 import java.util.List;
@@ -39,5 +41,9 @@ public class ComplaintServiceImpl implements ComplaintService {
 	public Optional<Complaint> getEntity(Long i){
 	return dataDao.findOne(i);
 	
+	}
+	@Override
+	public List<Complaint> getEntitiesby(Province p, Department d) {
+		return dataDao.getComplaints(p, d);
 	}
 }

@@ -8,12 +8,16 @@ package za.co.egov.epart.beans;
 */
 import za.co.egov.epart.Citizen;
 import za.co.egov.epart.Province;
+import za.co.egov.epart.service.CitizenService;
 import za.co.egov.epart.service.ComplaintHelpService;
+import za.co.egov.epart.service.ComplaintService;
+import za.co.egov.epart.service.ComplaintTypeService;
 import za.co.egov.epart.service.DepartmentService;
 import za.co.egov.epart.service.ProvinceService;
 import za.co.egov.epart.Department;
 import za.co.egov.epart.Complaint;
 import za.co.egov.epart.ComplaintHelp;
+import za.co.egov.epart.ComplaintType;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -27,26 +31,37 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.servlet.ServletContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.primefaces.event.SelectEvent;
 
 @ManagedBean
 @ViewScoped
 public class ComplaintBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Citizen citizen;
+	private Citizen citizen = new Citizen();
 	private Province province;
 	private Department department;
-	private Complaint complaint;
+	private Complaint complaint = new Complaint();
 	private List<ComplaintHelp> comphelper;
 	private Log logger = LogFactory.getLog(getClass());
 
 	@Autowired
+	CitizenService citizenService;
+	
+	@Autowired
 	ComplaintHelpService complaintHelp;
+	
+	@Autowired
+	ComplaintService complaintService;
+	
+	@Autowired
+	ComplaintTypeService complaintTypeService;
 	
 	@Autowired
 	DepartmentService departmentService;
@@ -140,9 +155,11 @@ public class ComplaintBean implements Serializable {
 
 	}
 	public List<String> completeArea(String query) {
+		logger.debug("checking complainttypes");
 		List<String> results = new ArrayList<String>();
 		Iterator<ComplaintHelp> it = comphelper.iterator();
 		String nquery = query.toLowerCase();
+		logger.debug("checking complainttypes: query: " + nquery);
 		while(it.hasNext()){
 			ComplaintHelp ch = it.next();
 			if (ch.getKey().equals(nquery)){
@@ -167,7 +184,23 @@ public class ComplaintBean implements Serializable {
         
         return results;
     }
+	public void handSelect(SelectEvent actionEvent) {
+		logger.debug("select complainttype Application");
+	}
 
+	public void submitAction(ActionEvent actionEvent) {
+		logger.debug("submit complaint Application");
+		
+		
+		complaint.setCitizen(citizen);
+		complaint.setDepartment(getDepartment(selectedDepartment));
+		complaint.setProvince(getProvince(selectedProvince));
+		ComplaintType ct = complaintTypeService.getEntities().get(0);
+		complaint.setComplainttype(ct);
+		
+		citizenService.saveEntity(citizen);
+		complaintService.saveEntity(complaint);
+	}
 	public Citizen getCitizen() {
 		return citizen;
 	}

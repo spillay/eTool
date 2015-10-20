@@ -5,6 +5,7 @@ package za.co.egov.cn.service;
 *
 */
 import za.co.egov.cn.Permit;
+import za.co.egov.cn.PermitStatus;
 import za.co.egov.cn.dao.PermitDAO;
 import za.co.egov.cn.service.PermitService;
 import java.util.List;
@@ -41,12 +42,12 @@ public class PermitServiceImpl implements PermitService {
 	
 	}
 	@Override
-	public List<Permit> getByStatus(String id) {
-		return dataDao.getPermitsByStatus(id);
-	}
-	@Override
 	public void updateEntity(Permit o) {
 		dataDao.Update(o);
 		
+	}
+	@Override
+	public List<Permit> getByStatus(PermitStatus p) {
+		return dataDao.getPermitsByStatus(p);
 	}
 }

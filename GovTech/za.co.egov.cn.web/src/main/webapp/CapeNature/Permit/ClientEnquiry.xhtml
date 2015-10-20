@@ -6,12 +6,14 @@
 <h:head>
      <title>Permit Enquiry</title>
 </h:head>
-  		
+  	<!-- 
 <p:layout style="min-width:400px;min-height:200px;">
 
 <p:layoutUnit position="west" size="100" minSize="40" maxSize="200">West</p:layoutUnit>
 <p:layoutUnit position="north" size="100" minSize="40" maxSize="200">North</p:layoutUnit>
-<p:layoutUnit position="center" size="100" minSize="40" maxSize="200"><h:body><h:form><p:panel header="Permit Enquiry"><p:panel header="Client">
+<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
+-->
+<h:body><h:form><p:panel header="Permit Enquiry"><p:panel header="Client">
 <p:panelGrid columns="2" cellpadding="4">
 <h:outputText value="Identity Number"></h:outputText>
 <p:inputMask mask="9-9-9-9-9-9-9-9-9-9-9-9-9" value="#{clientEnquiryBean.client.idno}" required="true" requiredMessage="Valid Green Barcode ID is Required"></p:inputMask>
@@ -35,7 +37,8 @@
 <p:commandButton value="Done" id="doneBtn"  immediate="true" validateClient="false" action="/index.xhtml?faces-redirect=true"/>
 </h:form>
 </h:body>
+<!-- 
 </p:layoutUnit>
 </p:layout>
-
+ -->
 </html>

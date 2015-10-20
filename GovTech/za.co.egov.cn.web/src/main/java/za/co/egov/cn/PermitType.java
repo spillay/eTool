@@ -1,5 +1,5 @@
 package za.co.egov.cn;
-// Generated 19 Oct 2015 3:51:39 PM by Hibernate Tools 3.2.2.GA
+// Generated 20 Oct 2015 1:43:19 PM by Hibernate Tools 3.2.2.GA
 
 
 import java.util.HashSet;

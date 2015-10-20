@@ -11,9 +11,5 @@
     <property name="name" type="string">
          <column name="name" length="100" not-null="false" />
     </property>
-    <set name="COMPLAINT_PROVINCES" inverse="true" cascade="all">
-                <key column="COMPLAINT_PROVINCE_ID" not-null="true" />
-                <one-to-many class="za.co.egov.epart.Complaint"/>
-            </set>
     </class>
 </hibernate-mapping>
