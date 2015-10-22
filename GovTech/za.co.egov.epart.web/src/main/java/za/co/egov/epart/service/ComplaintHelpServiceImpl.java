@@ -1,5 +1,6 @@
 package za.co.egov.epart.service;
 		
+import za.co.egov.epart.Agency;
 /**
 * @author Suresh Pillay
 *
@@ -39,5 +40,9 @@ public class ComplaintHelpServiceImpl implements ComplaintHelpService {
 	public Optional<ComplaintHelp> getEntity(Long i){
 	return dataDao.findOne(i);
 	
+	}
+	@Override
+	public List<ComplaintHelp> getEntities(Agency o) {
+		return dataDao.findby(o);
 	}
 }

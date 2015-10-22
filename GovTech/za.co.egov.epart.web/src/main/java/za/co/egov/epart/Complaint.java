@@ -1,5 +1,5 @@
 package za.co.egov.epart;
-// Generated 20 Oct 2015 1:33:32 PM by Hibernate Tools 3.2.2.GA
+// Generated 22 Oct 2015 10:48:00 AM by Hibernate Tools 3.2.2.GA
 
 
 import javax.persistence.Column;
@@ -27,26 +27,23 @@ public class Complaint  implements java.io.Serializable {
      private String description;
      private Citizen citizen;
      private ComplaintType complainttype;
-     private Department department;
-     private Province province;
+     private Agency agency;
 
     public Complaint() {
     }
 
 	
-    public Complaint(Citizen citizen, ComplaintType complainttype, Department department, Province province) {
+    public Complaint(Citizen citizen, ComplaintType complainttype, Agency agency) {
         this.citizen = citizen;
         this.complainttype = complainttype;
-        this.department = department;
-        this.province = province;
+        this.agency = agency;
     }
-    public Complaint(String name, String description, Citizen citizen, ComplaintType complainttype, Department department, Province province) {
+    public Complaint(String name, String description, Citizen citizen, ComplaintType complainttype, Agency agency) {
        this.name = name;
        this.description = description;
        this.citizen = citizen;
        this.complainttype = complainttype;
-       this.department = department;
-       this.province = province;
+       this.agency = agency;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -96,22 +93,13 @@ public class Complaint  implements java.io.Serializable {
         this.complainttype = complainttype;
     }
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="COMPLAINT_DEPARTMENT_ID", nullable=false)
-    public Department getDepartment() {
-        return this.department;
+    @JoinColumn(name="COMPLAINT_AGENCY_ID", nullable=false)
+    public Agency getAgency() {
+        return this.agency;
     }
     
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="COMPLAINT_PROVINCE_ID", nullable=false)
-    public Province getProvince() {
-        return this.province;
-    }
-    
-    public void setProvince(Province province) {
-        this.province = province;
+    public void setAgency(Agency agency) {
+        this.agency = agency;
     }
 
 

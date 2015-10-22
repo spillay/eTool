@@ -14,6 +14,7 @@
   <mapping resource="za/co/egov/epart/Complaint.hbm.xml"/>
   <mapping resource="za/co/egov/epart/Department.hbm.xml"/>
   <mapping resource="za/co/egov/epart/Province.hbm.xml"/>
+  <mapping resource="za/co/egov/epart/Agency.hbm.xml"/>
   <mapping resource="za/co/egov/epart/ComplaintType.hbm.xml"/>
   <mapping resource="za/co/egov/epart/ComplaintHelp.hbm.xml"/>
  </session-factory>

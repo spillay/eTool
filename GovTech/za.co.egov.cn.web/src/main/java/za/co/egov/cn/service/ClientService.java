@@ -12,7 +12,7 @@ public interface ClientService  {
 	public Client saveEntity(Client o);
 	public List<Client> getEntities();
 	public Optional<Client> getEntity(Long i);
-	public List<Client> getByID(String id);
+	public Client getByID(String id);
 	Client getByCardNo(String cardno);
 
 }

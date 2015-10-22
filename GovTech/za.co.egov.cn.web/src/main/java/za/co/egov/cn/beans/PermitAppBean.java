@@ -53,8 +53,26 @@ public class PermitAppBean implements Serializable {
 	private List<Permit> permits = new ArrayList<Permit>();
 	private String comments;
 	private boolean submitButtonState;
+	private String idnumber;
+	private boolean afterload;
 	
 	
+	public boolean isAfterload() {
+		return afterload;
+	}
+
+	public void setAfterload(boolean afterload) {
+		this.afterload = afterload;
+	}
+
+	public String getIdnumber() {
+		return idnumber;
+	}
+
+	public void setIdnumber(String idnumber) {
+		this.idnumber = idnumber;
+	}
+
 	public boolean isSubmitButtonState() {
 		return submitButtonState;
 	}
@@ -163,6 +181,7 @@ public class PermitAppBean implements Serializable {
         this.submitButtonState = true;
         Client_prefContact_init();
         Permittype_init();
+        afterload = true;
     }
 	
 	public void Client_prefContact_init() {
@@ -207,13 +226,61 @@ public class PermitAppBean implements Serializable {
         permits.add(p);
         return null;
     }
+	public void loadAction(ActionEvent actionEvent) {
+		logger.debug("Load Initial Data" + getClient().getIdno());
+		if(client.getIdno() == null){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Invalid ID No","Please input a valid id number");
+            FacesContext.getCurrentInstance().addMessage("mainForm:messages", msg);
+		}
+		String idno = client.getIdno();
+		idno = idno.replace("-", "");
+		client = clientData.getByID(idno);
+		if ( client == null ){
+			client = new Client();
+			client.setIdno(idno);
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "No Profile Exists, Please create one","No Profile Exists, Please create one");
+            FacesContext.getCurrentInstance().addMessage("mainForm:messages", msg);
+		} else {
+			permits.clear();
+			afterload = false;
+			/*
+			Iterator<Permit> it = client.getPERMIT_CLIENTS().iterator();
+			while(it.hasNext()){
+				Permit o = it.next();
+				logger.debug("permit info: " + o.getPermittype().getName());
+				logger.debug("permit info: " + o.getComment());
+				//permits.add(o);
+			}
+			*/
+		}
+	}
+	private void reformat(){
+		String idno = client.getIdno().replace("-", "");
+		client.setIdno(idno);
+		
+		String cell = client.getCellno();
+		cell = cell.replace("(", "");
+		cell = cell.replace(")", "");
+		cell = cell.replace("-", "");
+		cell = cell.replace(" ", "");
+		client.setCellno(cell);
+		
+		String tel = client.getTelphoneno();
+		tel = tel.replace("(", "");
+		tel = tel.replace(")", "");
+		tel = tel.replace("-", "");
+		tel = tel.replace(" ", "");
+		client.setTelphoneno(tel);
+	}
 	public void submitAction(ActionEvent actionEvent) {
 		logger.debug("submit Permit Application");
 		addMessage("Welcome to GovTech 2015!!");
+		
 		logger.debug(
 				client.getIdno() + ":" +
 				client.getFirstname1() + ":"
 		);
+		reformat();
 		logger.debug("Selected PermitType: " + this.selectedPermittype);
 		PermitType p = this.getPermitType(selectedPermittype);
 		logger.debug("Selected PermitType: " + p.getName() + " with id " + p.getId());

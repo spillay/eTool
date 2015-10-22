@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-22T05:21:41.808 by  eTool 1.0.0 Author Suresh Pillay-->
+<hibernate-mapping>
+    <class name="za.co.egov.epart.Agency" table="agency" schema="public">
+    	<id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+    <property name="name" type="string">
+         <column name="name" length="100" not-null="false" />
+    </property>
+    <many-to-one name="department" class="za.co.egov.epart.Department"
+                column="AGENCY_DEPARTMENT_ID" not-null="true"/>
+    <set name="COMPLAINT_AGENCYS" inverse="true" cascade="all">
+                <key column="COMPLAINT_AGENCY_ID" not-null="true" />
+                <one-to-many class="za.co.egov.epart.Complaint"/>
+            </set>
+    <set name="COMPLAINTHELP_AGENCYS" inverse="true" cascade="all">
+                <key column="COMPLAINTHELP_AGENCY_ID" not-null="true" />
+                <one-to-many class="za.co.egov.epart.ComplaintHelp"/>
+            </set>
+    </class>
+</hibernate-mapping>

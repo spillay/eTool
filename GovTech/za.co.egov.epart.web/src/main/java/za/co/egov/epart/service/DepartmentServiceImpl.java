@@ -5,6 +5,7 @@ package za.co.egov.epart.service;
 *
 */
 import za.co.egov.epart.Department;
+import za.co.egov.epart.Province;
 import za.co.egov.epart.dao.DepartmentDAO;
 import za.co.egov.epart.service.DepartmentService;
 import java.util.List;
@@ -39,5 +40,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public Optional<Department> getEntity(Long i){
 	return dataDao.findOne(i);
 	
+	}
+	@Override
+	public List<Department> getEntities(Province o) {
+		return dataDao.getByProvince(o);
 	}
 }

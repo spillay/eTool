@@ -8,14 +8,25 @@
 <h:head>
 	<title>Dept Enquiry</title>
 </h:head>
-<!-- 
-<p:layout style="min-width:400px;min-height:200px;">
-
-	<p:layoutUnit position="west" size="200" minSize="40" maxSize="500">West</p:layoutUnit>
-	<p:layoutUnit position="north" size="50" minSize="40" maxSize="100">NorthSPSPPP</p:layoutUnit>
-	<p:layoutUnit position="center" size="400" minSize="40" maxSize="400">
- -->
-		<h:body>
+<p:layout fullPage="true">
+	<p:layoutUnit position="west" size="200" header="e-Permit" resizable="true"
+		closable="true" collapsible="true">
+		<h:form id="menuForm">
+			<p:menu type="sliding">
+				<p:submenu label="Citizen View">
+					<p:menuitem value="New Application" url="./PermitApp.xhtml"
+						icon="ui-icon ui-icon-home" />
+					<p:menuitem value="Application" url="./PermitApp2.xhtml"
+						 />
+					<p:menuitem value="Enquiry" url="./ClientEnquiry.xhtml"/>
+				</p:submenu>
+				<p:submenu label="Department View">
+					<p:menuitem value="Manage Permit" url="./DeptView.xhtml" icon="ui-icon ui-icon-home" />
+				</p:submenu>
+			</p:menu>
+		</h:form>
+	</p:layoutUnit>
+	<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
 			<h:form id="mainForm">
 				<p:panel header="Dept Enquiry">
 					<p:panel header="PermitStatus">
@@ -76,7 +87,7 @@
 						</p:column>
 					</p:dataTable>
 				</p:panel>
-				<p:commandButton value="Done" id="doneBtn"  immediate="true" validateClient="false" action="/index.xhtml?faces-redirect=true"/>
+				<p:commandButton value="Done" id="doneBtn"  immediate="true" validateClient="false" action="./PermitApp2.xhtml?faces-redirect=true"/>
 			</h:form>
 			<p:dialog id="statusdetail" widgetVar="statusdetail">
 				<h:form id="statusdetailForm">
@@ -165,9 +176,6 @@
 					<p:commandButton value="Save" actionListener="#{deptViewBean.updateAction}" update=":mainForm:PermitTable" oncomplete="PF('detail').hide()" />
 				</h:form>
 			</p:dialog>
-		</h:body>
-<!-- 
 	</p:layoutUnit>
 </p:layout>
- -->
 </html>

@@ -5,6 +5,8 @@ package za.co.egov.epart.service;
 *
 */
 import za.co.egov.epart.Department;
+import za.co.egov.epart.Province;
+
 import java.util.List;
 import java.util.Optional;
 public interface DepartmentService  {
@@ -12,4 +14,5 @@ public interface DepartmentService  {
 	public Department saveEntity(Department o);
 	public List<Department> getEntities();
 	public Optional<Department> getEntity(Long i);
+	public List<Department> getEntities(Province o);
 }

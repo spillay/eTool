@@ -1,5 +1,6 @@
 package za.co.egov.epart.service;
 		
+import za.co.egov.epart.Agency;
 /**
 * @author Suresh Pillay
 *
@@ -12,4 +13,5 @@ public interface ComplaintHelpService  {
 	public ComplaintHelp saveEntity(ComplaintHelp o);
 	public List<ComplaintHelp> getEntities();
 	public Optional<ComplaintHelp> getEntity(Long i);
+	public List<ComplaintHelp> getEntities(Agency o);
 }

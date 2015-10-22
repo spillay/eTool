@@ -65,13 +65,8 @@ public class ClientEnquiryBean implements Serializable {
 	public void searchAction(ActionEvent actionEvent) {
 		logger.debug("id number: " + this.getClient().getIdno());
 		logger.info("id number: " + this.getClient().getIdno());
-		Iterator<Client> it = clientData.getByID(this.getClient().getIdno()).iterator();
-        while(it.hasNext()){
-        	Client c = it.next();
-        	logger.debug("Found the following clients: " + c.getIdno() + " DB id " + c.getId() + " name " + c.getFirstname1());
-        	// Take the last one
-        	client = c;
-        }
+		String idno = client.getIdno().replace("-", "");
+		client = clientData.getByID(idno);
         Iterator<Permit> pit = client.getPERMIT_CLIENTS().iterator();
         permits.clear();
         while(pit.hasNext()){

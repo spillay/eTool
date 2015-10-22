@@ -85,11 +85,13 @@ public class ClientDAOImpl implements ClientDAO {
 
 	@Override
 	@Transactional
-	public List<Client> getByID(String id) {
+	public Client getByID(String id) {
 		session = sessionFactory.openSession();
 		transaction = session.beginTransaction();
 		@SuppressWarnings("unchecked")
-		List<Client> list = (List<Client>) session.createCriteria(Client.class).add(Restrictions.eq("idno", id)).list();
+		List<Client> list = (List<Client>) session.createCriteria(Client.class).add(Restrictions.eq("idno", id))
+	    .addOrder( Order.desc("id") )
+		.list();
 		Iterator<Client> it = list.iterator();
 		while (it.hasNext()) {
 			Client c = it.next();
@@ -103,7 +105,10 @@ public class ClientDAOImpl implements ClientDAO {
 		}
 		transaction.commit();
 		session.close();
-		return list;
+		if (list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
 
 	}
 

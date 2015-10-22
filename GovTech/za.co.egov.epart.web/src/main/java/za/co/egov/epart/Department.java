@@ -1,5 +1,5 @@
 package za.co.egov.epart;
-// Generated 20 Oct 2015 1:33:32 PM by Hibernate Tools 3.2.2.GA
+// Generated 22 Oct 2015 10:48:00 AM by Hibernate Tools 3.2.2.GA
 
 
 import java.util.HashSet;
@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,14 +28,20 @@ public class Department  implements java.io.Serializable {
 
      private Integer id;
      private String name;
-     private Set<Complaint> COMPLAINT_DEPARTMENTS = new HashSet<Complaint>(0);
+     private Province province;
+     private Set<Agency> AGENCY_DEPARTMENTS = new HashSet<Agency>(0);
 
     public Department() {
     }
 
-    public Department(String name, Set<Complaint> COMPLAINT_DEPARTMENTS) {
+	
+    public Department(Province province) {
+        this.province = province;
+    }
+    public Department(String name, Province province, Set<Agency> AGENCY_DEPARTMENTS) {
        this.name = name;
-       this.COMPLAINT_DEPARTMENTS = COMPLAINT_DEPARTMENTS;
+       this.province = province;
+       this.AGENCY_DEPARTMENTS = AGENCY_DEPARTMENTS;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -55,13 +63,22 @@ public class Department  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
-@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="department")
-    public Set<Complaint> getCOMPLAINT_DEPARTMENTS() {
-        return this.COMPLAINT_DEPARTMENTS;
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="DEPARTMENT_PROVINCE_ID", nullable=false)
+    public Province getProvince() {
+        return this.province;
     }
     
-    public void setCOMPLAINT_DEPARTMENTS(Set<Complaint> COMPLAINT_DEPARTMENTS) {
-        this.COMPLAINT_DEPARTMENTS = COMPLAINT_DEPARTMENTS;
+    public void setProvince(Province province) {
+        this.province = province;
+    }
+@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="department")
+    public Set<Agency> getAGENCY_DEPARTMENTS() {
+        return this.AGENCY_DEPARTMENTS;
+    }
+    
+    public void setAGENCY_DEPARTMENTS(Set<Agency> AGENCY_DEPARTMENTS) {
+        this.AGENCY_DEPARTMENTS = AGENCY_DEPARTMENTS;
     }
 
 

@@ -2,12 +2,14 @@ package za.co.egov.epart.beans;
 
 
 
+import za.co.egov.epart.Agency;
 /**
 * @author Suresh Pillay
 *
 */
 import za.co.egov.epart.Citizen;
 import za.co.egov.epart.Province;
+import za.co.egov.epart.service.AgencyService;
 import za.co.egov.epart.service.CitizenService;
 import za.co.egov.epart.service.ComplaintHelpService;
 import za.co.egov.epart.service.ComplaintService;
@@ -50,6 +52,15 @@ public class ComplaintBean implements Serializable {
 	private Complaint complaint = new Complaint();
 	private List<ComplaintHelp> comphelper;
 	private Log logger = LogFactory.getLog(getClass());
+	private ComplaintType selectedComplaintType;
+
+	public ComplaintType getSelectedComplaintType() {
+		return selectedComplaintType;
+	}
+	public void setSelectedComplaintType(ComplaintType selectedComplaintType) {
+		this.selectedComplaintType = selectedComplaintType;
+	}
+
 
 	@Autowired
 	CitizenService citizenService;
@@ -69,18 +80,8 @@ public class ComplaintBean implements Serializable {
 	private String selectedDepartment;
 	private Map<String, String> departmentData;
 	public Map<String, String> getDepartmentData() {
-		if ( departmentData == null || departmentData.size() == 0 ){
-			// Try to populate first
-			Iterator<Department> it = departmentService.getEntities().iterator();
-			departmentData = new HashMap<String,String>();
-			while(it.hasNext()){
-				Department p = it.next();
-				logger.debug("Loading: " + p.getName());
-				logger.debug("with id: " + p.getId());
-				departmentData.put(p.getName(),p.getName());
-			}
-			
-		}
+		logger.debug("Loading Department Data: " + selectedProvince);
+		
 		return departmentData;
 	}
 	public void setDepartmentData(Map<String, String> departmentData) {
@@ -131,6 +132,30 @@ public class ComplaintBean implements Serializable {
 		}
 		return null;
 	}
+	
+	@Autowired
+    AgencyService agencyService;
+	
+	private String selectedAgency;
+	private Map<String, String> agencyData;
+	public Map<String, String> getAgencyData() {
+		logger.debug("Loading Agency Data: for Dept" + selectedDepartment);
+		return agencyData;
+	}
+	public void setAgencyData(Map<String, String> agencyData) {
+		this.agencyData = agencyData;
+	}
+	
+	private Agency getAgency(String name){
+		Iterator<Agency> it = agencyService.getEntities().iterator();
+		while(it.hasNext()){
+			Agency p = it.next();
+			if (p.getName().compareTo(name)==0){
+				return p;
+			}
+		}
+		return null;
+	}
 
 	@PostConstruct
 	public void init() {
@@ -151,12 +176,28 @@ public class ComplaintBean implements Serializable {
 			}
 			
 		}
-		comphelper = this.complaintHelp.getEntities();
+		
 
+	}
+	private ComplaintHelp getCH(String name){
+		Iterator<ComplaintHelp> it = comphelper.iterator();
+		logger.debug("checking complainttypes: query: " + name);
+		while(it.hasNext()){
+			ComplaintHelp ch = it.next();
+			if (ch.getComval().equals(name)){
+				return ch;
+			}
+		}
+		return null;
 	}
 	public List<String> completeArea(String query) {
 		logger.debug("checking complainttypes");
 		List<String> results = new ArrayList<String>();
+		if(selectedAgency ==null ){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Please select an agency first","Please select an agency first");
+            FacesContext.getCurrentInstance().addMessage(":mainForm:msg", msg);
+		} else {
+		
 		Iterator<ComplaintHelp> it = comphelper.iterator();
 		String nquery = query.toLowerCase();
 		logger.debug("checking complainttypes: query: " + nquery);
@@ -165,6 +206,7 @@ public class ComplaintBean implements Serializable {
 			if (ch.getKey().equals(nquery)){
 				results.add(ch.getComval());
 			}
+		}
 		}
 		 /*
         if(query.equals("When")) {
@@ -184,20 +226,60 @@ public class ComplaintBean implements Serializable {
         
         return results;
     }
-	public void handSelect(SelectEvent actionEvent) {
-		logger.debug("select complainttype Application");
+	public void onProvinceChange() {
+		if(selectedProvince !=null && !selectedProvince.equals("")){
+				Iterator<Department> it = departmentService.getEntities(getProvince(selectedProvince)).iterator();
+				departmentData = new HashMap<String,String>();
+				while(it.hasNext()){
+					Department p = it.next();
+					logger.debug("Loading: " + p.getName());
+					logger.debug("with id: " + p.getId());
+					departmentData.put(p.getName(),p.getName());
+				}
+		} else {
+        	departmentData = new HashMap<String,String>();
+        	agencyData = new HashMap<String,String>();
+        	selectedAgency = null;
+		}
+    }
+	public void onDepartmentChange() {
+		if(selectedDepartment !=null && !selectedDepartment.equals("")){
+				Iterator<Agency> it = agencyService.getEntities(getDepartment(selectedDepartment)).iterator();
+				agencyData = new HashMap<String,String>();
+				while(it.hasNext()){
+					Agency p = it.next();
+					logger.debug("Loading: " + p.getName());
+					logger.debug("with id: " + p.getId());
+					agencyData.put(p.getName(),p.getName());
+				}
+		} else {
+        	agencyData = new HashMap<String,String>();
+		}
+    }
+	public void onAgencyChange(){
+		comphelper = this.complaintHelp.getEntities(getAgency(selectedAgency));
+	}
+
+	public void handleSelect(SelectEvent actionEvent) {
+		logger.debug("select complainttype Application" + actionEvent.getClass());
+		logger.debug("complaint change: " + getComplaint().getDescription());
+		if(selectedAgency ==null ){
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Please select an agency first","Please select an agency first");
+            FacesContext.getCurrentInstance().addMessage("mainForm:msg", msg);
+		} else {
+			String complaint = actionEvent.getObject().toString();
+			ComplaintHelp ch = getCH(complaint);
+			logger.debug("complaint type: " + ch.getComplainttype().getName());
+			selectedComplaintType = ch.getComplainttype();
+		}
+		
 	}
 
 	public void submitAction(ActionEvent actionEvent) {
 		logger.debug("submit complaint Application");
-		
-		
 		complaint.setCitizen(citizen);
-		complaint.setDepartment(getDepartment(selectedDepartment));
-		complaint.setProvince(getProvince(selectedProvince));
-		ComplaintType ct = complaintTypeService.getEntities().get(0);
-		complaint.setComplainttype(ct);
-		
+		complaint.setComplainttype(selectedComplaintType);
+		complaint.setAgency(getAgency(selectedAgency));
 		citizenService.saveEntity(citizen);
 		complaintService.saveEntity(complaint);
 	}
@@ -231,5 +313,11 @@ public class ComplaintBean implements Serializable {
 
 	public void setComplaint(Complaint complaint) {
 		this.complaint = complaint;
+	}
+	public String getSelectedAgency() {
+		return selectedAgency;
+	}
+	public void setSelectedAgency(String selectedAgency) {
+		this.selectedAgency = selectedAgency;
 	}
 }

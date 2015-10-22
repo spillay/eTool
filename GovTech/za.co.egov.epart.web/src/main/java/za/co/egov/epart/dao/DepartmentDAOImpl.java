@@ -5,6 +5,8 @@ package za.co.egov.epart.dao;
 *
 */
 import za.co.egov.epart.Department;
+import za.co.egov.epart.Province;
+
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.logging.Log;
@@ -83,5 +85,17 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 	}
 	public void setTransaction(Transaction transaction){
 		this.transaction=transaction;
+	}
+	@Override
+	public List<Department> getByProvince(Province o) {
+		session = sessionFactory.openSession();  
+		transaction = session.beginTransaction();  
+		@SuppressWarnings("unchecked")
+		List<Department> list = (List<Department>) session.createCriteria(Department.class)
+		.add(Restrictions.eq("province", o))
+		.list();
+		transaction.commit();  
+		session.close();
+		return list;
 	}
 }

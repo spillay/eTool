@@ -1,15 +1,19 @@
 package za.co.egov.epart.dao;
 		
+import za.co.egov.epart.Agency;
 /**
 * @author Suresh Pillay
 *
 */
 import za.co.egov.epart.ComplaintHelp;
+
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -83,5 +87,22 @@ public class ComplaintHelpDAOImpl implements ComplaintHelpDAO {
 	}
 	public void setTransaction(Transaction transaction){
 		this.transaction=transaction;
+	}
+	@Override
+	public List<ComplaintHelp> findby(Agency o) {
+		session = sessionFactory.openSession();  
+		transaction = session.beginTransaction();  
+		@SuppressWarnings("unchecked")
+		List<ComplaintHelp> list = (List<ComplaintHelp>) session.createCriteria(ComplaintHelp.class)
+		.add(Restrictions.eq("agency", o))
+		.list();
+		Iterator<ComplaintHelp> it = list.iterator();
+		while(it.hasNext()){
+			ComplaintHelp ch = it.next();
+			Hibernate.initialize(ch.getComplainttype());
+		}
+		transaction.commit();  
+		session.close();
+		return list;
 	}
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-10-19T18:16:58.671 by  eTool 1.0.0 Author Suresh Pillay-->
+<!-- Generated 2015-10-22T05:21:41.809 by  eTool 1.0.0 Author Suresh Pillay-->
 <hibernate-mapping>
     <class name="za.co.egov.epart.ComplaintType" table="complainttype" schema="public">
     	<id name="id" type="java.lang.Integer">

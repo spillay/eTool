@@ -1,12 +1,17 @@
 package za.co.egov.epart;
-// Generated 20 Oct 2015 1:33:32 PM by Hibernate Tools 3.2.2.GA
+// Generated 22 Oct 2015 10:48:00 AM by Hibernate Tools 3.2.2.GA
 
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,14 +28,18 @@ public class Citizen  implements java.io.Serializable {
      private String firstName;
      private String surname;
      private String email;
+     private String cell;
+     private Set<Complaint> COMPLAINT_CITIZENS = new HashSet<Complaint>(0);
 
     public Citizen() {
     }
 
-    public Citizen(String firstName, String surname, String email) {
+    public Citizen(String firstName, String surname, String email, String cell, Set<Complaint> COMPLAINT_CITIZENS) {
        this.firstName = firstName;
        this.surname = surname;
        this.email = email;
+       this.cell = cell;
+       this.COMPLAINT_CITIZENS = COMPLAINT_CITIZENS;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -69,6 +78,23 @@ public class Citizen  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    @Column(name="cell", length=100)
+    public String getCell() {
+        return this.cell;
+    }
+    
+    public void setCell(String cell) {
+        this.cell = cell;
+    }
+@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="citizen")
+    public Set<Complaint> getCOMPLAINT_CITIZENS() {
+        return this.COMPLAINT_CITIZENS;
+    }
+    
+    public void setCOMPLAINT_CITIZENS(Set<Complaint> COMPLAINT_CITIZENS) {
+        this.COMPLAINT_CITIZENS = COMPLAINT_CITIZENS;
     }
 
 

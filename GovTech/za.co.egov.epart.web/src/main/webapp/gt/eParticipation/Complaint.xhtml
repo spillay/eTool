@@ -16,80 +16,94 @@
 	<p:layoutUnit position="north" size="100" minSize="40" maxSize="200">header</p:layoutUnit>
 	<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
 		-->
-		<h:body>
-			<h:form id="mainForm">
-				<p:growl id="growl" />
-				<p:messages id="msg" closable="true" />
-				<p:panel header="Complaint Submission Form">
-					<p:panel header="Citizen">
-						<p:panelGrid columns="2" cellpadding="4">
-							<h:outputText value="First Name"></h:outputText>
-							<p:inputText value="#{complaintBean.citizen.firstName}"></p:inputText>
-							<h:outputText value="Surname"></h:outputText>
-							<p:inputText value="#{complaintBean.citizen.surname}"></p:inputText>
-							<h:outputText value="Email"></h:outputText>
-							<p:inputText value="#{complaintBean.citizen.email}">
-								<f:validateRegex
-									pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-								<f:validateLength minimum="2" />
-							</p:inputText>
-						</p:panelGrid>
-					</p:panel>
-
-					<p:panel header="Province">
-						<p:panelGrid columns="2" cellpadding="4">
-							<h:outputText value="Province"></h:outputText>
-							<p:selectOneMenu style="width:150px"
-								value="#{complaintBean.selectedProvince}">
-								<p:ajax></p:ajax>
-								<f:selectItem noSelectionOption="true"></f:selectItem>
-								<f:selectItems value="#{complaintBean.provinceData}"></f:selectItems>
-							</p:selectOneMenu>
-
-						</p:panelGrid>
-					</p:panel>
-
-					<p:panel header="Department">
-						<p:panelGrid columns="2" cellpadding="4">
-							<h:outputText value="Department"></h:outputText>
-							<p:selectOneMenu style="width:150px"
-								value="#{complaintBean.selectedDepartment}">
-								<p:ajax></p:ajax>
-								<f:selectItem noSelectionOption="true"></f:selectItem>
-								<f:selectItems value="#{complaintBean.departmentData}"></f:selectItems>
-							</p:selectOneMenu>
-
-						</p:panelGrid>
-					</p:panel>
-
-					<p:panel header="Complaint">
-						<p:panelGrid columns="2" cellpadding="4"
-							columnClasses="no-border, no-border">
-							<h:outputText value="Summary"></h:outputText>
-							<p:inputText value="#{complaintBean.complaint.name}"
-								maxlength="20"></p:inputText>
-							<h:outputText value="Detail"></h:outputText>
-							<p:inputTextarea rows="5" cols="30" counter="counterdisplay"
-								value="#{complaintBean.complaint.description}"
-								completeMethod="#{complaintBean.completeArea}" maxlength="100"
-								counterTemplate="{0} characters remaining." autoResize="false">
-							</p:inputTextarea>
-							<h:outputText id="counterdisplay" />
-						</p:panelGrid>
-					</p:panel>
+<p:layout fullPage="true">
+	<p:layoutUnit position="west" size="200" header="e-Participation" resizable="true"
+		closable="true" collapsible="true">
+		<h:form id="menuForm">
+			<p:menu type="sliding">
+				<p:submenu label="Citizen View">
+					<p:menuitem value="Add Complaint" url="./Complaint.xhtml"
+						icon="ui-icon ui-icon-home" />
+				</p:submenu>
+				<p:submenu label="Department View">
+					<p:menuitem value="Manage Complaint" url="./DeptView.xhtml" icon="ui-icon ui-icon-home" />
+				</p:submenu>
+			</p:menu>
+		</h:form>
+	</p:layoutUnit>
+	<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
+		<h:form id="mainForm">
+			<p:growl id="growl" />
+			<p:messages id="msg" closable="true" />
+			<p:panel header="Complaint Submission Form">
+				<p:panel header="Citizen">
+					<p:panelGrid columns="2" cellpadding="4">
+						<h:outputText value="First Name"></h:outputText>
+						<p:inputText value="#{complaintBean.citizen.firstName}" required="true" requiredMessage="Please enter your firstname"></p:inputText>
+						<h:outputText value="Surname"></h:outputText>
+						<p:inputText value="#{complaintBean.citizen.surname}" required="true" requiredMessage="Please enter your surname"></p:inputText>
+						<h:outputText value="Email"></h:outputText>
+						<p:inputText value="#{complaintBean.citizen.email}">
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+							<f:validateLength minimum="2" />
+						</p:inputText>
+					</p:panelGrid>
 				</p:panel>
-				<p:commandButton value="Submit" id="submitBtn"
-					update="growl,:mainForm:msg"
-					actionListener="#{complaintBean.submitAction}"
-					styleClass="ui-priority-primary"
-					action="/index.xhtml?faces-redirect=true" validateClient="true" />
-				<p:commandButton value="Cancel" id="doneBtn"
-					update="growl,:mainForm:msg" immediate="true"
-					validateClient="false" action="/index.xhtml?faces-redirect=true" />
-			</h:form>
-		</h:body>
-		<!-- 
+
+				<p:panel header="Agency">
+					<p:panelGrid columns="2" cellpadding="4">
+						<h:outputText value="Province"></h:outputText>
+						<p:selectOneMenu style="width:200px"
+							value="#{complaintBean.selectedProvince}">
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.provinceData}"></f:selectItems>
+							<p:ajax listener="#{complaintBean.onProvinceChange}"  update="departmentSel,agencySel" />
+						</p:selectOneMenu>
+						<h:outputText  value="Department"></h:outputText>
+						<p:selectOneMenu id="departmentSel" style="width:250px"
+							value="#{complaintBean.selectedDepartment}">
+							<p:ajax></p:ajax>
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.departmentData}"></f:selectItems>
+							<p:ajax listener="#{complaintBean.onDepartmentChange}"  update="agencySel" />
+						</p:selectOneMenu>
+						<h:outputText value="Agency"></h:outputText>
+						<p:selectOneMenu id="agencySel"  style="width:250px"
+							value="#{complaintBean.selectedAgency}">
+							<p:ajax listener="#{complaintBean.onAgencyChange}"  update="Complaint" />
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.agencyData}"></f:selectItems>
+						</p:selectOneMenu>
+					</p:panelGrid>
+				</p:panel>
+
+
+				<p:panel id="Complaint" header="Complaint">
+					<p:panelGrid columns="2" cellpadding="4"
+						columnClasses="no-border, no-border">
+						<h:outputText value="Request/Complaint"></h:outputText>
+						<p:autoComplete 
+							value="#{complaintBean.complaint.description}"
+							completeMethod="#{complaintBean.completeArea}" maxlength="100"
+							required="true" requiredMessage="Please enter your comments">
+						<p:ajax listener="#{complaintBean.handleSelect}" event="itemSelect" process="@this" />
+						</p:autoComplete>
+						<h:outputText value="Other Info"></h:outputText>
+						<p:inputText value="#{complaintBean.complaint.name}" 
+							maxlength="50"></p:inputText>
+					</p:panelGrid>
+				</p:panel>
+			</p:panel>
+			<p:commandButton value="Submit" id="submitBtn"
+				update="growl,:mainForm:msg"
+				actionListener="#{complaintBean.submitAction}"
+				styleClass="ui-priority-primary"
+				action="./DeptView.xhtml?faces-redirect=true" validateClient="true" />
+			<p:commandButton value="Cancel" id="doneBtn"
+				update="growl,:mainForm:msg" immediate="true" validateClient="false"
+				action="./DeptView.xhtml?faces-redirect=true" />
+		</h:form>
 	</p:layoutUnit>
 </p:layout>
- -->
 </html>

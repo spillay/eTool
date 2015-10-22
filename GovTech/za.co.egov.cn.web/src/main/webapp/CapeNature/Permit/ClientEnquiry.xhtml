@@ -6,14 +6,26 @@
 <h:head>
      <title>Permit Enquiry</title>
 </h:head>
-  	<!-- 
-<p:layout style="min-width:400px;min-height:200px;">
+<p:layout fullPage="true">
+	<p:layoutUnit position="west" size="200" header="e-Permit" resizable="true"
+		closable="true" collapsible="true">
+		<h:form id="menuForm">
+			<p:menu type="sliding">
+				<p:submenu label="Citizen View">
+					<p:menuitem value="New Application" url="./PermitApp.xhtml"/>
+					<p:menuitem value="Application" url="./PermitApp2.xhtml"
+						 />
+					<p:menuitem value="Enquiry" url="./ClientEnquiry.xhtml"/>
+				</p:submenu>
+				<p:submenu label="Department View">
+					<p:menuitem value="Manage Permit" url="./DeptView.xhtml" icon="ui-icon ui-icon-home" />
+				</p:submenu>
+			</p:menu>
+		</h:form>
+	</p:layoutUnit>
+	<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
 
-<p:layoutUnit position="west" size="100" minSize="40" maxSize="200">West</p:layoutUnit>
-<p:layoutUnit position="north" size="100" minSize="40" maxSize="200">North</p:layoutUnit>
-<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
--->
-<h:body><h:form><p:panel header="Permit Enquiry"><p:panel header="Client">
+<h:form><p:panel header="Permit Enquiry"><p:panel header="Client">
 <p:panelGrid columns="2" cellpadding="4">
 <h:outputText value="Identity Number"></h:outputText>
 <p:inputMask mask="9-9-9-9-9-9-9-9-9-9-9-9-9" value="#{clientEnquiryBean.client.idno}" required="true" requiredMessage="Valid Green Barcode ID is Required"></p:inputMask>
@@ -34,11 +46,8 @@
 
 
 </p:panel>
-<p:commandButton value="Done" id="doneBtn"  immediate="true" validateClient="false" action="/index.xhtml?faces-redirect=true"/>
+<p:commandButton value="Done" id="doneBtn"  immediate="true" validateClient="false" action="./PermitApp.xhtml?faces-redirect=true"/>
 </h:form>
-</h:body>
-<!-- 
 </p:layoutUnit>
 </p:layout>
- -->
 </html>

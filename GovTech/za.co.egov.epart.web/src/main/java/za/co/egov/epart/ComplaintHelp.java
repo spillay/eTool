@@ -1,5 +1,5 @@
 package za.co.egov.epart;
-// Generated 20 Oct 2015 1:33:32 PM by Hibernate Tools 3.2.2.GA
+// Generated 22 Oct 2015 10:48:00 AM by Hibernate Tools 3.2.2.GA
 
 
 import javax.persistence.Column;
@@ -25,18 +25,20 @@ public class ComplaintHelp  implements java.io.Serializable {
      private Integer id;
      private String key;
      private String comval;
+     private Agency agency;
      private ComplaintType complainttype;
 
     public ComplaintHelp() {
     }
 
 	
-    public ComplaintHelp(ComplaintType complainttype) {
-        this.complainttype = complainttype;
+    public ComplaintHelp(Agency agency) {
+        this.agency = agency;
     }
-    public ComplaintHelp(String key, String comval, ComplaintType complainttype) {
+    public ComplaintHelp(String key, String comval, Agency agency, ComplaintType complainttype) {
        this.key = key;
        this.comval = comval;
+       this.agency = agency;
        this.complainttype = complainttype;
     }
    
@@ -69,7 +71,16 @@ public class ComplaintHelp  implements java.io.Serializable {
         this.comval = comval;
     }
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="COMPLAINTHELP_COMPLAINTTYPE_ID", nullable=false)
+    @JoinColumn(name="COMPLAINTHELP_AGENCY_ID", nullable=false)
+    public Agency getAgency() {
+        return this.agency;
+    }
+    
+    public void setAgency(Agency agency) {
+        this.agency = agency;
+    }
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="COMPLAINTHELP_COMPLAINTTYPE_ID")
     public ComplaintType getComplainttype() {
         return this.complainttype;
     }

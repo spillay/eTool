@@ -10,13 +10,18 @@ setup {
 		Modified Attributes {
 			Attribute=firstName ControlType=String {},
 			Attribute=surname ControlType=String {},
-			Attribute=email ControlType=Email {}
+			Attribute=email ControlType=Email {},
+			Attribute=cell ControlType=Telephone {}
 		},
 		BusinessObject=Province BOType=TwoPanelGrid
 		Modified Attributes {
 			Attribute=name ControlType=Selection {}
 		},
 		BusinessObject=Department BOType=TwoPanelGrid
+		Modified Attributes {
+			Attribute=name ControlType=Selection {}
+		},
+		BusinessObject=Agency BOType=TwoPanelGrid
 		Modified Attributes {
 			Attribute=name ControlType=Selection {}
 		},

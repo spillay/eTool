@@ -1,13 +1,13 @@
 package za.co.egov.epart.dao;
 		
+import za.co.egov.epart.Agency;
 /**
 * @author Suresh Pillay
 *
 */
 import za.co.egov.epart.Complaint;
-import za.co.egov.epart.Department;
-import za.co.egov.epart.Province;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.logging.Log;
@@ -22,8 +22,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import javassist.bytecode.Descriptor.Iterator;
 @Repository
 public class ComplaintDAOImpl implements ComplaintDAO {
 	private static final long serialVersionUID = 1L;
@@ -48,10 +46,11 @@ public class ComplaintDAOImpl implements ComplaintDAO {
 	transaction = session.beginTransaction();  
 	@SuppressWarnings("unchecked")
 	List<Complaint> list = (List<Complaint>) session.createCriteria(Complaint.class).list();
-	java.util.Iterator<Complaint> it = list.iterator();
+	Iterator<Complaint> it = list.iterator();
 	while(it.hasNext()){
 		Complaint c = it.next();
 		Hibernate.initialize(c.getComplainttype());
+		Hibernate.initialize(c.getAgency());
 	}
 	transaction.commit();  
 	session.close();
@@ -96,18 +95,18 @@ public class ComplaintDAOImpl implements ComplaintDAO {
 		this.transaction=transaction;
 	}
 	@Override
-	public List<Complaint> getComplaints(Province p, Department d) {
+	public List<Complaint> find(Agency o) {
 		session = sessionFactory.openSession();  
 		transaction = session.beginTransaction();  
 		@SuppressWarnings("unchecked")
 		List<Complaint> list = (List<Complaint>) session.createCriteria(Complaint.class)
-		.add(Restrictions.eq("province", p))
-		.add(Restrictions.eq("department", d))
+		.add(Restrictions.eq("agency", o))
 		.list();
-		java.util.Iterator<Complaint> it = list.iterator();
+		Iterator<Complaint> it = list.iterator();
 		while(it.hasNext()){
 			Complaint c = it.next();
 			Hibernate.initialize(c.getComplainttype());
+			Hibernate.initialize(c.getAgency());
 		}
 		transaction.commit();  
 		session.close();

@@ -13,7 +13,8 @@ OrgUnit "gt"
 			attributes {
 				firstName { Label="First Name" Type=String },
 				surname { Label="Surname" Type=String },
-				email { Label="Email" Type=String}
+				email { Label="Email" Type=String},
+				cell { Label="Cell" Type=String}
 			}
 		},
 		BO=Complaint {
@@ -24,13 +25,7 @@ OrgUnit "gt"
 			references {
 				BO=Citizen [Inclusion=Mandatory Multiplicity=Many-to-One],
 				BO=ComplaintType [Inclusion=Mandatory Multiplicity=Many-to-One],
-				BO=Department [Inclusion=Mandatory Multiplicity=Many-to-One],
-				BO=Province [Inclusion=Mandatory Multiplicity=Many-to-One]
-			}
-		},
-		BO=Department {
-			attributes {
-				name { Label="Department" Type=String  }
+				BO=Agency [Inclusion=Mandatory Multiplicity=Many-to-One]
 			}
 		},
 		BO=Province {
@@ -38,6 +33,23 @@ OrgUnit "gt"
 				name { Label="Province" Type=String }
 			}
 			
+		},
+		BO=Department {
+			attributes {
+				name { Label="Department" Type=String  }
+				
+			}
+			references {
+				BO=Province [Inclusion=Mandatory Multiplicity=Many-to-One]
+			}
+		},
+		BO=Agency {
+			attributes {
+				name { Label="Agency" Type=String  }
+			}
+			references {
+				BO=Department [Inclusion=Mandatory Multiplicity=Many-to-One]
+			}
 		},
 		BO=ComplaintType {
 			attributes {
@@ -48,6 +60,9 @@ OrgUnit "gt"
 			attributes {
 				key { Label="key" Type=String},
 				comval {Label="Completed Complaint" Type=String}
+			}
+			references {
+				BO=Agency [Inclusion=Mandatory Multiplicity=Many-to-One]
 			}
 		}
 		
