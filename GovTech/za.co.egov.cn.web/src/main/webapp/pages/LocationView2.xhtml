@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="../templates/citizen.xhtml">
+
+    <ui:define name="metadata">
+    </ui:define>
+    <ui:define name="content">
+        <p:growl id="messages" showDetail="true" />
+
+		<body onload="initialize()">
+			<div id="floating-panel">
+				<input id="address" type="textbox" value=""/> 
+				<input id="submit" type="button" value="Search Location"/> 
+				<input id="latlng" type="text" value="-29.853485, 31.030029"/> 
+				<input id="submitll" type="button" value="Find Coordinates"/>
+			</div>
+
+			<div id="map_canvas"></div>
+			<div id="checkboxes">
+				<input type="checkbox" id="layer0" onClick="toggleLayer(0)" />South
+				African Police Stations <br /> <input type="checkbox" id="layer1"
+					onClick="toggleLayer(1)" />South African Birding Areas <br /> <input
+					type="checkbox" id="layer2" onClick="toggleLayer(2)" />South
+				African Hospitals <br /> <input type="checkbox" id="layer3"
+					onClick="toggleLayer(3)" />South African Post Offices <br />
+			</div>
+		</body>
+        
+    </ui:define>
+</ui:composition>

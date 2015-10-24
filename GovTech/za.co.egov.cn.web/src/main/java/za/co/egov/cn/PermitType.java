@@ -1,5 +1,5 @@
 package za.co.egov.cn;
-// Generated 24 Oct 2015 3:39:49 AM by Hibernate Tools 3.2.2.GA
+// Generated 24 Oct 2015 10:02:20 AM by Hibernate Tools 3.2.2.GA
 
 
 import java.util.HashSet;
@@ -26,14 +26,16 @@ public class PermitType  implements java.io.Serializable {
 
      private Integer id;
      private String name;
+     private String description;
      private Set<Permit> PERMIT_PERMITTYPES = new HashSet<Permit>(0);
      private Set<PermitHistory> PERMITHISTORY_PERMITTYPES = new HashSet<PermitHistory>(0);
 
     public PermitType() {
     }
 
-    public PermitType(String name, Set<Permit> PERMIT_PERMITTYPES, Set<PermitHistory> PERMITHISTORY_PERMITTYPES) {
+    public PermitType(String name, String description, Set<Permit> PERMIT_PERMITTYPES, Set<PermitHistory> PERMITHISTORY_PERMITTYPES) {
        this.name = name;
+       this.description = description;
        this.PERMIT_PERMITTYPES = PERMIT_PERMITTYPES;
        this.PERMITHISTORY_PERMITTYPES = PERMITHISTORY_PERMITTYPES;
     }
@@ -56,6 +58,15 @@ public class PermitType  implements java.io.Serializable {
     
     public void setName(String name) {
         this.name = name;
+    }
+    
+    @Column(name="description", length=100)
+    public String getDescription() {
+        return this.description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
     }
 @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="permittype")
     public Set<Permit> getPERMIT_PERMITTYPES() {

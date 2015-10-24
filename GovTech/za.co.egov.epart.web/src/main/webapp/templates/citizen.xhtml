@@ -29,13 +29,12 @@
 			<div id="center" class="column">
 			<h:form id="menuform">
 					<p:menubar id="mainmenus">				
-							<p:submenu label="Permit Application">
-							<p:menuitem value="New Application" url="PermitApp.xhtml"></p:menuitem>
-							<p:menuitem value="Registered Applicant" url="PermitApp2.xhtml"></p:menuitem>
+							<p:submenu label="Citizen Participation">
+							<p:menuitem value="Complaint" url="Complaint.xhtml"></p:menuitem>
 							</p:submenu>
-							<p:menuitem value="Client Enquiry" url="ClientEnquiry.xhtml"></p:menuitem>
-							<p:menuitem value="Dept Management" url="DeptView.xhtml"></p:menuitem>
-							<p:menuitem value="Location Services" url="LocationView2.xhtml"></p:menuitem>
+							<p:submenu label="Department Participation">
+							<p:menuitem value="Dept Participation" url="DeptView.xhtml"></p:menuitem>
+							</p:submenu>
 					</p:menubar>
 				</h:form>
 				<ui:insert name="content" />

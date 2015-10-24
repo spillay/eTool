@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import za.co.egov.cn.service.ClientService;
+import za.co.egov.cn.service.PermitTypeService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,20 +23,20 @@ public class SpringTest {
 
 	@Autowired
 	ClientService dao;
+	@Autowired
+	PermitTypeService ptService;
 	
 	@Test
 	public void Test_PermitControlImpl() {
 		 try {
-				List<Client> clients = dao.getEntities();
-				if ( clients.size() > 0){
-					System.out.print(clients.get(0).getFirstname1());
-				}
+				ptService.saveEntity(new PermitType("Cape Nature - Transport Permit","Transport of protected wild animals within the province",null,null));
+				ptService.saveEntity(new PermitType("WCLA-Temp/Special License","Temporary and Special Liquor Licence",null,null));
+
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
-	@Test
 	public void Test_Save() {
 		 try {
 			   Client c1 = new Client("2123456789","cardno","cardpin","firstname12112", "firstname2", "firstname3", "surname", "telphoneno", "cellno", "email", "email", null);
@@ -49,5 +50,6 @@ public class SpringTest {
 				e.printStackTrace();
 			}
 	}
+
 
 }

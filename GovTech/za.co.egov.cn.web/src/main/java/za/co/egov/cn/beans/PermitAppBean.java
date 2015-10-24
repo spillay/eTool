@@ -203,7 +203,7 @@ public class PermitAppBean implements Serializable {
      
     public void onCancel(RowEditEvent event) {
     	logger.debug("OnCancel");
-        FacesMessage msg = new FacesMessage("Edit Cancelled", ((Permit) event.getObject()).getPermitNo());
+        FacesMessage msg = new FacesMessage("Permit Request Cancelled", ((Permit) event.getObject()).getPermitNo());
         FacesContext.getCurrentInstance().addMessage(null, msg);
         permits.remove(((Permit) event.getObject()));
     }
@@ -219,11 +219,18 @@ public class PermitAppBean implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
+    public String checkAction(){
+    	this.submitButtonState = false;
+    	return null;
+    }
 	public String addAction() {
-		this.submitButtonState = true;
+		this.submitButtonState = false;
 		Permit p = new Permit();
 		p.setPermitNo("New");
-        permits.add(p);
+		logger.debug("Selected Permit Type: " + this.selectedPermittype);
+		PermitType pt = getPermitType(selectedPermittype);
+        p.setPermittype(pt);
+		permits.add(p);
         return null;
     }
 	public void loadAction(ActionEvent actionEvent) {
@@ -272,7 +279,7 @@ public class PermitAppBean implements Serializable {
 		tel = tel.replace(" ", "");
 		client.setTelphoneno(tel);
 	}
-	public void submitAction(ActionEvent actionEvent) {
+	public String submitAction() {
 		logger.debug("submit Permit Application");
 		addMessage("Welcome to GovTech 2015!!");
 		
@@ -282,8 +289,8 @@ public class PermitAppBean implements Serializable {
 		);
 		reformat();
 		logger.debug("Selected PermitType: " + this.selectedPermittype);
-		PermitType p = this.getPermitType(selectedPermittype);
-		logger.debug("Selected PermitType: " + p.getName() + " with id " + p.getId());
+		//PermitType p = this.getPermitType(selectedPermittype);
+		//logger.debug("Selected PermitType: " + p.getName() + " with id " + p.getId());
 		client = clientData.saveEntity(client);
 		
 		
@@ -296,6 +303,7 @@ public class PermitAppBean implements Serializable {
 		SMS not = new SMS();
 		
 		not.sendRecvMessage(client.getCellno());
+		return "./ClientEnquiry.xhtml?faces-redirect=true";
 	}
 
 	public void addMessage(String summary) {
