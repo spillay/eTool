@@ -1,0 +1,156 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="../templates/citizen.xhtml">
+
+    <ui:define name="metadata">
+    </ui:define>
+    <ui:define name="content">
+       		<h:form id="mainForm">
+				<p:growl id="messages" />
+				<p:growl id="growl" life="2000" />
+				<p:messages id="msg" closable="true" />
+				<p:panel header="Permit Application">
+					<p:panelGrid columns="4" cellpadding="4">
+						<h:outputText value="Identity Number"></h:outputText>
+						<p:inputMask mask="9-9-9-9-9-9-9-9-9-9-9-9-9"
+							value="#{permitAppBean.client.idno}" required="true"
+							requiredMessage="Valid Green Barcode ID is Required">
+							<f:validateLength minimum="13" />
+						</p:inputMask>
+						<h:outputText value="Surname"></h:outputText>
+						<p:inputText id="surname"
+							value="#{permitAppBean.client.surname}" required="true"
+							requiredMessage="Valid Surname Name is Required">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<h:outputText value="First Name 1"></h:outputText>
+						<p:inputText id="firstname1"
+							value="#{permitAppBean.client.firstname1}" required="true"
+							requiredMessage="Valid First Name is Required">
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<h:outputText value="First Name 2"></h:outputText>
+						<p:inputText id="firstname2"
+							value="#{permitAppBean.client.firstname2}" >
+							
+						</p:inputText>
+						<h:outputText value="First Name 3"></h:outputText>
+						<p:inputText id="firstname3"
+							value="#{permitAppBean.client.firstname3}" >
+							
+						</p:inputText>
+						<h:outputText value="Telephone No"></h:outputText>
+						<p:inputMask mask="(999) 999-9999" value="#{permitAppBean.client.telphoneno}"></p:inputMask>
+						<h:outputText value="Cell No"></h:outputText>
+						<p:inputMask mask="(999) 999-9999" value="#{permitAppBean.client.cellno}"></p:inputMask>
+						<h:outputText value="Email Address"></h:outputText>
+						<p:inputText value="#{permitAppBean.client.email}" required="true" requiredMessage="Valid Email is Required">
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+							<f:validateLength minimum="2" />
+						</p:inputText>
+						<h:outputText value="Preferred Contact-Type"></h:outputText>
+						<p:selectOneMenu style="width:150px"
+							value="#{permitAppBean.client.prefContact}">
+							<p:ajax></p:ajax>
+							<f:selectItem noSelectionOption="true"></f:selectItem>
+							<f:selectItems value="#{permitAppBean.prefContactData}"></f:selectItems>
+						</p:selectOneMenu>
+						<h:outputText value="Card Number"></h:outputText>
+						<p:inputText id="cardno" value="#{permitAppBean.client.cardno}"
+							required="true" requiredMessage="Valid Card No is Required">
+							<f:validateLength minimum="10" />
+						</p:inputText>
+						<h:outputText value="Card Pin"></h:outputText>
+						<p:inputText id="cardpin" value="#{permitAppBean.client.cardpin}"
+							required="true" requiredMessage="Valid Card pin is Required">
+							<f:validateLength minimum="4" />
+						</p:inputText>
+						<f:facet name="footer">
+							<p:commandButton value="Add Permit"
+								update=":mainForm:PermitTable,:mainForm:submitBtn,:mainForm:msg"
+								actionListener="#{permitAppBean.addAction}" />
+						</f:facet>
+					</p:panelGrid>
+					<p:dataTable id="PermitTable" var="permit"
+						value="#{permitAppBean.permits}" editable="true"
+						style="margin-bottom:20px">
+						<f:facet name="header">  
+                       	Required Permits  
+                    	</f:facet>
+						<p:ajax event="rowEdit" listener="#{permitAppBean.onEdit}"
+							update=":mainForm:messages" />
+						<p:ajax event="rowEditCancel" listener="#{permitAppBean.onCancel}"
+							update=":mainForm:messages" />
+						<p:ajax event="cellEdit" listener="#{permitAppBean.onEdit}"
+							update=":mainForm:messages" />
+						<p:column headerText="Permit Type">
+							<p:cellEditor>
+								<f:facet name="output">
+									<h:outputText value="#{permitAppBean.selectedPermittype}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:selectOneMenu id="permitTypeList2"
+										value="#{permitAppBean.selectedPermittype}"
+										panelStyle="width:180px" effect="fade" var="t"
+										style="width:160px" filter="true" filterMatchMode="startsWith">
+										<f:selectItem noSelectionOption="true"></f:selectItem>
+										<f:selectItems value="#{permitAppBean.permitTypes}" />
+									</p:selectOneMenu>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column headerText="Comments">
+							<p:cellEditor>
+								<f:facet name="output">
+									<h:outputText value="#{permitAppBean.comments}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText value="#{permitAppBean.comments}"
+										style="width:100%" label="Comments" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column style="width:32px">
+							<p:rowEditor />
+						</p:column>
+					</p:dataTable>
+				</p:panel>
+		
+				<p:commandButton value="Submit" id="submitBtn"
+					update="growl,:mainForm:msg"
+					actionListener="#{permitAppBean.submitAction}"
+					styleClass="ui-priority-primary"
+					disabled="#{permitAppBean.submitButtonState}"
+					action="/index.xhtml?faces-redirect=true" validateClient="true" />
+				<p:commandButton value="Cancel" id="doneBtn"
+					update="growl,:mainForm:msg" immediate="true"
+					validateClient="false" action="/index.xhtml?faces-redirect=true" />
+			</h:form>
+			<p:dialog id="detail" widgetVar="detail">
+				<h:form>
+					<p:panel header="Permit Details">
+
+						<p:panelGrid columns="2" cellpadding="4">
+							<h:outputLabel for="permitTypeList2" value="Permit Types" />
+							<p:selectOneMenu id="permitTypeList2"
+								value="#{permitAppBean.selectedPermittype}"
+								panelStyle="width:180px" effect="fade" var="t"
+								style="width:160px" filter="true" filterMatchMode="startsWith">
+								<f:selectItem noSelectionOption="true"></f:selectItem>
+								<f:selectItems value="#{permitAppBean.permitTypes}" />
+							</p:selectOneMenu>
+						</p:panelGrid>
+
+					</p:panel>
+					<p:button value="Close" onclick="PF('detail').hide(); return false" />
+					<p:commandButton value="Add"
+						actionListener="#{permitAppBean.addAction}"
+						update=":mainForm:PermitTable" oncomplete="PF('detail').hide()" />
+				</h:form>
+        </p:dialog>
+    </ui:define>
+</ui:composition>

@@ -14,6 +14,9 @@ import za.co.egov.cn.Client;
 import za.co.egov.cn.Permit;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,12 +29,16 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+
+
 
 @ManagedBean
 @ViewScoped
@@ -165,6 +172,7 @@ public class DeptViewBean implements Serializable {
 	public void updateAction(ActionEvent actionEvent) {
 		logger.debug("update permit: " + this.selectedPermit.getId());
 		permitData.updateEntity(selectedPermit);
+		
 	}
 	public void searchAction(ActionEvent actionEvent) {
 		logger.debug("selected status: " + this.selectedStatus);
@@ -206,4 +214,38 @@ public class DeptViewBean implements Serializable {
 	public void setPermit(Permit permit) {
 		this.permit = permit;
 	}
+	/*
+	public void report(){
+		logger.debug("report");
+		  Map parameterMap = new HashMap();
+		  String id = "123";
+	      parameterMap.put("id", id);
+	      FacesContext facesContext = FacesContext.getCurrentInstance();
+
+	      HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
+
+	      logger.debug("before stream");
+	      InputStream reportStream = facesContext.getExternalContext().getResourceAsStream("/reports/Permit.jrxml");
+
+	      ServletOutputStream servletOutputStream;
+	      try {
+	    	  logger.debug("Before try");
+			servletOutputStream = response.getOutputStream();
+		    JasperRunManager.runReportToPdfStream(reportStream, servletOutputStream, parameterMap);
+		      
+		      servletOutputStream.flush();
+		      servletOutputStream.close();
+	      } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+	      } catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	      facesContext.responseComplete();
+	      response.setContentType("applicaton/pdf");
+	      
+	      
+	}
+	*/
 }

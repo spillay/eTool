@@ -19,4 +19,5 @@
     <context:component-scan base-package="za.co.egov.cn.beans" />
      <context:component-scan base-package="za.co.egov.cn.ws" />
     <mvc:annotation-driven /> 
+    <mvc:default-servlet-handler/>
 </beans>

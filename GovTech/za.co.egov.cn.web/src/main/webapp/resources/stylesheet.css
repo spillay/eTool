@@ -1,0 +1,24 @@
+.eservice 
+{
+	/* display:inline; */
+	width: 929px;
+    height: 183px;
+    border: none;
+    margin-left:100px !important;
+	margin-right:100px !important;
+    background-image: url("images/tp7.jpg");
+    background-repeat:no-repeat;
+        
+} 
+
+.citizen
+{
+	/* display:inline; */
+	
+    width: inherit;
+    height: 264px;
+    border: none;
+	background-image: url("images/citizenpage.jpg");
+    background-repeat:no-repeat;
+   
+}

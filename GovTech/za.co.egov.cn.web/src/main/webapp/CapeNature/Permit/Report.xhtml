@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:jr="http://jasperreportjsf.sf.net/tld/jasperreports-jsf-1_2.tld">
+     
+
+
+<ui:composition template="/resources/template.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="#{Messages['books.pagetitle']}" />
+    </ui:define>
+
+    <ui:define name="body">
+    	<h:form id="PermitReport">
+    	<!--  
+    		<jr:source id="bookSource" type="jndi" value="java:comp/env/jdbc/BookDB" />
+    		
+	    	<jr:reportLink id="reportLink" format="pdf" target="blank" source="bookSource" 
+	    		value="/resources/reports/booklist.jrxml">
+	    		<f:param name="REPORT_RESOURCE_BUNDLE" value="#{Messages}" />
+	    		<h:outputText value="View Report" />
+	    	</jr:reportLink>
+	    	-->
+	        
+	        <jr:reportFrame id="reportFrame" source="bookSource"
+	        	value="/resources/reports/Permit.jrxml"
+	        	format="pdf" height="400px" width="80%" 
+	        />
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+
+
+</html>
