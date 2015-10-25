@@ -87,5 +87,33 @@ class PageManager extends PageUtils {
 	private def getEService(){
 		return (page.eContainer as EService).name
 	}
+}
+class UICompositionPageManager extends PageUtils {
+	val fileSep = "/"
+	val Page page
+	var baseProjectDir = ""
+	var webDir = ""
+	new(Page p,String baseProjectDir,String webDir) {
+		page = p
+		this.baseProjectDir = baseProjectDir
+		this.webDir = webDir
+		this.pageTitle = orgUnit + "-" + EService
+	}
+	
+	public def genFileName(){
+		var fileName = "pages" + fileSep + page.name
+		//fileName = e.name
+		fileName = fileName.replace(" ","_")
+		fileName = baseProjectDir + webDir + fileName + ".xhtml"
+	}
+	public def setContents(String content){
+		this.pageContents = content
+	}
+	private def getOrgUnit(){
+		return (page.eContainer as EService).businessUnit.name
+	}
+	private def getEService(){
+		return (page.eContainer as EService).name
+	}
 	
 }

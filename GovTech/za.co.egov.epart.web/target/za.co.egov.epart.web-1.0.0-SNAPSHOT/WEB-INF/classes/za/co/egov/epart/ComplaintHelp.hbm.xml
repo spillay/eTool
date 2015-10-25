@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-22T05:21:41.809 by  eTool 1.0.0 Author Suresh Pillay-->
+<hibernate-mapping>
+    <class name="za.co.egov.epart.ComplaintHelp" table="complainthelp" schema="public">
+    	<id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity"></generator>
+        </id>
+    <property name="key" type="string">
+         <column name="key" length="100" not-null="false" />
+    </property>
+    <property name="comval" type="string">
+         <column name="comval" length="100" not-null="false" />
+    </property>
+    <many-to-one name="agency" class="za.co.egov.epart.Agency"
+                column="COMPLAINTHELP_AGENCY_ID" not-null="true"/>
+    <many-to-one name="complainttype" class="za.co.egov.epart.ComplaintType"
+                column="COMPLAINTHELP_COMPLAINTTYPE_ID" not-null="false"/>
+    </class>
+</hibernate-mapping>

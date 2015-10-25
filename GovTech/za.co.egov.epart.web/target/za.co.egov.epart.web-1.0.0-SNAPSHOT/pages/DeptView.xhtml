@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="../templates/citizen.xhtml">
+
+    <ui:define name="metadata">
+    </ui:define>
+    <ui:define name="content">
+        			<h:form id="mainForm">
+			<p:growl id="growl" /> 
+				<p:messages id="msg" closable="true"  />
+				<p:panel header="Department View">
+					<p:panel header="Agency">
+					<p:panelGrid columns="2" cellpadding="4">
+						<h:outputText value="Province"></h:outputText>
+						<p:selectOneMenu style="width:200px"
+							value="#{complaintBean.selectedProvince}">
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.provinceData}"></f:selectItems>
+							<p:ajax listener="#{complaintBean.onProvinceChange}"  update="departmentSel,agencySel" />
+						</p:selectOneMenu>
+						<h:outputText  value="Department"></h:outputText>
+						<p:selectOneMenu id="departmentSel" style="width:250px"
+							value="#{complaintBean.selectedDepartment}">
+							<p:ajax></p:ajax>
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.departmentData}"></f:selectItems>
+							<p:ajax listener="#{complaintBean.onDepartmentChange}"  update="agencySel" />
+						</p:selectOneMenu>
+						<h:outputText value="Agency"></h:outputText>
+						<p:selectOneMenu id="agencySel"  style="width:250px"
+							value="#{deptViewBean.selectedAgency}" required="true" requiredMessage="Please select an agency">
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.agencyData}"></f:selectItems>
+						</p:selectOneMenu>
+					</p:panelGrid>
+				</p:panel>
+					<p:commandButton value="search" id="ajax"
+						update="growl,ComplaintTable"
+						actionListener="#{deptViewBean.searchAction}"
+						styleClass="ui-priority-primary" />
+					<p:panel header="Complaint">
+						
+					
+					<p:dataTable id="ComplaintTable" var="complaint"
+						value="#{deptViewBean.complaints}">
+						<p:column headerText="Agency">
+							<h:outputText value="#{complaint.agency.name}" />
+						</p:column>
+						<p:column headerText="Summary">
+							<h:outputText value="#{complaint.name}" />
+						</p:column>
+						<p:column headerText="Details">
+							<h:outputText value="#{complaint.description}" />
+						</p:column>
+						<p:column headerText="Complaint Type">
+							<h:outputText value="#{complaint.complainttype.name}" />
+						</p:column>
+					</p:dataTable>
+					</p:panel>
+				</p:panel>
+				<p:commandButton value="Done" id="doneBtn" update="growl,:mainForm:msg" immediate="true" validateClient="false"
+					action="./Complaint.xhtml?faces-redirect=true" />
+			</h:form>
+        
+    </ui:define>
+</ui:composition>

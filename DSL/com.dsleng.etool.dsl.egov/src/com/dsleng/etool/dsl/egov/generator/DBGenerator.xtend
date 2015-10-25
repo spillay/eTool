@@ -110,11 +110,12 @@ class DBGenerator {
 <!DOCTYPE hibernate-configuration PUBLIC
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!-- Generated « LocalDateTime.now» by  eTool 1.0.0 Author Suresh Pillay DBGenerator Source-->
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost/egov</property>
-        <property name="hibernate.connection.username">egov</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost/bsol</property>
+        <property name="hibernate.connection.username">bsol</property>
         <property name="hibernate.connection.password">12test21</property>
  		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
  		<property name="hibernate.hbm2ddl.auto">create-drop</property>

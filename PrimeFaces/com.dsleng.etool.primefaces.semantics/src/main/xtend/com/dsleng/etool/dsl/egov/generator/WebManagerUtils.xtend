@@ -55,7 +55,36 @@ class WebManagerUtils {
 		pg.contents = contents
 		return pg
 	}
+	def createCompositionPage(Page p) {
+		//val pageContents = new OptionManager(p)
+		val pg = new UICompositionPageManager(p, baseProjectDir, webDir)
+		pg.pageTitle = p.title
+		var contents = compositionPageHead.toString
+		var innerContents = p.getContents(uCtrl)
+		//innerContents += dialog
+		contents += compositionPageTail
+		contents = contents.replace("spContents",innerContents)
+		pg.contents = contents
+		return pg
+	}
 
+def getCompositionPageHead()'''
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    template="../templates/citizen.xhtml">
+
+    <ui:define name="metadata">
+    </ui:define>
+    <ui:define name="content">
+    spContents
+'''
+def getCompositionPageTail()'''
+    </ui:define>
+</ui:composition>
+'''
 // <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" />
 	private def dialog() '''
 <p:dialog header="Greeting" widgetVar="dlg" modal="true" resizable="false">

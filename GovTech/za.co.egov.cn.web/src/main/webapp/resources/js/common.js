@@ -1,6 +1,20 @@
 var map;
 var layers = [];
 
+
+function loadkml(that) {
+	var map = new google.maps.Map(document
+			.getElementById('map'), {
+		zoom : 13,
+	});
+	var kmlLayer = new google.maps.KmlLayer(
+			{
+				url : 'https://googledrive.com/host/0BxgbW77_GYAMeGFHODYzNkMtUG8/PoliceStation.kml',
+				map : map
+			});
+
+}
+
 function initialize() {
 	var myLatLng = new google.maps.LatLng(-28.4648487, 23.9321415);
 	var myOptions = {

@@ -6,6 +6,9 @@ clean:
 	cd za.co.egov.cn.ws;  mvn clean
 	cd za.co.egov.epart.web;  mvn clean
 	cd za.co.egov.integration;  mvn clean
+compile:
+	cd za.co.egov.cn.web;  mvn package
+	cd za.co.egov.epart.web;  mvn package
 deploy:
 	$(WILDFLY_HOME)/bin/jboss-cli.sh --connect --command="deploy --force $(WAR)"
 undeploy:

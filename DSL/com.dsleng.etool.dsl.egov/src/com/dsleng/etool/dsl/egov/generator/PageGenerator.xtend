@@ -40,8 +40,11 @@ class PageGenerator  {
 		val wUtil = new WebManagerUtils(baseProjectDir,webDir,uCtrl)
 		for (p : resource.allContents.toIterable.filter(Page)) {
 			val pg = wUtil.createPage(p)
+			val pg2 = wUtil.createCompositionPage(p)
 			fsa.generateFile(pg.genFileName, pg.genContents)
+			fsa.generateFile(pg2.genFileName, pg2.genContents)
 			pagelist.add(pg.genFileName)
+			pagelist.add(pg2.genFileName)
 			
 			// Create Business Objects
 			Lg.info("Starting BO Generation")
