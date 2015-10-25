@@ -115,5 +115,13 @@ class UICompositionPageManager extends PageUtils {
 	private def getEService(){
 		return (page.eContainer as EService).name
 	}
+	protected override PageTitle()'''  		
+  	'''
+  	
+  	protected override PageHead()'''
+'''
+
+	protected override PageTail()'''
+'''	
 	
 }
