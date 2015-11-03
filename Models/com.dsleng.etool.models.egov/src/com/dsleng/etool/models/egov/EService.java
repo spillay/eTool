@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.egov.EService#getIndexPage <em>Index Page</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.EService#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.EService#getBusinessUnit <em>Business Unit</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.EService#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getEService()
@@ -119,5 +120,21 @@ public interface EService extends NamedElement {
 	 * @generated
 	 */
 	void setBusinessUnit(OrgUnit value);
+
+	/**
+	 * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.egov.Import}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Imports</em>' containment reference list.
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getEService_Imports()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Import> getImports();
 
 } // EService

@@ -11,12 +11,45 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import com.dsleng.etool.models.bobjs.BusinessObject
 import com.dsleng.etool.models.bobjs.OrgUnit
 import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.RuleCall
+import com.dsleng.etool.models.bobjs.References
+import com.dsleng.etool.models.bobjs.BusinessType
+import com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl
+import com.dsleng.etool.models.bobjs.impl.BusinessTypeImpl
+import com.dsleng.etool.models.bobjs.impl.ReferencesImpl
+import com.dsleng.etool.models.bobjs.impl.OrgUnitImpl
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class BObjDslProposalProvider extends AbstractBObjDslProposalProvider {
+	
+	override completeRefBusinessObject_Businessobject(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (model instanceof ReferencesImpl){
+			val org = (model as ReferencesImpl).eContainer.eContainer as OrgUnitImpl
+			for(b: org.businessobjects.filter[elem| elem instanceof BusinessObjectImpl]){
+				if ( !(b instanceof BusinessTypeImpl) ){
+					acceptor.accept(createCompletionProposal(b.name,context))
+				}	
+			}
+		} else {
+			super.completeRefBusinessObject_Businessobject(model, assignment, context, acceptor)
+		}
+	}
+	
+	override completeRefBusinessType_Businessobject(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (model instanceof ReferencesImpl){
+			val org = (model as ReferencesImpl).eContainer.eContainer as OrgUnitImpl
+			for(b: org.businessobjects.filter[elem| elem instanceof BusinessTypeImpl]){
+				acceptor.accept(createCompletionProposal(b.name,context))	
+			}
+		} else {
+			super.completeRefBusinessType_Businessobject(model, assignment, context, acceptor)
+		}
+		
+	}
+	
 	/* 
 	override completeBusinessObject_SuperTypes(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if ( model instanceof BusinessObject){

@@ -772,6 +772,97 @@ public interface BobjsPackage extends EPackage {
 	int ANNOTATION_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.impl.BusinessTypeImpl <em>Business Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.bobjs.impl.BusinessTypeImpl
+	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getBusinessType()
+	 * @generated
+	 */
+	int BUSINESS_TYPE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE__NAME = BUSINESS_OBJECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE__ATTRIBUTES = BUSINESS_OBJECT__ATTRIBUTES;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE__REFERENCES = BUSINESS_OBJECT__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Super Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE__SUPER_TYPES = BUSINESS_OBJECT__SUPER_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Enums</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE__ENUMS = BUSINESS_OBJECT__ENUMS;
+
+	/**
+	 * The feature id for the '<em><b>Basedon</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE__BASEDON = BUSINESS_OBJECT__BASEDON;
+
+	/**
+	 * The feature id for the '<em><b>Operations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE__OPERATIONS = BUSINESS_OBJECT__OPERATIONS;
+
+	/**
+	 * The number of structural features of the '<em>Business Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE_FEATURE_COUNT = BUSINESS_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Business Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_TYPE_OPERATION_COUNT = BUSINESS_OBJECT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,7 +870,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getDataTypes()
 	 * @generated
 	 */
-	int DATA_TYPES = 12;
+	int DATA_TYPES = 13;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.Inclusions <em>Inclusions</em>}' enum.
@@ -789,7 +880,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getInclusions()
 	 * @generated
 	 */
-	int INCLUSIONS = 13;
+	int INCLUSIONS = 14;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.bobjs.Multiplicity <em>Multiplicity</em>}' enum.
@@ -799,7 +890,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getMultiplicity()
 	 * @generated
 	 */
-	int MULTIPLICITY = 14;
+	int MULTIPLICITY = 15;
 
 
 	/**
@@ -1319,6 +1410,16 @@ public interface BobjsPackage extends EPackage {
 	EAttribute getAnnotation_Name();
 
 	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.bobjs.BusinessType <em>Business Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Business Type</em>'.
+	 * @see com.dsleng.etool.models.bobjs.BusinessType
+	 * @generated
+	 */
+	EClass getBusinessType();
+
+	/**
 	 * Returns the meta object for enum '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1778,6 +1879,16 @@ public interface BobjsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANNOTATION__NAME = eINSTANCE.getAnnotation_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.impl.BusinessTypeImpl <em>Business Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.bobjs.impl.BusinessTypeImpl
+		 * @see com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl#getBusinessType()
+		 * @generated
+		 */
+		EClass BUSINESS_TYPE = eINSTANCE.getBusinessType();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.bobjs.DataTypes <em>Data Types</em>}' enum.

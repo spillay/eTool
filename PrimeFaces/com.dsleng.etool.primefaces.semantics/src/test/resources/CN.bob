@@ -9,21 +9,23 @@ OrgUnit "CapeNature"
 			Package "za.co.egov.cn"
 	}	
 	{
+		BusinessTypes {
+			BT=PermitType{},
+			BT=PermitStatus{}
+		}
 		BusinessObjects{
 			BO=Permit {
 				attributes {
 					permitNo {Label="Permit Number" Type=String},
 					referenceNo {Label="Reference Number" Type=String},
-					permitStatus {Label="Permit Status" Type=String},
-					
 					dateIssued {Label="DateIssued" Type=Date},
 					dteValidFrom {Label="Date Valid From" Type=Date},
 					dteValidTo {Label="Date Valid To" Type=Date},
 					amountPaid {Label="Amount Paid" Type=Double}
 				}
 				references {
-					BO=PermitType[Inclusion=Mandatory Multiplicity=Many-to-One],
-					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One],
+					BT=PermitStatus,
+					BT=PermitType,
 					BO=Client[Inclusion=Mandatory Multiplicity=Many-to-One]
 				}
 			},
@@ -36,20 +38,10 @@ OrgUnit "CapeNature"
 					reasonForChge {Label="Reason For Change" Type=String}
 				}
 				references {
-					BO=PermitType[Inclusion=Mandatory Multiplicity=Many-to-One],
-					BO=PermitStatus[Inclusion=Mandatory Multiplicity=Many-to-One],
+					BT=PermitStatus,
+					BT=PermitType,
 					BO=Permit[Inclusion=Optional Multiplicity=Many-to-One]
 				}
-			},
-			BO=PermitType {
-				attributes { name{Label="Name" Type=String} }
-			},
-			BO=CapeNature {
-				superTypes {PermitType}
-			},
-			BO=WildAnimals {
-				attributes { commonName{Label="Animals Common Name" Type=String}}
-				superTypes { CapeNature }
 			},
 			BO=Client {			
 				attributes { 
@@ -64,11 +56,6 @@ OrgUnit "CapeNature"
 					cellno {Label="Cell No" Type=String},
 					email {Label="Email Address" Type=String},
 					prefContact {Label="Preferred Contact-Type" Type=String}
-				}
-			},
-			BO=PermitStatus {
-				attributes {
-					status {Label="Permit Status" Type=String}
 				}
 			}
 		}

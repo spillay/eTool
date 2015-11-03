@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import za.co.egov.cn.service.ClientService;
+import za.co.egov.cn.service.PermitStatusService;
 import za.co.egov.cn.service.PermitTypeService;
 
 
@@ -25,13 +26,18 @@ public class SpringTest {
 	ClientService dao;
 	@Autowired
 	PermitTypeService ptService;
+	@Autowired
+	PermitStatusService psService;
 	
 	@Test
 	public void Test_PermitControlImpl() {
 		 try {
-				ptService.saveEntity(new PermitType("Cape Nature - Transport Permit","Transport of protected wild animals within the province",null,null));
-				ptService.saveEntity(new PermitType("WCLA-Temp/Special License","Temporary and Special Liquor Licence",null,null));
-
+				//ptService.saveEntity(new PermitType("Cape Nature - Transport Permit","Transport of protected wild animals within the province",null,null));
+				//ptService.saveEntity(new PermitType("WCLA-Temp/Special License","Temporary and Special Liquor Licence",null,null));
+					
+				psService.saveEntity(new PermitStatus("Submitted", null, null));
+				psService.saveEntity(new PermitStatus("Paid", null, null));
+				psService.saveEntity(new PermitStatus("Approved", null, null));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

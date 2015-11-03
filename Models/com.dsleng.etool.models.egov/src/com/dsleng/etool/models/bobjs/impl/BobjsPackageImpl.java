@@ -13,6 +13,7 @@ import com.dsleng.etool.models.bobjs.BasedOn;
 import com.dsleng.etool.models.bobjs.BobjsFactory;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
+import com.dsleng.etool.models.bobjs.BusinessType;
 import com.dsleng.etool.models.bobjs.DataTypes;
 import com.dsleng.etool.models.bobjs.Inclusions;
 import com.dsleng.etool.models.bobjs.Literal;
@@ -125,6 +126,13 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * @generated
 	 */
 	private EClass annotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass businessTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -653,6 +661,15 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBusinessType() {
+		return businessTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDataTypes() {
 		return dataTypesEEnum;
 	}
@@ -763,6 +780,8 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		annotationEClass = createEClass(ANNOTATION);
 		createEAttribute(annotationEClass, ANNOTATION__NAME);
 
+		businessTypeEClass = createEClass(BUSINESS_TYPE);
+
 		// Create enums
 		dataTypesEEnum = createEEnum(DATA_TYPES);
 		inclusionsEEnum = createEEnum(INCLUSIONS);
@@ -803,6 +822,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		boEnumEClass.getESuperTypes().add(this.getNamedElement());
 		literalEClass.getESuperTypes().add(this.getNamedElement());
 		enumEClass.getESuperTypes().add(this.getNamedElement());
+		businessTypeEClass.getESuperTypes().add(this.getBusinessObject());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -864,6 +884,8 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAnnotation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(businessTypeEClass, BusinessType.class, "BusinessType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataTypesEEnum, DataTypes.class, "DataTypes");

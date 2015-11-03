@@ -8,6 +8,7 @@ import com.dsleng.etool.models.bobjs.BOEnum;
 import com.dsleng.etool.models.bobjs.BasedOn;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
+import com.dsleng.etool.models.bobjs.BusinessType;
 import com.dsleng.etool.models.bobjs.Literal;
 import com.dsleng.etool.models.bobjs.NamedElement;
 import com.dsleng.etool.models.bobjs.OpParameter;
@@ -124,6 +125,10 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAnnotation(Annotation object) {
 				return createAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseBusinessType(BusinessType object) {
+				return createBusinessTypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -310,6 +315,20 @@ public class BobjsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnnotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.bobjs.BusinessType <em>Business Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.bobjs.BusinessType
+	 * @generated
+	 */
+	public Adapter createBusinessTypeAdapter() {
 		return null;
 	}
 

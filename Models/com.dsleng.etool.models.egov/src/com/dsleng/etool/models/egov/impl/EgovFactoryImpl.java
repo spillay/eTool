@@ -64,6 +64,7 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 			case EgovPackage.PRE_DEFINED_VALUE: return createPreDefinedValue();
 			case EgovPackage.CONTROL_MAPPER: return createControlMapper();
 			case EgovPackage.PRE_DEFINED_CONTAINER: return createPreDefinedContainer();
+			case EgovPackage.IMPORT: return createImport();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -147,6 +148,16 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	public PreDefinedContainer createPreDefinedContainer() {
 		PreDefinedContainerImpl preDefinedContainer = new PreDefinedContainerImpl();
 		return preDefinedContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Import createImport() {
+		ImportImpl import_ = new ImportImpl();
+		return import_;
 	}
 
 	/**

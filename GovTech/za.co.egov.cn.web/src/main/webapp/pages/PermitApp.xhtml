@@ -64,7 +64,7 @@
 					<h:outputText value="Card Number"></h:outputText>
 					<p:inputText id="cardno" value="#{permitAppBean.client.cardno}"
 						required="true" requiredMessage="Valid Card No is Required">
-						<f:validateLength minimum="10" />
+						<f:validateLength minimum="4" />
 					</p:inputText>
 					<h:outputText value="Card Pin"></h:outputText>
 					<p:inputText id="cardpin" value="#{permitAppBean.client.cardpin}"

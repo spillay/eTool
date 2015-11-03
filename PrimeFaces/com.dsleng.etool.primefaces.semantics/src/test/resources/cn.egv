@@ -12,7 +12,7 @@ Pages {
 				Attribute=cardno ControlType=String{},
 				Attribute=cardpin ControlType=String{},
 				Attribute=firstname1 ControlType=String{},
-				Attribute=idno ControlType=IDControl{},
+				Attribute=idno ControlType=String{},
 				Attribute=email ControlType=Email{},
 				Attribute=telphoneno ControlType=Telephone{},
 				Attribute=cellno ControlType=Telephone{},

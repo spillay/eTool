@@ -12,6 +12,8 @@
                 eType="#//dsleng/etool/models/egov/Page"/>
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="dirLocation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
             <eStructuralFeatures xsi:type="ecore:EReference" name="BusinessUnit" eType="#//dsleng/etool/models/bobjs/OrgUnit"/>
+            <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+                eType="#//dsleng/etool/models/egov/Import" containment="true"/>
           </eClassifiers>
           <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -59,6 +61,9 @@
             <eStructuralFeatures xsi:type="ecore:EReference" name="predefinedvalues"
                 upperBound="-1" eType="#//dsleng/etool/models/egov/PreDefinedValue"
                 containment="true"/>
+          </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="Import">
+            <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
         </eSubpackages>
         <eSubpackages name="Controls" nsURI="http://com/dsleng/etool/models/controls"
@@ -253,6 +258,7 @@
           <eClassifiers xsi:type="ecore:EClass" name="Annotation">
             <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
           </eClassifiers>
+          <eClassifiers xsi:type="ecore:EClass" name="BusinessType" eSuperTypes="#//dsleng/etool/models/bobjs/BusinessObject"/>
         </eSubpackages>
       </eSubpackages>
     </eSubpackages>

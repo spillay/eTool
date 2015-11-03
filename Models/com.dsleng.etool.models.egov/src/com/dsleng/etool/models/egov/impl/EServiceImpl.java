@@ -6,6 +6,7 @@ import com.dsleng.etool.models.bobjs.OrgUnit;
 
 import com.dsleng.etool.models.egov.EService;
 import com.dsleng.etool.models.egov.EgovPackage;
+import com.dsleng.etool.models.egov.Import;
 import com.dsleng.etool.models.egov.Page;
 
 import java.util.Collection;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getIndexPage <em>Index Page</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getBusinessUnit <em>Business Unit</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +91,16 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 	 * @ordered
 	 */
 	protected OrgUnit businessUnit;
+
+	/**
+	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Import> imports;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,11 +235,25 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Import> getImports() {
+		if (imports == null) {
+			imports = new EObjectContainmentEList<Import>(Import.class, this, EgovPackage.ESERVICE__IMPORTS);
+		}
+		return imports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EgovPackage.ESERVICE__PAGES:
 				return ((InternalEList<?>)getPages()).basicRemove(otherEnd, msgs);
+			case EgovPackage.ESERVICE__IMPORTS:
+				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -250,6 +276,8 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 			case EgovPackage.ESERVICE__BUSINESS_UNIT:
 				if (resolve) return getBusinessUnit();
 				return basicGetBusinessUnit();
+			case EgovPackage.ESERVICE__IMPORTS:
+				return getImports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -276,6 +304,10 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 			case EgovPackage.ESERVICE__BUSINESS_UNIT:
 				setBusinessUnit((OrgUnit)newValue);
 				return;
+			case EgovPackage.ESERVICE__IMPORTS:
+				getImports().clear();
+				getImports().addAll((Collection<? extends Import>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -300,6 +332,9 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 			case EgovPackage.ESERVICE__BUSINESS_UNIT:
 				setBusinessUnit((OrgUnit)null);
 				return;
+			case EgovPackage.ESERVICE__IMPORTS:
+				getImports().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -320,6 +355,8 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 				return DIR_LOCATION_EDEFAULT == null ? dirLocation != null : !DIR_LOCATION_EDEFAULT.equals(dirLocation);
 			case EgovPackage.ESERVICE__BUSINESS_UNIT:
 				return businessUnit != null;
+			case EgovPackage.ESERVICE__IMPORTS:
+				return imports != null && !imports.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

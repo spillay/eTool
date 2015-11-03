@@ -250,15 +250,13 @@ public class PermitAppBean implements Serializable {
 		} else {
 			permits.clear();
 			afterload = false;
-			/*
 			Iterator<Permit> it = client.getPERMIT_CLIENTS().iterator();
 			while(it.hasNext()){
 				Permit o = it.next();
 				logger.debug("permit info: " + o.getPermittype().getName());
 				logger.debug("permit info: " + o.getComment());
-				//permits.add(o);
+				permits.add(o);
 			}
-			*/
 		}
 	}
 	private void reformat(){

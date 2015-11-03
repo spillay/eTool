@@ -16,6 +16,7 @@ import com.dsleng.etool.models.egov.ControlMapper;
 import com.dsleng.etool.models.egov.EService;
 import com.dsleng.etool.models.egov.EgovFactory;
 import com.dsleng.etool.models.egov.EgovPackage;
+import com.dsleng.etool.models.egov.Import;
 import com.dsleng.etool.models.egov.NamedElement;
 import com.dsleng.etool.models.egov.Page;
 
@@ -90,6 +91,13 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * @generated
 	 */
 	private EClass preDefinedContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass importEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -203,6 +211,15 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 */
 	public EReference getEService_BusinessUnit() {
 		return (EReference)eServiceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEService_Imports() {
+		return (EReference)eServiceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -480,6 +497,24 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getImport() {
+		return importEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImport_ImportURI() {
+		return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EgovFactory getEgovFactory() {
 		return (EgovFactory)getEFactoryInstance();
 	}
@@ -508,6 +543,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		createEReference(eServiceEClass, ESERVICE__INDEX_PAGE);
 		createEAttribute(eServiceEClass, ESERVICE__DIR_LOCATION);
 		createEReference(eServiceEClass, ESERVICE__BUSINESS_UNIT);
+		createEReference(eServiceEClass, ESERVICE__IMPORTS);
 
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
@@ -545,6 +581,9 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		preDefinedContainerEClass = createEClass(PRE_DEFINED_CONTAINER);
 		createEAttribute(preDefinedContainerEClass, PRE_DEFINED_CONTAINER__NAME);
 		createEReference(preDefinedContainerEClass, PRE_DEFINED_CONTAINER__PREDEFINEDVALUES);
+
+		importEClass = createEClass(IMPORT);
+		createEAttribute(importEClass, IMPORT__IMPORT_URI);
 	}
 
 	/**
@@ -588,6 +627,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEReference(getEService_IndexPage(), this.getPage(), null, "indexPage", null, 1, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEService_DirLocation(), ecorePackage.getEString(), "dirLocation", null, 0, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEService_BusinessUnit(), theBobjsPackage.getOrgUnit(), null, "BusinessUnit", null, 0, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEService_Imports(), this.getImport(), null, "imports", null, 0, -1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -625,6 +665,9 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEClass(preDefinedContainerEClass, PreDefinedContainer.class, "PreDefinedContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPreDefinedContainer_Name(), ecorePackage.getEString(), "name", null, 0, 1, PreDefinedContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPreDefinedContainer_Predefinedvalues(), this.getPreDefinedValue(), null, "predefinedvalues", null, 0, -1, PreDefinedContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

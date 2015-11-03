@@ -149,13 +149,22 @@ public interface EgovPackage extends EPackage {
 	int ESERVICE__BUSINESS_UNIT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__IMPORTS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>EService</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ESERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>EService</em>' class.
@@ -546,6 +555,44 @@ public interface EgovPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.ImportImpl <em>Import</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.egov.impl.ImportImpl
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getImport()
+	 * @generated
+	 */
+	int IMPORT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Import URI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT__IMPORT_URI = 0;
+
+	/**
+	 * The number of structural features of the '<em>Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.EService <em>EService</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -598,6 +645,17 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEService_BusinessUnit();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.EService#getImports <em>Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Imports</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getImports()
+	 * @see #getEService()
+	 * @generated
+	 */
+	EReference getEService_Imports();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.NamedElement <em>Named Element</em>}'.
@@ -923,6 +981,27 @@ public interface EgovPackage extends EPackage {
 	EReference getPreDefinedContainer_Predefinedvalues();
 
 	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.Import <em>Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Import</em>'.
+	 * @see com.dsleng.etool.models.egov.Import
+	 * @generated
+	 */
+	EClass getImport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Import#getImportURI <em>Import URI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import URI</em>'.
+	 * @see com.dsleng.etool.models.egov.Import#getImportURI()
+	 * @see #getImport()
+	 * @generated
+	 */
+	EAttribute getImport_ImportURI();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -986,6 +1065,14 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ESERVICE__BUSINESS_UNIT = eINSTANCE.getEService_BusinessUnit();
+
+		/**
+		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ESERVICE__IMPORTS = eINSTANCE.getEService_Imports();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -1240,6 +1327,24 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PRE_DEFINED_CONTAINER__PREDEFINEDVALUES = eINSTANCE.getPreDefinedContainer_Predefinedvalues();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.ImportImpl <em>Import</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.impl.ImportImpl
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getImport()
+		 * @generated
+		 */
+		EClass IMPORT = eINSTANCE.getImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Import URI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPORT__IMPORT_URI = eINSTANCE.getImport_ImportURI();
 
 	}
 

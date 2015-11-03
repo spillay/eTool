@@ -15,11 +15,15 @@ EService returns EService:
 	'setup {'
 		'Deployment Directory' dirLocation=EString
 		'Business Unit' BusinessUnit=[bobjs::OrgUnit|EString]
+		 (imports+=Import)*
 	'}'
 	'{'
 		('Pages' '{' pages+=Page ( "," pages+=Page)* '}' )?
 		'Start Page' indexPage=[Page|EString]
 	'}';
+
+Import returns Import: 
+	'import' importURI=STRING;
 
 EString returns ecore::EString:
 	STRING | ID;

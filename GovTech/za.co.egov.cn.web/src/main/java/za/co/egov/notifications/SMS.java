@@ -32,8 +32,6 @@ public class SMS {
 	}
 	private String sendSMS(String toNumber, String message) {
 
-		return "blocked";
-		/*
 		String reponseMessage = "";
 
 		try {
@@ -72,7 +70,6 @@ public class SMS {
 		}
 
 		return reponseMessage;
-		*/
 	}
 	
 
