@@ -5,6 +5,7 @@ package com.dsleng.etool.models.bobjs.impl;
 import com.dsleng.etool.models.bobjs.Annotation;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BOEnum;
+import com.dsleng.etool.models.bobjs.BOImport;
 import com.dsleng.etool.models.bobjs.BasedOn;
 import com.dsleng.etool.models.bobjs.BobjsFactory;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
@@ -85,6 +86,7 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 			case BobjsPackage.OP_PARAMETER: return createOpParameter();
 			case BobjsPackage.ANNOTATION: return createAnnotation();
 			case BobjsPackage.BUSINESS_TYPE: return createBusinessType();
+			case BobjsPackage.BO_IMPORT: return createBOImport();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -256,6 +258,16 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 	public BusinessType createBusinessType() {
 		BusinessTypeImpl businessType = new BusinessTypeImpl();
 		return businessType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BOImport createBOImport() {
+		BOImportImpl boImport = new BOImportImpl();
+		return boImport;
 	}
 
 	/**

@@ -36,7 +36,9 @@ public enum DataTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRING(1, "String", "String"), /**
+	STRING(1, "String", "String"),
+
+	/**
 	 * The '<em><b>Date</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,7 +46,9 @@ public enum DataTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATE(2, "Date", "Date"), /**
+	DATE(2, "Date", "Date"),
+
+	/**
 	 * The '<em><b>Double</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,7 +56,9 @@ public enum DataTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DOUBLE(3, "Double", "Double"), /**
+	DOUBLE(3, "Double", "Double"),
+
+	/**
 	 * The '<em><b>Boolean</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,7 +66,9 @@ public enum DataTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(4, "Boolean", "Boolean"), /**
+	BOOLEAN(4, "Boolean", "Boolean"),
+
+	/**
 	 * The '<em><b>Data Map</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +76,9 @@ public enum DataTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA_MAP(5, "DataMap", "DataMap"), /**
+	DATA_MAP(5, "DataMap", "DataMap"),
+
+	/**
 	 * The '<em><b>Void</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

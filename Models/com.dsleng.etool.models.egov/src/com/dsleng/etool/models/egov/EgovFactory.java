@@ -31,15 +31,6 @@ public interface EgovFactory extends EFactory {
 	EService createEService();
 
 	/**
-	 * Returns a new object of class '<em>Named Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Named Element</em>'.
-	 * @generated
-	 */
-	NamedElement createNamedElement();
-
-	/**
 	 * Returns a new object of class '<em>Page</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,6 +92,33 @@ public interface EgovFactory extends EFactory {
 	 * @generated
 	 */
 	Import createImport();
+
+	/**
+	 * Returns a new object of class '<em>Admin</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Admin</em>'.
+	 * @generated
+	 */
+	Admin createAdmin();
+
+	/**
+	 * Returns a new object of class '<em>Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Menu</em>'.
+	 * @generated
+	 */
+	Menu createMenu();
+
+	/**
+	 * Returns a new object of class '<em>Web Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Web Element</em>'.
+	 * @generated
+	 */
+	WebElement createWebElement();
 
 	/**
 	 * Returns the package supported by this factory.

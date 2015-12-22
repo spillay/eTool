@@ -20,13 +20,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.egov.EService#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.EService#getBusinessUnit <em>Business Unit</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.EService#getImports <em>Imports</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.EService#getAdminPages <em>Admin Pages</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.EService#getMenu <em>Menu</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getEService()
  * @model
  * @generated
  */
-public interface EService extends NamedElement {
+public interface EService extends WebElement {
 	/**
 	 * Returns the value of the '<em><b>Pages</b></em>' containment reference list.
 	 * The list contents are of type {@link com.dsleng.etool.models.egov.Page}.
@@ -136,5 +138,47 @@ public interface EService extends NamedElement {
 	 * @generated
 	 */
 	EList<Import> getImports();
+
+	/**
+	 * Returns the value of the '<em><b>Admin Pages</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Admin Pages</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Admin Pages</em>' containment reference.
+	 * @see #setAdminPages(Admin)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getEService_AdminPages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Admin getAdminPages();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.EService#getAdminPages <em>Admin Pages</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Admin Pages</em>' containment reference.
+	 * @see #getAdminPages()
+	 * @generated
+	 */
+	void setAdminPages(Admin value);
+
+	/**
+	 * Returns the value of the '<em><b>Menu</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.egov.Menu}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Menu</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Menu</em>' containment reference list.
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getEService_Menu()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Menu> getMenu();
 
 } // EService

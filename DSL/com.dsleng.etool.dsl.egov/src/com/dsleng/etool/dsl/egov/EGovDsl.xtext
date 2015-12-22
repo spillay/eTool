@@ -19,7 +19,9 @@ EService returns EService:
 	'}'
 	'{'
 		('Pages' '{' pages+=Page ( "," pages+=Page)* '}' )?
+		('Menu Structure' '{' menu+=Menu ( "," menu+=Menu)*)? '}'
 		'Start Page' indexPage=[Page|EString]
+		adminPages=Admin
 	'}';
 
 Import returns Import: 
@@ -28,6 +30,23 @@ Import returns Import:
 EString returns ecore::EString:
 	STRING | ID;
 
+AdminPage returns Page:
+	{Page}
+	'PageName='name=EString 'PageTitle'title=EString ('PageType='pagetype=[controls::PageType])?
+	'[' businesstype=[bobjs::BusinessType|EString] ']'
+;
+
+Admin returns Admin:
+	{Admin}
+	'AdminSection' '{'
+		('Pages' '{' pages+=AdminPage ( "," pages+=AdminPage)* '}' )?
+		('Menu Structure' '{' menu+=Menu ( "," menu+=Menu)*)? '}'
+	'}'
+;
+Menu returns Menu:
+	'(' name=STRING ','  description=STRING ')' '[' page=[Page|EString] ']' ('=>' parentMenu=[Menu|EString])? 
+	|  'MainMenu' '(' name=STRING ','  description=STRING ')'
+;
 Page returns Page:
 	'PageName='name=EString 'PageTitle'title=EString ('PageType='pagetype=[controls::PageType])?
 		('{' BOMaps+=BOMaps ( "," BOMaps+=BOMaps)* '}' )?

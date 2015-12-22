@@ -4,6 +4,8 @@ package com.dsleng.etool.models.egov.impl;
 
 import com.dsleng.etool.models.Controls.AttributeType;
 import com.dsleng.etool.models.Controls.PageType;
+
+import com.dsleng.etool.models.bobjs.BusinessType;
 import com.dsleng.etool.models.egov.BOMapper;
 import com.dsleng.etool.models.egov.EgovPackage;
 import com.dsleng.etool.models.egov.Page;
@@ -41,11 +43,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getSouth <em>South</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getWest <em>West</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getEast <em>East</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.PageImpl#getBusinesstype <em>Businesstype</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PageImpl extends NamedElementImpl implements Page {
+public class PageImpl extends WebElementImpl implements Page {
 	/**
 	 * The cached value of the '{@link #getNextPage() <em>Next Page</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -185,6 +188,16 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * @ordered
 	 */
 	protected String east = EAST_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getBusinesstype() <em>Businesstype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBusinesstype()
+	 * @generated
+	 * @ordered
+	 */
+	protected BusinessType businesstype;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -415,6 +428,44 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BusinessType getBusinesstype() {
+		if (businesstype != null && businesstype.eIsProxy()) {
+			InternalEObject oldBusinesstype = (InternalEObject)businesstype;
+			businesstype = (BusinessType)eResolveProxy(oldBusinesstype);
+			if (businesstype != oldBusinesstype) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EgovPackage.PAGE__BUSINESSTYPE, oldBusinesstype, businesstype));
+			}
+		}
+		return businesstype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BusinessType basicGetBusinesstype() {
+		return businesstype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBusinesstype(BusinessType newBusinesstype) {
+		BusinessType oldBusinesstype = businesstype;
+		businesstype = newBusinesstype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.PAGE__BUSINESSTYPE, oldBusinesstype, businesstype));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -452,6 +503,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return getWest();
 			case EgovPackage.PAGE__EAST:
 				return getEast();
+			case EgovPackage.PAGE__BUSINESSTYPE:
+				if (resolve) return getBusinesstype();
+				return basicGetBusinesstype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -494,6 +548,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case EgovPackage.PAGE__EAST:
 				setEast((String)newValue);
 				return;
+			case EgovPackage.PAGE__BUSINESSTYPE:
+				setBusinesstype((BusinessType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -533,6 +590,9 @@ public class PageImpl extends NamedElementImpl implements Page {
 			case EgovPackage.PAGE__EAST:
 				setEast(EAST_EDEFAULT);
 				return;
+			case EgovPackage.PAGE__BUSINESSTYPE:
+				setBusinesstype((BusinessType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -563,6 +623,8 @@ public class PageImpl extends NamedElementImpl implements Page {
 				return WEST_EDEFAULT == null ? west != null : !WEST_EDEFAULT.equals(west);
 			case EgovPackage.PAGE__EAST:
 				return EAST_EDEFAULT == null ? east != null : !EAST_EDEFAULT.equals(east);
+			case EgovPackage.PAGE__BUSINESSTYPE:
+				return businesstype != null;
 		}
 		return super.eIsSet(featureID);
 	}

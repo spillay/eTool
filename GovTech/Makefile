@@ -1,5 +1,5 @@
 WILDFLY_HOME=/Data/wildfly/wildfly-10.0.0.CR2/
-WAR=za.co.egov.cn.web-1.0.0-SNAPSHOT.war
+WAR=za.co.egov.cn.web/target/za.co.egov.cn.web-1.0.0-SNAPSHOT.war
 
 clean:
 	cd za.co.egov.cn.web;  mvn clean

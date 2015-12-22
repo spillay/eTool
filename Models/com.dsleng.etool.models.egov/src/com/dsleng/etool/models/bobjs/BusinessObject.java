@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getReferences <em>References</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getSuperTypes <em>Super Types</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.BusinessObject#getEnums <em>Enums</em>}</li>
@@ -25,23 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface BusinessObject extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.models.bobjs.Attribute}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attributes</em>' containment reference list.
-	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getBusinessObject_Attributes()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Attribute> getAttributes();
-
+public interface BusinessObject extends BusinessType {
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' containment reference list.
 	 * The list contents are of type {@link com.dsleng.etool.models.bobjs.References}.
@@ -79,7 +62,7 @@ public interface BusinessObject extends NamedElement {
 	 * The list contents are of type {@link com.dsleng.etool.models.bobjs.Enum}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Enums</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Enums</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

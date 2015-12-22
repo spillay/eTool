@@ -69,20 +69,14 @@ public class EgovSwitch<T> extends Switch<T> {
 			case EgovPackage.ESERVICE: {
 				EService eService = (EService)theEObject;
 				T result = caseEService(eService);
-				if (result == null) result = caseNamedElement(eService);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EgovPackage.NAMED_ELEMENT: {
-				NamedElement namedElement = (NamedElement)theEObject;
-				T result = caseNamedElement(namedElement);
+				if (result == null) result = caseWebElement(eService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EgovPackage.PAGE: {
 				Page page = (Page)theEObject;
 				T result = casePage(page);
-				if (result == null) result = caseNamedElement(page);
+				if (result == null) result = caseWebElement(page);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -122,6 +116,25 @@ public class EgovSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EgovPackage.ADMIN: {
+				Admin admin = (Admin)theEObject;
+				T result = caseAdmin(admin);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EgovPackage.MENU: {
+				Menu menu = (Menu)theEObject;
+				T result = caseMenu(menu);
+				if (result == null) result = caseWebElement(menu);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EgovPackage.WEB_ELEMENT: {
+				WebElement webElement = (WebElement)theEObject;
+				T result = caseWebElement(webElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -138,21 +151,6 @@ public class EgovSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEService(EService object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 
@@ -258,6 +256,51 @@ public class EgovSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseImport(Import object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Admin</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Admin</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAdmin(Admin object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Menu</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Menu</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMenu(Menu object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Web Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Web Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWebElement(WebElement object) {
 		return null;
 	}
 

@@ -3,22 +3,27 @@
 package com.dsleng.etool.models.egov.impl;
 
 import com.dsleng.etool.models.Controls.AttributeType;
+
 import com.dsleng.etool.models.bobjs.Attribute;
+
 import com.dsleng.etool.models.egov.BOAttribute;
 import com.dsleng.etool.models.egov.ControlMapper;
 import com.dsleng.etool.models.egov.EgovPackage;
-
 import com.dsleng.etool.models.egov.PreDefinedContainer;
-import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 

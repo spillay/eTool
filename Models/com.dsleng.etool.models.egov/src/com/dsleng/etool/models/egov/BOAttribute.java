@@ -3,8 +3,11 @@
 package com.dsleng.etool.models.egov;
 
 import com.dsleng.etool.models.Controls.AttributeType;
+
 import com.dsleng.etool.models.bobjs.Attribute;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**

@@ -26,7 +26,9 @@ public enum Multiplicity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ONE_TOONE(0, "oneToone", "onetoone"), /**
+	ONE_TOONE(0, "oneToone", "onetoone"),
+
+	/**
 	 * The '<em><b>One Tomany</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +36,9 @@ public enum Multiplicity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ONE_TOMANY(1, "oneTomany", "oneTomany"), /**
+	ONE_TOMANY(1, "oneTomany", "oneTomany"),
+
+	/**
 	 * The '<em><b>Many Tomany</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +46,9 @@ public enum Multiplicity implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MANY_TOMANY(2, "manyTomany", "manyTomany"), /**
+	MANY_TOMANY(2, "manyTomany", "manyTomany"),
+
+	/**
 	 * The '<em><b>Many Toone</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

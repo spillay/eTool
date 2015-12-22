@@ -4,6 +4,7 @@
 package com.dsleng.etool.dsl.bobjs;
 
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 
 //import com.dsleng.etool.dsl.bobjs.scoping.BobjsDslQNP;
 
@@ -16,4 +17,13 @@ public class BObjDslRuntimeModule extends com.dsleng.etool.dsl.bobjs.AbstractBOb
    // public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
    //     return BobjsDslQNP.class;
     //}
+	@Override
+	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider()
+	{
+	    return BOImportURIGlobalScopeProvider.class;
+	}
+	@Override
+	public void configureIScopeProviderDelegate(com.google.inject.Binder binder) {
+		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(BOBImportedNamespaceAwareLocalScopeProvider.class);
+	}
 }

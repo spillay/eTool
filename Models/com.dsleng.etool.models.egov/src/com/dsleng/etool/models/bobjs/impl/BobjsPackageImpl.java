@@ -9,6 +9,7 @@ import com.dsleng.etool.models.Controls.impl.ControlsPackageImpl;
 import com.dsleng.etool.models.bobjs.Annotation;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BOEnum;
+import com.dsleng.etool.models.bobjs.BOImport;
 import com.dsleng.etool.models.bobjs.BasedOn;
 import com.dsleng.etool.models.bobjs.BobjsFactory;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
@@ -133,6 +134,13 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * @generated
 	 */
 	private EClass businessTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boImportEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -337,6 +345,24 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getOrgUnit_Boimport() {
+		return (EReference)orgUnitEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOrgUnit_Businesstypes() {
+		return (EReference)orgUnitEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAttribute() {
 		return attributeEClass;
 	}
@@ -391,6 +417,15 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAttribute_SpType() {
+		return (EReference)attributeEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReferences() {
 		return referencesEClass;
 	}
@@ -436,7 +471,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBusinessObject_Attributes() {
+	public EReference getBusinessObject_References() {
 		return (EReference)businessObjectEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -445,7 +480,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBusinessObject_References() {
+	public EReference getBusinessObject_SuperTypes() {
 		return (EReference)businessObjectEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -454,7 +489,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBusinessObject_SuperTypes() {
+	public EReference getBusinessObject_Enums() {
 		return (EReference)businessObjectEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -463,7 +498,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBusinessObject_Enums() {
+	public EReference getBusinessObject_Basedon() {
 		return (EReference)businessObjectEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -472,17 +507,8 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBusinessObject_Basedon() {
-		return (EReference)businessObjectEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getBusinessObject_Operations() {
-		return (EReference)businessObjectEClass.getEStructuralFeatures().get(5);
+		return (EReference)businessObjectEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -670,6 +696,51 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBusinessType_Lookup() {
+		return (EReference)businessTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBusinessType_Attributes() {
+		return (EReference)businessTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBOImport() {
+		return boImportEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBOImport_ImportURI() {
+		return (EAttribute)boImportEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBOImport_ImportedNamespace() {
+		return (EAttribute)boImportEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDataTypes() {
 		return dataTypesEEnum;
 	}
@@ -733,6 +804,8 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		createEAttribute(orgUnitEClass, ORG_UNIT__WEB_DIRECTORY);
 		createEAttribute(orgUnitEClass, ORG_UNIT__PACKAGE);
 		createEReference(orgUnitEClass, ORG_UNIT__BOENUMS);
+		createEReference(orgUnitEClass, ORG_UNIT__BOIMPORT);
+		createEReference(orgUnitEClass, ORG_UNIT__BUSINESSTYPES);
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__LABEL);
@@ -740,6 +813,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		createEAttribute(attributeEClass, ATTRIBUTE__DEFAULT_VALUE);
 		createEAttribute(attributeEClass, ATTRIBUTE__MANDATORY);
 		createEAttribute(attributeEClass, ATTRIBUTE__DATA_MANAGEMENT);
+		createEReference(attributeEClass, ATTRIBUTE__SP_TYPE);
 
 		referencesEClass = createEClass(REFERENCES);
 		createEReference(referencesEClass, REFERENCES__BUSINESSOBJECT);
@@ -747,7 +821,6 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		createEAttribute(referencesEClass, REFERENCES__MULTIPLICITY);
 
 		businessObjectEClass = createEClass(BUSINESS_OBJECT);
-		createEReference(businessObjectEClass, BUSINESS_OBJECT__ATTRIBUTES);
 		createEReference(businessObjectEClass, BUSINESS_OBJECT__REFERENCES);
 		createEReference(businessObjectEClass, BUSINESS_OBJECT__SUPER_TYPES);
 		createEReference(businessObjectEClass, BUSINESS_OBJECT__ENUMS);
@@ -781,6 +854,12 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		createEAttribute(annotationEClass, ANNOTATION__NAME);
 
 		businessTypeEClass = createEClass(BUSINESS_TYPE);
+		createEReference(businessTypeEClass, BUSINESS_TYPE__LOOKUP);
+		createEReference(businessTypeEClass, BUSINESS_TYPE__ATTRIBUTES);
+
+		boImportEClass = createEClass(BO_IMPORT);
+		createEAttribute(boImportEClass, BO_IMPORT__IMPORT_URI);
+		createEAttribute(boImportEClass, BO_IMPORT__IMPORTED_NAMESPACE);
 
 		// Create enums
 		dataTypesEEnum = createEEnum(DATA_TYPES);
@@ -818,11 +897,11 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		// Add supertypes to classes
 		orgUnitEClass.getESuperTypes().add(this.getNamedElement());
 		attributeEClass.getESuperTypes().add(this.getNamedElement());
-		businessObjectEClass.getESuperTypes().add(this.getNamedElement());
+		businessObjectEClass.getESuperTypes().add(this.getBusinessType());
 		boEnumEClass.getESuperTypes().add(this.getNamedElement());
 		literalEClass.getESuperTypes().add(this.getNamedElement());
 		enumEClass.getESuperTypes().add(this.getNamedElement());
-		businessTypeEClass.getESuperTypes().add(this.getBusinessObject());
+		businessTypeEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -838,6 +917,8 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		initEAttribute(getOrgUnit_WebDirectory(), ecorePackage.getEString(), "webDirectory", null, 0, 1, OrgUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrgUnit_Package(), ecorePackage.getEString(), "package", null, 0, 1, OrgUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrgUnit_Boenums(), this.getBOEnum(), null, "boenums", null, 0, -1, OrgUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrgUnit_Boimport(), this.getBOImport(), null, "boimport", null, 0, -1, OrgUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrgUnit_Businesstypes(), this.getBusinessType(), null, "businesstypes", null, 0, -1, OrgUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Label(), ecorePackage.getEString(), "label", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -845,6 +926,7 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		initEAttribute(getAttribute_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_DataManagement(), ecorePackage.getEBoolean(), "dataManagement", "false", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_SpType(), this.getBusinessType(), null, "spType", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referencesEClass, References.class, "References", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferences_Businessobject(), this.getBusinessObject(), null, "businessobject", null, 0, 1, References.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -852,7 +934,6 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		initEAttribute(getReferences_Multiplicity(), this.getMultiplicity(), "multiplicity", null, 0, 1, References.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(businessObjectEClass, BusinessObject.class, "BusinessObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBusinessObject_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessObject_References(), this.getReferences(), null, "references", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessObject_SuperTypes(), this.getBusinessObject(), null, "superTypes", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBusinessObject_Enums(), this.getEnum(), null, "enums", null, 0, -1, BusinessObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -886,6 +967,12 @@ public class BobjsPackageImpl extends EPackageImpl implements BobjsPackage {
 		initEAttribute(getAnnotation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(businessTypeEClass, BusinessType.class, "BusinessType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBusinessType_Lookup(), this.getAttribute(), null, "lookup", null, 0, 1, BusinessType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBusinessType_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, BusinessType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(boImportEClass, BOImport.class, "BOImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBOImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, BOImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBOImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, BOImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataTypesEEnum, DataTypes.class, "DataTypes");

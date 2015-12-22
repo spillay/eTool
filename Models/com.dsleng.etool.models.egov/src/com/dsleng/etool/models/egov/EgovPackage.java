@@ -4,6 +4,7 @@ package com.dsleng.etool.models.egov;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -57,14 +58,14 @@ public interface EgovPackage extends EPackage {
 	EgovPackage eINSTANCE = com.dsleng.etool.models.egov.impl.EgovPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.NamedElementImpl <em>Named Element</em>}' class.
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.WebElementImpl <em>Web Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.dsleng.etool.models.egov.impl.NamedElementImpl
-	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getNamedElement()
+	 * @see com.dsleng.etool.models.egov.impl.WebElementImpl
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getWebElement()
 	 * @generated
 	 */
-	int NAMED_ELEMENT = 1;
+	int WEB_ELEMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -73,25 +74,25 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT__NAME = 0;
+	int WEB_ELEMENT__NAME = 0;
 
 	/**
-	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * The number of structural features of the '<em>Web Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+	int WEB_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Named Element</em>' class.
+	 * The number of operations of the '<em>Web Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+	int WEB_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.EServiceImpl <em>EService</em>}' class.
@@ -110,7 +111,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE__NAME = NAMED_ELEMENT__NAME;
+	int ESERVICE__NAME = WEB_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Pages</b></em>' containment reference list.
@@ -119,7 +120,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE__PAGES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ESERVICE__PAGES = WEB_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Index Page</b></em>' reference.
@@ -128,7 +129,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE__INDEX_PAGE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ESERVICE__INDEX_PAGE = WEB_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Dir Location</b></em>' attribute.
@@ -137,7 +138,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ESERVICE__DIR_LOCATION = WEB_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Business Unit</b></em>' reference.
@@ -146,7 +147,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE__BUSINESS_UNIT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int ESERVICE__BUSINESS_UNIT = WEB_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -155,7 +156,25 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE__IMPORTS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ESERVICE__IMPORTS = WEB_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Admin Pages</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__ADMIN_PAGES = WEB_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESERVICE__MENU = WEB_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>EService</em>' class.
@@ -164,7 +183,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int ESERVICE_FEATURE_COUNT = WEB_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>EService</em>' class.
@@ -173,7 +192,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ESERVICE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ESERVICE_OPERATION_COUNT = WEB_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.PageImpl <em>Page</em>}' class.
@@ -183,7 +202,7 @@ public interface EgovPackage extends EPackage {
 	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getPage()
 	 * @generated
 	 */
-	int PAGE = 2;
+	int PAGE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -192,7 +211,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__NAME = NAMED_ELEMENT__NAME;
+	int PAGE__NAME = WEB_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Next Page</b></em>' reference.
@@ -201,7 +220,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__NEXT_PAGE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PAGE__NEXT_PAGE = WEB_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>BO Maps</b></em>' containment reference list.
@@ -210,7 +229,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__BO_MAPS = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PAGE__BO_MAPS = WEB_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Pagetype</b></em>' reference.
@@ -219,7 +238,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__PAGETYPE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PAGE__PAGETYPE = WEB_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -228,7 +247,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__TITLE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PAGE__TITLE = WEB_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Extra Controls</b></em>' reference list.
@@ -237,7 +256,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__EXTRA_CONTROLS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int PAGE__EXTRA_CONTROLS = WEB_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>North</b></em>' attribute.
@@ -246,7 +265,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__NORTH = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int PAGE__NORTH = WEB_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>South</b></em>' attribute.
@@ -255,7 +274,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__SOUTH = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int PAGE__SOUTH = WEB_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>West</b></em>' attribute.
@@ -264,7 +283,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__WEST = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int PAGE__WEST = WEB_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>East</b></em>' attribute.
@@ -273,7 +292,16 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__EAST = NAMED_ELEMENT_FEATURE_COUNT + 8;
+	int PAGE__EAST = WEB_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Businesstype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__BUSINESSTYPE = WEB_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Page</em>' class.
@@ -282,7 +310,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 9;
+	int PAGE_FEATURE_COUNT = WEB_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -291,7 +319,7 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PAGE_OPERATION_COUNT = WEB_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.BOMapperImpl <em>BO Mapper</em>}' class.
@@ -301,7 +329,7 @@ public interface EgovPackage extends EPackage {
 	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getBOMapper()
 	 * @generated
 	 */
-	int BO_MAPPER = 3;
+	int BO_MAPPER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -356,7 +384,7 @@ public interface EgovPackage extends EPackage {
 	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getBOAttribute()
 	 * @generated
 	 */
-	int BO_ATTRIBUTE = 4;
+	int BO_ATTRIBUTE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Controltype</b></em>' reference.
@@ -412,7 +440,6 @@ public interface EgovPackage extends EPackage {
 	 */
 	int BO_ATTRIBUTE_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.PreDefinedValueImpl <em>Pre Defined Value</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -421,7 +448,7 @@ public interface EgovPackage extends EPackage {
 	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getPreDefinedValue()
 	 * @generated
 	 */
-	int PRE_DEFINED_VALUE = 5;
+	int PRE_DEFINED_VALUE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -450,7 +477,6 @@ public interface EgovPackage extends EPackage {
 	 */
 	int PRE_DEFINED_VALUE_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.ControlMapperImpl <em>Control Mapper</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -459,7 +485,7 @@ public interface EgovPackage extends EPackage {
 	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getControlMapper()
 	 * @generated
 	 */
-	int CONTROL_MAPPER = 6;
+	int CONTROL_MAPPER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
@@ -506,7 +532,6 @@ public interface EgovPackage extends EPackage {
 	 */
 	int CONTROL_MAPPER_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.PreDefinedContainerImpl <em>Pre Defined Container</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -515,7 +540,7 @@ public interface EgovPackage extends EPackage {
 	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getPreDefinedContainer()
 	 * @generated
 	 */
-	int PRE_DEFINED_CONTAINER = 7;
+	int PRE_DEFINED_CONTAINER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -553,7 +578,6 @@ public interface EgovPackage extends EPackage {
 	 */
 	int PRE_DEFINED_CONTAINER_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.ImportImpl <em>Import</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -562,7 +586,7 @@ public interface EgovPackage extends EPackage {
 	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getImport()
 	 * @generated
 	 */
-	int IMPORT = 8;
+	int IMPORT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -590,6 +614,144 @@ public interface EgovPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMPORT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.AdminImpl <em>Admin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.egov.impl.AdminImpl
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getAdmin()
+	 * @generated
+	 */
+	int ADMIN = 8;
+
+	/**
+	 * The feature id for the '<em><b>Pages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN__PAGES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Businesstypes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN__BUSINESSTYPES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Menu</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN__MENU = 2;
+
+	/**
+	 * The number of structural features of the '<em>Admin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Admin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADMIN_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.impl.MenuImpl <em>Menu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.egov.impl.MenuImpl
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getMenu()
+	 * @generated
+	 */
+	int MENU = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__NAME = WEB_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent Menu</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__PARENT_MENU = WEB_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__DESCRIPTION = WEB_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Page</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__PAGE = WEB_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Menu Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU__MENU_TYPE = WEB_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Menu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_FEATURE_COUNT = WEB_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Menu</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MENU_OPERATION_COUNT = WEB_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.dsleng.etool.models.egov.MenuType <em>Menu Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.models.egov.MenuType
+	 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getMenuType()
+	 * @generated
+	 */
+	int MENU_TYPE = 11;
 
 
 	/**
@@ -658,25 +820,26 @@ public interface EgovPackage extends EPackage {
 	EReference getEService_Imports();
 
 	/**
-	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.NamedElement <em>Named Element</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.dsleng.etool.models.egov.EService#getAdminPages <em>Admin Pages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Named Element</em>'.
-	 * @see com.dsleng.etool.models.egov.NamedElement
+	 * @return the meta object for the containment reference '<em>Admin Pages</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getAdminPages()
+	 * @see #getEService()
 	 * @generated
 	 */
-	EClass getNamedElement();
+	EReference getEService_AdminPages();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.NamedElement#getName <em>Name</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.EService#getMenu <em>Menu</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.dsleng.etool.models.egov.NamedElement#getName()
-	 * @see #getNamedElement()
+	 * @return the meta object for the containment reference list '<em>Menu</em>'.
+	 * @see com.dsleng.etool.models.egov.EService#getMenu()
+	 * @see #getEService()
 	 * @generated
 	 */
-	EAttribute getNamedElement_Name();
+	EReference getEService_Menu();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.Page <em>Page</em>}'.
@@ -786,6 +949,17 @@ public interface EgovPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPage_East();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.Page#getBusinesstype <em>Businesstype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Businesstype</em>'.
+	 * @see com.dsleng.etool.models.egov.Page#getBusinesstype()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Businesstype();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.BOMapper <em>BO Mapper</em>}'.
@@ -1002,6 +1176,134 @@ public interface EgovPackage extends EPackage {
 	EAttribute getImport_ImportURI();
 
 	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.Admin <em>Admin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Admin</em>'.
+	 * @see com.dsleng.etool.models.egov.Admin
+	 * @generated
+	 */
+	EClass getAdmin();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.Admin#getPages <em>Pages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Pages</em>'.
+	 * @see com.dsleng.etool.models.egov.Admin#getPages()
+	 * @see #getAdmin()
+	 * @generated
+	 */
+	EReference getAdmin_Pages();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.dsleng.etool.models.egov.Admin#getBusinesstypes <em>Businesstypes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Businesstypes</em>'.
+	 * @see com.dsleng.etool.models.egov.Admin#getBusinesstypes()
+	 * @see #getAdmin()
+	 * @generated
+	 */
+	EReference getAdmin_Businesstypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.models.egov.Admin#getMenu <em>Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Menu</em>'.
+	 * @see com.dsleng.etool.models.egov.Admin#getMenu()
+	 * @see #getAdmin()
+	 * @generated
+	 */
+	EReference getAdmin_Menu();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.Menu <em>Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Menu</em>'.
+	 * @see com.dsleng.etool.models.egov.Menu
+	 * @generated
+	 */
+	EClass getMenu();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.Menu#getParentMenu <em>Parent Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent Menu</em>'.
+	 * @see com.dsleng.etool.models.egov.Menu#getParentMenu()
+	 * @see #getMenu()
+	 * @generated
+	 */
+	EReference getMenu_ParentMenu();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Menu#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.dsleng.etool.models.egov.Menu#getDescription()
+	 * @see #getMenu()
+	 * @generated
+	 */
+	EAttribute getMenu_Description();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.dsleng.etool.models.egov.Menu#getPage <em>Page</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Page</em>'.
+	 * @see com.dsleng.etool.models.egov.Menu#getPage()
+	 * @see #getMenu()
+	 * @generated
+	 */
+	EReference getMenu_Page();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.Menu#getMenuType <em>Menu Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Menu Type</em>'.
+	 * @see com.dsleng.etool.models.egov.Menu#getMenuType()
+	 * @see #getMenu()
+	 * @generated
+	 */
+	EAttribute getMenu_MenuType();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.models.egov.WebElement <em>Web Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Web Element</em>'.
+	 * @see com.dsleng.etool.models.egov.WebElement
+	 * @generated
+	 */
+	EClass getWebElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.models.egov.WebElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.dsleng.etool.models.egov.WebElement#getName()
+	 * @see #getWebElement()
+	 * @generated
+	 */
+	EAttribute getWebElement_Name();
+
+	/**
+	 * Returns the meta object for enum '{@link com.dsleng.etool.models.egov.MenuType <em>Menu Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Menu Type</em>'.
+	 * @see com.dsleng.etool.models.egov.MenuType
+	 * @generated
+	 */
+	EEnum getMenuType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1075,22 +1377,20 @@ public interface EgovPackage extends EPackage {
 		EReference ESERVICE__IMPORTS = eINSTANCE.getEService_Imports();
 
 		/**
-		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * The meta object literal for the '<em><b>Admin Pages</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.dsleng.etool.models.egov.impl.NamedElementImpl
-		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getNamedElement()
 		 * @generated
 		 */
-		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+		EReference ESERVICE__ADMIN_PAGES = eINSTANCE.getEService_AdminPages();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Menu</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+		EReference ESERVICE__MENU = eINSTANCE.getEService_Menu();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.PageImpl <em>Page</em>}' class.
@@ -1173,6 +1473,14 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PAGE__EAST = eINSTANCE.getPage_East();
+
+		/**
+		 * The meta object literal for the '<em><b>Businesstype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__BUSINESSTYPE = eINSTANCE.getPage_Businesstype();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.BOMapperImpl <em>BO Mapper</em>}' class.
@@ -1345,6 +1653,110 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IMPORT__IMPORT_URI = eINSTANCE.getImport_ImportURI();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.AdminImpl <em>Admin</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.impl.AdminImpl
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getAdmin()
+		 * @generated
+		 */
+		EClass ADMIN = eINSTANCE.getAdmin();
+
+		/**
+		 * The meta object literal for the '<em><b>Pages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADMIN__PAGES = eINSTANCE.getAdmin_Pages();
+
+		/**
+		 * The meta object literal for the '<em><b>Businesstypes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADMIN__BUSINESSTYPES = eINSTANCE.getAdmin_Businesstypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Menu</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ADMIN__MENU = eINSTANCE.getAdmin_Menu();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.MenuImpl <em>Menu</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.impl.MenuImpl
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getMenu()
+		 * @generated
+		 */
+		EClass MENU = eINSTANCE.getMenu();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Menu</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU__PARENT_MENU = eINSTANCE.getMenu_ParentMenu();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU__DESCRIPTION = eINSTANCE.getMenu_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Page</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MENU__PAGE = eINSTANCE.getMenu_Page();
+
+		/**
+		 * The meta object literal for the '<em><b>Menu Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MENU__MENU_TYPE = eINSTANCE.getMenu_MenuType();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.impl.WebElementImpl <em>Web Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.impl.WebElementImpl
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getWebElement()
+		 * @generated
+		 */
+		EClass WEB_ELEMENT = eINSTANCE.getWebElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WEB_ELEMENT__NAME = eINSTANCE.getWebElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.models.egov.MenuType <em>Menu Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.models.egov.MenuType
+		 * @see com.dsleng.etool.models.egov.impl.EgovPackageImpl#getMenuType()
+		 * @generated
+		 */
+		EEnum MENU_TYPE = eINSTANCE.getMenuType();
 
 	}
 

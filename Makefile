@@ -1,6 +1,7 @@
 MVN=mvn
 OPTS=deploy
 
+.PHONY: core model external pres infra  dsl  product
 all: core model external pres infra  dsl  product
 
 clean-repo:

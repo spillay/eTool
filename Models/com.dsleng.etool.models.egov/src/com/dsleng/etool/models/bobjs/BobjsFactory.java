@@ -139,6 +139,15 @@ public interface BobjsFactory extends EFactory {
 	BusinessType createBusinessType();
 
 	/**
+	 * Returns a new object of class '<em>BO Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BO Import</em>'.
+	 * @generated
+	 */
+	BOImport createBOImport();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -5,6 +5,7 @@ package com.dsleng.etool.models.bobjs.util;
 import com.dsleng.etool.models.bobjs.Annotation;
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BOEnum;
+import com.dsleng.etool.models.bobjs.BOImport;
 import com.dsleng.etool.models.bobjs.BasedOn;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
@@ -106,6 +107,7 @@ public class BobjsSwitch<T> extends Switch<T> {
 			case BobjsPackage.BUSINESS_OBJECT: {
 				BusinessObject businessObject = (BusinessObject)theEObject;
 				T result = caseBusinessObject(businessObject);
+				if (result == null) result = caseBusinessType(businessObject);
 				if (result == null) result = caseNamedElement(businessObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -158,8 +160,13 @@ public class BobjsSwitch<T> extends Switch<T> {
 			case BobjsPackage.BUSINESS_TYPE: {
 				BusinessType businessType = (BusinessType)theEObject;
 				T result = caseBusinessType(businessType);
-				if (result == null) result = caseBusinessObject(businessType);
 				if (result == null) result = caseNamedElement(businessType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case BobjsPackage.BO_IMPORT: {
+				BOImport boImport = (BOImport)theEObject;
+				T result = caseBOImport(boImport);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -359,6 +366,21 @@ public class BobjsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBusinessType(BusinessType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BO Import</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BO Import</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBOImport(BOImport object) {
 		return null;
 	}
 

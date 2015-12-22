@@ -4,9 +4,11 @@ package com.dsleng.etool.models.egov.impl;
 
 import com.dsleng.etool.models.bobjs.OrgUnit;
 
+import com.dsleng.etool.models.egov.Admin;
 import com.dsleng.etool.models.egov.EService;
 import com.dsleng.etool.models.egov.EgovPackage;
 import com.dsleng.etool.models.egov.Import;
+import com.dsleng.etool.models.egov.Menu;
 import com.dsleng.etool.models.egov.Page;
 
 import java.util.Collection;
@@ -37,11 +39,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getBusinessUnit <em>Business Unit</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getAdminPages <em>Admin Pages</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.impl.EServiceImpl#getMenu <em>Menu</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EServiceImpl extends NamedElementImpl implements EService {
+public class EServiceImpl extends WebElementImpl implements EService {
 	/**
 	 * The cached value of the '{@link #getPages() <em>Pages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -101,6 +105,26 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 	 * @ordered
 	 */
 	protected EList<Import> imports;
+
+	/**
+	 * The cached value of the '{@link #getAdminPages() <em>Admin Pages</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdminPages()
+	 * @generated
+	 * @ordered
+	 */
+	protected Admin adminPages;
+
+	/**
+	 * The cached value of the '{@link #getMenu() <em>Menu</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMenu()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Menu> menu;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +271,61 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Admin getAdminPages() {
+		return adminPages;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAdminPages(Admin newAdminPages, NotificationChain msgs) {
+		Admin oldAdminPages = adminPages;
+		adminPages = newAdminPages;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EgovPackage.ESERVICE__ADMIN_PAGES, oldAdminPages, newAdminPages);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAdminPages(Admin newAdminPages) {
+		if (newAdminPages != adminPages) {
+			NotificationChain msgs = null;
+			if (adminPages != null)
+				msgs = ((InternalEObject)adminPages).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EgovPackage.ESERVICE__ADMIN_PAGES, null, msgs);
+			if (newAdminPages != null)
+				msgs = ((InternalEObject)newAdminPages).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EgovPackage.ESERVICE__ADMIN_PAGES, null, msgs);
+			msgs = basicSetAdminPages(newAdminPages, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EgovPackage.ESERVICE__ADMIN_PAGES, newAdminPages, newAdminPages));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Menu> getMenu() {
+		if (menu == null) {
+			menu = new EObjectContainmentEList<Menu>(Menu.class, this, EgovPackage.ESERVICE__MENU);
+		}
+		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -254,6 +333,10 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 				return ((InternalEList<?>)getPages()).basicRemove(otherEnd, msgs);
 			case EgovPackage.ESERVICE__IMPORTS:
 				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+			case EgovPackage.ESERVICE__ADMIN_PAGES:
+				return basicSetAdminPages(null, msgs);
+			case EgovPackage.ESERVICE__MENU:
+				return ((InternalEList<?>)getMenu()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -278,6 +361,10 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 				return basicGetBusinessUnit();
 			case EgovPackage.ESERVICE__IMPORTS:
 				return getImports();
+			case EgovPackage.ESERVICE__ADMIN_PAGES:
+				return getAdminPages();
+			case EgovPackage.ESERVICE__MENU:
+				return getMenu();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,6 +395,13 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 				getImports().clear();
 				getImports().addAll((Collection<? extends Import>)newValue);
 				return;
+			case EgovPackage.ESERVICE__ADMIN_PAGES:
+				setAdminPages((Admin)newValue);
+				return;
+			case EgovPackage.ESERVICE__MENU:
+				getMenu().clear();
+				getMenu().addAll((Collection<? extends Menu>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -335,6 +429,12 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 			case EgovPackage.ESERVICE__IMPORTS:
 				getImports().clear();
 				return;
+			case EgovPackage.ESERVICE__ADMIN_PAGES:
+				setAdminPages((Admin)null);
+				return;
+			case EgovPackage.ESERVICE__MENU:
+				getMenu().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -357,6 +457,10 @@ public class EServiceImpl extends NamedElementImpl implements EService {
 				return businessUnit != null;
 			case EgovPackage.ESERVICE__IMPORTS:
 				return imports != null && !imports.isEmpty();
+			case EgovPackage.ESERVICE__ADMIN_PAGES:
+				return adminPages != null;
+			case EgovPackage.ESERVICE__MENU:
+				return menu != null && !menu.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

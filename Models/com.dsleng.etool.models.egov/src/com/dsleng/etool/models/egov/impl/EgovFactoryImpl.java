@@ -5,6 +5,7 @@ package com.dsleng.etool.models.egov.impl;
 import com.dsleng.etool.models.egov.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -57,7 +58,6 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case EgovPackage.ESERVICE: return createEService();
-			case EgovPackage.NAMED_ELEMENT: return createNamedElement();
 			case EgovPackage.PAGE: return createPage();
 			case EgovPackage.BO_MAPPER: return createBOMapper();
 			case EgovPackage.BO_ATTRIBUTE: return createBOAttribute();
@@ -65,8 +65,41 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 			case EgovPackage.CONTROL_MAPPER: return createControlMapper();
 			case EgovPackage.PRE_DEFINED_CONTAINER: return createPreDefinedContainer();
 			case EgovPackage.IMPORT: return createImport();
+			case EgovPackage.ADMIN: return createAdmin();
+			case EgovPackage.MENU: return createMenu();
+			case EgovPackage.WEB_ELEMENT: return createWebElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case EgovPackage.MENU_TYPE:
+				return createMenuTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case EgovPackage.MENU_TYPE:
+				return convertMenuTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -78,16 +111,6 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	public EService createEService() {
 		EServiceImpl eService = new EServiceImpl();
 		return eService;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NamedElement createNamedElement() {
-		NamedElementImpl namedElement = new NamedElementImpl();
-		return namedElement;
 	}
 
 	/**
@@ -158,6 +181,56 @@ public class EgovFactoryImpl extends EFactoryImpl implements EgovFactory {
 	public Import createImport() {
 		ImportImpl import_ = new ImportImpl();
 		return import_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Admin createAdmin() {
+		AdminImpl admin = new AdminImpl();
+		return admin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Menu createMenu() {
+		MenuImpl menu = new MenuImpl();
+		return menu;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WebElement createWebElement() {
+		WebElementImpl webElement = new WebElementImpl();
+		return webElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MenuType createMenuTypeFromString(EDataType eDataType, String initialValue) {
+		MenuType result = MenuType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMenuTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

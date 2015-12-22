@@ -4,11 +4,13 @@ package com.dsleng.etool.models.bobjs.impl;
 
 import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
+import com.dsleng.etool.models.bobjs.BusinessType;
 import com.dsleng.etool.models.bobjs.DataTypes;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -24,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#isMandatory <em>Mandatory</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#isDataManagement <em>Data Management</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.AttributeImpl#getSpType <em>Sp Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -128,6 +131,16 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * @ordered
 	 */
 	protected boolean dataManagement = DATA_MANAGEMENT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSpType() <em>Sp Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpType()
+	 * @generated
+	 * @ordered
+	 */
+	protected BusinessType spType;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,6 +271,44 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BusinessType getSpType() {
+		if (spType != null && spType.eIsProxy()) {
+			InternalEObject oldSpType = (InternalEObject)spType;
+			spType = (BusinessType)eResolveProxy(oldSpType);
+			if (spType != oldSpType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, BobjsPackage.ATTRIBUTE__SP_TYPE, oldSpType, spType));
+			}
+		}
+		return spType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BusinessType basicGetSpType() {
+		return spType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSpType(BusinessType newSpType) {
+		BusinessType oldSpType = spType;
+		spType = newSpType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BobjsPackage.ATTRIBUTE__SP_TYPE, oldSpType, spType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -271,6 +322,9 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return isMandatory();
 			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
 				return isDataManagement();
+			case BobjsPackage.ATTRIBUTE__SP_TYPE:
+				if (resolve) return getSpType();
+				return basicGetSpType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +351,9 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return;
 			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
 				setDataManagement((Boolean)newValue);
+				return;
+			case BobjsPackage.ATTRIBUTE__SP_TYPE:
+				setSpType((BusinessType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -325,6 +382,9 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
 				setDataManagement(DATA_MANAGEMENT_EDEFAULT);
 				return;
+			case BobjsPackage.ATTRIBUTE__SP_TYPE:
+				setSpType((BusinessType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -347,6 +407,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return mandatory != MANDATORY_EDEFAULT;
 			case BobjsPackage.ATTRIBUTE__DATA_MANAGEMENT:
 				return dataManagement != DATA_MANAGEMENT_EDEFAULT;
+			case BobjsPackage.ATTRIBUTE__SP_TYPE:
+				return spType != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,7 @@
  */
 package com.dsleng.etool.models.bobjs;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Attribute</b></em>'.
@@ -16,6 +17,7 @@ package com.dsleng.etool.models.bobjs;
  *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#getDefaultValue <em>Default Value</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#isMandatory <em>Mandatory</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#isDataManagement <em>Data Management</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.Attribute#getSpType <em>Sp Type</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.bobjs.BobjsPackage#getAttribute()
@@ -156,5 +158,31 @@ public interface Attribute extends NamedElement {
 	 * @generated
 	 */
 	void setDataManagement(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Sp Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sp Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sp Type</em>' reference.
+	 * @see #setSpType(BusinessType)
+	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getAttribute_SpType()
+	 * @model
+	 * @generated
+	 */
+	BusinessType getSpType();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.bobjs.Attribute#getSpType <em>Sp Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sp Type</em>' reference.
+	 * @see #getSpType()
+	 * @generated
+	 */
+	void setSpType(BusinessType value);
 
 } // Attribute

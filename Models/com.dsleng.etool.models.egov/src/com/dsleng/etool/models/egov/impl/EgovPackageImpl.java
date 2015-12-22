@@ -10,6 +10,7 @@ import com.dsleng.etool.models.bobjs.BobjsPackage;
 
 import com.dsleng.etool.models.bobjs.impl.BobjsPackageImpl;
 
+import com.dsleng.etool.models.egov.Admin;
 import com.dsleng.etool.models.egov.BOAttribute;
 import com.dsleng.etool.models.egov.BOMapper;
 import com.dsleng.etool.models.egov.ControlMapper;
@@ -17,13 +18,16 @@ import com.dsleng.etool.models.egov.EService;
 import com.dsleng.etool.models.egov.EgovFactory;
 import com.dsleng.etool.models.egov.EgovPackage;
 import com.dsleng.etool.models.egov.Import;
-import com.dsleng.etool.models.egov.NamedElement;
+import com.dsleng.etool.models.egov.Menu;
+import com.dsleng.etool.models.egov.MenuType;
 import com.dsleng.etool.models.egov.Page;
-
 import com.dsleng.etool.models.egov.PreDefinedContainer;
 import com.dsleng.etool.models.egov.PreDefinedValue;
+import com.dsleng.etool.models.egov.WebElement;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -42,13 +46,6 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * @generated
 	 */
 	private EClass eServiceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass namedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +95,34 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * @generated
 	 */
 	private EClass importEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass adminEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass menuEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass webElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum menuTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -227,8 +252,8 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNamedElement() {
-		return namedElementEClass;
+	public EReference getEService_AdminPages() {
+		return (EReference)eServiceEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -236,8 +261,8 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNamedElement_Name() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	public EReference getEService_Menu() {
+		return (EReference)eServiceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -328,6 +353,15 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 */
 	public EAttribute getPage_East() {
 		return (EAttribute)pageEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPage_Businesstype() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -515,6 +549,114 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAdmin() {
+		return adminEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAdmin_Pages() {
+		return (EReference)adminEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAdmin_Businesstypes() {
+		return (EReference)adminEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAdmin_Menu() {
+		return (EReference)adminEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMenu() {
+		return menuEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenu_ParentMenu() {
+		return (EReference)menuEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMenu_Description() {
+		return (EAttribute)menuEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMenu_Page() {
+		return (EReference)menuEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMenu_MenuType() {
+		return (EAttribute)menuEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWebElement() {
+		return webElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getWebElement_Name() {
+		return (EAttribute)webElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMenuType() {
+		return menuTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EgovFactory getEgovFactory() {
 		return (EgovFactory)getEFactoryInstance();
 	}
@@ -544,9 +686,8 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		createEAttribute(eServiceEClass, ESERVICE__DIR_LOCATION);
 		createEReference(eServiceEClass, ESERVICE__BUSINESS_UNIT);
 		createEReference(eServiceEClass, ESERVICE__IMPORTS);
-
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+		createEReference(eServiceEClass, ESERVICE__ADMIN_PAGES);
+		createEReference(eServiceEClass, ESERVICE__MENU);
 
 		pageEClass = createEClass(PAGE);
 		createEReference(pageEClass, PAGE__NEXT_PAGE);
@@ -558,6 +699,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		createEAttribute(pageEClass, PAGE__SOUTH);
 		createEAttribute(pageEClass, PAGE__WEST);
 		createEAttribute(pageEClass, PAGE__EAST);
+		createEReference(pageEClass, PAGE__BUSINESSTYPE);
 
 		boMapperEClass = createEClass(BO_MAPPER);
 		createEReference(boMapperEClass, BO_MAPPER__ATTRIBUTES);
@@ -584,6 +726,23 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 
 		importEClass = createEClass(IMPORT);
 		createEAttribute(importEClass, IMPORT__IMPORT_URI);
+
+		adminEClass = createEClass(ADMIN);
+		createEReference(adminEClass, ADMIN__PAGES);
+		createEReference(adminEClass, ADMIN__BUSINESSTYPES);
+		createEReference(adminEClass, ADMIN__MENU);
+
+		menuEClass = createEClass(MENU);
+		createEReference(menuEClass, MENU__PARENT_MENU);
+		createEAttribute(menuEClass, MENU__DESCRIPTION);
+		createEReference(menuEClass, MENU__PAGE);
+		createEAttribute(menuEClass, MENU__MENU_TYPE);
+
+		webElementEClass = createEClass(WEB_ELEMENT);
+		createEAttribute(webElementEClass, WEB_ELEMENT__NAME);
+
+		// Create enums
+		menuTypeEEnum = createEEnum(MENU_TYPE);
 	}
 
 	/**
@@ -618,8 +777,9 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		eServiceEClass.getESuperTypes().add(this.getNamedElement());
-		pageEClass.getESuperTypes().add(this.getNamedElement());
+		eServiceEClass.getESuperTypes().add(this.getWebElement());
+		pageEClass.getESuperTypes().add(this.getWebElement());
+		menuEClass.getESuperTypes().add(this.getWebElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(eServiceEClass, EService.class, "EService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -628,9 +788,8 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEAttribute(getEService_DirLocation(), ecorePackage.getEString(), "dirLocation", null, 0, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEService_BusinessUnit(), theBobjsPackage.getOrgUnit(), null, "BusinessUnit", null, 0, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEService_Imports(), this.getImport(), null, "imports", null, 0, -1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEService_AdminPages(), this.getAdmin(), null, "adminPages", null, 0, 1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEService_Menu(), this.getMenu(), null, "menu", null, 0, -1, EService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPage_NextPage(), this.getPage(), null, "nextPage", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -642,6 +801,7 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 		initEAttribute(getPage_South(), ecorePackage.getEString(), "South", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_West(), ecorePackage.getEString(), "West", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPage_East(), ecorePackage.getEString(), "East", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPage_Businesstype(), theBobjsPackage.getBusinessType(), null, "businesstype", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boMapperEClass, BOMapper.class, "BOMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBOMapper_Attributes(), this.getBOAttribute(), null, "attributes", null, 0, -1, BOMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -668,6 +828,25 @@ public class EgovPackageImpl extends EPackageImpl implements EgovPackage {
 
 		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getImport_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(adminEClass, Admin.class, "Admin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAdmin_Pages(), this.getPage(), null, "pages", null, 0, -1, Admin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAdmin_Businesstypes(), theBobjsPackage.getBusinessType(), null, "businesstypes", null, 0, -1, Admin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAdmin_Menu(), this.getMenu(), null, "menu", null, 0, -1, Admin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(menuEClass, Menu.class, "Menu", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMenu_ParentMenu(), this.getMenu(), null, "parentMenu", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMenu_Description(), ecorePackage.getEString(), "description", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMenu_Page(), this.getPage(), null, "page", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMenu_MenuType(), this.getMenuType(), "menuType", null, 0, 1, Menu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(webElementEClass, WebElement.class, "WebElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getWebElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, WebElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(menuTypeEEnum, MenuType.class, "MenuType");
+		addEEnumLiteral(menuTypeEEnum, MenuType.STANDARD);
+		addEEnumLiteral(menuTypeEEnum, MenuType.TOP_LEVEL);
 
 		// Create resource
 		createResource(eNS_URI);

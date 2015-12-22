@@ -2,7 +2,6 @@
  */
 package com.dsleng.etool.models.bobjs.impl;
 
-import com.dsleng.etool.models.bobjs.Attribute;
 import com.dsleng.etool.models.bobjs.BasedOn;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
@@ -28,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getReferences <em>References</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getSuperTypes <em>Super Types</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.BusinessObjectImpl#getEnums <em>Enums</em>}</li>
@@ -38,17 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class BusinessObjectImpl extends NamedElementImpl implements BusinessObject {
-	/**
-	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttributes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attribute> attributes;
-
+public class BusinessObjectImpl extends BusinessTypeImpl implements BusinessObject {
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -123,18 +111,6 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Attribute> getAttributes() {
-		if (attributes == null) {
-			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, BobjsPackage.BUSINESS_OBJECT__ATTRIBUTES);
-		}
-		return attributes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<References> getReferences() {
 		if (references == null) {
 			references = new EObjectContainmentEList<References>(References.class, this, BobjsPackage.BUSINESS_OBJECT__REFERENCES);
@@ -198,8 +174,6 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case BobjsPackage.BUSINESS_OBJECT__ATTRIBUTES:
-				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
 			case BobjsPackage.BUSINESS_OBJECT__ENUMS:
@@ -220,8 +194,6 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BobjsPackage.BUSINESS_OBJECT__ATTRIBUTES:
-				return getAttributes();
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				return getReferences();
 			case BobjsPackage.BUSINESS_OBJECT__SUPER_TYPES:
@@ -245,10 +217,6 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BobjsPackage.BUSINESS_OBJECT__ATTRIBUTES:
-				getAttributes().clear();
-				getAttributes().addAll((Collection<? extends Attribute>)newValue);
-				return;
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends References>)newValue);
@@ -281,9 +249,6 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BobjsPackage.BUSINESS_OBJECT__ATTRIBUTES:
-				getAttributes().clear();
-				return;
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				getReferences().clear();
 				return;
@@ -311,8 +276,6 @@ public class BusinessObjectImpl extends NamedElementImpl implements BusinessObje
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BobjsPackage.BUSINESS_OBJECT__ATTRIBUTES:
-				return attributes != null && !attributes.isEmpty();
 			case BobjsPackage.BUSINESS_OBJECT__REFERENCES:
 				return references != null && !references.isEmpty();
 			case BobjsPackage.BUSINESS_OBJECT__SUPER_TYPES:

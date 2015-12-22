@@ -4,6 +4,8 @@ package com.dsleng.etool.models.egov;
 
 import com.dsleng.etool.models.Controls.AttributeType;
 import com.dsleng.etool.models.Controls.PageType;
+
+import com.dsleng.etool.models.bobjs.BusinessType;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -24,13 +26,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.egov.Page#getSouth <em>South</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Page#getWest <em>West</em>}</li>
  *   <li>{@link com.dsleng.etool.models.egov.Page#getEast <em>East</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.egov.Page#getBusinesstype <em>Businesstype</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.egov.EgovPackage#getPage()
  * @model
  * @generated
  */
-public interface Page extends NamedElement {
+public interface Page extends WebElement {
 	/**
 	 * Returns the value of the '<em><b>Next Page</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -244,5 +247,31 @@ public interface Page extends NamedElement {
 	 * @generated
 	 */
 	void setEast(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Businesstype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Businesstype</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Businesstype</em>' reference.
+	 * @see #setBusinesstype(BusinessType)
+	 * @see com.dsleng.etool.models.egov.EgovPackage#getPage_Businesstype()
+	 * @model
+	 * @generated
+	 */
+	BusinessType getBusinesstype();
+
+	/**
+	 * Sets the value of the '{@link com.dsleng.etool.models.egov.Page#getBusinesstype <em>Businesstype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Businesstype</em>' reference.
+	 * @see #getBusinesstype()
+	 * @generated
+	 */
+	void setBusinesstype(BusinessType value);
 
 } // Page

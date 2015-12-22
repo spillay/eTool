@@ -3,8 +3,10 @@
 package com.dsleng.etool.models.bobjs.impl;
 
 import com.dsleng.etool.models.bobjs.BOEnum;
+import com.dsleng.etool.models.bobjs.BOImport;
 import com.dsleng.etool.models.bobjs.BobjsPackage;
 import com.dsleng.etool.models.bobjs.BusinessObject;
+import com.dsleng.etool.models.bobjs.BusinessType;
 import com.dsleng.etool.models.bobjs.OrgUnit;
 
 import java.util.Collection;
@@ -39,6 +41,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getWebDirectory <em>Web Directory</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getBoenums <em>Boenums</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getBoimport <em>Boimport</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.impl.OrgUnitImpl#getBusinesstypes <em>Businesstypes</em>}</li>
  * </ul>
  *
  * @generated
@@ -203,6 +207,26 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	 * @ordered
 	 */
 	protected EList<BOEnum> boenums;
+
+	/**
+	 * The cached value of the '{@link #getBoimport() <em>Boimport</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBoimport()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BOImport> boimport;
+
+	/**
+	 * The cached value of the '{@link #getBusinesstypes() <em>Businesstypes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBusinesstypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BusinessType> businesstypes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -399,6 +423,30 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BOImport> getBoimport() {
+		if (boimport == null) {
+			boimport = new EObjectContainmentEList<BOImport>(BOImport.class, this, BobjsPackage.ORG_UNIT__BOIMPORT);
+		}
+		return boimport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BusinessType> getBusinesstypes() {
+		if (businesstypes == null) {
+			businesstypes = new EObjectContainmentEList<BusinessType>(BusinessType.class, this, BobjsPackage.ORG_UNIT__BUSINESSTYPES);
+		}
+		return businesstypes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -406,6 +454,10 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				return ((InternalEList<?>)getBusinessobjects()).basicRemove(otherEnd, msgs);
 			case BobjsPackage.ORG_UNIT__BOENUMS:
 				return ((InternalEList<?>)getBoenums()).basicRemove(otherEnd, msgs);
+			case BobjsPackage.ORG_UNIT__BOIMPORT:
+				return ((InternalEList<?>)getBoimport()).basicRemove(otherEnd, msgs);
+			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
+				return ((InternalEList<?>)getBusinesstypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -436,6 +488,10 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				return getPackage();
 			case BobjsPackage.ORG_UNIT__BOENUMS:
 				return getBoenums();
+			case BobjsPackage.ORG_UNIT__BOIMPORT:
+				return getBoimport();
+			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
+				return getBusinesstypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -478,6 +534,14 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				getBoenums().clear();
 				getBoenums().addAll((Collection<? extends BOEnum>)newValue);
 				return;
+			case BobjsPackage.ORG_UNIT__BOIMPORT:
+				getBoimport().clear();
+				getBoimport().addAll((Collection<? extends BOImport>)newValue);
+				return;
+			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
+				getBusinesstypes().clear();
+				getBusinesstypes().addAll((Collection<? extends BusinessType>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -517,6 +581,12 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 			case BobjsPackage.ORG_UNIT__BOENUMS:
 				getBoenums().clear();
 				return;
+			case BobjsPackage.ORG_UNIT__BOIMPORT:
+				getBoimport().clear();
+				return;
+			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
+				getBusinesstypes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -547,6 +617,10 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
 			case BobjsPackage.ORG_UNIT__BOENUMS:
 				return boenums != null && !boenums.isEmpty();
+			case BobjsPackage.ORG_UNIT__BOIMPORT:
+				return boimport != null && !boimport.isEmpty();
+			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
+				return businesstypes != null && !businesstypes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

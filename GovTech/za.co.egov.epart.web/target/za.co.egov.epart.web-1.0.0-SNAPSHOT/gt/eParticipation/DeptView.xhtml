@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Department View</title>
+</h:head>
+<p:layout fullPage="true">
+	<p:layoutUnit position="west" size="200" header="e-Participation" resizable="true"
+		closable="true" collapsible="true">
+		<h:form id="menuForm">
+			<p:menu type="sliding">
+				<p:submenu label="Citizen View">
+					<p:menuitem value="Add Complaint" url="./Complaint.xhtml"
+						icon="ui-icon ui-icon-home" />
+				</p:submenu>
+				<p:submenu label="Department View">
+					<p:menuitem value="Manage Complaint" url="./DeptView.xhtml" icon="ui-icon ui-icon-home" />
+				</p:submenu>
+			</p:menu>
+		</h:form>
+	</p:layoutUnit>
+	<p:layoutUnit position="center" size="100" minSize="40" maxSize="200">
+			<h:form id="mainForm">
+			<p:growl id="growl" /> 
+				<p:messages id="msg" closable="true"  />
+				<p:panel header="Department View">
+					<p:panel header="Agency">
+					<p:panelGrid columns="2" cellpadding="4">
+						<h:outputText value="Province"></h:outputText>
+						<p:selectOneMenu style="width:200px"
+							value="#{complaintBean.selectedProvince}">
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.provinceData}"></f:selectItems>
+							<p:ajax listener="#{complaintBean.onProvinceChange}"  update="departmentSel,agencySel" />
+						</p:selectOneMenu>
+						<h:outputText  value="Department"></h:outputText>
+						<p:selectOneMenu id="departmentSel" style="width:250px"
+							value="#{complaintBean.selectedDepartment}">
+							<p:ajax></p:ajax>
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.departmentData}"></f:selectItems>
+							<p:ajax listener="#{complaintBean.onDepartmentChange}"  update="agencySel" />
+						</p:selectOneMenu>
+						<h:outputText value="Agency"></h:outputText>
+						<p:selectOneMenu id="agencySel"  style="width:250px"
+							value="#{deptViewBean.selectedAgency}" required="true" requiredMessage="Please select an agency">
+							<f:selectItem itemLabel="Select One" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{complaintBean.agencyData}"></f:selectItems>
+						</p:selectOneMenu>
+					</p:panelGrid>
+				</p:panel>
+					<p:commandButton value="search" id="ajax"
+						update="growl,ComplaintTable"
+						actionListener="#{deptViewBean.searchAction}"
+						styleClass="ui-priority-primary" />
+					<p:panel header="Complaint">
+						
+					
+					<p:dataTable id="ComplaintTable" var="complaint"
+						value="#{deptViewBean.complaints}">
+						<p:column headerText="Agency">
+							<h:outputText value="#{complaint.agency.name}" />
+						</p:column>
+						<p:column headerText="Summary">
+							<h:outputText value="#{complaint.name}" />
+						</p:column>
+						<p:column headerText="Details">
+							<h:outputText value="#{complaint.description}" />
+						</p:column>
+						<p:column headerText="Complaint Type">
+							<h:outputText value="#{complaint.complainttype.name}" />
+						</p:column>
+					</p:dataTable>
+					</p:panel>
+				</p:panel>
+				<p:commandButton value="Done" id="doneBtn" update="growl,:mainForm:msg" immediate="true" validateClient="false"
+					action="./Complaint.xhtml?faces-redirect=true" />
+			</h:form>
+	</p:layoutUnit>
+</p:layout>
+</html>

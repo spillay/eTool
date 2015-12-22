@@ -22,6 +22,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getWebDirectory <em>Web Directory</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getPackage <em>Package</em>}</li>
  *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getBoenums <em>Boenums</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getBoimport <em>Boimport</em>}</li>
+ *   <li>{@link com.dsleng.etool.models.bobjs.OrgUnit#getBusinesstypes <em>Businesstypes</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.models.bobjs.BobjsPackage#getOrgUnit()
@@ -242,5 +244,37 @@ public interface OrgUnit extends NamedElement {
 	 * @generated
 	 */
 	EList<BOEnum> getBoenums();
+
+	/**
+	 * Returns the value of the '<em><b>Boimport</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.bobjs.BOImport}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Boimport</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Boimport</em>' containment reference list.
+	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getOrgUnit_Boimport()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BOImport> getBoimport();
+
+	/**
+	 * Returns the value of the '<em><b>Businesstypes</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.models.bobjs.BusinessType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Businesstypes</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Businesstypes</em>' containment reference list.
+	 * @see com.dsleng.etool.models.bobjs.BobjsPackage#getOrgUnit_Businesstypes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BusinessType> getBusinesstypes();
 
 } // OrgUnit

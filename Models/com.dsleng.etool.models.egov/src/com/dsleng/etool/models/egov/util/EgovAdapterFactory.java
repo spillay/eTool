@@ -72,10 +72,6 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 				return createEServiceAdapter();
 			}
 			@Override
-			public Adapter caseNamedElement(NamedElement object) {
-				return createNamedElementAdapter();
-			}
-			@Override
 			public Adapter casePage(Page object) {
 				return createPageAdapter();
 			}
@@ -102,6 +98,18 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseImport(Import object) {
 				return createImportAdapter();
+			}
+			@Override
+			public Adapter caseAdmin(Admin object) {
+				return createAdminAdapter();
+			}
+			@Override
+			public Adapter caseMenu(Menu object) {
+				return createMenuAdapter();
+			}
+			@Override
+			public Adapter caseWebElement(WebElement object) {
+				return createWebElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -134,20 +142,6 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEServiceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.NamedElement <em>Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.dsleng.etool.models.egov.NamedElement
-	 * @generated
-	 */
-	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 
@@ -246,6 +240,48 @@ public class EgovAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createImportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.Admin <em>Admin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.egov.Admin
+	 * @generated
+	 */
+	public Adapter createAdminAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.Menu <em>Menu</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.egov.Menu
+	 * @generated
+	 */
+	public Adapter createMenuAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.dsleng.etool.models.egov.WebElement <em>Web Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.dsleng.etool.models.egov.WebElement
+	 * @generated
+	 */
+	public Adapter createWebElementAdapter() {
 		return null;
 	}
 

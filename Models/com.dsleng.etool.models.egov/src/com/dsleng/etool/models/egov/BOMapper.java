@@ -3,6 +3,7 @@
 package com.dsleng.etool.models.egov;
 
 import com.dsleng.etool.models.Controls.BOType;
+
 import com.dsleng.etool.models.bobjs.BusinessObject;
 
 import org.eclipse.emf.common.util.EList;
