@@ -1,0 +1,75 @@
+OrgUnit "CapeNature" 
+	setup {
+			GroupID "za.co.egov",
+			ArtifactID "za.co.egov.cn.web",
+			Version "1.0.0-SNAPSHOT",
+			Deployment Directory "/Data/maventest/",
+			Language File "dsl/s1.egv.xmi",
+			Web Directory "permit"	
+			Package "za.co.egov.cn"	
+			import "platform:/plugin/com.dsleng.etool.base/base.bob"
+			//import base.bob
+ 	}	
+	{
+		BusinessTypes {
+			BT=PermitType{
+				attributes {
+					name {Label="Permit Type"  spType=string}
+				}
+				Lookup=name
+			},
+			BT=PermitStatus{
+				attributes {
+					name {Label="Permit Status"  spType=string}
+				}
+				Lookup=name
+			}
+		}
+		BusinessObjects{
+			BO=Permit {
+				attributes {
+					permitNo {Label="Permit Number"  spType=string},
+					referenceNo {Label="Reference Number"  spType=string},
+					dateIssued {Label="DateIssued"  spType=date},
+					dteValidFrom {Label="Date Valid From" spType=date},
+					dteValidTo {Label="Date Valid To" spType=date},
+					amountPaid {Label="Amount Paid" spType=double},
+					permitStatus {Label="Permit Status" spType=PermitStatus},
+					permitType {Label="Permit type" spType=PermitType}
+				}
+				references {
+					BO=Client[Inclusion=Mandatory Multiplicity=Many-to-One]
+				}
+			},
+			BO=PermitHistory {
+				attributes { 
+					dateChanged {Label="Date Changed" spType=date},
+					referenceNo {Label="Reference Number" spType=string},
+					permitDescription {Label="Permit Description" spType=string},
+					notificationSend {Label="Notification Send-Boolean" spType=string},
+					reasonForChge {Label="Reason For Change" spType=string},
+					permitStatus {Label="Permit Status" spType=PermitStatus},
+					permitType {Label="Permit type" spType=PermitType}
+				}
+				references {
+					BO=Permit[Inclusion=Optional Multiplicity=Many-to-One]
+				}
+			},
+			BO=Client {			
+				attributes { 
+					idno {Label="Identity Number" spType=string },
+					cardno {Label="Card No" spType=string},
+					cardpin {Label="Card Pin" spType=string},
+					firstname1 {Label="First Name" spType=string},
+					firstname2 {Label="First Name" spType=string},
+					firstname3 {Label="First Name" spType=string},
+					surname {Label="Surname" spType=string},
+					telphoneno {Label="Telephone No" spType=string},
+					cellno {Label="Cell No" spType=string},
+					email {Label="Email Address" spType=string},
+					prefContact {Label="Preferred Contact-Type" spType=string}
+				}
+			}
+		}
+		
+	}

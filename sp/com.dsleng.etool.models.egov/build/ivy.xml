@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
+  <info organisation="sp" module="com.dsleng.etool.models.egov" revision="1.0.0-SNAPSHOT" status="integration" publication="20160427060411">
+    <description/>
+  </info>
+  <configurations>
+    <conf name="archives" visibility="public" description="Configuration for archive artifacts."/>
+    <conf name="compile" visibility="private" description="Dependencies for source set 'main'." extends="provided"/>
+    <conf name="compileClasspath" visibility="private" description="Compile classpath for source set 'main'." extends="compileOnly"/>
+    <conf name="compileOnly" visibility="private" description="Compile dependencies for source set 'main'." extends="compile"/>
+    <conf name="default" visibility="public" description="Configuration for default artifacts." extends="runtime"/>
+    <conf name="privateLib" visibility="public"/>
+    <conf name="provided" visibility="public"/>
+    <conf name="publicLib" visibility="public"/>
+    <conf name="runtime" visibility="private" description="Runtime dependencies for source set 'main'." extends="compile"/>
+    <conf name="testCompile" visibility="private" description="Dependencies for source set 'test'." extends="compile"/>
+    <conf name="testCompileClasspath" visibility="private" description="Compile classpath for source set 'test'." extends="testCompileOnly"/>
+    <conf name="testCompileOnly" visibility="private" description="Compile dependencies for source set 'test'." extends="testCompile"/>
+    <conf name="testRuntime" visibility="private" description="Runtime dependencies for source set 'test'." extends="runtime,testCompile"/>
+  </configurations>
+  <publications>
+    <artifact name="com.dsleng.etool.models.egov" type="jar" ext="jar" conf="archives,runtime"/>
+  </publications>
+  <dependencies>
+    <dependency org="eclipse-luna-sr2" name="org.eclipse.jface" rev="+" conf="compile-&gt;default"/>
+    <dependency org="eclipse-luna-sr2" name="org.eclipse.swt" rev="+" conf="compile-&gt;default"/>
+    <dependency org="eclipse-luna-sr2" name="org.eclipse.swt.gtk.linux.x86_64" rev="+" conf="compile-&gt;default"/>
+    <dependency org="eclipse-luna-sr2" name="org.eclipse.ui" rev="+" conf="compile-&gt;default"/>
+    <dependency org="eclipse-luna-sr2" name="javax.annotation" rev="+" conf="compile-&gt;default"/>
+    <dependency org="eclipse-luna-sr2" name="javax.inject" rev="+" conf="compile-&gt;default"/>
+    <dependency org="eclipse-luna-sr2" name="org.eclipse.core.runtime" rev="+" conf="compile-&gt;default"/>
+    <dependency org="eclipse-luna-sr2" name="org.eclipse.emf.ecore" rev="+" conf="compile-&gt;default"/>
+  </dependencies>
+</ivy-module>

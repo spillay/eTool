@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'org.akhikhl.wuff.eclipse-bundle'
+apply plugin: 'maven-publish'
+
+repositories {
+    maven {
+          url "http://localhost:8081/nexus/content/groups/public"
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+	 mavenDeployer {
+             repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
+                authentication(userName: "admin", password: "12unix21")
+             }
+             pom.version = "1.0-SNAPSHOT"
+             pom.artifactId = "com.dsleng.etool.models.egov"
+             pom.groupId = "com.dsleng.etool.models"
+       }
+
+    }
+}
+
+uploadArchives {
+    repositories {
+       mavenDeployer {
+             repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
+             	authentication(userName: "admin", password: "12unix21")
+	     }
+             pom.version = "1.0-SNAPSHOT"
+             pom.artifactId = "com.dsleng.etool.models.egov"
+             pom.groupId = "com.dsleng.etool.models"
+       }
+    }
+}

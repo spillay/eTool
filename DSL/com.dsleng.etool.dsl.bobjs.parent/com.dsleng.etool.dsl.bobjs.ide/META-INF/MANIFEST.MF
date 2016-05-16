@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.dsleng.etool.dsl.bobjs.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.dsleng.etool.dsl.bobjs.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.dsleng.etool.dsl.bobjs,
+ com.dsleng.etool.model,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.dsleng.etool.dsl.bobjs.ide.contentassist.antlr.internal,
+ com.dsleng.etool.dsl.bobjs.ide.contentassist.antlr
+

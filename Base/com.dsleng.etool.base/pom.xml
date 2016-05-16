@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+   <parent>
+  <groupId>com.dsleng.etool.base</groupId>
+    <artifactId>com.dsleng.etool.base.parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../com.dsleng.etool.base.parent</relativePath>
+  </parent>
+  <packaging>eclipse-plugin</packaging>
+  <artifactId>com.dsleng.etool.base</artifactId>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

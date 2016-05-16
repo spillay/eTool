@@ -24,7 +24,7 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.internal.ui.javaeditor.ASTProvider;
+//import org.eclipse.jdt.internal.ui.javaeditor.ASTProvider;
 import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jdt.launching.LibraryLocation;
@@ -32,13 +32,18 @@ import org.eclipse.jdt.ui.CodeGeneration;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ContributionItem;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+
+import com.dsleng.etool.perspective.dialogs.MainInput;
+import com.dsleng.etool.perspective.projects.SimpleProjectMgr;
 
 /**
  * @author suresh
@@ -86,9 +91,22 @@ public class MenuPopulationClass extends ContributionItem {
 				
 				@Override
 				public void widgetSelected(SelectionEvent e) {
-					SimpleProjectMgr pT = new SimpleProjectMgr();
+					//SimpleProjectMgr pT = new SimpleProjectMgr();
 					SPConsoleManager.getInstance().Info("Creating Domain Infrastructure Project");
-					pT.createProj("Simple");
+					//pT.createProj("Simple");
+					
+					
+					Shell shell = menu.getShell();
+					MainInput dialog = new MainInput(shell);
+					dialog.create();
+					if (dialog.open() == Window.OK) {
+						SPConsoleManager.getInstance().Info("Project Name: " + dialog.getProjectName());
+						//SPConsoleManager.getInstance().Info("lastName: " + dialog.getLastName());
+						SimpleProjectMgr pT = new SimpleProjectMgr();
+						pT.createProj(dialog.getProjectName());
+					} 
+
+
 				}
 				
 				@Override

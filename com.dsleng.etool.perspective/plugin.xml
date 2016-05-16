@@ -26,4 +26,14 @@
       </menu>
    </menuContribution>
   </extension>
+<extension
+      id="com.dsleng.projectnature.simple"
+      name="com.dsleng.projectnature.simple"
+      point="org.eclipse.core.resources.natures">
+   <runtime>
+      <run
+            class="com.dsleng.etool.perspective.projects.SimpleProjectNature">
+      </run>
+   </runtime>
+</extension>
 </plugin>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.dsleng.etool.models.egov/src" modelPluginID="com.dsleng.etool.models.egov"
+    modelName="EGov" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>EGov.ecore</foreignModel>
+  <genPackages prefix="Com" disposableProviderFactory="true" ecorePackage="EGov.ecore#/">
+    <nestedGenPackages prefix="Dsleng" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng">
+      <nestedGenPackages prefix="Etool" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool">
+        <nestedGenPackages prefix="Models" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool/models">
+          <nestedGenPackages prefix="Egov" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool/models/egov">
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/EService">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/EService/pages"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/EService/indexPage"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/EService/dirLocation"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/EService/BusinessUnit"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/NamedElement">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/egov/NamedElement/name"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/Page">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/Page/nextPage"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/Page/BOMaps"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/BOMapper">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/BOMapper/attributes"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/BOMapper/BusinessObject"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/egov/BOAttribute">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/BOAttribute/ControlType"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/egov/BOAttribute/attribute"/>
+            </genClasses>
+          </nestedGenPackages>
+          <nestedGenPackages prefix="Controls" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool/models/Controls">
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/ControlDef">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/ControlDef/ns"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/ControlDef/prefix"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/ControlDef/name"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/ControlDef/options"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/ControlDef/syntax"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/PageInfo">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/PageInfo/resources"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/PageInfo/dir"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/PageInfo/title"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/Resource">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/Resource/ns"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/Resource/prefix"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/ControlManager">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/ControlManager/controls"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/ControlManager/pageinfos"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/ControlManager/composites"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/ControlManager/types"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/ControlGroup">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/ControlGroup/pageinfos"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/ControlGroup/composites"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/ControlGroup/name"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/Options">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/Options/name"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/Options/valueplaceholder"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/ValuePlaceHolder">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/ValuePlaceHolder/name"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/ValuePlaceHolder/syntax"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/CompositeWebCtrl"/>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/CompositeMobCtrl"/>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/Composite">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/Composite/usesControl"/>
+              <genOperations ecoreOperation="EGov.ecore#//dsleng/etool/models/Controls/Composite/getCode"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/OptionInstance">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/OptionInstance/option"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/OptionInstance/value"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/SimpleControl">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/SimpleControl/uses"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/SimpleControl/optionInstance"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/SimpleControl/name"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/SimpleControl/nestedControls"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/SimpleControl/sibling"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/Type">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/Type/name"/>
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/Type/control"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/Type/parameters"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/Controls/TypeParameter">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/Controls/TypeParameter/option"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/Controls/TypeParameter/value"/>
+            </genClasses>
+          </nestedGenPackages>
+          <nestedGenPackages prefix="Bobjs" disposableProviderFactory="true" ecorePackage="EGov.ecore#//dsleng/etool/models/bobjs">
+            <genEnums typeSafeEnumCompatible="false" ecoreEnum="EGov.ecore#//dsleng/etool/models/bobjs/DataTypes">
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/bobjs/DataTypes/Integer"/>
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/bobjs/DataTypes/String"/>
+            </genEnums>
+            <genEnums typeSafeEnumCompatible="false" ecoreEnum="EGov.ecore#//dsleng/etool/models/bobjs/Inclusions">
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/bobjs/Inclusions/Mandatory"/>
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/bobjs/Inclusions/Optional"/>
+            </genEnums>
+            <genEnums typeSafeEnumCompatible="false" ecoreEnum="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity">
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/OnlyOne"/>
+              <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//dsleng/etool/models/bobjs/Multiplicity/Many"/>
+            </genEnums>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/bobjs/NamedElement"/>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/businessobjects"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/artifactId"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/groupId"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/langFile"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/version"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/dirLocation"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/webDirectory"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/OrgUnit/package"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/bobjs/Attribute">
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/Attribute/label"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/Attribute/type"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/Attribute/defaultValue"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/Attribute/mandatory"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/bobjs/References">
+              <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                  ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/bobjs/References/businessobject"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/References/Inclusion"/>
+              <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//dsleng/etool/models/bobjs/References/multiplicity"/>
+            </genClasses>
+            <genClasses ecoreClass="EGov.ecore#//dsleng/etool/models/bobjs/BusinessObject">
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/bobjs/BusinessObject/attributes"/>
+              <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//dsleng/etool/models/bobjs/BusinessObject/references"/>
+            </genClasses>
+          </nestedGenPackages>
+        </nestedGenPackages>
+      </nestedGenPackages>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

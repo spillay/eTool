@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Export-Package: com.dsleng.etool.models.Controls,com.dsleng.etool.mode
+ ls.Controls.impl,com.dsleng.etool.models.Controls.util,com.dsleng.eto
+ ol.models.bobjs,com.dsleng.etool.models.bobjs.impl,com.dsleng.etool.m
+ odels.bobjs.util,com.dsleng.etool.models.egov,com.dsleng.etool.models
+ .egov.impl,com.dsleng.etool.models.egov.util
+Bundle-SymbolicName: com.dsleng.etool.models.egov;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Name: %pluginName
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.swt,org.eclipse.j
+ face,org.eclipse.ui,org.eclipse.core.expressions,org.eclipse.core.res
+ ources,org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1461729850000
+Import-Package: org.osgi.framework;version="[1.8,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Created-By: 1.8.0_74 (Oracle Corporation)
+Tool: Bnd-2.4.0.201411031534
+Bundle-Activator: com.dsleng.etool.models.egov.Activator
+Bundle-ActivationPolicy: lazy
+Bundle-Localization: plugin
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+

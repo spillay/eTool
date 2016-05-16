@@ -1,0 +1,41 @@
+['java','org.akhikhl.wuff.eclipse-bundle','maven-publish'].each {
+    apply plugin : it
+}
+
+//group = 'com.dsleng.etool'
+//version = '1.0'
+
+
+repositories {
+	maven {
+          url "http://localhost:8081/nexus/content/groups/public"
+    	}
+
+    	mavenCentral ()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+}
+
+publishing {
+    publications {
+        myPublication(MavenPublication) {
+            groupId 'com.dsleng.etool2'
+            artifactId 'com.dsleng.etool.models.egov'
+            version '1.0.0'
+	    from components.java
+        }
+    }
+    repositories {
+	maven {
+	url "http://localhost:8081/nexus/content/repositories/snapshots"
+        credentials {
+            username = 'admin'
+            password = '12unix21'
+        }
+	}
+
+    }
+}
+

@@ -3,18 +3,19 @@
    <feature url="features/com.dsleng.etool.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.feature" version="1.0.0.qualifier">
       <category name="eToolCore"/>
    </feature>
-   <feature url="features/com.dsleng.etool.models.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.models.feature" version="1.0.0.qualifier">
+   <feature url="features/com.dsleng.etool.base.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.base.feature" version="1.0.0.qualifier">
+      <category name="Base DSL"/>
+   </feature>
+   <feature url="features/com.dsleng.etool.dsl.bobjs.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.bobjs.feature" version="1.0.0.qualifier">
       <category name="eToolModels"/>
    </feature>
-   <feature url="features/com.dsleng.etool.dsl.egov.sdk_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.egov.sdk" version="1.0.0.qualifier">
+   <feature url="features/com.dsleng.etool.dsl.controls.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.controls.feature" version="1.0.0.qualifier">
       <category name="eToolModels"/>
    </feature>
-   <feature url="features/com.dsleng.etool.dsl.controls.sdk_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.controls.sdk" version="1.0.0.qualifier">
-      <category name="eToolModels"/>
-   </feature>
-   <feature url="features/com.dsleng.etool.dsl.bobjs.sdk_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.bobjs.sdk" version="1.0.0.qualifier">
+   <feature url="features/com.dsleng.etool.dsl.egov.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.egov.feature" version="1.0.0.qualifier">
       <category name="eToolModels"/>
    </feature>
    <category-def name="eToolCore" label="eTool Core"/>
    <category-def name="eToolModels" label="eTool Models"/>
+   <category-def name="Base DSL" label="Base DSLs"/>
 </site>

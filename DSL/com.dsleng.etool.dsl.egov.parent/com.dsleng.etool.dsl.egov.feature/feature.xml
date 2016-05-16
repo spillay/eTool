@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.dsleng.etool.dsl.egov.feature"
+      label="E-Services Model"
+      version="1.0.0.qualifier"
+      provider-name="DSLENG">
+
+   <description>
+      EGov Language
+   </description>
+
+   <copyright>
+      CC Suresh Pillay
+   </copyright>
+
+   <license url="">
+      Private
+   </license>
+
+   <plugin
+         id="com.dsleng.etool.dsl.egov"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.dsl.egov.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.dsl.egov.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

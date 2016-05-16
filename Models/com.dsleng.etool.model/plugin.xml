@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated eTool -->
+      <package
+            uri="http://com/dsleng/etool/model/egov"
+            class="com.dsleng.etool.model.egov.EgovPackage"
+            genModel="model/eTool.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated eTool -->
+      <package
+            uri="http://com/dsleng/etool/model/controls"
+            class="com.dsleng.etool.model.controls.ControlsPackage"
+            genModel="model/eTool.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated eTool -->
+      <package
+            uri="http://com/dsleng/etool/model/bobjs"
+            class="com.dsleng.etool.model.bobjs.BobjsPackage"
+            genModel="model/eTool.genmodel"/>
+   </extension>
+
+</plugin>

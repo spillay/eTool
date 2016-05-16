@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.dsleng.etool.model/src" modelPluginID="com.dsleng.etool.model"
+    modelName="ETool" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>EGov.ecore</foreignModel>
+  <genPackages prefix="Egov" basePackage="com.dsleng.etool.model" disposableProviderFactory="true"
+      ecorePackage="EGov.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EGov.ecore#//MenuType">
+      <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//MenuType/Standard"/>
+      <genEnumLiterals ecoreEnumLiteral="EGov.ecore#//MenuType/TopLevel"/>
+    </genEnums>
+    <genClasses ecoreClass="EGov.ecore#//EService">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//EService/pages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//EService/indexPage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//EService/dirLocation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//EService/BusinessUnit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//EService/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//EService/adminPages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//EService/menu"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//Page">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//Page/nextPage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//Page/BOMaps"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//Page/pagetype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Page/title"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//Page/extraControls"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Page/North"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Page/South"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Page/West"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Page/East"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//Page/businesstype"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//BOMapper">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//BOMapper/attributes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//BOMapper/BusinessObject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//BOMapper/botype"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//BOAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//BOAttribute/controltype"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//BOAttribute/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//BOAttribute/controlparameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//BOAttribute/predefinedcontainers"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//PreDefinedValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//PreDefinedValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//ControlMapper">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//ControlMapper/option"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//ControlMapper/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//ControlMapper/mappedTo"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//PreDefinedContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//PreDefinedContainer/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//PreDefinedContainer/predefinedvalues"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Import/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//Admin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//Admin/pages"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//Admin/businesstypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EGov.ecore#//Admin/menu"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//Menu">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//Menu/parentMenu"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Menu/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EGov.ecore#//Menu/page"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//Menu/menuType"/>
+    </genClasses>
+    <genClasses ecoreClass="EGov.ecore#//WebElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EGov.ecore#//WebElement/name"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Bobjs" basePackage="com.dsleng.etool.model" disposableProviderFactory="true"
+      ecorePackage="BOB.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BOB.ecore#//DataTypes">
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//DataTypes/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//DataTypes/String"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//DataTypes/Date"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//DataTypes/Double"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//DataTypes/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//DataTypes/DataMap"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//DataTypes/Void"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BOB.ecore#//Inclusions">
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//Inclusions/Mandatory"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//Inclusions/Optional"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BOB.ecore#//Multiplicity">
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//Multiplicity/oneToone"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//Multiplicity/oneTomany"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//Multiplicity/manyTomany"/>
+      <genEnumLiterals ecoreEnumLiteral="BOB.ecore#//Multiplicity/manyToone"/>
+    </genEnums>
+    <genClasses ecoreClass="BOB.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//OrgUnit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//OrgUnit/businessobjects"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OrgUnit/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OrgUnit/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OrgUnit/langFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OrgUnit/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OrgUnit/dirLocation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OrgUnit/webDirectory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OrgUnit/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//OrgUnit/boenums"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//OrgUnit/boimport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//OrgUnit/businesstypes"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Attribute/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Attribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Attribute/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Attribute/mandatory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Attribute/dataManagement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BOB.ecore#//Attribute/spType"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//References">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BOB.ecore#//References/businessobject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//References/Inclusion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//References/multiplicity"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//BusinessObject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//BusinessObject/references"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BOB.ecore#//BusinessObject/superTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//BusinessObject/enums"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//BusinessObject/basedon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//BusinessObject/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//BOEnum">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//BOEnum/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//Literal"/>
+    <genClasses ecoreClass="BOB.ecore#//Enum">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BOB.ecore#//Enum/boenum"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//BasedOn">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BOB.ecore#//BasedOn/businessobject"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BOB.ecore#//BasedOn/removes"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Operation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Operation/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//Operation/opparameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Operation/syntax"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//Operation/annotations"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//OpParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OpParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//OpParameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//Annotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//Annotation/name"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//BusinessType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BOB.ecore#//BusinessType/lookup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BOB.ecore#//BusinessType/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="BOB.ecore#//BOImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//BOImport/importURI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BOB.ecore#//BOImport/importedNamespace"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Controls" basePackage="com.dsleng.etool.model" disposableProviderFactory="true"
+      ecorePackage="Controls.ecore#/">
+    <genClasses ecoreClass="Controls.ecore#//ControlDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//ControlDef/ns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//ControlDef/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//ControlDef/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//ControlDef/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//ControlDef/syntax"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//PageInfo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//PageInfo/resources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//PageInfo/dir"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//PageInfo/title"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//Resource/ns"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//Resource/prefix"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//ControlManager">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//ControlManager/controls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//ControlManager/pageinfos"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//ControlManager/composites"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//ControlManager/types"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//ControlGroup">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//ControlGroup/pageinfos"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//ControlGroup/composites"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//ControlGroup/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//Options">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//Options/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//Options/valueplaceholder"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//ValuePlaceHolder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//ValuePlaceHolder/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//ValuePlaceHolder/syntax"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//CompositeWebCtrl"/>
+    <genClasses ecoreClass="Controls.ecore#//CompositeMobCtrl"/>
+    <genClasses ecoreClass="Controls.ecore#//Composite">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//Composite/usesControl"/>
+      <genOperations ecoreOperation="Controls.ecore#//Composite/getCode"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//OptionInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//OptionInstance/option"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//OptionInstance/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//SimpleControl">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//SimpleControl/uses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//SimpleControl/optionInstance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//SimpleControl/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//SimpleControl/nestedControls"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//SimpleControl/sibling"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//Type/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//Type/control"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Controls.ecore#//Type/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//TypeParameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Controls.ecore#//TypeParameter/option"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Controls.ecore#//TypeParameter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Controls.ecore#//AttributeType"/>
+    <genClasses ecoreClass="Controls.ecore#//BOType"/>
+    <genClasses ecoreClass="Controls.ecore#//PageType"/>
+    <genClasses ecoreClass="Controls.ecore#//BOCtrl"/>
+    <genClasses ecoreClass="Controls.ecore#//PageCtrl"/>
+  </genPackages>
+</genmodel:GenModel>

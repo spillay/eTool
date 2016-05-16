@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.dsleng.etool.dsl.controls.feature"
+      label="UI Controls"
+      version="1.0.0.qualifier"
+      provider-name="DSLENG">
+
+   <description>
+      Controls Language
+   </description>
+
+   <copyright>
+      CC Suresh Pillay
+   </copyright>
+
+   <license url="">
+      Private
+   </license>
+
+   <plugin
+         id="com.dsleng.etool.dsl.controls"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.dsl.controls.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.dsleng.etool.dsl.controls.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
