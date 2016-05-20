@@ -3,6 +3,23 @@
  */
 package com.dsleng.etool.dsl.bobjs.scoping
 
+import org.eclipse.xtext.scoping.IScope
+import com.dsleng.etool.model.bobjs.Attribute
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.emf.ecore.EObject
+import com.dsleng.etool.model.bobjs.BusinessObject
+import com.dsleng.etool.model.bobjs.BobjsPackage
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import com.dsleng.etool.model.bobjs.impl.AttributeImpl
+import com.dsleng.etool.model.bobjs.impl.PackageImpl
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import java.util.List
+import com.dsleng.etool.model.bobjs.BusinessType
+import java.util.ArrayList
+import org.eclipse.emf.common.util.URI
+import com.dsleng.etool.model.bobjs.impl.OrgUnitImpl
+import java.util.HashMap
 
 /**
  * This class contains custom scoping description.
@@ -10,6 +27,117 @@ package com.dsleng.etool.dsl.bobjs.scoping
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class BObjDslScopeProvider extends AbstractBObjDslScopeProvider {
-
+class BObjDslScopeProvider extends AbstractDeclarativeScopeProvider {
+	def IScope scope_Attribute_spType(EObject ctx,EReference ref){
+		//Scopes.scopeFor()
+		if (ctx instanceof AttributeImpl){
+			var pack = getPackage(ctx) as PackageImpl
+			if ( pack != null){
+				// Only add the ones found in imports
+				var bos = new ArrayList<BusinessType>();
+				for(importplugin: pack.boimport){
+					bos.addAll(getBO(importplugin.importPlugin))
+				}
+				// Add the ones found in the package itself
+				bos.addAll(getBO(pack))
+				return Scopes.scopeFor(bos)
+			}
+		}
+		IScope::NULLSCOPE
+	}
+	def List<BusinessType> getBO(PackageImpl p){
+		var bos = new ArrayList<BusinessType>();
+		bos.addAll(p.businessobjects)
+		bos.addAll(p.businesstypes)
+		return bos
+	}
+	def List<BusinessType> getBO(String resInfo){
+		val info = resInfo.split(":")
+		val resName = info.get(0)
+		val pacName = info.get(1)
+		var bos = new ArrayList<BusinessType>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createPlatformPluginURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val orgUnit = res.contents.get(0) as OrgUnitImpl
+		for(p: orgUnit.packages){
+			if(p.name == pacName){
+				for(bo: p.businessobjects){
+					bos.add(bo)
+				}
+				for(bt: p.businesstypes){
+					bos.add(bt)
+				}
+			}
+		}
+		return bos
+	}
+	def List<String> getTopLevelPackages(String resName){
+		var pacs = new ArrayList<String>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createPlatformPluginURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val orgUnit = res.contents.get(0) as OrgUnitImpl
+		for(p: orgUnit.packages){
+			val pname = resName + ":" + p.name
+			pacs.add(pname)
+		}
+		return pacs
+	}
+	//def Enumeration<URL> getModels(String plugin){
+	//	val bun = Platform.getBundle(plugin)
+	//	return bun.findEntries("/model/","*.bob",false)
+		//return bun.findEntries("/","*",true)
+	//}
+	def HashMap<String,String> getBO(OrgUnitImpl o,HashMap<String,String> hm) {
+		for(p: o.packages){
+			for(bo: p.businessobjects){
+				hm.put(bo.name,bo.name)
+			}
+			for(bt: p.businesstypes){
+				hm.put(bt.name,bt.name)
+			}
+		}
+		return hm
+	} 
+	def EObject getPackage(EObject eo)  {
+		if ( eo.eContainer != null){
+			return eo.eContainer.eContainer
+		} else {
+			return null
+		}
+	}
+	def EObject getRoot(EObject eo)  {
+    	var parent = eo.eContainer();
+    	if (parent != null) {
+        	return getRoot(parent);
+    	}
+    	return eo;
+	}
 }
+/* 
+class BObjDslScopeProvider extends AbstractBObjDslScopeProvider {
+	def IScope scope_Attribute_spType(EObject ctx,EReference ref){
+		//Scopes.scopeFor()
+		IScope::NULLSCOPE
+	}
+	def IScope scope_Attribute(BusinessObject exp,EReference ref){
+		//Scopes.scopeFor()
+		IScope::NULLSCOPE
+	}
+	def IScope scope_Attribute(Attribute exp,EReference ref){
+		//Scopes.scopeFor()
+		IScope::NULLSCOPE
+	}
+	
+	override getScope(EObject context, EReference reference) {
+		if ( reference == BobjsPackage.Literals.ATTRIBUTE__SP_TYPE){
+			return scope_Attribute_spType(context,reference)
+		}
+		super.getScope(context, reference)
+	}
+	
+	
+}
+* 
+*/

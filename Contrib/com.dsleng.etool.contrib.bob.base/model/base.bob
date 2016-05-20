@@ -1,0 +1,19 @@
+OrgUnit spbase 
+	setup {
+			GroupID "za.co.egov",
+			ArtifactID "za.co.egov.base",
+			Version "1.0.0-SNAPSHOT",
+			Deployment Directory "/Data/maventest/",
+			Language File "dsl/base.egv.xmi",
+			Web Directory "base"	
+			Package base
+	}	
+	Package datatype 
+	{
+		BusinessObjects{
+			BO=string {},
+			BO=integer {},
+			BO=date {},
+			BO=double {}	
+		}	
+	}

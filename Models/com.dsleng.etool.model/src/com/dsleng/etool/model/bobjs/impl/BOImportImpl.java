@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.BOImportImpl#getImportURI <em>Import URI</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.BOImportImpl#getImportedNamespace <em>Imported Namespace</em>}</li>
+ *   <li>{@link com.dsleng.etool.model.bobjs.impl.BOImportImpl#getImportPlugin <em>Import Plugin</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,26 @@ public class BOImportImpl extends MinimalEObjectImpl.Container implements BOImpo
 	 * @ordered
 	 */
 	protected String importedNamespace = IMPORTED_NAMESPACE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getImportPlugin() <em>Import Plugin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImportPlugin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IMPORT_PLUGIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getImportPlugin() <em>Import Plugin</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImportPlugin()
+	 * @generated
+	 * @ordered
+	 */
+	protected String importPlugin = IMPORT_PLUGIN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +154,27 @@ public class BOImportImpl extends MinimalEObjectImpl.Container implements BOImpo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getImportPlugin() {
+		return importPlugin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImportPlugin(String newImportPlugin) {
+		String oldImportPlugin = importPlugin;
+		importPlugin = newImportPlugin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, BobjsPackage.BO_IMPORT__IMPORT_PLUGIN, oldImportPlugin, importPlugin));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +182,8 @@ public class BOImportImpl extends MinimalEObjectImpl.Container implements BOImpo
 				return getImportURI();
 			case BobjsPackage.BO_IMPORT__IMPORTED_NAMESPACE:
 				return getImportedNamespace();
+			case BobjsPackage.BO_IMPORT__IMPORT_PLUGIN:
+				return getImportPlugin();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,6 +201,9 @@ public class BOImportImpl extends MinimalEObjectImpl.Container implements BOImpo
 				return;
 			case BobjsPackage.BO_IMPORT__IMPORTED_NAMESPACE:
 				setImportedNamespace((String)newValue);
+				return;
+			case BobjsPackage.BO_IMPORT__IMPORT_PLUGIN:
+				setImportPlugin((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +223,9 @@ public class BOImportImpl extends MinimalEObjectImpl.Container implements BOImpo
 			case BobjsPackage.BO_IMPORT__IMPORTED_NAMESPACE:
 				setImportedNamespace(IMPORTED_NAMESPACE_EDEFAULT);
 				return;
+			case BobjsPackage.BO_IMPORT__IMPORT_PLUGIN:
+				setImportPlugin(IMPORT_PLUGIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +242,8 @@ public class BOImportImpl extends MinimalEObjectImpl.Container implements BOImpo
 				return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
 			case BobjsPackage.BO_IMPORT__IMPORTED_NAMESPACE:
 				return IMPORTED_NAMESPACE_EDEFAULT == null ? importedNamespace != null : !IMPORTED_NAMESPACE_EDEFAULT.equals(importedNamespace);
+			case BobjsPackage.BO_IMPORT__IMPORT_PLUGIN:
+				return IMPORT_PLUGIN_EDEFAULT == null ? importPlugin != null : !IMPORT_PLUGIN_EDEFAULT.equals(importPlugin);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +262,8 @@ public class BOImportImpl extends MinimalEObjectImpl.Container implements BOImpo
 		result.append(importURI);
 		result.append(", importedNamespace: ");
 		result.append(importedNamespace);
+		result.append(", importPlugin: ");
+		result.append(importPlugin);
 		result.append(')');
 		return result.toString();
 	}

@@ -2,11 +2,7 @@
  */
 package com.dsleng.etool.model.bobjs.impl;
 
-import com.dsleng.etool.model.bobjs.BOEnum;
-import com.dsleng.etool.model.bobjs.BOImport;
 import com.dsleng.etool.model.bobjs.BobjsPackage;
-import com.dsleng.etool.model.bobjs.BusinessObject;
-import com.dsleng.etool.model.bobjs.BusinessType;
 import com.dsleng.etool.model.bobjs.OrgUnit;
 
 import java.util.Collection;
@@ -32,7 +28,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getBusinessobjects <em>Businessobjects</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getLangFile <em>Lang File</em>}</li>
@@ -40,24 +35,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getWebDirectory <em>Web Directory</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getPackage <em>Package</em>}</li>
- *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getBoenums <em>Boenums</em>}</li>
- *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getBoimport <em>Boimport</em>}</li>
- *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getBusinesstypes <em>Businesstypes</em>}</li>
+ *   <li>{@link com.dsleng.etool.model.bobjs.impl.OrgUnitImpl#getPackages <em>Packages</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
-	/**
-	 * The cached value of the '{@link #getBusinessobjects() <em>Businessobjects</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBusinessobjects()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BusinessObject> businessobjects;
-
 	/**
 	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -199,34 +182,14 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	protected String package_ = PACKAGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBoenums() <em>Boenums</em>}' containment reference list.
+	 * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBoenums()
+	 * @see #getPackages()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BOEnum> boenums;
-
-	/**
-	 * The cached value of the '{@link #getBoimport() <em>Boimport</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBoimport()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BOImport> boimport;
-
-	/**
-	 * The cached value of the '{@link #getBusinesstypes() <em>Businesstypes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBusinesstypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BusinessType> businesstypes;
+	protected EList<com.dsleng.etool.model.bobjs.Package> packages;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -245,18 +208,6 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	@Override
 	protected EClass eStaticClass() {
 		return BobjsPackage.Literals.ORG_UNIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BusinessObject> getBusinessobjects() {
-		if (businessobjects == null) {
-			businessobjects = new EObjectContainmentEList<BusinessObject>(BusinessObject.class, this, BobjsPackage.ORG_UNIT__BUSINESSOBJECTS);
-		}
-		return businessobjects;
 	}
 
 	/**
@@ -411,35 +362,11 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BOEnum> getBoenums() {
-		if (boenums == null) {
-			boenums = new EObjectContainmentEList<BOEnum>(BOEnum.class, this, BobjsPackage.ORG_UNIT__BOENUMS);
+	public EList<com.dsleng.etool.model.bobjs.Package> getPackages() {
+		if (packages == null) {
+			packages = new EObjectContainmentEList<com.dsleng.etool.model.bobjs.Package>(com.dsleng.etool.model.bobjs.Package.class, this, BobjsPackage.ORG_UNIT__PACKAGES);
 		}
-		return boenums;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BOImport> getBoimport() {
-		if (boimport == null) {
-			boimport = new EObjectContainmentEList<BOImport>(BOImport.class, this, BobjsPackage.ORG_UNIT__BOIMPORT);
-		}
-		return boimport;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BusinessType> getBusinesstypes() {
-		if (businesstypes == null) {
-			businesstypes = new EObjectContainmentEList<BusinessType>(BusinessType.class, this, BobjsPackage.ORG_UNIT__BUSINESSTYPES);
-		}
-		return businesstypes;
+		return packages;
 	}
 
 	/**
@@ -450,14 +377,8 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case BobjsPackage.ORG_UNIT__BUSINESSOBJECTS:
-				return ((InternalEList<?>)getBusinessobjects()).basicRemove(otherEnd, msgs);
-			case BobjsPackage.ORG_UNIT__BOENUMS:
-				return ((InternalEList<?>)getBoenums()).basicRemove(otherEnd, msgs);
-			case BobjsPackage.ORG_UNIT__BOIMPORT:
-				return ((InternalEList<?>)getBoimport()).basicRemove(otherEnd, msgs);
-			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
-				return ((InternalEList<?>)getBusinesstypes()).basicRemove(otherEnd, msgs);
+			case BobjsPackage.ORG_UNIT__PACKAGES:
+				return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -470,8 +391,6 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case BobjsPackage.ORG_UNIT__BUSINESSOBJECTS:
-				return getBusinessobjects();
 			case BobjsPackage.ORG_UNIT__ARTIFACT_ID:
 				return getArtifactId();
 			case BobjsPackage.ORG_UNIT__GROUP_ID:
@@ -486,12 +405,8 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				return getWebDirectory();
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				return getPackage();
-			case BobjsPackage.ORG_UNIT__BOENUMS:
-				return getBoenums();
-			case BobjsPackage.ORG_UNIT__BOIMPORT:
-				return getBoimport();
-			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
-				return getBusinesstypes();
+			case BobjsPackage.ORG_UNIT__PACKAGES:
+				return getPackages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -505,10 +420,6 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case BobjsPackage.ORG_UNIT__BUSINESSOBJECTS:
-				getBusinessobjects().clear();
-				getBusinessobjects().addAll((Collection<? extends BusinessObject>)newValue);
-				return;
 			case BobjsPackage.ORG_UNIT__ARTIFACT_ID:
 				setArtifactId((String)newValue);
 				return;
@@ -530,17 +441,9 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				setPackage((String)newValue);
 				return;
-			case BobjsPackage.ORG_UNIT__BOENUMS:
-				getBoenums().clear();
-				getBoenums().addAll((Collection<? extends BOEnum>)newValue);
-				return;
-			case BobjsPackage.ORG_UNIT__BOIMPORT:
-				getBoimport().clear();
-				getBoimport().addAll((Collection<? extends BOImport>)newValue);
-				return;
-			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
-				getBusinesstypes().clear();
-				getBusinesstypes().addAll((Collection<? extends BusinessType>)newValue);
+			case BobjsPackage.ORG_UNIT__PACKAGES:
+				getPackages().clear();
+				getPackages().addAll((Collection<? extends com.dsleng.etool.model.bobjs.Package>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -554,9 +457,6 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case BobjsPackage.ORG_UNIT__BUSINESSOBJECTS:
-				getBusinessobjects().clear();
-				return;
 			case BobjsPackage.ORG_UNIT__ARTIFACT_ID:
 				setArtifactId(ARTIFACT_ID_EDEFAULT);
 				return;
@@ -578,14 +478,8 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				setPackage(PACKAGE_EDEFAULT);
 				return;
-			case BobjsPackage.ORG_UNIT__BOENUMS:
-				getBoenums().clear();
-				return;
-			case BobjsPackage.ORG_UNIT__BOIMPORT:
-				getBoimport().clear();
-				return;
-			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
-				getBusinesstypes().clear();
+			case BobjsPackage.ORG_UNIT__PACKAGES:
+				getPackages().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -599,8 +493,6 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case BobjsPackage.ORG_UNIT__BUSINESSOBJECTS:
-				return businessobjects != null && !businessobjects.isEmpty();
 			case BobjsPackage.ORG_UNIT__ARTIFACT_ID:
 				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case BobjsPackage.ORG_UNIT__GROUP_ID:
@@ -615,12 +507,8 @@ public class OrgUnitImpl extends NamedElementImpl implements OrgUnit {
 				return WEB_DIRECTORY_EDEFAULT == null ? webDirectory != null : !WEB_DIRECTORY_EDEFAULT.equals(webDirectory);
 			case BobjsPackage.ORG_UNIT__PACKAGE:
 				return PACKAGE_EDEFAULT == null ? package_ != null : !PACKAGE_EDEFAULT.equals(package_);
-			case BobjsPackage.ORG_UNIT__BOENUMS:
-				return boenums != null && !boenums.isEmpty();
-			case BobjsPackage.ORG_UNIT__BOIMPORT:
-				return boimport != null && !boimport.isEmpty();
-			case BobjsPackage.ORG_UNIT__BUSINESSTYPES:
-				return businesstypes != null && !businesstypes.isEmpty();
+			case BobjsPackage.ORG_UNIT__PACKAGES:
+				return packages != null && !packages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

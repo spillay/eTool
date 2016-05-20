@@ -2,70 +2,71 @@ EService= Permit
 setup { 
 	Deployment Directory permit 
 	Business Unit CapeNature
-	import "platform:/plugin/com.dsleng.etool.base/primefaces.ctl" 
+	//import "platform:/plugin/com.dsleng.etool.base/primefaces.ctl" 
+	import-plugin "pf.ctl"
 } {
 	Pages {
 		PageName= PermitApp PageTitle "Permit Application" PageType= PageLayout {
-			BusinessObject= Client BOType= TwoPanelGrid Modified Attributes {
-				Attribute= cardno ControlType= String {
+			BusinessObject="CapeNature.Client" BOType= TwoPanelGrid Modified Attributes {
+				Attribute= "CapeNature.Client.cardno" ControlType= String {
 				},
-				Attribute= cardpin ControlType= String {
+				Attribute= "CapeNature.Client.cardpin" ControlType= String {
 				},
-				Attribute= firstname1 ControlType= String {
+				Attribute= "CapeNature.Client.firstname1" ControlType= String {
 				},
-				Attribute= idno ControlType= String {
+				Attribute= "CapeNature.Client.idno" ControlType= String {
 				},
-				Attribute= email ControlType= Email {
+				Attribute= "CapeNature.Client.email" ControlType= Email {
 				},
-				Attribute= telphoneno ControlType= Telephone {
+				Attribute="CapeNature.Client.telphoneno" ControlType= Telephone {
 				},
-				Attribute= cellno ControlType= Telephone {
+				Attribute= "CapeNature.Client.cellno" ControlType= Telephone {
 				},
-				Attribute= prefContact ControlType= Selection {
+				Attribute= "CapeNature.Client.prefContact" ControlType= Selection {
 					ControlMappers [ DataContainer mapsTo "selectItems.value" ]
 					PredefinedContainers  [ PrefContactData ( EMAIL,
 					TEL,
 					CELL ) ]
 				}
 			},
-			BusinessObject= Permit BOType= TwoPanelGrid Modified Attributes {
-				Attribute= amountPaid ControlType= Int {
+			BusinessObject= "CapeNature.Permit" BOType= TwoPanelGrid Modified Attributes {
+				Attribute= "CapeNature.Permit.amountPaid" ControlType= Int {
 				},
-				Attribute= dateIssued ControlType= Date {
+				Attribute= "CapeNature.Permit.dateIssued" ControlType= Date {
 				},
-				Attribute= dteValidFrom ControlType= Date {
+				Attribute= "CapeNature.Permit.dteValidFrom" ControlType= Date {
 				},
-				Attribute= dteValidTo ControlType= Date {
+				Attribute= "CapeNature.Permit.dteValidTo" ControlType= Date {
 				}
 			},
-			BusinessObject= PermitHistory BOType= DataTable Modified Attributes {
-				Attribute= permitDescription ControlType= DataColumn {
+			BusinessObject= "CapeNature.PermitHistory" BOType= DataTable Modified Attributes {
+				Attribute= "CapeNature.PermitHistory.permitDescription" ControlType= DataColumn {
 				},
-				Attribute= dateChanged ControlType= DataColumn {
+				Attribute= "CapeNature.PermitHistory.dateChanged" ControlType= DataColumn {
 				}
 			}
 		}
 		Content Sections North= NorthSPSPPP West= West Standalone Controls {
 		SubmitButton },
 		PageName= ClientEnquiry PageTitle "Permit Enquiry" PageType= PageLayout {
-			BusinessObject= Client BOType= TwoPanelGrid Modified Attributes {
-				Attribute= idno ControlType= IDControl {
+			BusinessObject= "CapeNature.Client" BOType= TwoPanelGrid Modified Attributes {
+				Attribute= "CapeNature.Client.idno" ControlType= IDControl {
 				}
 			},
-			BusinessObject= Permit BOType= DataTable Modified Attributes {
-				Attribute= permitNo ControlType= DataColumn {
+			BusinessObject= "CapeNature.Permit" BOType= DataTable Modified Attributes {
+				Attribute= "CapeNature.Permit.permitNo" ControlType= DataColumn {
 				},
-				Attribute= permitStatus ControlType= DataColumn {
+				Attribute= "CapeNature.Permit.permitStatus" ControlType= DataColumn {
 				}
 			}
 		}
 		Content Sections North= North West= West,
 		PageName= UpdateStatus PageTitle "Manual Update Status" PageType= PageLayout
 		{
-			BusinessObject= Permit BOType= TwoPanelGrid Modified Attributes {
-				Attribute= permitNo ControlType= String {
+			BusinessObject= "CapeNature.Permit" BOType= TwoPanelGrid Modified Attributes {
+				Attribute= "CapeNature.Permit.permitNo" ControlType= String {
 				},
-				Attribute= permitStatus ControlType= Selection {
+				Attribute= "CapeNature.Permit.permitStatus" ControlType= Selection {
 					ControlMappers [ DataContainer mapsTo "selectItems.value" ]
 					PredefinedContainers  [ PrefContactData ( Submitted,
 					Evaluated,
@@ -74,10 +75,10 @@ setup {
 					Approved ) ]
 				}
 			},
-			BusinessObject= Permit BOType= DataTable Modified Attributes {
-				Attribute= permitNo ControlType= DataColumn {
+			BusinessObject="CapeNature.Permit" BOType= DataTable Modified Attributes {
+				Attribute= "CapeNature.Permit.permitNo" ControlType= DataColumn {
 				},
-				Attribute= permitStatus ControlType= DataColumn {
+				Attribute= "CapeNature.Permit.permitStatus" ControlType= DataColumn {
 				}
 			}
 		}
@@ -92,8 +93,8 @@ setup {
 	Start Page PermitApp 
 	AdminSection {
 		Pages {
-			PageName=PermitType PageTitle "Manage Permit Types" PageType=PageCRUD[PermitType],
-			PageName=PermitStatus PageTitle "Manage Permit Status" PageType=PageCRUD[PermitStatus]
+			PageName=PermitType PageTitle "Manage Permit Types" PageType=PageCRUD["CapeNature.PermitType"],
+			PageName=PermitStatus PageTitle "Manage Permit Status" PageType=PageCRUD["CapeNature.PermitStatus"]
 		}
 		Menu Structure {
 			MainMenu ("Admin","Admin"),

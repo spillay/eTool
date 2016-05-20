@@ -11,5 +11,5 @@ package com.dsleng.etool.dsl.egov.scoping
  * on how and when to use it.
  */
 class EGovScopeProvider extends AbstractEGovScopeProvider {
-
+	
 }

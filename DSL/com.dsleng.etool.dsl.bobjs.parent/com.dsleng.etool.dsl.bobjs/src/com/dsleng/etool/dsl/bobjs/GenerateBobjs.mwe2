@@ -1,5 +1,6 @@
 module com.dsleng.etool.dsl.bobjs.GenerateBobjs
 
+import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
@@ -41,7 +42,7 @@ Workflow {
 			fragment = org.eclipse.xtext.generator.adapter.FragmentAdapter {
 				fragment = org.eclipse.xtext.generator.ecore2xtext.FormatterFragment {}
 			}
-
+			
 			serializer = {
 				generateStub = false
 			}

@@ -3,9 +3,23 @@
  */
 package com.dsleng.etool.dsl.bobjs
 
+import com.dsleng.etool.dsl.bobjs.scoping.BobjsImportURIGlobalScopeProvider
+import com.google.inject.Binder
+import com.dsleng.etool.dsl.bobjs.scoping.BOBNSScopeProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class BObjDslRuntimeModule extends AbstractBObjDslRuntimeModule {
+	/*
+	override bindIGlobalScopeProvider() {
+		return BobjsImportURIGlobalScopeProvider
+	}
+	
+	override configureIScopeProviderDelegate(Binder binder) {
+		//super.configureIScopeProviderDelegate(binder)
+		binder.bind(org.eclipse.xtext.scoping.IScopeProvider).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider.NAMED_DELEGATE)).to(BOBNSScopeProvider);
+	}
+	*/
+	
 }

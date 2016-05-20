@@ -3,7 +3,6 @@
  */
 package com.dsleng.etool.perspective;
 
-import javax.annotation.Resource;
 
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
@@ -39,7 +38,7 @@ public class SPConsoleManager {
 
 	private SPConsoleManager() {
 		debug = true;
-		InitLog();
+		//InitLog();
 	}
 
 	private void InitLog() {
@@ -74,11 +73,18 @@ public class SPConsoleManager {
 	}
 
 	public void Debug(String mesg) {
+		
 		if ( debug ){
+			if (log == null){
+				InitLog();
+			}
 			log.println("Debug:" + mesg);
 		}
 	}
 	public void Info(String mesg) {
+		if (log == null){
+			InitLog();
+		}
 		log.println("Info:" + mesg);
 	}
 

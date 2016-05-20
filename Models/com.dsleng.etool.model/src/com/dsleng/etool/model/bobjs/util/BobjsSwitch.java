@@ -171,6 +171,13 @@ public class BobjsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case BobjsPackage.PACKAGE: {
+				com.dsleng.etool.model.bobjs.Package package_ = (com.dsleng.etool.model.bobjs.Package)theEObject;
+				T result = casePackage(package_);
+				if (result == null) result = caseNamedElement(package_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -382,6 +389,21 @@ public class BobjsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBOImport(BOImport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePackage(com.dsleng.etool.model.bobjs.Package object) {
 		return null;
 	}
 

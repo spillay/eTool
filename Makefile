@@ -1,14 +1,18 @@
 MVN=mvn
-#OPTS=deploy
-OPTS=clean
+OPTS=deploy
+#OPTS=clean
 
-.PHONY: core model external pres infra  dsl  product base
-all: core model external pres infra  dsl  product base
+.PHONY: core model external pres infra  dsl  product base contrib
+all: core model external dsl contrib product
+old-all: core model external pres infra  dsl  product base
 
 clean-repo:
 	rm -rf /Data/m2/repository/com/dsleng/etool/	
 core:
 	cd  com.dsleng.etool.parent/; \
+	$(MVN) $(OPTS) 
+contrib:
+	cd  Contrib/com.dsleng.etool.contrib.bob.parent/; \
 	$(MVN) $(OPTS) 
 external:
 	cd External/com.dsleng.etool.external.parent; \

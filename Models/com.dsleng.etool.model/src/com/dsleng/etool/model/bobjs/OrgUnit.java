@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getBusinessobjects <em>Businessobjects</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getGroupId <em>Group Id</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getLangFile <em>Lang File</em>}</li>
@@ -21,9 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getDirLocation <em>Dir Location</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getWebDirectory <em>Web Directory</em>}</li>
  *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getPackage <em>Package</em>}</li>
- *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getBoenums <em>Boenums</em>}</li>
- *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getBoimport <em>Boimport</em>}</li>
- *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getBusinesstypes <em>Businesstypes</em>}</li>
+ *   <li>{@link com.dsleng.etool.model.bobjs.OrgUnit#getPackages <em>Packages</em>}</li>
  * </ul>
  *
  * @see com.dsleng.etool.model.bobjs.BobjsPackage#getOrgUnit()
@@ -31,22 +28,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface OrgUnit extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Businessobjects</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.model.bobjs.BusinessObject}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Businessobjects</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Businessobjects</em>' containment reference list.
-	 * @see com.dsleng.etool.model.bobjs.BobjsPackage#getOrgUnit_Businessobjects()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BusinessObject> getBusinessobjects();
-
 	/**
 	 * Returns the value of the '<em><b>Artifact Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -230,51 +211,19 @@ public interface OrgUnit extends NamedElement {
 	void setPackage(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Boenums</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.model.bobjs.BOEnum}.
+	 * Returns the value of the '<em><b>Packages</b></em>' containment reference list.
+	 * The list contents are of type {@link com.dsleng.etool.model.bobjs.Package}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Boenums</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Packages</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Boenums</em>' containment reference list.
-	 * @see com.dsleng.etool.model.bobjs.BobjsPackage#getOrgUnit_Boenums()
+	 * @return the value of the '<em>Packages</em>' containment reference list.
+	 * @see com.dsleng.etool.model.bobjs.BobjsPackage#getOrgUnit_Packages()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<BOEnum> getBoenums();
-
-	/**
-	 * Returns the value of the '<em><b>Boimport</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.model.bobjs.BOImport}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Boimport</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Boimport</em>' containment reference list.
-	 * @see com.dsleng.etool.model.bobjs.BobjsPackage#getOrgUnit_Boimport()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BOImport> getBoimport();
-
-	/**
-	 * Returns the value of the '<em><b>Businesstypes</b></em>' containment reference list.
-	 * The list contents are of type {@link com.dsleng.etool.model.bobjs.BusinessType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Businesstypes</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Businesstypes</em>' containment reference list.
-	 * @see com.dsleng.etool.model.bobjs.BobjsPackage#getOrgUnit_Businesstypes()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BusinessType> getBusinesstypes();
+	EList<com.dsleng.etool.model.bobjs.Package> getPackages();
 
 } // OrgUnit

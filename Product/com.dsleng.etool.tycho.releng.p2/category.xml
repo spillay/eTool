@@ -4,7 +4,7 @@
       <category name="eToolCore"/>
    </feature>
    <feature url="features/com.dsleng.etool.base.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.base.feature" version="1.0.0.qualifier">
-      <category name="Base DSL"/>
+      <category name="Shared DSL"/>
    </feature>
    <feature url="features/com.dsleng.etool.dsl.bobjs.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.bobjs.feature" version="1.0.0.qualifier">
       <category name="eToolModels"/>
@@ -15,7 +15,14 @@
    <feature url="features/com.dsleng.etool.dsl.egov.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.dsl.egov.feature" version="1.0.0.qualifier">
       <category name="eToolModels"/>
    </feature>
+   <feature url="features/com.dsleng.etool.models.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.models.feature" version="1.0.0.qualifier">
+      <category name="eToolCore"/>
+   </feature>
+   <feature url="features/com.dsleng.etool.contrib.bob.feature_1.0.0.qualifier.jar" id="com.dsleng.etool.contrib.bob.feature" version="1.0.0.qualifier">
+      <category name="Contrib DSL"/>
+   </feature>
    <category-def name="eToolCore" label="eTool Core"/>
    <category-def name="eToolModels" label="eTool Models"/>
-   <category-def name="Base DSL" label="Base DSLs"/>
+   <category-def name="Shared DSL" label="Shared DSLs"/>
+   <category-def name="Contrib DSL" label="Contrib DSL"/>
 </site>

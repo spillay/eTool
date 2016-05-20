@@ -88,6 +88,7 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 			case BobjsPackage.ANNOTATION: return createAnnotation();
 			case BobjsPackage.BUSINESS_TYPE: return createBusinessType();
 			case BobjsPackage.BO_IMPORT: return createBOImport();
+			case BobjsPackage.PACKAGE: return createPackage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -269,6 +270,16 @@ public class BobjsFactoryImpl extends EFactoryImpl implements BobjsFactory {
 	public BOImport createBOImport() {
 		BOImportImpl boImport = new BOImportImpl();
 		return boImport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public com.dsleng.etool.model.bobjs.Package createPackage() {
+		PackageImpl package_ = new PackageImpl();
+		return package_;
 	}
 
 	/**

@@ -7,20 +7,20 @@ OrgUnit "CapeNature"
 			Language File "dsl/s1.egv.xmi",
 			Web Directory "permit"	
 			Package "za.co.egov.cn"	
-			import "platform:/plugin/com.dsleng.etool.base/base.bob"
-			//import base.bob
+			//import "platform:/plugin/com.dsleng.etool.base/base.bob"
+			import "base.bob"
  	}	
 	{
 		BusinessTypes {
 			BT=PermitType{
 				attributes {
-					name {Label="Permit Type"  spType=string}
+					name {Label="Permit Type"  spType="E-Government.string"}
 				}
 				Lookup=name
 			},
 			BT=PermitStatus{
 				attributes {
-					name {Label="Permit Status"  spType=string}
+					name {Label="Permit Status"  spType="E-Government.string"}
 				}
 				Lookup=name
 			}
@@ -28,12 +28,12 @@ OrgUnit "CapeNature"
 		BusinessObjects{
 			BO=Permit {
 				attributes {
-					permitNo {Label="Permit Number"  spType=string},
-					referenceNo {Label="Reference Number"  spType=string},
-					dateIssued {Label="DateIssued"  spType=date},
-					dteValidFrom {Label="Date Valid From" spType=date},
-					dteValidTo {Label="Date Valid To" spType=date},
-					amountPaid {Label="Amount Paid" spType=double},
+					permitNo {Label="Permit Number"  spType="E-Government.string"},
+					referenceNo {Label="Reference Number"  spType="E-Government.string"},
+					dateIssued {Label="DateIssued"  spType="E-Government.date"},
+					dteValidFrom {Label="Date Valid From" spType="E-Government.date"},
+					dteValidTo {Label="Date Valid To" spType="E-Government.date"},
+					amountPaid {Label="Amount Paid" spType="E-Government.double"},
 					permitStatus {Label="Permit Status" spType=PermitStatus},
 					permitType {Label="Permit type" spType=PermitType}
 				}
@@ -43,11 +43,11 @@ OrgUnit "CapeNature"
 			},
 			BO=PermitHistory {
 				attributes { 
-					dateChanged {Label="Date Changed" spType=date},
-					referenceNo {Label="Reference Number" spType=string},
-					permitDescription {Label="Permit Description" spType=string},
-					notificationSend {Label="Notification Send-Boolean" spType=string},
-					reasonForChge {Label="Reason For Change" spType=string},
+					dateChanged {Label="Date Changed" spType="E-Government.date"},
+					referenceNo {Label="Reference Number" spType="E-Government.string"},
+					permitDescription {Label="Permit Description" spType="E-Government.string"},
+					notificationSend {Label="Notification Send-Boolean" spType="E-Government.string"},
+					reasonForChge {Label="Reason For Change" spType="E-Government.string"},
 					permitStatus {Label="Permit Status" spType=PermitStatus},
 					permitType {Label="Permit type" spType=PermitType}
 				}
@@ -57,17 +57,17 @@ OrgUnit "CapeNature"
 			},
 			BO=Client {			
 				attributes { 
-					idno {Label="Identity Number" spType=string },
-					cardno {Label="Card No" spType=string},
-					cardpin {Label="Card Pin" spType=string},
-					firstname1 {Label="First Name" spType=string},
-					firstname2 {Label="First Name" spType=string},
-					firstname3 {Label="First Name" spType=string},
-					surname {Label="Surname" spType=string},
-					telphoneno {Label="Telephone No" spType=string},
-					cellno {Label="Cell No" spType=string},
-					email {Label="Email Address" spType=string},
-					prefContact {Label="Preferred Contact-Type" spType=string}
+					idno {Label="Identity Number" spType="E-Government.string" },
+					cardno {Label="Card No" spType="E-Government.string"},
+					cardpin {Label="Card Pin" spType="E-Government.string"},
+					firstname1 {Label="First Name" spType="E-Government.string"},
+					firstname2 {Label="First Name" spType="E-Government.string"},
+					firstname3 {Label="First Name" spType="E-Government.string"},
+					surname {Label="Surname" spType="E-Government.string"},
+					telphoneno {Label="Telephone No" spType="E-Government.string"},
+					cellno {Label="Cell No" spType="E-Government.string"},
+					email {Label="Email Address" spType="E-Government.string"},
+					prefContact {Label="Preferred Contact-Type" spType="E-Government.string"}
 				}
 			}
 		}

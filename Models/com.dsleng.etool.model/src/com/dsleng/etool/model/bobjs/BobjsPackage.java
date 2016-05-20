@@ -114,22 +114,13 @@ public interface BobjsPackage extends EPackage {
 	int ORG_UNIT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Businessobjects</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORG_UNIT__BUSINESSOBJECTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__ARTIFACT_ID = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ORG_UNIT__ARTIFACT_ID = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
@@ -138,7 +129,7 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__GROUP_ID = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ORG_UNIT__GROUP_ID = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Lang File</b></em>' attribute.
@@ -147,7 +138,7 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__LANG_FILE = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int ORG_UNIT__LANG_FILE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -156,7 +147,7 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int ORG_UNIT__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Dir Location</b></em>' attribute.
@@ -165,7 +156,7 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int ORG_UNIT__DIR_LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Web Directory</b></em>' attribute.
@@ -174,7 +165,7 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__WEB_DIRECTORY = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int ORG_UNIT__WEB_DIRECTORY = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Package</b></em>' attribute.
@@ -183,34 +174,16 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 7;
+	int ORG_UNIT__PACKAGE = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Boenums</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT__BOENUMS = NAMED_ELEMENT_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Boimport</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORG_UNIT__BOIMPORT = NAMED_ELEMENT_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Businesstypes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORG_UNIT__BUSINESSTYPES = NAMED_ELEMENT_FEATURE_COUNT + 10;
+	int ORG_UNIT__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Org Unit</em>' class.
@@ -219,7 +192,7 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORG_UNIT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 11;
+	int ORG_UNIT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Org Unit</em>' class.
@@ -891,13 +864,22 @@ public interface BobjsPackage extends EPackage {
 	int BO_IMPORT__IMPORTED_NAMESPACE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Import Plugin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BO_IMPORT__IMPORT_PLUGIN = 2;
+
+	/**
 	 * The number of structural features of the '<em>BO Import</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BO_IMPORT_FEATURE_COUNT = 2;
+	int BO_IMPORT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>BO Import</em>' class.
@@ -909,6 +891,88 @@ public interface BobjsPackage extends EPackage {
 	int BO_IMPORT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.model.bobjs.impl.PackageImpl <em>Package</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.model.bobjs.impl.PackageImpl
+	 * @see com.dsleng.etool.model.bobjs.impl.BobjsPackageImpl#getPackage()
+	 * @generated
+	 */
+	int PACKAGE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PACKAGES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Businesstypes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__BUSINESSTYPES = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Businessobjects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__BUSINESSOBJECTS = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Boenums</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__BOENUMS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Boimport</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__BOIMPORT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Package</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Package</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.dsleng.etool.model.bobjs.DataTypes <em>Data Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -916,7 +980,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.model.bobjs.impl.BobjsPackageImpl#getDataTypes()
 	 * @generated
 	 */
-	int DATA_TYPES = 14;
+	int DATA_TYPES = 15;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.model.bobjs.Inclusions <em>Inclusions</em>}' enum.
@@ -926,7 +990,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.model.bobjs.impl.BobjsPackageImpl#getInclusions()
 	 * @generated
 	 */
-	int INCLUSIONS = 15;
+	int INCLUSIONS = 16;
 
 	/**
 	 * The meta object id for the '{@link com.dsleng.etool.model.bobjs.Multiplicity <em>Multiplicity</em>}' enum.
@@ -936,7 +1000,7 @@ public interface BobjsPackage extends EPackage {
 	 * @see com.dsleng.etool.model.bobjs.impl.BobjsPackageImpl#getMultiplicity()
 	 * @generated
 	 */
-	int MULTIPLICITY = 16;
+	int MULTIPLICITY = 17;
 
 
 	/**
@@ -969,17 +1033,6 @@ public interface BobjsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOrgUnit();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.OrgUnit#getBusinessobjects <em>Businessobjects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Businessobjects</em>'.
-	 * @see com.dsleng.etool.model.bobjs.OrgUnit#getBusinessobjects()
-	 * @see #getOrgUnit()
-	 * @generated
-	 */
-	EReference getOrgUnit_Businessobjects();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.dsleng.etool.model.bobjs.OrgUnit#getArtifactId <em>Artifact Id</em>}'.
@@ -1059,37 +1112,15 @@ public interface BobjsPackage extends EPackage {
 	EAttribute getOrgUnit_Package();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.OrgUnit#getBoenums <em>Boenums</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.OrgUnit#getPackages <em>Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Boenums</em>'.
-	 * @see com.dsleng.etool.model.bobjs.OrgUnit#getBoenums()
+	 * @return the meta object for the containment reference list '<em>Packages</em>'.
+	 * @see com.dsleng.etool.model.bobjs.OrgUnit#getPackages()
 	 * @see #getOrgUnit()
 	 * @generated
 	 */
-	EReference getOrgUnit_Boenums();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.OrgUnit#getBoimport <em>Boimport</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Boimport</em>'.
-	 * @see com.dsleng.etool.model.bobjs.OrgUnit#getBoimport()
-	 * @see #getOrgUnit()
-	 * @generated
-	 */
-	EReference getOrgUnit_Boimport();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.OrgUnit#getBusinesstypes <em>Businesstypes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Businesstypes</em>'.
-	 * @see com.dsleng.etool.model.bobjs.OrgUnit#getBusinesstypes()
-	 * @see #getOrgUnit()
-	 * @generated
-	 */
-	EReference getOrgUnit_Businesstypes();
+	EReference getOrgUnit_Packages();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.model.bobjs.Attribute <em>Attribute</em>}'.
@@ -1542,6 +1573,82 @@ public interface BobjsPackage extends EPackage {
 	EAttribute getBOImport_ImportedNamespace();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.model.bobjs.BOImport#getImportPlugin <em>Import Plugin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import Plugin</em>'.
+	 * @see com.dsleng.etool.model.bobjs.BOImport#getImportPlugin()
+	 * @see #getBOImport()
+	 * @generated
+	 */
+	EAttribute getBOImport_ImportPlugin();
+
+	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.model.bobjs.Package <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Package</em>'.
+	 * @see com.dsleng.etool.model.bobjs.Package
+	 * @generated
+	 */
+	EClass getPackage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.Package#getPackages <em>Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Packages</em>'.
+	 * @see com.dsleng.etool.model.bobjs.Package#getPackages()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Packages();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.Package#getBusinesstypes <em>Businesstypes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Businesstypes</em>'.
+	 * @see com.dsleng.etool.model.bobjs.Package#getBusinesstypes()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Businesstypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.Package#getBusinessobjects <em>Businessobjects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Businessobjects</em>'.
+	 * @see com.dsleng.etool.model.bobjs.Package#getBusinessobjects()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Businessobjects();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.Package#getBoenums <em>Boenums</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Boenums</em>'.
+	 * @see com.dsleng.etool.model.bobjs.Package#getBoenums()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Boenums();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.bobjs.Package#getBoimport <em>Boimport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Boimport</em>'.
+	 * @see com.dsleng.etool.model.bobjs.Package#getBoimport()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Boimport();
+
+	/**
 	 * Returns the meta object for enum '{@link com.dsleng.etool.model.bobjs.DataTypes <em>Data Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1623,14 +1730,6 @@ public interface BobjsPackage extends EPackage {
 		EClass ORG_UNIT = eINSTANCE.getOrgUnit();
 
 		/**
-		 * The meta object literal for the '<em><b>Businessobjects</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ORG_UNIT__BUSINESSOBJECTS = eINSTANCE.getOrgUnit_Businessobjects();
-
-		/**
 		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1687,28 +1786,12 @@ public interface BobjsPackage extends EPackage {
 		EAttribute ORG_UNIT__PACKAGE = eINSTANCE.getOrgUnit_Package();
 
 		/**
-		 * The meta object literal for the '<em><b>Boenums</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ORG_UNIT__BOENUMS = eINSTANCE.getOrgUnit_Boenums();
-
-		/**
-		 * The meta object literal for the '<em><b>Boimport</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ORG_UNIT__BOIMPORT = eINSTANCE.getOrgUnit_Boimport();
-
-		/**
-		 * The meta object literal for the '<em><b>Businesstypes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ORG_UNIT__BUSINESSTYPES = eINSTANCE.getOrgUnit_Businesstypes();
+		EReference ORG_UNIT__PACKAGES = eINSTANCE.getOrgUnit_Packages();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.model.bobjs.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -2069,6 +2152,64 @@ public interface BobjsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BO_IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getBOImport_ImportedNamespace();
+
+		/**
+		 * The meta object literal for the '<em><b>Import Plugin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BO_IMPORT__IMPORT_PLUGIN = eINSTANCE.getBOImport_ImportPlugin();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.model.bobjs.impl.PackageImpl <em>Package</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.model.bobjs.impl.PackageImpl
+		 * @see com.dsleng.etool.model.bobjs.impl.BobjsPackageImpl#getPackage()
+		 * @generated
+		 */
+		EClass PACKAGE = eINSTANCE.getPackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__PACKAGES = eINSTANCE.getPackage_Packages();
+
+		/**
+		 * The meta object literal for the '<em><b>Businesstypes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__BUSINESSTYPES = eINSTANCE.getPackage_Businesstypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Businessobjects</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__BUSINESSOBJECTS = eINSTANCE.getPackage_Businessobjects();
+
+		/**
+		 * The meta object literal for the '<em><b>Boenums</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__BOENUMS = eINSTANCE.getPackage_Boenums();
+
+		/**
+		 * The meta object literal for the '<em><b>Boimport</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__BOIMPORT = eINSTANCE.getPackage_Boimport();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.model.bobjs.DataTypes <em>Data Types</em>}' enum.

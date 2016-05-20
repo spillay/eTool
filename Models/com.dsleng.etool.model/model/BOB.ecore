@@ -5,8 +5,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrgUnit" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects" upperBound="-1"
-        eType="#//BusinessObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="langFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -14,12 +12,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dirLocation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="webDirectory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="package" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boenums" upperBound="-1"
-        eType="#//BOEnum" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boimport" upperBound="-1"
-        eType="#//BOImport" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="businesstypes" upperBound="-1"
-        eType="#//BusinessType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
+        eType="#//Package" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -104,5 +98,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="BOImport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importPlugin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
+        eType="#//Package" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businesstypes" upperBound="-1"
+        eType="#//BusinessType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="businessobjects" upperBound="-1"
+        eType="#//BusinessObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boenums" upperBound="-1"
+        eType="#//BOEnum" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boimport" upperBound="-1"
+        eType="#//BOImport" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
