@@ -7,7 +7,11 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 ControlManager returns controls::ControlManager:
 	{controls::ControlManager}
-	'ControlManager'
+	'ControlManager' 
+	 'Package' packageName=STRING
+	 '('
+	 	(imports+=Import)*
+	 ')'
 	'{'
 		('controls' '{' controls+=ControlDef ( "," controls+=ControlDef)* '}' )?
 		('pageinfos' '{' pageinfos+=PageInfo ( "," pageinfos+=PageInfo)* '}' )?
@@ -16,7 +20,11 @@ ControlManager returns controls::ControlManager:
 		('BOTypes' '{' types+=BOType ( "," types+=BOType)* '}' )?
 		('PageTypes' '{' types+=PageType ( "," types+=PageType)* '}' )?
 	'}';
-
+	
+Import returns controls::Import: 
+	'import-ctl-plugin' importCtlPlugin=STRING
+;
+	
 Type returns controls::Type:
 	AttributeType | BOType
 ;

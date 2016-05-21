@@ -3,6 +3,28 @@
  */
 package com.dsleng.etool.dsl.egov.scoping
 
+import com.dsleng.etool.model.bobjs.BusinessType
+import com.dsleng.etool.model.bobjs.impl.AttributeImpl
+import com.dsleng.etool.model.bobjs.impl.OrgUnitImpl
+import com.dsleng.etool.model.bobjs.impl.PackageImpl
+import java.util.ArrayList
+import java.util.HashMap
+import java.util.List
+import org.eclipse.emf.common.util.URI
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import com.dsleng.etool.model.egov.BOMapper
+import com.dsleng.etool.model.egov.impl.EServiceImpl
+import com.dsleng.etool.model.bobjs.OrgUnit
+import com.dsleng.etool.model.egov.BOAttribute
+import com.dsleng.etool.model.bobjs.Attribute
+import com.dsleng.etool.model.egov.Page
+import com.dsleng.etool.model.controls.PageType
+import com.dsleng.etool.model.controls.ControlManager
 
 /**
  * This class contains custom scoping description.
@@ -10,6 +32,169 @@ package com.dsleng.etool.dsl.egov.scoping
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class EGovScopeProvider extends AbstractEGovScopeProvider {
+class EGovScopeProvider extends AbstractDeclarativeScopeProvider {
+	def IScope scope_BOMapper_BusinessObject(EObject ctx,EReference ref){
+		//Scopes.scopeFor()
+		if (ctx instanceof BOMapper){
+			var pack = getPackage(ctx) as EServiceImpl
+			if ( pack != null){
+				// Only add the ones found in imports
+				var bos = new ArrayList<BusinessType>();
+				for(importplugin: pack.imports){
+					if (importplugin.importBOBPlugin != null){
+						bos.addAll(getBO(importplugin.importBOBPlugin))
+					}
+				}
+				// Add the ones found in the package itself
+				//bos.addAll(getBO(pack))
+				return Scopes.scopeFor(bos)
+			}
+		}
+		IScope::NULLSCOPE
+	}
+	def IScope scope_EService_BusinessUnit(EObject ctx,EReference ref){
+		if (ctx instanceof EServiceImpl){
+			var ser = ctx as EServiceImpl
+			if ( ser != null){
+				// Only add the ones found in imports
+				var bos = new ArrayList<OrgUnit>();
+				for(importplugin: ser.imports){
+					if (importplugin.importBOBPlugin != null){
+						bos.addAll(getOrgNames(importplugin.importBOBPlugin))
+					}
+				}
+				// Add the ones found in the package itself
+				//bos.addAll(getBO(pack))
+				return Scopes.scopeFor(bos)
+			}
+		}
+		IScope::NULLSCOPE
+	}
+	def IScope scope_BOAttribute_attribute(EObject ctx,EReference ref){
+		var attrs = new ArrayList<Attribute>();
+		if (ctx instanceof BOAttribute){
+			if ( ctx.eContainer instanceof BOMapper){
+				val bo = ctx.eContainer as BOMapper
+				for(attr: bo.businessObject.attributes){
+					attrs.add(attr)
+				}
+			}
+		}
+		return Scopes.scopeFor(attrs)
+	}
 	
+	// Scoping for Controls
+	def IScope scope_Page_pagetype(EObject ctx,EReference ref){
+		var pts = new ArrayList<PageType>();
+		if ( ctx instanceof Page){
+			val pg = ctx as Page
+			if ( pg.eContainer instanceof EServiceImpl){
+				val ser = pg.eContainer as EServiceImpl
+				
+				for(importplugin: ser.imports){
+					if (importplugin.importCtlPlugin != null){
+						pts.addAll(getPT(importplugin.importCtlPlugin))
+					}
+				}
+			}
+		}
+		return Scopes.scopeFor(pts)
+	}
+	
+	def List<PageType> getPT(String resInfo){
+		val info = resInfo.split("=>")
+		val resName = info.get(0)
+		var pts = new ArrayList<PageType>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val contMgr = res.contents.get(0) as ControlManager
+		for(t: contMgr.types){
+			if ( t instanceof PageType){
+				pts.add(t)
+			}
+		}
+		return pts
+	}
+	
+	def List<BusinessType> getBO(PackageImpl p){
+		var bos = new ArrayList<BusinessType>();
+		bos.addAll(p.businessobjects)
+		bos.addAll(p.businesstypes)
+		return bos
+	}
+	def List<OrgUnit> getOrgNames(String resInfo){
+		val info = resInfo.split("=>")
+		val resName = info.get(0)
+		var bos = new ArrayList<OrgUnit>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val orgUnit = res.contents.get(0) as OrgUnitImpl
+		bos.add(orgUnit)
+		return bos
+	}
+	def List<BusinessType> getBO(String resInfo){
+		val info = resInfo.split("=>")
+		val resName = info.get(0)
+		val pacName = info.get(1)
+		var bos = new ArrayList<BusinessType>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val orgUnit = res.contents.get(0) as OrgUnitImpl
+		for(p: orgUnit.packages){
+			if(p.name == pacName){
+				for(bo: p.businessobjects){
+					bos.add(bo)
+				}
+				for(bt: p.businesstypes){
+					bos.add(bt)
+				}
+			}
+		}
+		return bos
+	}
+	def List<String> getTopLevelPackages(String resName){
+		var pacs = new ArrayList<String>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createPlatformPluginURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val orgUnit = res.contents.get(0) as OrgUnitImpl
+		for(p: orgUnit.packages){
+			val pname = resName + "=>" + p.name
+			pacs.add(pname)
+		}
+		return pacs
+	}
+	//def Enumeration<URL> getModels(String plugin){
+	//	val bun = Platform.getBundle(plugin)
+	//	return bun.findEntries("/model/","*.bob",false)
+		//return bun.findEntries("/","*",true)
+	//}
+	def HashMap<String,String> getBO(OrgUnitImpl o,HashMap<String,String> hm) {
+		for(p: o.packages){
+			for(bo: p.businessobjects){
+				hm.put(bo.name,bo.name)
+			}
+			for(bt: p.businesstypes){
+				hm.put(bt.name,bt.name)
+			}
+		}
+		return hm
+	} 
+	def EObject getPackage(EObject eo)  {
+		if ( eo.eContainer != null){
+			return eo.eContainer.eContainer
+		} else {
+			return null
+		}
+	}
+	def EObject getRoot(EObject eo)  {
+    	var parent = eo.eContainer();
+    	if (parent != null) {
+        	return getRoot(parent);
+    	}
+    	return eo;
+	}
 }

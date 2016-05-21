@@ -91,7 +91,7 @@ class BObjDslProposalProvider extends AbstractBObjDslProposalProvider {
 		var res = rs.getResource(plugin,true)
 		val orgUnit = res.contents.get(0) as OrgUnitImpl
 		for(p: orgUnit.packages){
-			val pname = resName + ":" + p.name
+			val pname = resName + "=>" + p.name
 			pacs.add(pname)
 		}
 		return pacs

@@ -278,13 +278,31 @@ public interface ControlsPackage extends EPackage {
 	int CONTROL_MANAGER__TYPES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Package Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MANAGER__PACKAGE_NAME = 4;
+
+	/**
+	 * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROL_MANAGER__IMPORTS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Control Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTROL_MANAGER_FEATURE_COUNT = 4;
+	int CONTROL_MANAGER_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Control Manager</em>' class.
@@ -1284,6 +1302,44 @@ public interface ControlsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.dsleng.etool.model.controls.impl.ImportImpl <em>Import</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.dsleng.etool.model.controls.impl.ImportImpl
+	 * @see com.dsleng.etool.model.controls.impl.ControlsPackageImpl#getImport()
+	 * @generated
+	 */
+	int IMPORT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Import Ctl Plugin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT__IMPORT_CTL_PLUGIN = 0;
+
+	/**
+	 * The number of structural features of the '<em>Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Import</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.model.controls.ControlDef <em>Control Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1476,6 +1532,28 @@ public interface ControlsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getControlManager_Types();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.model.controls.ControlManager#getPackageName <em>Package Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Package Name</em>'.
+	 * @see com.dsleng.etool.model.controls.ControlManager#getPackageName()
+	 * @see #getControlManager()
+	 * @generated
+	 */
+	EAttribute getControlManager_PackageName();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.dsleng.etool.model.controls.ControlManager#getImports <em>Imports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Imports</em>'.
+	 * @see com.dsleng.etool.model.controls.ControlManager#getImports()
+	 * @see #getControlManager()
+	 * @generated
+	 */
+	EReference getControlManager_Imports();
 
 	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.model.controls.ControlGroup <em>Control Group</em>}'.
@@ -1858,6 +1936,27 @@ public interface ControlsPackage extends EPackage {
 	EClass getPageCtrl();
 
 	/**
+	 * Returns the meta object for class '{@link com.dsleng.etool.model.controls.Import <em>Import</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Import</em>'.
+	 * @see com.dsleng.etool.model.controls.Import
+	 * @generated
+	 */
+	EClass getImport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.model.controls.Import#getImportCtlPlugin <em>Import Ctl Plugin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import Ctl Plugin</em>'.
+	 * @see com.dsleng.etool.model.controls.Import#getImportCtlPlugin()
+	 * @see #getImport()
+	 * @generated
+	 */
+	EAttribute getImport_ImportCtlPlugin();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2031,6 +2130,22 @@ public interface ControlsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTROL_MANAGER__TYPES = eINSTANCE.getControlManager_Types();
+
+		/**
+		 * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONTROL_MANAGER__PACKAGE_NAME = eINSTANCE.getControlManager_PackageName();
+
+		/**
+		 * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTROL_MANAGER__IMPORTS = eINSTANCE.getControlManager_Imports();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.model.controls.impl.ControlGroupImpl <em>Control Group</em>}' class.
@@ -2349,6 +2464,24 @@ public interface ControlsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PAGE_CTRL = eINSTANCE.getPageCtrl();
+
+		/**
+		 * The meta object literal for the '{@link com.dsleng.etool.model.controls.impl.ImportImpl <em>Import</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.dsleng.etool.model.controls.impl.ImportImpl
+		 * @see com.dsleng.etool.model.controls.impl.ControlsPackageImpl#getImport()
+		 * @generated
+		 */
+		EClass IMPORT = eINSTANCE.getImport();
+
+		/**
+		 * The meta object literal for the '<em><b>Import Ctl Plugin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPORT__IMPORT_CTL_PLUGIN = eINSTANCE.getImport_ImportCtlPlugin();
 
 	}
 

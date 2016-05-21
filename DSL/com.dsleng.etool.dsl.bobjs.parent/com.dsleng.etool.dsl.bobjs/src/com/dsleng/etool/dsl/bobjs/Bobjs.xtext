@@ -36,8 +36,8 @@ QualifiedNameWithWildcard:
     QualifiedName '.*'?;
     
 BOImport returns BOImport:
-	'import' importedNamespace=QualifiedNameWithWildcard
-	| 'import-dsl' importPlugin=STRING
+	'import-bob-dsl' importPlugin=STRING
+	//'import' importedNamespace=QualifiedNameWithWildcard
 	//'import' importURI=STRING
 	//'import' importURI=ImportName ('.*')?
 ;

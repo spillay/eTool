@@ -29,6 +29,9 @@
         eType="#//SimpleControl" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlGroup">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pageinfos" upperBound="-1"
@@ -86,4 +89,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="PageType" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="BOCtrl" eSuperTypes="#//Composite"/>
   <eClassifiers xsi:type="ecore:EClass" name="PageCtrl" eSuperTypes="#//Composite"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importCtlPlugin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

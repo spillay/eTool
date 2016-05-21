@@ -598,13 +598,31 @@ public interface EgovPackage extends EPackage {
 	int IMPORT__IMPORT_URI = 0;
 
 	/**
+	 * The feature id for the '<em><b>Import BOB Plugin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT__IMPORT_BOB_PLUGIN = 1;
+
+	/**
+	 * The feature id for the '<em><b>Import Ctl Plugin</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPORT__IMPORT_CTL_PLUGIN = 2;
+
+	/**
 	 * The number of structural features of the '<em>Import</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPORT_FEATURE_COUNT = 1;
+	int IMPORT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Import</em>' class.
@@ -1176,6 +1194,28 @@ public interface EgovPackage extends EPackage {
 	EAttribute getImport_ImportURI();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.model.egov.Import#getImportBOBPlugin <em>Import BOB Plugin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import BOB Plugin</em>'.
+	 * @see com.dsleng.etool.model.egov.Import#getImportBOBPlugin()
+	 * @see #getImport()
+	 * @generated
+	 */
+	EAttribute getImport_ImportBOBPlugin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.dsleng.etool.model.egov.Import#getImportCtlPlugin <em>Import Ctl Plugin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Import Ctl Plugin</em>'.
+	 * @see com.dsleng.etool.model.egov.Import#getImportCtlPlugin()
+	 * @see #getImport()
+	 * @generated
+	 */
+	EAttribute getImport_ImportCtlPlugin();
+
+	/**
 	 * Returns the meta object for class '{@link com.dsleng.etool.model.egov.Admin <em>Admin</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1653,6 +1693,22 @@ public interface EgovPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IMPORT__IMPORT_URI = eINSTANCE.getImport_ImportURI();
+
+		/**
+		 * The meta object literal for the '<em><b>Import BOB Plugin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPORT__IMPORT_BOB_PLUGIN = eINSTANCE.getImport_ImportBOBPlugin();
+
+		/**
+		 * The meta object literal for the '<em><b>Import Ctl Plugin</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPORT__IMPORT_CTL_PLUGIN = eINSTANCE.getImport_ImportCtlPlugin();
 
 		/**
 		 * The meta object literal for the '{@link com.dsleng.etool.model.egov.impl.AdminImpl <em>Admin</em>}' class.

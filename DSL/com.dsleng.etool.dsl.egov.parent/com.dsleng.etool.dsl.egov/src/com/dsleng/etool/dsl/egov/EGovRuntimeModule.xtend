@@ -10,8 +10,6 @@ import com.dsleng.etool.dsl.egov.scoping.EgovImportURIGlobalScopeProvider
  */
 class EGovRuntimeModule extends AbstractEGovRuntimeModule {
 	
-	override bindIGlobalScopeProvider() {
-		return EgovImportURIGlobalScopeProvider
-	}
+	
 	
 }

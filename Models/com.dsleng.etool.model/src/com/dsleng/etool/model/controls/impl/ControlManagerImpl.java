@@ -5,12 +5,14 @@ package com.dsleng.etool.model.controls.impl;
 import com.dsleng.etool.model.controls.ControlDef;
 import com.dsleng.etool.model.controls.ControlManager;
 import com.dsleng.etool.model.controls.ControlsPackage;
+import com.dsleng.etool.model.controls.Import;
 import com.dsleng.etool.model.controls.PageInfo;
 import com.dsleng.etool.model.controls.SimpleControl;
 import com.dsleng.etool.model.controls.Type;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -35,6 +38,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.dsleng.etool.model.controls.impl.ControlManagerImpl#getPageinfos <em>Pageinfos</em>}</li>
  *   <li>{@link com.dsleng.etool.model.controls.impl.ControlManagerImpl#getComposites <em>Composites</em>}</li>
  *   <li>{@link com.dsleng.etool.model.controls.impl.ControlManagerImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link com.dsleng.etool.model.controls.impl.ControlManagerImpl#getPackageName <em>Package Name</em>}</li>
+ *   <li>{@link com.dsleng.etool.model.controls.impl.ControlManagerImpl#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +84,36 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<Type> types;
+
+	/**
+	 * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackageName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PACKAGE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPackageName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String packageName = PACKAGE_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Import> imports;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +187,39 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPackageName() {
+		return packageName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPackageName(String newPackageName) {
+		String oldPackageName = packageName;
+		packageName = newPackageName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ControlsPackage.CONTROL_MANAGER__PACKAGE_NAME, oldPackageName, packageName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Import> getImports() {
+		if (imports == null) {
+			imports = new EObjectContainmentEList<Import>(Import.class, this, ControlsPackage.CONTROL_MANAGER__IMPORTS);
+		}
+		return imports;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -163,6 +231,8 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				return ((InternalEList<?>)getComposites()).basicRemove(otherEnd, msgs);
 			case ControlsPackage.CONTROL_MANAGER__TYPES:
 				return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
+			case ControlsPackage.CONTROL_MANAGER__IMPORTS:
+				return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,6 +253,10 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				return getComposites();
 			case ControlsPackage.CONTROL_MANAGER__TYPES:
 				return getTypes();
+			case ControlsPackage.CONTROL_MANAGER__PACKAGE_NAME:
+				return getPackageName();
+			case ControlsPackage.CONTROL_MANAGER__IMPORTS:
+				return getImports();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,6 +286,13 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				getTypes().clear();
 				getTypes().addAll((Collection<? extends Type>)newValue);
 				return;
+			case ControlsPackage.CONTROL_MANAGER__PACKAGE_NAME:
+				setPackageName((String)newValue);
+				return;
+			case ControlsPackage.CONTROL_MANAGER__IMPORTS:
+				getImports().clear();
+				getImports().addAll((Collection<? extends Import>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -236,6 +317,12 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 			case ControlsPackage.CONTROL_MANAGER__TYPES:
 				getTypes().clear();
 				return;
+			case ControlsPackage.CONTROL_MANAGER__PACKAGE_NAME:
+				setPackageName(PACKAGE_NAME_EDEFAULT);
+				return;
+			case ControlsPackage.CONTROL_MANAGER__IMPORTS:
+				getImports().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,8 +343,28 @@ public class ControlManagerImpl extends MinimalEObjectImpl.Container implements 
 				return composites != null && !composites.isEmpty();
 			case ControlsPackage.CONTROL_MANAGER__TYPES:
 				return types != null && !types.isEmpty();
+			case ControlsPackage.CONTROL_MANAGER__PACKAGE_NAME:
+				return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
+			case ControlsPackage.CONTROL_MANAGER__IMPORTS:
+				return imports != null && !imports.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (packageName: ");
+		result.append(packageName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ControlManagerImpl

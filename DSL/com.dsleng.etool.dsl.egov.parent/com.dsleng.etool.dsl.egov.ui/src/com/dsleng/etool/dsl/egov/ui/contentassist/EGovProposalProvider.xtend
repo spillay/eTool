@@ -3,10 +3,130 @@
  */
 package com.dsleng.etool.dsl.egov.ui.contentassist
 
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import com.dsleng.etool.dsl.egov.ui.internal.EgovActivator
+import java.util.List
+import java.util.ArrayList
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.emf.common.util.URI
+import com.dsleng.etool.model.bobjs.impl.OrgUnitImpl
+import java.util.Enumeration
+import java.net.URL
+import org.eclipse.core.runtime.Platform
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.resources.IFolder
+import org.eclipse.core.resources.IFile
+import com.dsleng.etool.model.controls.ControlManager
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class EGovProposalProvider extends AbstractEGovProposalProvider {
+	
+	override completeImport_ImportBOBPlugin(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeImport_ImportBOBPlugin(model, assignment, context, acceptor)
+		for(bundle: EgovActivator.instance.bundle.bundleContext.bundles.filter[b| b.symbolicName.contains("com.dsleng.etool.contrib.bob")]){
+			val urls = getModels(bundle.symbolicName)
+			while(urls.hasMoreElements){
+				val url = urls.nextElement
+				val fullName = URI.createPlatformPluginURI(bundle.symbolicName + url.file,true)
+				val topPack = getTopLevelPackages(fullName)
+				for(tp: topPack){
+					var proposal = '"' + tp + '"'
+					acceptor.accept(createCompletionProposal(proposal, proposal, null, context));
+				}
+			}	
+		}
+		// Check also the plugins in the local
+		for(proj: ResourcesPlugin.workspace.root.projects.filter[b| b.name.contains("com.dsleng.etool.contrib.bob")]){
+			
+			//TODO: Fix add check to make sure the project is a plugin
+			//var natures = proj.description.getNatureIds();
+			
+			//proj.findEntries("/model/","*.bob",false)
+			val folder = proj.findMember("/model/") as IFolder
+			for(mem: folder.members){
+				if ( mem instanceof IFile){
+					var file = mem as IFile
+					if (file.fileExtension == "bob"){
+						val fullName = URI.createPlatformResourceURI(file.fullPath.toString,true)
+						val topPack = getTopLevelPackages(fullName)
+						for(tp: topPack){
+							var proposal = '"' + tp + '"'
+							acceptor.accept(createCompletionProposal(proposal, proposal, null, context));
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	override completeImport_ImportCtlPlugin(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		super.completeImport_ImportCtlPlugin(model, assignment, context, acceptor)
+		for(bundle: EgovActivator.instance.bundle.bundleContext.bundles.filter[b| b.symbolicName.contains("com.dsleng.etool.contrib.ctl")]){
+			val urls = getModels(bundle.symbolicName)
+			while(urls.hasMoreElements){
+				val url = urls.nextElement
+				val fullName = URI.createPlatformPluginURI(bundle.symbolicName + url.file,true)
+				val topPack = getControlPackages(fullName)
+				for(tp: topPack){
+					var proposal = '"' + tp + '"'
+					acceptor.accept(createCompletionProposal(proposal, proposal, null, context));
+				}
+			}	
+		}
+		// Check also the plugins in the local
+		for(proj: ResourcesPlugin.workspace.root.projects.filter[b| b.name.contains("com.dsleng.etool.contrib.ctl")]){
+			
+			//TODO: Fix add check to make sure the project is a plugin
+			//var natures = proj.description.getNatureIds();
+			
+			//proj.findEntries("/model/","*.bob",false)
+			val folder = proj.findMember("/model/") as IFolder
+			for(mem: folder.members){
+				if ( mem instanceof IFile){
+					var file = mem as IFile
+					if (file.fileExtension == "ctl"){
+						val fullName = URI.createPlatformResourceURI(file.fullPath.toString,true)
+						val topPack = getControlPackages(fullName)
+						for(tp: topPack){
+							var proposal = '"' + tp + '"'
+							acceptor.accept(createCompletionProposal(proposal, proposal, null, context));
+						}
+					}
+				}
+			}
+		}
+	}
+	def List<String> getControlPackages(URI resName){
+		var pacs = new ArrayList<String>();
+		var rs = new ResourceSetImpl();
+		var res = rs.getResource(resName,true)
+		val contMgr = res.contents.get(0) as ControlManager
+		val pname = resName + "=>" + contMgr.packageName
+		pacs.add(pname)
+		return pacs
+	}
+	def List<String> getTopLevelPackages(URI resName){
+		var pacs = new ArrayList<String>();
+		var rs = new ResourceSetImpl();
+		var res = rs.getResource(resName,true)
+		val orgUnit = res.contents.get(0) as OrgUnitImpl
+		for(p: orgUnit.packages){
+			val pname = resName + "=>" + p.name
+			pacs.add(pname)
+		}
+		return pacs
+	}
+	def Enumeration<URL> getModels(String plugin){
+		val bun = Platform.getBundle(plugin)
+		return bun.findEntries("/model/","*.bob",false)
+		//return bun.findEntries("/","*",true)
+	}
+	
 }

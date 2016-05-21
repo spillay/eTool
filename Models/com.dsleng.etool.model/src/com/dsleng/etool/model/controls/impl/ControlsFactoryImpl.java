@@ -75,6 +75,7 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 			case ControlsPackage.PAGE_TYPE: return createPageType();
 			case ControlsPackage.BO_CTRL: return createBOCtrl();
 			case ControlsPackage.PAGE_CTRL: return createPageCtrl();
+			case ControlsPackage.IMPORT: return createImport();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -268,6 +269,16 @@ public class ControlsFactoryImpl extends EFactoryImpl implements ControlsFactory
 	public PageCtrl createPageCtrl() {
 		PageCtrlImpl pageCtrl = new PageCtrlImpl();
 		return pageCtrl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Import createImport() {
+		ImportImpl import_ = new ImportImpl();
+		return import_;
 	}
 
 	/**

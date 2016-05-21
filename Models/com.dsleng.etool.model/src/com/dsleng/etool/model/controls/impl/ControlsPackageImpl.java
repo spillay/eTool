@@ -17,6 +17,7 @@ import com.dsleng.etool.model.controls.ControlGroup;
 import com.dsleng.etool.model.controls.ControlManager;
 import com.dsleng.etool.model.controls.ControlsFactory;
 import com.dsleng.etool.model.controls.ControlsPackage;
+import com.dsleng.etool.model.controls.Import;
 import com.dsleng.etool.model.controls.OptionInstance;
 import com.dsleng.etool.model.controls.Options;
 import com.dsleng.etool.model.controls.PageCtrl;
@@ -179,6 +180,13 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * @generated
 	 */
 	private EClass pageCtrlEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass importEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -409,6 +417,24 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 */
 	public EReference getControlManager_Types() {
 		return (EReference)controlManagerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getControlManager_PackageName() {
+		return (EAttribute)controlManagerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getControlManager_Imports() {
+		return (EReference)controlManagerEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -740,6 +766,24 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getImport() {
+		return importEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImport_ImportCtlPlugin() {
+		return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ControlsFactory getControlsFactory() {
 		return (ControlsFactory)getEFactoryInstance();
 	}
@@ -784,6 +828,8 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		createEReference(controlManagerEClass, CONTROL_MANAGER__PAGEINFOS);
 		createEReference(controlManagerEClass, CONTROL_MANAGER__COMPOSITES);
 		createEReference(controlManagerEClass, CONTROL_MANAGER__TYPES);
+		createEAttribute(controlManagerEClass, CONTROL_MANAGER__PACKAGE_NAME);
+		createEReference(controlManagerEClass, CONTROL_MANAGER__IMPORTS);
 
 		controlGroupEClass = createEClass(CONTROL_GROUP);
 		createEReference(controlGroupEClass, CONTROL_GROUP__PAGEINFOS);
@@ -835,6 +881,9 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		boCtrlEClass = createEClass(BO_CTRL);
 
 		pageCtrlEClass = createEClass(PAGE_CTRL);
+
+		importEClass = createEClass(IMPORT);
+		createEAttribute(importEClass, IMPORT__IMPORT_CTL_PLUGIN);
 	}
 
 	/**
@@ -896,6 +945,8 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		initEReference(getControlManager_Pageinfos(), this.getPageInfo(), null, "pageinfos", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControlManager_Composites(), this.getSimpleControl(), null, "composites", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getControlManager_Types(), this.getType(), null, "types", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getControlManager_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getControlManager_Imports(), this.getImport(), null, "imports", null, 0, -1, ControlManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(controlGroupEClass, ControlGroup.class, "ControlGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getControlGroup_Pageinfos(), this.getPageInfo(), null, "pageinfos", null, 0, -1, ControlGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -948,6 +999,9 @@ public class ControlsPackageImpl extends EPackageImpl implements ControlsPackage
 		initEClass(boCtrlEClass, BOCtrl.class, "BOCtrl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pageCtrlEClass, PageCtrl.class, "PageCtrl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImport_ImportCtlPlugin(), ecorePackage.getEString(), "importCtlPlugin", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -1,6 +1,6 @@
 define(["ace/lib/oop", "ace/mode/text", "ace/mode/text_highlight_rules"], function(oop, mText, mTextHighlightRules) {
 	var HighlightRules = function() {
-		var keywords = "AttributeTypes|BOTypes|CompositeBOCtrl|CompositeMobCtrl|CompositePageCtrl|CompositeWebCtrl|Control|ControlManager|PageInfo|PageTypes|Parameters|Resource|SimpleMobCtrl|SimpleWebCtrl|composites|controls|dir|nestedControls|ns|options|pageinfos|prefix|resources|sibling|title";
+		var keywords = "AttributeTypes|BOTypes|CompositeBOCtrl|CompositeMobCtrl|CompositePageCtrl|CompositeWebCtrl|Control|ControlManager|Package|PageInfo|PageTypes|Parameters|Resource|SimpleMobCtrl|SimpleWebCtrl|composites|controls|dir|nestedControls|ns|options|pageinfos|prefix|resources|sibling|title";
 		this.$rules = {
 			"start": [
 				{token: "comment", regex: "\\/\\/.*$"},

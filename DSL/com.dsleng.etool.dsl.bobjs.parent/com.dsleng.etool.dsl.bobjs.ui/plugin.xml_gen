@@ -150,7 +150,7 @@
 					definitionId="com.dsleng.etool.dsl.bobjs.BObjDsl.Editor.opened">
 				</reference>
 			</visibleWhen>
-		</command>
+		</command>  
 		</menuContribution>
 		<!-- copy qualified name -->
 		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
@@ -159,7 +159,7 @@
 				<visibleWhen checkEnabled="false">
 					<reference definitionId="com.dsleng.etool.dsl.bobjs.BObjDsl.Editor.opened" />
 				</visibleWhen>
-			</command>
+			</command>  
 		</menuContribution>
 		<menuContribution locationURI="menu:edit?after=copy">
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
@@ -167,7 +167,7 @@
 				<visibleWhen checkEnabled="false">
 					<reference definitionId="com.dsleng.etool.dsl.bobjs.BObjDsl.Editor.opened" />
 				</visibleWhen>
-			</command>
+			</command>  
 		</menuContribution>
 		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName" 
@@ -213,10 +213,10 @@
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
-		<resourceServiceProvider
-			class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-			uriExtension="bob">
-		</resourceServiceProvider>
+	    <resourceServiceProvider
+	        class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+	        uriExtension="bob">
+	    </resourceServiceProvider>
 	</extension>
 	<!-- marker definitions for com.dsleng.etool.dsl.bobjs.BObjDsl -->
 	<extension
@@ -323,31 +323,31 @@
 	</extension>
 	<!-- quickfix marker resolution generator for com.dsleng.etool.dsl.bobjs.BObjDsl -->
 	<extension
-			point="org.eclipse.ui.ide.markerResolution">
-		<markerResolutionGenerator
-			class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="com.dsleng.etool.dsl.bobjs.ui.bobjdsl.check.fast">
-			<attribute
-				name="FIXABLE_KEY"
-				value="true">
-			</attribute>
-		</markerResolutionGenerator>
-		<markerResolutionGenerator
-			class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="com.dsleng.etool.dsl.bobjs.ui.bobjdsl.check.normal">
-			<attribute
-				name="FIXABLE_KEY"
-				value="true">
-			</attribute>
-		</markerResolutionGenerator>
-		<markerResolutionGenerator
-			class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-			markerType="com.dsleng.etool.dsl.bobjs.ui.bobjdsl.check.expensive">
-			<attribute
-				name="FIXABLE_KEY"
-				value="true">
-			</attribute>
-		</markerResolutionGenerator>
+	        point="org.eclipse.ui.ide.markerResolution">
+	    <markerResolutionGenerator
+	        class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+	        markerType="com.dsleng.etool.dsl.bobjs.ui.bobjdsl.check.fast">
+	        <attribute
+	            name="FIXABLE_KEY"
+	            value="true">
+	        </attribute>
+	    </markerResolutionGenerator>
+	    <markerResolutionGenerator
+	        class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+	        markerType="com.dsleng.etool.dsl.bobjs.ui.bobjdsl.check.normal">
+	        <attribute
+	            name="FIXABLE_KEY"
+	            value="true">
+	        </attribute>
+	    </markerResolutionGenerator>
+	    <markerResolutionGenerator
+	        class="com.dsleng.etool.dsl.bobjs.ui.BObjDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+	        markerType="com.dsleng.etool.dsl.bobjs.ui.bobjdsl.check.expensive">
+	        <attribute
+	            name="FIXABLE_KEY"
+	            value="true">
+	        </attribute>
+	    </markerResolutionGenerator>
 	</extension>
 	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
