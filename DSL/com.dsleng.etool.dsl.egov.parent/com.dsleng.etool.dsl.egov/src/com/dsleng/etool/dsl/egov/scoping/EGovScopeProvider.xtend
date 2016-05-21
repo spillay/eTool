@@ -4,7 +4,6 @@
 package com.dsleng.etool.dsl.egov.scoping
 
 import com.dsleng.etool.model.bobjs.BusinessType
-import com.dsleng.etool.model.bobjs.impl.AttributeImpl
 import com.dsleng.etool.model.bobjs.impl.OrgUnitImpl
 import com.dsleng.etool.model.bobjs.impl.PackageImpl
 import java.util.ArrayList
@@ -25,6 +24,14 @@ import com.dsleng.etool.model.bobjs.Attribute
 import com.dsleng.etool.model.egov.Page
 import com.dsleng.etool.model.controls.PageType
 import com.dsleng.etool.model.controls.ControlManager
+import com.dsleng.etool.model.controls.AttributeType
+import com.dsleng.etool.model.controls.BOType
+import com.dsleng.etool.model.controls.Options
+import com.dsleng.etool.model.egov.ControlMapper
+import com.dsleng.etool.model.controls.CompositeWebCtrl
+import com.dsleng.etool.model.controls.SimpleControl
+import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
+import com.dsleng.etool.model.egov.Admin
 
 /**
  * This class contains custom scoping description.
@@ -32,6 +39,13 @@ import com.dsleng.etool.model.controls.ControlManager
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
+class QNP extends DefaultDeclarativeQualifiedNameProvider {
+	
+	override getFullyQualifiedName(EObject obj) {
+		super.getFullyQualifiedName(obj)
+	}
+	
+}
 class EGovScopeProvider extends AbstractDeclarativeScopeProvider {
 	def IScope scope_BOMapper_BusinessObject(EObject ctx,EReference ref){
 		//Scopes.scopeFor()
@@ -97,8 +111,204 @@ class EGovScopeProvider extends AbstractDeclarativeScopeProvider {
 					}
 				}
 			}
+			if ( pg.eContainer instanceof Admin){
+				val ser = pg.eContainer.eContainer as EServiceImpl
+				
+				for(importplugin: ser.imports){
+					if (importplugin.importCtlPlugin != null){
+						pts.addAll(getPT(importplugin.importCtlPlugin))
+					}
+				}
+			}
 		}
 		return Scopes.scopeFor(pts)
+	}
+	def IScope scope_BOAttribute_controltype(EObject ctx,EReference ref){
+		var cts = new ArrayList<AttributeType>();
+		if (ctx instanceof BOAttribute){
+			if ( ctx.eContainer instanceof BOMapper){
+				val bm = ctx.eContainer as BOMapper
+				var pack = getPackage(bm) as EServiceImpl
+				if ( pack != null){
+					// Only add the ones found in imports
+					for(importplugin: pack.imports){
+						if (importplugin.importCtlPlugin != null){
+							cts.addAll(getCT(importplugin.importCtlPlugin))
+						}
+					}
+					// Add the ones found in the package itself
+					//bos.addAll(getBO(pack))
+					return Scopes.scopeFor(cts)
+				}
+			}
+		}
+		return Scopes.scopeFor(cts)
+	}
+	def IScope scope_BOMapper_botype(EObject ctx,EReference ref){
+		var cts = new ArrayList<BOType>();
+		if (ctx instanceof BOMapper){
+			if ( ctx.eContainer instanceof Page){
+				val pg = ctx.eContainer as Page
+				if ( pg.eContainer instanceof EServiceImpl){
+					var pack = pg.eContainer as EServiceImpl
+					if ( pack != null){
+						// Only add the ones found in imports
+						for(importplugin: pack.imports){
+							if (importplugin.importCtlPlugin != null){
+								cts.addAll(getBOT(importplugin.importCtlPlugin))
+							}
+						}
+						// Add the ones found in the package itself
+						//bos.addAll(getBO(pack))
+						return Scopes.scopeFor(cts)
+					}
+				}	
+			}
+		}
+		return Scopes.scopeFor(cts)
+	}
+	/* 
+	 * if ( ctx.eContainer instanceof BOMapper){
+					val bm = ctx.eContainer as BOMapper
+					var pack = getPackage(bm) as EServiceImpl
+					if ( pack != null){
+						// Only add the ones found in imports
+						for(importplugin: pack.imports){
+							if (importplugin.importCtlPlugin != null){
+								cts.addAll(getControlOptions(importplugin.importCtlPlugin))
+							}
+						}
+						// Add the ones found in the package itself
+						//bos.addAll(getBO(pack))
+						return Scopes.scopeFor(cts)
+					}
+				}
+	 * */
+	def IScope scope_Page_businesstype(EObject ctx,EReference ref){
+		var bos = new ArrayList<BusinessType>();
+		if ( ctx instanceof Page){
+			if (ctx.eContainer instanceof Admin){
+				if ( ctx.eContainer.eContainer instanceof EServiceImpl){
+					val ser = ctx.eContainer.eContainer as EServiceImpl
+					for(importplugin: ser.imports){
+						if (importplugin.importBOBPlugin != null){
+							bos.addAll(getBO(importplugin.importBOBPlugin))
+						}
+					}
+				}
+			}
+		}
+		return Scopes.scopeFor(bos)
+	}
+	def IScope scope_Page_extraControls(EObject ctx,EReference ref){
+		var attrs = new ArrayList<AttributeType>();
+		if ( ctx instanceof Page){
+			val pg = ctx as Page
+			if ( pg.eContainer instanceof EServiceImpl){
+				val ser = pg.eContainer as EServiceImpl
+				
+				for(importplugin: ser.imports){
+					if (importplugin.importCtlPlugin != null){
+						attrs.addAll(getCT(importplugin.importCtlPlugin))
+					}
+				}
+			}
+		}
+		return Scopes.scopeFor(attrs)
+	}
+	def IScope scope_ControlMapper_option(EObject ctx,EReference ref){
+		var cts = new ArrayList<Options>();
+		if (ctx instanceof ControlMapper){
+			if (ctx.eContainer instanceof BOAttribute){
+				val boa = ctx.eContainer as BOAttribute
+				val ctl = boa.controltype.control
+				if (ctl instanceof CompositeWebCtrl){
+					val comp = ctl as CompositeWebCtrl
+					cts.addAll(getCompositeOptions(comp))
+				}
+			}
+		}
+		return Scopes.scopeFor(cts,new QNP(),IScope::NULLSCOPE)
+	}
+	def List<Options> getSimpleOptions(SimpleControl ctl){
+			var opts = new ArrayList<Options>()
+			if ( ctl.uses != null){
+				for(s: ctl.sibling){
+					opts.addAll(getSimpleOptions(s))
+				}	
+				opts.addAll(ctl.uses.options)
+			}
+			return opts
+	}
+	def ArrayList<Options> getCompositeOptions(CompositeWebCtrl ctl){
+			var opts = new ArrayList<Options>()
+			if (ctl.usesControl != null){
+				opts.addAll(getSimpleOptions(ctl.usesControl))
+			}
+			for(s: ctl.sibling){
+				if ( s instanceof CompositeWebCtrl){
+					opts.addAll(getCompositeOptions(s))
+				}
+				if ( s instanceof SimpleControl){
+					opts.addAll(getSimpleOptions(s))
+				}
+			}
+			for(n: ctl.nestedControls){
+				if ( n instanceof CompositeWebCtrl){
+					opts.addAll(getCompositeOptions(n))
+				}
+				if ( n instanceof SimpleControl){
+					opts.addAll(getSimpleOptions(n))
+				}
+			}
+			return opts
+	}
+	
+	
+	def List<Options> getControlOptions(String resInfo){
+		val info = resInfo.split("=>")
+		val resName = info.get(0)
+		var pts = new ArrayList<Options>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val contMgr = res.contents.get(0) as ControlManager
+		for(t: contMgr.types){
+			if ( t instanceof BOType){
+				//pts.add(t)
+			}
+		}
+		return pts
+	}
+	def List<BOType> getBOT(String resInfo){
+		val info = resInfo.split("=>")
+		val resName = info.get(0)
+		var pts = new ArrayList<BOType>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val contMgr = res.contents.get(0) as ControlManager
+		for(t: contMgr.types){
+			if ( t instanceof BOType){
+				pts.add(t)
+			}
+		}
+		return pts
+	}
+	def List<AttributeType> getCT(String resInfo){
+		val info = resInfo.split("=>")
+		val resName = info.get(0)
+		var pts = new ArrayList<AttributeType>();
+		var rs = new ResourceSetImpl();
+		val plugin = URI.createURI(resName,true)
+		var res = rs.getResource(plugin,true)
+		val contMgr = res.contents.get(0) as ControlManager
+		for(t: contMgr.types){
+			if ( t instanceof AttributeType){
+				pts.add(t)
+			}
+		}
+		return pts
 	}
 	
 	def List<PageType> getPT(String resInfo){
