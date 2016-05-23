@@ -18,11 +18,6 @@
     <module>DSL/com.dsleng.etool.dsl.controls.parent</module>
     <module>DSL/com.dsleng.etool.dsl.egov.parent</module>
     <module>Contrib/com.dsleng.etool.contrib.bob.parent</module>
-<!--
-    <module>Infrastructure/Common/com.dsleng.etool.infra.common.parent</module> 
-    <module>Infrastructure/Utilities/com.dsleng.etool.semantic.map.parent</module>
-    <module>Presentation/com.dsleng.etool.xtext.parent</module>
--->  
     <module>Product/com.dsleng.etool.tycho.releng.p2</module>
   </modules>
 </project> 
