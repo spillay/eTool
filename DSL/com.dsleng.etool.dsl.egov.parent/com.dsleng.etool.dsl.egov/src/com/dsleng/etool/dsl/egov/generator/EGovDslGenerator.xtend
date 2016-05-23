@@ -8,23 +8,27 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import com.dsleng.etool.model.egov.EService
 import com.dsleng.etool.model.controls.ControlManager
+import org.eclipse.xtext.generator.AbstractGenerator
+import org.eclipse.xtext.generator.IFileSystemAccess2
+import org.eclipse.xtext.generator.IGeneratorContext
 
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
-class EGovDslGenerator implements IGenerator {
+class EGovDslGenerator extends AbstractGenerator {
 	// Starting Point of Generation
 	// Only Relying on One set of controls
 	var ControlManager cm
-	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		for(c : resource.resourceSet.allContents.toIterable.filter(ControlManager)){
+	
+	override doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		for(c : input.resourceSet.allContents.toIterable.filter(ControlManager)){
 			println(c.toString)
 			cm = c
 		}
 		val eg = new PageGenerator
-		for (e : resource.allContents.toIterable.filter(EService)) {
+		for (e : input.allContents.toIterable.filter(EService)) {
 			// Generate the hbms
 			val db = new DBGenerator()
 			db.doGenerate(e.businessUnit,fsa,e.businessUnit.artifactId,e.businessUnit.package)
@@ -32,8 +36,7 @@ class EGovDslGenerator implements IGenerator {
 			val dataLayer = new DataLayerGenerator()
 			dataLayer.doGenerate(e.businessUnit,fsa,e.businessUnit.artifactId,e.businessUnit.package)
 			
-			eg.doGenerate(resource,fsa,e.businessUnit.artifactId,e.businessUnit.package,cm)
+			eg.doGenerate(input,fsa,e.businessUnit.artifactId,e.businessUnit.package,cm)
 		}
 	}
-	
 }

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.dsleng.etool.dsl.egov
-Bundle-Vendor: My Company
+Bundle-Vendor: DSLEng
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.dsleng.etool.dsl.egov;singleton:=true
 Bundle-ActivationPolicy: lazy
@@ -18,6 +18,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.dsleng.etool.dsl.egov,
  com.dsleng.etool.dsl.egov.validation,
  com.dsleng.etool.dsl.egov.scoping,
+ com.dsleng.etool.dsl.egov.generator,
  com.dsleng.etool.dsl.egov.serializer,
  com.dsleng.etool.dsl.egov.services,
  com.dsleng.etool.dsl.egov.parser.antlr,

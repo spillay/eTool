@@ -86,7 +86,7 @@ class BeanGenerator  {
 		jc = new JavaClass(e,"Impl");
 		jc.package = basePackage + ".beans"
 		for(b:p.BOMaps){
-			var pName = (b.businessObject.eContainer as OrgUnit).package
+			var pName = (b.businessObject.eContainer as com.dsleng.etool.model.bobjs.Package).name
 			jc.addAttribute(b.businessObject.name,pName)
 			doPredefinedData(b)
 		}

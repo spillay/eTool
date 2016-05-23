@@ -59,7 +59,7 @@ class BaseDL {
 		return this.basePackage
 	}
 	public def getImplFQN(){
-		val imp = (baseObj.eContainer as OrgUnit).package + ".dao" + baseObj.name + "DAO"
+		//val imp = baseObj.FQN  + ".dao" + baseObj.name + "DAO"
 		return baseObj.name
 	}
 }
@@ -86,7 +86,7 @@ class DAOGenerator extends BaseDL {
 	}
 	
 	public override def getImplFQN(){
-		val imp = (baseObj.eContainer as OrgUnit).package + ".dao." + getImplName
+		val imp = baseObj.FQNPackage + ".dao." + getImplName
 		return imp
 	}
 	public def getInterfaceSyntax() {
@@ -278,7 +278,7 @@ class ServiceGenerator extends BaseDL {
 		return this.basePackage + ".service"
 	}
 	public override def getImplFQN(){
-		val imp = (baseObj.eContainer as OrgUnit).package + ".service." + implName
+		val imp = baseObj.FQNPackage + ".service." + implName
 		return imp
 	}
 	public def getInterfaceSyntax() {

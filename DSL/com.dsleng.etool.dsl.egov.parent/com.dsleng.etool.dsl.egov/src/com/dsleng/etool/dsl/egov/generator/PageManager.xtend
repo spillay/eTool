@@ -3,6 +3,7 @@ package com.dsleng.etool.dsl.egov.generator
 import com.dsleng.etool.model.egov.EService
 import com.dsleng.etool.model.egov.Page
 import java.util.ArrayList
+import com.dsleng.etool.model.egov.Admin
 
 class PageUtils {
 	String title = ""
@@ -82,10 +83,19 @@ class PageManager extends PageUtils {
 		this.pageContents = content
 	}
 	private def getOrgUnit(){
-		return (page.eContainer as EService).businessUnit.name
+		if (page.eContainer instanceof EService){
+			return (page.eContainer as EService).businessUnit.name
+		} else if (page.eContainer instanceof Admin){
+			return (page.eContainer.eContainer as EService).businessUnit.name
+		}
 	}
 	private def getEService(){
-		return (page.eContainer as EService).name
+		if (page.eContainer instanceof EService){
+			return (page.eContainer as EService).name
+		} else if (page.eContainer instanceof Admin){
+			return (page.eContainer.eContainer as EService).name
+		}
+		
 	}
 }
 class UICompositionPageManager extends PageUtils {
@@ -110,10 +120,18 @@ class UICompositionPageManager extends PageUtils {
 		this.pageContents = content
 	}
 	private def getOrgUnit(){
-		return (page.eContainer as EService).businessUnit.name
+		if (page.eContainer instanceof EService){
+			return (page.eContainer as EService).businessUnit.name
+		} else if (page.eContainer instanceof Admin){
+			return (page.eContainer.eContainer as EService).businessUnit.name
+		}
 	}
 	private def getEService(){
-		return (page.eContainer as EService).name
+		if (page.eContainer instanceof EService){
+			return (page.eContainer as EService).name
+		} else if (page.eContainer instanceof Admin){
+			return (page.eContainer.eContainer as EService).name
+		}
 	}
 	protected override PageTitle()'''  		
   	'''

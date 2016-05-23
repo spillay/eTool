@@ -7,6 +7,7 @@ import com.dsleng.etool.model.bobjs.OrgUnit
 import com.dsleng.etool.model.bobjs.References
 import com.dsleng.etool.model.egov.Page
 import com.dsleng.etool.model.bobjs.DataTypes
+import java.util.ArrayList
 
 class BusinessManagerExt {
 	// Hibernate Info
@@ -122,8 +123,45 @@ def static getTBDouble(Attribute e)'''
 			}
 		}
 	}
+	def static getOrgUnit(BusinessObject e){
+		var eo = e.eContainer
+		while(eo != null){
+			if ( eo instanceof OrgUnit){
+				return eo
+			}
+			eo = eo.eContainer
+		}
+	}
+	def static getFQNPackage(BusinessObject e){
+		var pkgs = new ArrayList<String>()
+		var eo = e.eContainer
+		while(eo instanceof com.dsleng.etool.model.bobjs.Package && eo != null){
+			pkgs.add((eo as com.dsleng.etool.model.bobjs.Package).name)
+			eo = eo.eContainer
+		}
+		var boname = ""
+		for(p: pkgs.reverse){
+			if (pkgs.last != p){
+				boname += p + "."
+			} else {
+				boname += p
+			}
+		}
+		return boname
+	}
 	def static getFQN(BusinessObject e){
-		return (e.eContainer as OrgUnit).package + "." + e.name
+		var pkgs = new ArrayList<String>()
+		var eo = e.eContainer
+		while(eo instanceof com.dsleng.etool.model.bobjs.Package && eo != null){
+			pkgs.add((eo as com.dsleng.etool.model.bobjs.Package).name)
+			eo = eo.eContainer
+		}
+		var boname = ""
+		for(p: pkgs.reverse){
+			boname += p + "."
+		}
+		boname += e.name
+		return boname
 	}
 	def static getTableName(BusinessObject e){
 		return  e.name.toLowerCase

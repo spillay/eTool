@@ -61,11 +61,11 @@ class JavaClass {
 	}
 	// Fix with a more elegant solution
 	def addImportService(BusinessObject o){
-		val imp = (o.eContainer as OrgUnit).package + ".service." + o.name + "Service"
+		val imp = (o.eContainer as com.dsleng.etool.model.bobjs.Package).name + ".service." + o.name + "Service"
 		addImports(imp)
 	}
 	def addImportDAO(BusinessObject o){
-		val imp = (o.eContainer as OrgUnit).package + ".dao." + o.name + "DAO"
+		val imp = (o.eContainer as com.dsleng.etool.model.bobjs.Package).name + ".dao." + o.name + "DAO"
 		addImports(imp)
 	}
 	def addImports(String a) { 

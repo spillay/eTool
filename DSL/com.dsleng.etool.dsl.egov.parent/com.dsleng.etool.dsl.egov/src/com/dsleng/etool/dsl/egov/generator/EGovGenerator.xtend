@@ -11,6 +11,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.eclipse.xtext.generator.IFileSystemAccess
 import com.dsleng.etool.dsl.egov.Lg
+import org.eclipse.xtext.generator.AbstractGenerator
+import org.eclipse.xtext.generator.IFileSystemAccess2
+import org.eclipse.xtext.generator.IGeneratorContext
+import com.dsleng.etool.model.egov.Admin
 
 class EGovGenerator  {
 
@@ -24,18 +28,29 @@ class EGovGenerator  {
 		// Using this to make sure that the ecore file is registered need to fix
 		EgovPackage.eINSTANCE.eClass();
 	}
-	
-	def doGenerate(Resource resource, IFileSystemAccess fsa,String baseProjectDir,String pkg) {
+	def doGenerate(Resource input, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		Lg.info("Starting Page Generation")
 		this.baseProjectDir = baseProjectDir
 		val bo = new BeanGenerator()
-		for (e : resource.allContents.toIterable.filter(Page)) {
-			val pg = e.genFileName
-			fsa.generateFile(pg, e.compile)
-			pagelist.add(pg)
-			
-			for(bm: e.BOMaps){
-				bo.doGenerate(resource,fsa,bm.businessObject,baseProjectDir,pkg,e)
+		// TODO: Need to work on admin pages
+		for (e : input.allContents.toIterable.filter(Page)) {
+			if (e.eContainer instanceof EService){
+				val pg = e.genFileName
+				val ch = e.compile
+				fsa.generateFile(pg, e.compile)
+				pagelist.add(pg)
+				
+				for(bm: e.BOMaps){
+					var currPkg = "##unknownPackage##"
+					if (bm.businessObject.eContainer instanceof com.dsleng.etool.model.bobjs.Package){
+						val pkg = bm.businessObject.eContainer as com.dsleng.etool.model.bobjs.Package
+						currPkg = pkg.name
+					}
+					bo.doGenerate(input,fsa,bm.businessObject,baseProjectDir,currPkg,e)
+				}
+			}
+			if (e.eContainer instanceof Admin){
+				// Need to process admin pages
 			}
 		}
 		fsa.generateFile(baseProjectDir + webDir + "index.xhtml",welcomePage)
@@ -58,7 +73,13 @@ class EGovGenerator  {
 		'''
 		*/
 		//fileName = fileName + fileSep + e.name + ".xhtml"
-		var fileName = (e.eContainer as EService).businessUnit.name + fileSep + (e.eContainer as EService).name + fileSep + e.name
+		var fileName = ""
+		if (e.eContainer instanceof EService){
+			 fileName = (e.eContainer as EService).businessUnit.name + fileSep + (e.eContainer as EService).name + fileSep + e.name
+		} else if (e.eContainer instanceof Admin) {
+			var es = e.eContainer.eContainer as EService
+			fileName = (es).businessUnit.name + fileSep + (es).name + fileSep + e.name
+		}
 		//fileName = e.name
 		fileName = fileName.replace(" ","_")
 		fileName = baseProjectDir + webDir + fileName + ".xhtml"
@@ -150,4 +171,7 @@ class EGovGenerator  {
 	private def PageTail()'''
 </html>
 '''
+
+
+
 }

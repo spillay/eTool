@@ -45,7 +45,7 @@ class DBGenerator {
 	}
 	private def genCFGHDMFileName(BusinessObject e){
 		var fileName = basePackage.replace(".",fileSep);
-		if (e.eContainer instanceof OrgUnit)
+		if (e.orgUnit != null)
 		{
 			fileName +=  fileSep + e.name + ".hbm.xml"
 		}
@@ -54,7 +54,7 @@ class DBGenerator {
 	}
 	private def genFileName(BusinessObject e){
 		var fileName = basePackage.replace(".",fileSep);
-		if (e.eContainer instanceof OrgUnit)
+		if (e.orgUnit != null)
 		{
 			fileName +=  fileSep + e.name + ".hbm.xml"
 		}
@@ -73,7 +73,7 @@ class DBGenerator {
 		for(r: e.references){
 			ref += r.tableReference
 		}
-		val org = e.eContainer as OrgUnit
+		val org = e.orgUnit
 		for(p: org.packages){
 			for(b: p.businessobjects){
 				for(r: b.references){
