@@ -27,7 +27,7 @@
 		<module>com.dsleng.etool.dsl.egov.target</module>
 		<module>com.dsleng.etool.dsl.egov.feature</module>
 		<module>com.dsleng.etool.dsl.egov.tests</module>
-		<module>com.dsleng.etool.dsl.egov.ui.tests</module>
+		<!--  <module>com.dsleng.etool.dsl.egov.ui.tests</module> -->
 	</modules>
 	<build>
 		<plugins>
