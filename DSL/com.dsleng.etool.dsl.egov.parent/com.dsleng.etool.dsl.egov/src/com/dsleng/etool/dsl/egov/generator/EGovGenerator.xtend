@@ -37,6 +37,10 @@ class EGovGenerator extends AbstractGenerator {
 			dataLayer.doGenerate(e.businessUnit,fsa,e.businessUnit.artifactId,e.businessUnit.package)
 			
 			eg.doGenerate(input,fsa,e.businessUnit.artifactId,e.businessUnit.package,cm)
+			
+			val menuGen = new MenuGenerator()
+			menuGen.doGenerate(input,fsa,e.businessUnit.artifactId,e.businessUnit.package,cm)
+			
 		}
 	}
 }

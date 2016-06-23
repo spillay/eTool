@@ -6,7 +6,11 @@ package com.dsleng.etool.perspective;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import javax.swing.ProgressMonitor;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -43,6 +47,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import com.dsleng.etool.perspective.dialogs.MainInput;
+import com.dsleng.etool.perspective.projects.SPProject;
 import com.dsleng.etool.perspective.projects.SimpleProjectMgr;
 
 /**
@@ -85,25 +90,45 @@ public class MenuPopulationClass extends ContributionItem {
 			
 			
 			domainMenu = new MenuItem(menuBar.getMenu(), SWT.PUSH);
-			domainMenu.setText("Generate Domain Model Infrastructure");
+			domainMenu.setText("Generate Business Domain Model");
 			
 			domainMenu.addSelectionListener(new SelectionListener() {
 				
 				@Override
 				public void widgetSelected(SelectionEvent e) {
 					//SimpleProjectMgr pT = new SimpleProjectMgr();
-					SPConsoleManager.getInstance().Info("Creating Domain Infrastructure Project");
+					SPConsoleManager.getInstance().Info("Creating Business Domain Model Project");
 					//pT.createProj("Simple");
 					
 					
 					Shell shell = menu.getShell();
+					
 					MainInput dialog = new MainInput(shell);
 					dialog.create();
 					if (dialog.open() == Window.OK) {
 						SPConsoleManager.getInstance().Info("Project Name: " + dialog.getProjectName());
 						//SPConsoleManager.getInstance().Info("lastName: " + dialog.getLastName());
-						SimpleProjectMgr pT = new SimpleProjectMgr();
-						pT.createProj(dialog.getProjectName());
+						//SimpleProjectMgr pT = new SimpleProjectMgr();
+						//pT.createProj(dialog.getProjectName());
+						
+						List<String> srcFolders = new ArrayList<String>();
+						List<IProject> referencedProjects = new ArrayList<IProject>();;
+						List<String> requiredBundles = new ArrayList<String>();
+						List<String> exportedPackages = new ArrayList<String>();
+						NullProgressMonitor pm = new NullProgressMonitor();
+						
+						requiredBundles.add("org.eclipse.ui");
+						requiredBundles.add("org.eclipse.core.runtime");
+						srcFolders.add("src");
+						
+						SPProject.createPluginProject(dialog.getProjectName(), 
+								srcFolders, 
+								referencedProjects, 
+								requiredBundles, 
+								exportedPackages, 
+								pm, 
+								shell);
+						
 					} 
 
 

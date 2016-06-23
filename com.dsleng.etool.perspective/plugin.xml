@@ -14,8 +14,8 @@
    <menuContribution
          locationURI="menu:org.eclipse.ui.main.menu?before=file">
       <menu
-            id="sitaMenu"
-            label="SITA">
+            id="adfMenu"
+            label="ADF">
          <visibleWhen checkEnabled="false">
             <with variable="activeWorkbenchWindow.activePerspective">
                 <equals value="com.dsleng.etool.perspective.baseperspectiveID"/>
@@ -35,5 +35,21 @@
             class="com.dsleng.etool.perspective.projects.SimpleProjectNature">
       </run>
    </runtime>
+</extension>
+<extension
+      id="com.dsleng.etool.perspective.createplugin.id"
+      name="eTool"
+      point="org.eclipse.ui.newWizards">
+   <wizard
+         category="com.dsleng.etool.perspective.maincategory"
+         class="com.dsleng.etool.perspective.projects.BusDomainProject"
+         id="com.dsleng.etool.perspective.wizard1"
+         name="Business Domain Language Component"
+         project="true">
+   </wizard>
+   <category
+         id="com.dsleng.etool.perspective.maincategory"
+         name="eTool">
+   </category>
 </extension>
 </plugin>
